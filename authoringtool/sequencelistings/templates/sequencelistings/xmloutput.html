@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+
+{% extends 'sequencelistings/base.html' %}
+{% load staticfiles %}
+
+{%block header_block %}
+    <h2>XML output</h2>
+{% endblock %}
+
+{% block body_block %}
+    <h2>Location</h2>
+        <p>The XML file has been generated at {{location}}.</p>
+    <hr>
+    
+    <h2>View in the browser</h2>
+        <p><a href="{% static filePath %}">see generated sequence listing</a></p>
+    <hr>
+    <h2>Download</h2>
+        <p><a href="{% url 'sequencelistings:download' fileName %}">download XML file</a></p>
+
+{% endblock %}

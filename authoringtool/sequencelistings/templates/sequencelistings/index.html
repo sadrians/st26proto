@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+{% extends 'sequencelistings/base.html' %}
+
+{% block title%}Index{% endblock %}
+
+{%block header_block %}
+    <h2>WELCOME 
+        {% if user.is_authenticated %}
+            {{user.username}}!
+        {% endif %}
+    </h2>
+{% endblock %}
+
+{% block body_block %}
+
+    <p>This website is a proof of concept on how to generate a sequence listing in XML format.
+    It is a prototype (so limited functionality!) built only for information and demonstration purposes. 
+    </p>
+    
+    <p>The prototype enables the user to:</p>
+    <ol>
+        <li>Create a sequence listing by filling in a number of forms, i.e. 
+            <ul>
+                <li>general information form</li>
+                <li>sequence data forms (create sequence, feature, qualifier)</li>
+            </ul>
+        </li>
+        <li>Observe the constraints imposed by controlled vocabularies and alphabets</li>
+        <li>Store and display previously created sequence listings</li>
+        <li>Generate the sequence listing as XML file</li>
+        <li>Display in the browser the generated XML file</li>
+        <li>Download to the local disc the generated XML file</li>
+            
+    </ol>
+    <hr>
+    <h2>SEQUENCE LISTING PORTOFOLIO</h2>
+    <p>Navigate to previously created sequence listings by following the link in the column 'file name'.</p>
+    <p>Registered users can create sequence listings or add sequences to previously created sequence listings.</p> 
+        
+    {% if not user.is_authenticated %}
+        <p>Follow this link for <a href="{% url 'registration_register' %}">registration</a>.
+    {% endif %}
+    <h3>Note</h3>
+    <p>The sequence listing 'Invention_SEQL' is not editable (it is a specimen).</p>
+    </p>
+    {% if sequencelistings %}
+        <table id="home_page_table">
+            <tr>
+                <th>file name</th>
+                <th>invention title</th>
+                <th>number of sequences</th>
+            </tr>
+            {% for sl in sequencelistings %}
+                <tr>
+                    <td><a href="{% url 'sequencelistings:detail' sl.id %}">{{ sl.fileName }}</a></td>
+                    <td>{{sl.getFirstTitle}}</td>
+                    <td>{{sl.sequenceTotalQuantity}}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p id="no_seqls_par">No sequence listings are available.</p>
+    {% endif %}
+    {% if user.is_authenticated %}
+        <h2>SEQUENCE LISTING GENERATOR</h2>
+        <p>This section enables you to create a new sequence listing.</p>
+        <a id="add_seql_link" href="{% url 'sequencelistings:add_sequencelisting' %}">Add new sequence listing</a>
+    {% endif %}
+    <hr>
+    <h3>Disclaimer</h3>
+    <p>This website has been built <strong>only for information purposes</strong>.</p>
+    <p>No rights can be derived from visiting, registering and/or exploring the functionality of this website.</p>
+    <p><a href="{% url 'sequencelistings:about' %}">More on About page</a></p>
+{% endblock %}
