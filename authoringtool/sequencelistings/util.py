@@ -134,9 +134,7 @@ def helper_generateXml(sl):
     outf = os.path.join(OUTPUT_DIR, '%s.xml' % sl.fileName)
     
     with open(outf, 'w') as gf:
-#     with open(outf, 'wb') as gf: # used wb to see if properly layout on windows
-#         gf.write(clean_xml) 
-        gf.write(xml) # used this to see if layout is properly rendered on windows
+        gf.write(clean_xml) 
     
 def validateDocumentWithSchema(aFilePath, aSchemaPath):
     result = False
