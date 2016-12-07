@@ -59,7 +59,7 @@ class SequenceListing(models.Model):
     
     sequenceTotalQuantity = models.IntegerField('Sequence total quantity', default=0)
     
-    isEditable = models.BooleanField('Is editable', default=True)
+    isEditable = models.BooleanField('Is editable', default=True) # not part of ST.26, just for prototyping
         
     def __unicode__(self):
         return 'Sequence listing %s' %self.fileName
