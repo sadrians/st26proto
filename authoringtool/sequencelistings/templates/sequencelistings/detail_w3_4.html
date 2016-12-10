@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+{% extends 'sequencelistings/base.html' %}
+{% load staticfiles %}
+
+{%block header_block %}
+    <p><a href="{% url 'sequencelistings:index' %}">Home &gt;&gt;</a></p>
+    <h1>SEQUENCE LISTING {{ sequencelisting.fileName }} w3_4</h1>
+{% endblock %}
+
+{% block body_block %}
+    
+    <h2>EXPORT</h2>
+    <p><a href="{% url 'sequencelistings:xmloutput' sequencelisting.pk %}">Generate XML</a></p>
+    
+    <hr>
+    
+    <h2>EDIT</h2>
+    <!-- if the user is logged in show link for editing sequence data  -->
+    {% if user.is_authenticated %}
+        {% if sequencelisting.isEditable or user.is_staff  %}
+            <a href="{% url 'sequencelistings:edit_seql' sequencelisting.pk %}">Edit sequence listing</a>
+        {% endif %}
+    
+    {% endif %}
+    
+    <hr>
+
+    <h2>GENERAL INFORMATION</h2>
+    <!-- GENERAL INFORMATION accordion =============================== -->
+    <div class="w3-accordion">
+        <button onclick="myFunction('genInfo')" class="w3-btn-block w3-left-align w3-green">
+            (click to expand/collapse)
+        </button>
+        
+        <div id="genInfo" class="w3-accordion-content">    
+            <table class="w3-table w3-bordered w3-border w3-striped">
+                <tr>
+                    <th>File name</th><td>{{sequencelisting.fileName}}</td>
+                </tr>
+                <tr>
+                    <th>DTD version</th><td>{{sequencelisting.dtdVersion}}</td>
+                </tr>
+                <tr>
+                    <th>Software name</th><td>{{sequencelisting.softwareName}}</td>
+                </tr>
+                <tr>
+                    <th>Software version</th><td>{{sequencelisting.softwareVersion}}</td>
+                </tr>
+                <tr>
+                    <th>Production date</th><td>{{sequencelisting.productionDate}}</td>
+                </tr>
+                <tr>
+                    <th>IP office code</th><td>{{sequencelisting.IPOfficeCode}}</td>
+                </tr>
+                <tr>
+                    <th>Application number text</th><td>{{sequencelisting.applicationNumberText}}</td>
+                </tr>
+                <tr>
+                    <th>Filing date</th><td>{{sequencelisting.filingDate}}</td>
+                </tr>
+                <tr>
+                    <th>Applicant file reference</th><td>{{sequencelisting.applicantFileReference}}</td>
+                </tr>
+                <tr>
+                    <th>Earliest priority IP office code</th><td>{{sequencelisting.earliestPriorityIPOfficeCode}}</td>
+                </tr>
+                <tr>
+                    <th>Earliest priority application number text</th><td>{{sequencelisting.earliestPriorityApplicationNumberText}}</td>
+                </tr>
+                <tr>
+                    <th>Earliest priority filing date</th><td>{{sequencelisting.earliestPriorityFilingDate}}</td>
+                </tr>
+                <tr>
+                    <th>Applicant name</th><td>{{sequencelisting.applicantName}}</td>
+                </tr>
+                <tr>
+                    <th>Applicant name langugage code</th><td>{{sequencelisting.applicantNameLanguageCode}}</td>
+                </tr>
+                <tr>
+                    <th>Applicant name latin</th><td>{{sequencelisting.applicantNameLatin}}</td>
+                </tr>
+                <tr>
+                    <th>Inventor name</th><td>{{sequencelisting.inventorName}}</td>
+                </tr>
+                <tr>
+                    <th>Inventor name language code</th><td>{{sequencelisting.inventorNameLanguageCode}}</td>
+                </tr>
+                <tr>
+                    <th>Inventor name latin</th><td>{{sequencelisting.inventorNameLatin}}</td>
+                </tr>
+                {% for t in sequencelisting.title_set.all %}
+                    <tr>
+                        <th>Invention title</th><td>{{t.inventionTitle}}</td>
+                    </tr>
+                    <tr>
+                        <th>Invention title language code</th><td>{{t.inventionTitleLanguageCode}}</td>
+                    </tr>
+                {% endfor %}
+                <tr>
+                    <th>Sequence total quantity</th><td>{{sequencelisting.sequenceTotalQuantity}}</td>
+                </tr>
+            </table>
+            
+        </div>
+    </div>
+    
+    <!-- END GENERAL INFORMATION accordion ========================== -->
+
+    <hr>
+    <!-- SEQUENCES ==================================================-->
+    <h2>SEQUENCE DATA</h2>
+    
+    {% for seq in sequencelisting.sequence_set.all %}
+        <table>
+            <tr>
+                <th>SEQ ID NO:</th>
+                <td>{{ seq.sequenceIdNo }}</td>
+                <th>type</th>
+                <td>{{ seq.moltype }}</td>
+                <th>length</th>
+                <td>{{ seq.length }}</td>
+                <th>source</th>
+                <td>{{ seq.getOrganism }}</td>
+            </tr>
+        </table>
+        
+        <h4>FEATURES    Location/Qualifiers</h4> 
+        <!-- FEATURE TABLE -->
+        {% if seq.feature_set.all %}
+            {% for f in seq.feature_set.all %}
+                <div class="indented">
+                    {{f.featureKey}} {{f.location}}<br />
+                    {% if f.qualifier_set.all %}
+                            {% for q in f.qualifier_set.all %}
+                                <div class='qualifier'>
+                                /{{q.qualifierName}}={{q.qualifierValue}}<br />
+                                </div>
+                            {% endfor %}
+                    {% endif %}
+                </div>
+            {% endfor %}
+        {% else %}
+        no features
+        {% endif %}
+        
+        <!-- END FEATURE TABLE -->
+        <!-- RESIDUES -->
+        <h4 id="sequenceHeading">SEQUENCE:</h4>
+        <div class="residues">
+            <script>writeSplitString('{{ seq.residues }}');</script>
+        </div>
+        <!-- END RESIDUES -->
+    {% endfor %}
+    <!-- END SEQUENCES ==================================================-->
+
+{% endblock %}

@@ -36,7 +36,7 @@ class IndexView(generic.ListView):
 def detail(request, pk): #good
     sl = get_object_or_404(SequenceListing, pk=pk)
         
-    return render(request, 'sequencelistings/detail_w3_3.html', {'sequencelisting': sl})
+    return render(request, 'sequencelistings/detail_w3_4.html', {'sequencelisting': sl})
 
 # TODO: is this needed?
 
@@ -44,6 +44,13 @@ def edit_sequence_data(request, pk): #good
     sl = get_object_or_404(SequenceListing, pk=pk)
         
     return render(request, 'sequencelistings/edit_sequence_data_w3.html', {'sequencelisting': sl})
+
+@login_required 
+def edit_seql(request, pk):
+    sl = get_object_or_404(SequenceListing, pk=pk)
+        
+    return render(request, 'sequencelistings/edit_seql_w3_4.html', {'sequencelisting': sl})
+
 
 @login_required 
 def add_sequencelisting(request):
@@ -288,7 +295,8 @@ def add_qualifier(request, pk, spk, fpk):
             qv = request.POST.get('qualifierValue')
             q = Qualifier.objects.create(feature=f, qualifierName=qn, qualifierValue=qv)
             q.save()
-            return HttpResponseRedirect(reverse('sequencelistings:edit_sequence_data', args=(pk, )))
+#             return HttpResponseRedirect(reverse('sequencelistings:edit_sequence_data', args=(pk, )))
+            return HttpResponseRedirect(reverse('sequencelistings:edit_seql', args=(pk, )))
 
     else:
         form = QualifierForm(feature=f)
