@@ -14,17 +14,17 @@
     
     <hr>
     
-    <h2>EDIT</h2>
     <!-- if the user is logged in show link for editing sequence data  -->
     {% if user.is_authenticated %}
+        
         {% if sequencelisting.isEditable or user.is_staff  %}
+            <h2>EDIT</h2>
             <a href="{% url 'sequencelistings:edit_seql' sequencelisting.pk %}">Edit sequence listing</a>
+            <hr>
         {% endif %}
-    
+        
     {% endif %}
     
-    <hr>
-
     <h2>GENERAL INFORMATION</h2>
     <!-- GENERAL INFORMATION accordion =============================== -->
     <div class="w3-accordion">
