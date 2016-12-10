@@ -142,7 +142,9 @@
         {% if seq.feature_set.all %}
             {% for f in seq.feature_set.all %}
                 <div class="indented">
-                    {{f.featureKey}} {{f.location}}<br />
+                    <a href="{% url 'sequencelistings:edit_feature' sequencelisting.pk seq.pk f.pk %}">{{f.featureKey}}</a> 
+                    {{f.location}} 
+                    <br />
                     {% if f.qualifier_set.all %}
                             {% for q in f.qualifier_set.all %}
                                 <div class='qualifier'>
@@ -177,6 +179,7 @@
         <div class="residues">
             <script>writeSplitString('{{ seq.residues }}');</script>
         </div>
+        <br />
         <!-- END RESIDUES -->
     {% endfor %}
     <!-- END SEQUENCES ==================================================-->

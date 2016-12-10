@@ -280,7 +280,8 @@ def edit_feature(request, pk, spk, fpk):
             f.featureKey = cd['featureKey']
             f.location = cd['location']
             f.save()
-            return HttpResponseRedirect(reverse('sequencelistings:edit_sequence_data', args=(pk,)))
+#             return HttpResponseRedirect(reverse('sequencelistings:edit_sequence_data', args=(pk,)))
+            return HttpResponseRedirect(reverse('sequencelistings:edit_seql', args=(pk,)))
     else:
         form = FeatureForm(mt=seq.moltype)
     return render(request, 'sequencelistings/edit_feature.html', {'form': featureForm, 'seq': seq})
