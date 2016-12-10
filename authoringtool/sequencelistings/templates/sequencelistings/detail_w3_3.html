@@ -3,22 +3,22 @@
 {% load staticfiles %}
 
 {%block header_block %}
-    <h2>SEQUENCE LISTING {{ sequencelisting.fileName }} w3_3</h2>
+    <p><a href="{% url 'sequencelistings:index' %}">Home &gt;&gt;</a></p>
+    <h1>SEQUENCE LISTING {{ sequencelisting.fileName }} w3_3</h1>
 {% endblock %}
 
 {% block body_block %}
-    <p><a href="{% url 'sequencelistings:index' %}">Home &gt;&gt;</a></p>
-    <h1>EXPORT</h1>
+    
+    <h2>EXPORT</h2>
     <p><a href="{% url 'sequencelistings:xmloutput' sequencelisting.pk %}">Generate XML</a></p>
-    <div class="w3-card w3-yellow" style="width: 600px;">
-        Tip: click on green components to expand/collapse.
-    </div>
+    
     <hr>
 
-<!-- GENERAL INFORMATION accordion =============================== -->
+    <h2>GENERAL INFORMATION</h2>
+    <!-- GENERAL INFORMATION accordion =============================== -->
     <div class="w3-accordion">
         <button onclick="myFunction('genInfo')" class="w3-btn-block w3-left-align w3-green">
-            GENERAL INFORMATION
+            (click to expand/collapse)
         </button>
         
         <div id="genInfo" class="w3-accordion-content">    
@@ -93,13 +93,11 @@
         </div>
     </div>
     
-    <br>
+    <!-- END GENERAL INFORMATION accordion ========================== -->
 
-<!-- END GENERAL INFORMATION accordion ========================== -->
-
-    <br>
     <!-- if the user is logged in show link for adding title  -->
     {% if user.is_authenticated %}
+        <br />
         {% if sequencelisting.isEditable or user.is_staff  %}
             <p><a href="{% url 'sequencelistings:add_title' sequencelisting.pk %}">Add new title</a></p>
         {% endif %}
@@ -107,38 +105,34 @@
     {% endif %}
     
     <hr>
+    <!-- SEQUENCES ==================================================-->
+    <h2>SEQUENCE DATA</h2>
     
-    <h1>SEQUENCE DATA</h1>
-    <p>
-    <!-- if the user is logged in show link for editing sequence data  -->
-    {% if user.is_authenticated %}
-        {% if sequencelisting.isEditable or user.is_staff  %}
-            <a href="{% url 'sequencelistings:edit_sequence_data' sequencelisting.pk %}">Edit</a>
-        {% endif %}
-    
-    {% endif %}
-    
-    </p>
-    
-    <!-- test new layout -->
     {% for seq in sequencelisting.sequence_set.all %}
-        <!-- <h3>SEQ ID NO: {{ seq.sequenceIdNo }} {{ seq.moltype }} {{ seq.length }}</h3> -->
-        <h3>
-            SEQ ID NO: 
-            <!-- if the user is logged in, have access rights and seql is editable show link for editing sequence  -->
-            {% if user.is_authenticated %}
-                {% if sequencelisting.isEditable or user.is_staff  %}
-                    <a href="{% url 'sequencelistings:sequence' sequencelisting.pk seq.pk %}">{{ seq.sequenceIdNo }}</a>
-                {% else %}
-                    {{ seq.sequenceIdNo }}
-                {% endif %}
-            {% else %}
-                {{ seq.sequenceIdNo }}
-            {% endif %}
-            type: {{ seq.moltype }} length: {{ seq.length }} residues
-        </h3>
+        <table>
+            <tr>
+                <th>SEQ ID NO:</th>
+                <td>
+                    <!-- if the user is logged in, have access rights and seql is editable show link for editing sequence  -->
+                    {% if user.is_authenticated %}
+                        {% if sequencelisting.isEditable or user.is_staff  %}
+                            <a href="{% url 'sequencelistings:sequence' sequencelisting.pk seq.pk %}">{{ seq.sequenceIdNo }}</a>
+                        {% else %}
+                            {{ seq.sequenceIdNo }}
+                        {% endif %}
+                    {% else %}
+                        {{ seq.sequenceIdNo }}
+                    {% endif %}
+                </td>
+                <th>type</th>
+                <td>{{ seq.moltype }}</td>
+                <th>length</th>
+                <td>{{ seq.length }}</td>
+                <th>source</th>
+                <td>{{ seq.getOrganism }}</td>
+            </tr>
+        </table>
         
-        <h4>SOURCE: {{ seq.getOrganism }}</h4>
         <h4>FEATURES    Location/Qualifiers</h4> 
         <!-- FEATURE TABLE -->
         {% if seq.feature_set.all %}
@@ -147,7 +141,7 @@
                     {{f.featureKey}} {{f.location}}<br />
                     {% if f.qualifier_set.all %}
                             {% for q in f.qualifier_set.all %}
-                                <div id='qualifier'>
+                                <div class='qualifier'>
                                 /{{q.qualifierName}}={{q.qualifierValue}}<br />
                                 </div>
                             {% endfor %}
@@ -155,7 +149,7 @@
                     <!-- if the user is logged in show link for adding qualifier  -->
                     {% if user.is_authenticated %}
                         {% if sequencelisting.isEditable or user.is_staff  %}
-                            <div class="indented">
+                            <div class="qualifier">
                                 <a href='/sequencelistings/sl{{sequencelisting.pk}}/seq{{seq.pk}}/f{{f.pk}}/add_qualifier/'>Add new qualifier</a>
                             </div>
                         {% endif %}
@@ -168,7 +162,9 @@
         <!-- if the user is logged in show link for adding feature  -->
         {% if user.is_authenticated %}
             {% if sequencelisting.isEditable or user.is_staff  %}
-                <a href='/sequencelistings/sl{{sequencelisting.pk}}/seq{{seq.pk}}/add_feature/'>Add new feature</a> 
+                <div class="indented">
+                    <a href='/sequencelistings/sl{{sequencelisting.pk}}/seq{{seq.pk}}/add_feature/'>Add new feature</a> 
+                </div>
             {% endif %}
         {% endif %}
         <!-- END FEATURE TABLE -->
@@ -179,7 +175,7 @@
         </div>
         <!-- END RESIDUES -->
     {% endfor %}
-    <!-- end test new layout -->
+    <!-- END SEQUENCES ==================================================-->
     
     <br>
     <!-- if the user is logged in show link for adding sequences  -->

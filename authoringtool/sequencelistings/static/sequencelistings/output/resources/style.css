@@ -109,6 +109,6 @@ tr:nth-child(even) {background-color: #f2f2f2}
     text-indent: 50px;
 }
 
-#qualifier {
+.qualifier {
     text-indent: 100px;
 }
