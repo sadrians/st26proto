@@ -6,6 +6,15 @@ a {
     color: blue;
 }
 
+h3 {
+    background: #B8DBF2;
+    border: 2px solid black;
+}
+
+#sequenceHeading {
+    background: #42f459;
+}
+
  /* ===================TEMPLATE HEADER ==============================*/
 #prototypeheader{
     background: #B6EFF2;
@@ -90,6 +99,16 @@ tr:nth-child(even) {background-color: #f2f2f2}
    background:#D9DDDE;
 }
 
-#residues {
+.residues {
     font-family: "Courier New", Courier, monospace;
+    font-size: 20px;
+    /* text-indent: 50px; */
+}
+
+.indented {
+    text-indent: 50px;
+}
+
+#qualifier {
+    text-indent: 100px;
 }

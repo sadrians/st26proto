@@ -168,7 +168,8 @@ class ViewsTests(TestCase):
         response = self.client.get(reverse('sequencelistings:detail', args=[self.sequenceListing.pk]))
 #         print response
 #         test that the page returns expected html contents
-        self.assertContains(response, "location")
+#         self.assertContains(response, "location")
+        self.assertContains(response, "Location")
         self.assertContains(response, "Generate XML")
         self.assertContains(response, "source")
         self.assertContains(response, "organism")
