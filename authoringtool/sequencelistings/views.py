@@ -36,7 +36,7 @@ class IndexView(generic.ListView):
 def detail(request, pk): #good
     sl = get_object_or_404(SequenceListing, pk=pk)
         
-    return render(request, 'sequencelistings/detail_w3_1.html', {'sequencelisting': sl})
+    return render(request, 'sequencelistings/detail_w3_2.html', {'sequencelisting': sl})
 
 # TODO: is this needed?
 
