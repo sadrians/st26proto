@@ -129,7 +129,7 @@
         {% if seq.feature_set.all %}
             {% for f in seq.feature_set.all %}
                 <div class="indented">
-                    {{f.featureKey}} {{f.location}}<br />
+                    <b>{{f.featureKey}}</b> {{f.location}}<br />
                     {% if f.qualifier_set.all %}
                             {% for q in f.qualifier_set.all %}
                                 <div class='qualifier'>
