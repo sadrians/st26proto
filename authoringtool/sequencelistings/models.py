@@ -48,7 +48,8 @@ class SequenceListing(models.Model):
     applicantNameLanguageCode = models.CharField('Applicant name language code', 
                                     max_length=2, 
                                     help_text='Valid format: ISO 639-1')
-    applicantNameLatin = models.CharField('Applicant name Latin', max_length=200)
+    applicantNameLatin = models.CharField('Applicant name Latin', max_length=200, 
+                                          blank=True)
 
     inventorName = models.CharField('Inventor name', max_length=200, blank=True)
     inventorNameLanguageCode = models.CharField('Inventor name language code', 
