@@ -45,10 +45,15 @@
                         </td>
                     </tr>
                     <tr>
-                        <th>Applicantion number</th>
+                        <th>Current application IP Office code</th>
                         <td>
                             <xsl:value-of
                                     select="ST26SequenceListing/ApplicationIdentification/IPOfficeCode"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Current applicantion number</th>
+                        <td>
                             <xsl:value-of
                                     select="ST26SequenceListing/ApplicationIdentification/ApplicationNumberText"/>
                         </td>
@@ -68,10 +73,15 @@
                         </td>
                     </tr>
                     <tr>
-                        <th>Earliest priority number</th>
+                        <th>Earliest priority IP Office code</th>
                         <td>
                             <xsl:value-of
                                     select="ST26SequenceListing/EarliestPriorityApplicationIdentification/IPOfficeCode"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Earliest priority number</th>
+                        <td>
                             <xsl:value-of
                                     select="ST26SequenceListing/EarliestPriorityApplicationIdentification/ApplicationNumberText"/>
                         </td>
@@ -88,10 +98,13 @@
                         <td>
                             <xsl:value-of
                                     select="ST26SequenceListing/ApplicantName"/>
-                            (
-                                <xsl:value-of
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Applicant name language code</th>
+                        <td>
+                            <xsl:value-of
                                     select="ST26SequenceListing/ApplicantName/@languageCode"/>
-                            )
                         </td>
                     </tr>
                     <tr>
@@ -106,10 +119,13 @@
                         <td>
                             <xsl:value-of
                                     select="ST26SequenceListing/InventorName"/>
-                            (
-                                <xsl:value-of
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Inventor name language code</th>
+                        <td>
+                            <xsl:value-of
                                     select="ST26SequenceListing/InventorName/@languageCode"/>
-                            )
                         </td>
                     </tr>
                     <tr>
