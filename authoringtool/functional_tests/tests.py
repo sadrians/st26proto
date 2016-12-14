@@ -7,51 +7,43 @@ from selenium.webdriver.common.keys import Keys
 
 import time 
 
-class VisitorTest(LiveServerTestCase):
-    def setUp(self):
-        self.browser = webdriver.Firefox()
-        self.browser.implicitly_wait(3)
-       
-    def tearDown(self):
-        self.browser.quit()
-   
-    def register(self):
-           
-        self.browser.get('%s%s' %(self.live_server_url, '/accounts/register/')) 
-                
-        username = self.browser.find_element_by_id('id_username')
-        email = self.browser.find_element_by_id('id_email')
-        password1 = self.browser.find_element_by_id('id_password1')
-        password2 = self.browser.find_element_by_id('id_password2')
+class SeqlSeleniumTestFixture():    
+    @classmethod
+    def register(cls, aBrowser):
+        username = aBrowser.find_element_by_id('id_username')
+        email = aBrowser.find_element_by_id('id_email')
+        password1 = aBrowser.find_element_by_id('id_password1')
+        password2 = aBrowser.find_element_by_id('id_password2')
                   
         username.send_keys('user20')
         email.send_keys('user20@email.com')
         password1.send_keys('password20')
         password2.send_keys('password20')
-# #         self.browser.find_element_by_xpath('//input[@value="Submit"]').click()
-        self.browser.find_element_by_class_name("btn").click()
+        
+        aBrowser.find_element_by_class_name("btn").click()
    
-    def add_sequencelisting(self):
-        inventionTitle = self.browser.find_element_by_id('id_inventionTitle')
-        inventionTitleLanguageCode = self.browser.find_element_by_id('id_inventionTitleLanguageCode')
-        fileName = self.browser.find_element_by_id('id_fileName')
-        applicantFileReference = self.browser.find_element_by_id('id_applicantFileReference')
-        IPOfficeCode = self.browser.find_element_by_id('id_IPOfficeCode')
-        applicationNumberText = self.browser.find_element_by_id('id_applicationNumberText')
-        filingDate = self.browser.find_element_by_id('id_filingDate')
-        earliestPriorityIPOfficeCode = self.browser.find_element_by_id('id_earliestPriorityIPOfficeCode')
-        earliestPriorityApplicationNumberText = self.browser.find_element_by_id('id_earliestPriorityApplicationNumberText')
-        earliestPriorityFilingDate = self.browser.find_element_by_id('id_earliestPriorityFilingDate')
-        applicantName = self.browser.find_element_by_id('id_applicantName')
-        applicantNameLanguageCode = self.browser.find_element_by_id('id_applicantNameLanguageCode')
-        applicantNameLatin = self.browser.find_element_by_id('id_applicantNameLatin')
-        inventorName = self.browser.find_element_by_id('id_inventorName')
-        inventorNameLanguageCode = self.browser.find_element_by_id('id_inventorNameLanguageCode')
-        inventorNameLatin = self.browser.find_element_by_id('id_inventorNameLatin')
+    @classmethod
+    def add_sequencelisting(cls, aBrowser, aFileName):
+        inventionTitle = aBrowser.find_element_by_id('id_inventionTitle')
+        inventionTitleLanguageCode = aBrowser.find_element_by_id('id_inventionTitleLanguageCode')
+        fileName = aBrowser.find_element_by_id('id_fileName')
+        applicantFileReference = aBrowser.find_element_by_id('id_applicantFileReference')
+        IPOfficeCode = aBrowser.find_element_by_id('id_IPOfficeCode')
+        applicationNumberText = aBrowser.find_element_by_id('id_applicationNumberText')
+        filingDate = aBrowser.find_element_by_id('id_filingDate')
+        earliestPriorityIPOfficeCode = aBrowser.find_element_by_id('id_earliestPriorityIPOfficeCode')
+        earliestPriorityApplicationNumberText = aBrowser.find_element_by_id('id_earliestPriorityApplicationNumberText')
+        earliestPriorityFilingDate = aBrowser.find_element_by_id('id_earliestPriorityFilingDate')
+        applicantName = aBrowser.find_element_by_id('id_applicantName')
+        applicantNameLanguageCode = aBrowser.find_element_by_id('id_applicantNameLanguageCode')
+        applicantNameLatin = aBrowser.find_element_by_id('id_applicantNameLatin')
+        inventorName = aBrowser.find_element_by_id('id_inventorName')
+        inventorNameLanguageCode = aBrowser.find_element_by_id('id_inventorNameLanguageCode')
+        inventorNameLatin = aBrowser.find_element_by_id('id_inventorNameLatin')
            
         inventionTitle.send_keys('a')
         inventionTitleLanguageCode.send_keys('b')
-        fileName.send_keys('selenium_test_file_name')
+        fileName.send_keys(aFileName)
         applicantFileReference.send_keys('d')
         IPOfficeCode.send_keys('e')
         applicationNumberText.send_keys('f')
@@ -66,75 +58,85 @@ class VisitorTest(LiveServerTestCase):
         inventorNameLanguageCode.send_keys('m')
         inventorNameLatin.send_keys('n')
            
-#         time.sleep(10)
-        self.browser.find_element_by_xpath('//input[@value="Submit"]').click()
-#         time.sleep(10)
-                
+        aBrowser.find_element_by_xpath('//input[@value="Submit"]').click()
+        
+class VisitorTest(LiveServerTestCase):
+    def setUp(self):
+        self.browser = webdriver.Firefox()
+        self.browser.implicitly_wait(3)
+           
+    def tearDown(self):
+        self.browser.quit()
+                   
     def test_can_access_index_page_no_seqls(self):
         print 'Selenium: Running %s ...' % self._testMethodName
-           
+              
         self.browser.get('%s%s' %(self.live_server_url, '/sequencelistings/'))
-           
+              
         self.assertIn('st26proto - Index', self.browser.title) 
-           
+              
         headers_h2 = self.browser.find_elements_by_tag_name('h2')
         self.assertIn('WELCOME', [h.text for h in headers_h2])
         self.assertIn('SEQUENCE LISTING PORTOFOLIO', [h.text for h in headers_h2])
-                 
+                    
         no_seqls_par = self.browser.find_element_by_id('no_seqls_par')  
         self.assertEqual('No sequence listings are available.', no_seqls_par.text)
         self.assertEqual(0, len(self.browser.find_elements_by_tag_name('table')), 
                          'There should be no table if no seqls created.')
-       
+          
+          # unregistered visitors are not allowed to add seqls i.e. there is no link to add seql
+        self.assertEqual(0, len(self.browser.find_elements_by_id('add_seql_link'))) 
+                            
     def test_about_page(self):
         print 'Selenium: Running %s ...' % self._testMethodName
-           
-        self.browser.get('%s%s' %(self.live_server_url, '/sequencelistings/about'))   
-           
+              
+        self.browser.get('%s%s' %(self.live_server_url, '/sequencelistings/about'))     
         self.assertIn('st26proto - About', self.browser.title)
-   
+      
+  
+class CreateSequenceListingTest(LiveServerTestCase):
+    def setUp(self):
+        self.browser = webdriver.Firefox()
+        self.browser.implicitly_wait(3)
+           
+        # register
+        self.browser.get('%s%s' %(self.live_server_url, '/accounts/register/'))    
+        SeqlSeleniumTestFixture.register(self.browser)
+            
+    def tearDown(self):
+        self.browser.quit()
+               
     def test_register(self):
         print 'Selenium: Running %s ...' % self._testMethodName
-           
-        self.register()
+    
+ #         check that the index page of registered user is displayed
         self.browser.get('%s%s' % (self.live_server_url, '/sequencelistings/'))
         self.assertIn('st26proto - Index', self.browser.title)
         self.assertIn('user20', self.browser.find_element_by_class_name('page-header').text)
-   
+      
     def test_add_sequencelisting_functionality(self):
         print 'Selenium: Running %s ...' % self._testMethodName
-           
-        self.browser.get('%s%s' %(self.live_server_url, '/sequencelistings/')) 
-        # unregistered visitors are not allowed to add seqls i.e. there is no link to add seql
-        self.assertEqual(0, len(self.browser.find_elements_by_id('add_seql_link'))) 
-           
-        self.register()
+        
+        fileName = 'selenium_test1'
+        
         self.browser.get('%s%s' %(self.live_server_url, '/sequencelistings/add_sequencelisting')) 
-        self.assertIn('Create a sequence listing', self.browser.find_element_by_tag_name('h2').text)
-   
-        self.add_sequencelisting()
-#         self.browser.find_element_by_link_text('Sequence listings').click()
-        self.browser.get('%s%s' %(self.live_server_url, '/sequencelistings/')) 
-#         print 'browser.page_source', self.browser.page_source
-            
-#         time.sleep(10)
+        SeqlSeleniumTestFixture.add_sequencelisting(self.browser, fileName)
+  
+        self.browser.get('%s%s' % (self.live_server_url, '/sequencelistings/'))
+          
         table = self.browser.find_element_by_id('home_page_table')
 #         self.assertEqual(1, len(table), 'There should be a table if a seql added.')
         cells = table.find_elements_by_tag_name('td')
-        self.assertIn('selenium_test_file_name', [cell.text for cell in cells])
-           
+        self.assertIn(fileName, [cell.text for cell in cells])
+              
     def test_add_sequencelisting_no_inventor_functionality(self):
+        """
+        Test that a seql can be created without providing inventor data.
+        """
         print 'Selenium: Running %s ...' % self._testMethodName
-           
-        self.browser.get('%s%s' %(self.live_server_url, '/sequencelistings/')) 
-        # unregistered visitors are not allowed to add seqls i.e. there is no link to add seql
-        self.assertEqual(0, len(self.browser.find_elements_by_id('add_seql_link'))) 
-           
-        self.register()
+              
         self.browser.get('%s%s' %(self.live_server_url, '/sequencelistings/add_sequencelisting')) 
-        self.assertIn('Create a sequence listing', self.browser.find_element_by_tag_name('h2').text)
-   
-           
+                  
 #         =======add seql no inventor=================
         inventionTitle = self.browser.find_element_by_id('id_inventionTitle')
         inventionTitleLanguageCode = self.browser.find_element_by_id('id_inventionTitleLanguageCode')
@@ -149,7 +151,7 @@ class VisitorTest(LiveServerTestCase):
         applicantName = self.browser.find_element_by_id('id_applicantName')
         applicantNameLanguageCode = self.browser.find_element_by_id('id_applicantNameLanguageCode')
         applicantNameLatin = self.browser.find_element_by_id('id_applicantNameLatin')
-           
+              
         inventionTitle.send_keys('axx')
         inventionTitleLanguageCode.send_keys('b')
         fileName.send_keys('selenium_test_file_name_no_inventor')
@@ -163,34 +165,23 @@ class VisitorTest(LiveServerTestCase):
         applicantName.send_keys('i')
         applicantNameLanguageCode.send_keys('j')
         applicantNameLatin.send_keys('k')
-           
-#         time.sleep(10)
+              
         self.browser.find_element_by_xpath('//input[@value="Submit"]').click()
-#         time.sleep(10)
 # =================
-           
-#         self.browser.find_element_by_link_text('Sequence listings').click()
         self.browser.get('%s%s' %(self.live_server_url, '/sequencelistings/')) 
-#         print 'browser.page_source', self.browser.page_source
-            
-#         time.sleep(10)
+   
         table = self.browser.find_element_by_id('home_page_table')
-#         self.assertEqual(1, len(table), 'There should be a table if a seql added.')
         cells = table.find_elements_by_tag_name('td')
         self.assertIn('selenium_test_file_name_no_inventor', [cell.text for cell in cells])
-            
+               
     def test_add_sequencelisting_no_application_identification_functionality(self):
+        """
+        Test that a seql can be created without providing application identification data.
+        """
         print 'Selenium: Running %s ...' % self._testMethodName
-            
-        self.browser.get('%s%s' %(self.live_server_url, '/sequencelistings/')) 
-        # unregistered visitors are not allowed to add seqls i.e. there is no link to add seql
-        self.assertEqual(0, len(self.browser.find_elements_by_id('add_seql_link'))) 
-            
-        self.register()
+          
         self.browser.get('%s%s' %(self.live_server_url, '/sequencelistings/add_sequencelisting')) 
-        self.assertIn('Create a sequence listing', self.browser.find_element_by_tag_name('h2').text)
-    
-            
+               
 #         =======add seql no inventor=================
         inventionTitle = self.browser.find_element_by_id('id_inventionTitle')
         inventionTitleLanguageCode = self.browser.find_element_by_id('id_inventionTitleLanguageCode')
@@ -205,7 +196,7 @@ class VisitorTest(LiveServerTestCase):
         applicantName = self.browser.find_element_by_id('id_applicantName')
         applicantNameLanguageCode = self.browser.find_element_by_id('id_applicantNameLanguageCode')
         applicantNameLatin = self.browser.find_element_by_id('id_applicantNameLatin')
-            
+               
         inventionTitle.send_keys('axx')
         inventionTitleLanguageCode.send_keys('b')
         fileName.send_keys('selenium_test_file_name_no_applIdentification')
@@ -219,153 +210,428 @@ class VisitorTest(LiveServerTestCase):
         applicantName.send_keys('i')
         applicantNameLanguageCode.send_keys('j')
         applicantNameLatin.send_keys('k')
-            
-#         time.sleep(10)
+               
         self.browser.find_element_by_xpath('//input[@value="Submit"]').click()
-#         time.sleep(10)
 # =================
-            
-#         self.browser.find_element_by_link_text('Sequence listings').click()
+               
         self.browser.get('%s%s' %(self.live_server_url, '/sequencelistings/')) 
-#         print 'browser.page_source', self.browser.page_source
-             
-#         time.sleep(10)
+                
         table = self.browser.find_element_by_id('home_page_table')
-#         self.assertEqual(1, len(table), 'There should be a table if a seql added.')
         cells = table.find_elements_by_tag_name('td')
         self.assertIn('selenium_test_file_name_no_applIdentification', [cell.text for cell in cells])
-  
+
            
 class EditSequenceListingTest(LiveServerTestCase):
     def setUp(self):
-        print 'from EditSequenceListingTest setUp'
         self.browser = webdriver.Firefox()
         self.browser.implicitly_wait(3)
-        self.register()
-        self.add_sequencelisting()
-     
+          
+#         self.fixture = SeqlSeleniumTestFixture()
+          
+        self.browser.get('%s%s' %(self.live_server_url, '/accounts/register/')) 
+        SeqlSeleniumTestFixture.register(self.browser)
+        self.fileName = 'selenium_test2'
+        self.browser.get('%s%s' %(self.live_server_url, '/sequencelistings/add_sequencelisting')) 
+        SeqlSeleniumTestFixture.add_sequencelisting(self.browser, self.fileName)
+        
     def tearDown(self):
         self.browser.quit()
- 
-    def register(self):
-         
-        self.browser.get('%s%s' %(self.live_server_url, '/accounts/register/')) 
-              
-        username = self.browser.find_element_by_id('id_username')
-        email = self.browser.find_element_by_id('id_email')
-        password1 = self.browser.find_element_by_id('id_password1')
-        password2 = self.browser.find_element_by_id('id_password2')
-                
-        username.send_keys('user20')
-        email.send_keys('user20@email.com')
-        password1.send_keys('password20')
-        password2.send_keys('password20')
-# #         self.browser.find_element_by_xpath('//input[@value="Submit"]').click()
-        self.browser.find_element_by_class_name("btn").click()
- 
-    def add_sequencelisting(self):
-        self.browser.get('%s%s' %(self.live_server_url, '/sequencelistings/add_sequencelisting')) 
-        
-        inventionTitle = self.browser.find_element_by_id('id_inventionTitle')
-        inventionTitleLanguageCode = self.browser.find_element_by_id('id_inventionTitleLanguageCode')
-        fileName = self.browser.find_element_by_id('id_fileName')
-        applicantFileReference = self.browser.find_element_by_id('id_applicantFileReference')
-        IPOfficeCode = self.browser.find_element_by_id('id_IPOfficeCode')
-        applicationNumberText = self.browser.find_element_by_id('id_applicationNumberText')
-        filingDate = self.browser.find_element_by_id('id_filingDate')
-        earliestPriorityIPOfficeCode = self.browser.find_element_by_id('id_earliestPriorityIPOfficeCode')
-        earliestPriorityApplicationNumberText = self.browser.find_element_by_id('id_earliestPriorityApplicationNumberText')
-        earliestPriorityFilingDate = self.browser.find_element_by_id('id_earliestPriorityFilingDate')
-        applicantName = self.browser.find_element_by_id('id_applicantName')
-        applicantNameLanguageCode = self.browser.find_element_by_id('id_applicantNameLanguageCode')
-        applicantNameLatin = self.browser.find_element_by_id('id_applicantNameLatin')
-        inventorName = self.browser.find_element_by_id('id_inventorName')
-        inventorNameLanguageCode = self.browser.find_element_by_id('id_inventorNameLanguageCode')
-        inventorNameLatin = self.browser.find_element_by_id('id_inventorNameLatin')
-         
-        inventionTitle.send_keys('a')
-        inventionTitleLanguageCode.send_keys('b')
-        fileName.send_keys('selenium_test_file_name')
-        applicantFileReference.send_keys('d')
-        IPOfficeCode.send_keys('e')
-        applicationNumberText.send_keys('f')
-        filingDate.send_keys('2010-12-20')
-        earliestPriorityIPOfficeCode.send_keys('g')
-        earliestPriorityApplicationNumberText.send_keys('h')
-        earliestPriorityFilingDate.send_keys('2009-12-20')
-        applicantName.send_keys('i')
-        applicantNameLanguageCode.send_keys('j')
-        applicantNameLatin.send_keys('k')
-        inventorName.send_keys('l')
-        inventorNameLanguageCode.send_keys('m')
-        inventorNameLatin.send_keys('n')
-         
-        self.browser.find_element_by_xpath('//input[@value="Submit"]').click()
-              
+    
     def test_add_sequence(self):
         print 'Selenium: Running %s ...' % self._testMethodName
-        
-#         check that there is a web page for the created seql with pk=1         
-        self.browser.get('%s%s' %(self.live_server_url, '/sequencelistings/sl1'))
          
+        self.browser.get('%s%s' %(self.live_server_url, '/sequencelistings'))
+         
+#         check that there is a detail page is produced for the newly created seql        
+        self.browser.find_element_by_link_text(self.fileName).click()
+        
         headers_h2 = self.browser.find_elements_by_tag_name('h2')
         self.assertIn('EXPORT', [h.text for h in headers_h2])
-        
+           
 #         check that the link to edit sequence listing is displayed
         edit_seql_link = self.browser.find_element_by_link_text('Edit sequence listing')
         self.assertTrue(edit_seql_link.is_displayed())       
-
+   
 #         add a sequence
-        self.browser.get('%s%s' %(self.live_server_url, '/sequencelistings/sl1/add_seq'))
+        edit_seql_link.click()
+        
+        add_seq_link = self.browser.find_element_by_link_text('Add new sequence')
+        self.assertTrue(add_seq_link.is_displayed()) 
+        
+        add_seq_link.click() 
+        
+#         self.browser.get('%s%s' %(self.live_server_url, '/sequencelistings/sl1/add_seq'))
         headers_h2_add_seq = self.browser.find_elements_by_tag_name('h2')
         self.assertIn('Add new sequence', [h.text for h in headers_h2_add_seq])
-        
+           
         moltype = self.browser.find_element_by_id('id_moltype')
         residues = self.browser.find_element_by_id('id_residues') 
         organism  = self.browser.find_element_by_id('id_organism') 
-        
+           
         moltype.send_keys('DNA')
         residues.send_keys('acgtacgtacgt')
         organism.send_keys('Homo sapiens selenium')
-        
+           
         self.browser.find_element_by_xpath('//input[@value="Submit"]').click()
 #         self.browser.execute_script("document.getElementsByTagName('input')[0].click();")
 #         self.browser.execute_script("document.querySelectorAll('input[value]=\x22Submit\x22').click();")
-        
+           
 #         check that the sequence has been created
-        self.browser.get('%s%s' %(self.live_server_url, '/sequencelistings/sl1'))
-        
+#         self.browser.get('%s%s' %(self.live_server_url, '/sequencelistings/sl1'))
+        self.browser.find_element_by_link_text(self.fileName).click()   
         headers_h2 = self.browser.find_elements_by_tag_name('h2')
         self.assertIn('EXPORT', [h.text for h in headers_h2])
-        
+           
 #         check that the seql page contains now the new sequence
         tds = self.browser.find_elements_by_tag_name('td')
         self.assertIn('Homo sapiens selenium', [td.text for td in tds])
-        
+           
 #         cant test residues because they are not loaded (due to JavaScript????)
 #         residues_elements = self.browser.find_element_by_class_name('residues')
 #         print residues_elements.text
 #         self.assertIn('acgtacgtac gt 12', [r.text for r in residues_elements])
-
+   
 #         generate SEQL XML file
         self.browser.find_element_by_link_text("Generate XML").click()
-        
-        self.browser.get('%s%s' %(self.live_server_url, '/sequencelistings/sl1/xmloutput'))
-        
+           
+#         self.browser.get('%s%s' %(self.live_server_url, '/sequencelistings/sl1/xmloutput'))
+           
         display_link = self.browser.find_element_by_link_text("display generated sequence listing")
-        
+           
 #         check that the link to display the generated xml file is displayed
         self.assertTrue(display_link.is_displayed()) 
-        
+           
 #         cant test display generated xml because of JavaScript probably?
 #         self.browser.execute_script("document.getElementsByTagName('a')[0].click();")
 #         print 'executed script'       
 #         self.browser.get('%s%s' %(self.live_server_url, '/sequencelistings/display/selenium_test_file_name'))
 #         time.sleep(20)
 #         print self.browser.page_source
-        
+           
 #         headers_h1 = self.browser.find_elements_by_tag_name('h1')
 #         self.assertIn('ST26 SEQUENCE LISTING with client side XSLT', [h.text for h in headers_h1])
+      
         
-        
-        
+
+
+
+
+
+
+
+
+# import django
+# django.setup()
+# 
+# from django.test import LiveServerTestCase
+# from selenium import webdriver
+# from selenium.webdriver.common.keys import Keys 
+# 
+# import time 
+# 
+# class SeqlSeleniumTestFixture():    
+#     def register(self, aBrowser):
+#         username = aBrowser.find_element_by_id('id_username')
+#         email = aBrowser.find_element_by_id('id_email')
+#         password1 = aBrowser.find_element_by_id('id_password1')
+#         password2 = aBrowser.find_element_by_id('id_password2')
+#                   
+#         username.send_keys('user20')
+#         email.send_keys('user20@email.com')
+#         password1.send_keys('password20')
+#         password2.send_keys('password20')
+#         
+#         aBrowser.find_element_by_class_name("btn").click()
+#    
+#     def add_sequencelisting(self, aBrowser):
+#         inventionTitle = aBrowser.find_element_by_id('id_inventionTitle')
+#         inventionTitleLanguageCode = aBrowser.find_element_by_id('id_inventionTitleLanguageCode')
+#         fileName = aBrowser.find_element_by_id('id_fileName')
+#         applicantFileReference = aBrowser.find_element_by_id('id_applicantFileReference')
+#         IPOfficeCode = aBrowser.find_element_by_id('id_IPOfficeCode')
+#         applicationNumberText = aBrowser.find_element_by_id('id_applicationNumberText')
+#         filingDate = aBrowser.find_element_by_id('id_filingDate')
+#         earliestPriorityIPOfficeCode = aBrowser.find_element_by_id('id_earliestPriorityIPOfficeCode')
+#         earliestPriorityApplicationNumberText = aBrowser.find_element_by_id('id_earliestPriorityApplicationNumberText')
+#         earliestPriorityFilingDate = aBrowser.find_element_by_id('id_earliestPriorityFilingDate')
+#         applicantName = aBrowser.find_element_by_id('id_applicantName')
+#         applicantNameLanguageCode = aBrowser.find_element_by_id('id_applicantNameLanguageCode')
+#         applicantNameLatin = aBrowser.find_element_by_id('id_applicantNameLatin')
+#         inventorName = aBrowser.find_element_by_id('id_inventorName')
+#         inventorNameLanguageCode = aBrowser.find_element_by_id('id_inventorNameLanguageCode')
+#         inventorNameLatin = aBrowser.find_element_by_id('id_inventorNameLatin')
+#            
+#         inventionTitle.send_keys('a')
+#         inventionTitleLanguageCode.send_keys('b')
+#         fileName.send_keys('selenium_test_file_name')
+#         applicantFileReference.send_keys('d')
+#         IPOfficeCode.send_keys('e')
+#         applicationNumberText.send_keys('f')
+#         filingDate.send_keys('2010-12-20')
+#         earliestPriorityIPOfficeCode.send_keys('g')
+#         earliestPriorityApplicationNumberText.send_keys('h')
+#         earliestPriorityFilingDate.send_keys('2009-12-20')
+#         applicantName.send_keys('i')
+#         applicantNameLanguageCode.send_keys('j')
+#         applicantNameLatin.send_keys('k')
+#         inventorName.send_keys('l')
+#         inventorNameLanguageCode.send_keys('m')
+#         inventorNameLatin.send_keys('n')
+#            
+#         aBrowser.find_element_by_xpath('//input[@value="Submit"]').click()
+#         
+# class VisitorTest(LiveServerTestCase):
+#     def setUp(self):
+#         self.browser = webdriver.Firefox()
+#         self.browser.implicitly_wait(3)
+#            
+#     def tearDown(self):
+#         self.browser.quit()
+#                    
+#     def test_can_access_index_page_no_seqls(self):
+#         print 'Selenium: Running %s ...' % self._testMethodName
+#               
+#         self.browser.get('%s%s' %(self.live_server_url, '/sequencelistings/'))
+#               
+#         self.assertIn('st26proto - Index', self.browser.title) 
+#               
+#         headers_h2 = self.browser.find_elements_by_tag_name('h2')
+#         self.assertIn('WELCOME', [h.text for h in headers_h2])
+#         self.assertIn('SEQUENCE LISTING PORTOFOLIO', [h.text for h in headers_h2])
+#                     
+#         no_seqls_par = self.browser.find_element_by_id('no_seqls_par')  
+#         self.assertEqual('No sequence listings are available.', no_seqls_par.text)
+#         self.assertEqual(0, len(self.browser.find_elements_by_tag_name('table')), 
+#                          'There should be no table if no seqls created.')
+#           
+#           # unregistered visitors are not allowed to add seqls i.e. there is no link to add seql
+#         self.assertEqual(0, len(self.browser.find_elements_by_id('add_seql_link'))) 
+#                             
+#     def test_about_page(self):
+#         print 'Selenium: Running %s ...' % self._testMethodName
+#               
+#         self.browser.get('%s%s' %(self.live_server_url, '/sequencelistings/about'))     
+#         self.assertIn('st26proto - About', self.browser.title)
+#       
+#   
+# class CreateSequenceListingTest(LiveServerTestCase):
+#     def setUp(self):
+#         self.browser = webdriver.Firefox()
+#         self.browser.implicitly_wait(3)
+#            
+#         self.fixture = SeqlSeleniumTestFixture()
+#             
+#         # register
+#         self.browser.get('%s%s' %(self.live_server_url, '/accounts/register/'))    
+#         self.fixture.register(self.browser)
+#             
+#     def tearDown(self):
+#         self.browser.quit()
+#                
+#     def test_register(self):
+#         print 'Selenium: Running %s ...' % self._testMethodName
+#     
+#  #         check that the index page of registered user is displayed
+#         self.browser.get('%s%s' % (self.live_server_url, '/sequencelistings/'))
+#         self.assertIn('st26proto - Index', self.browser.title)
+#         self.assertIn('user20', self.browser.find_element_by_class_name('page-header').text)
+#       
+#     def test_add_sequencelisting_functionality(self):
+#         print 'Selenium: Running %s ...' % self._testMethodName
+#           
+#         self.browser.get('%s%s' %(self.live_server_url, '/sequencelistings/add_sequencelisting')) 
+#         self.fixture.add_sequencelisting(self.browser)
+#   
+#         self.browser.get('%s%s' % (self.live_server_url, '/sequencelistings/'))
+#           
+#         table = self.browser.find_element_by_id('home_page_table')
+# #         self.assertEqual(1, len(table), 'There should be a table if a seql added.')
+#         cells = table.find_elements_by_tag_name('td')
+#         self.assertIn('selenium_test_file_name', [cell.text for cell in cells])
+#               
+#     def test_add_sequencelisting_no_inventor_functionality(self):
+#         """
+#         Test that a seql can be created without providing inventor data.
+#         """
+#         print 'Selenium: Running %s ...' % self._testMethodName
+#               
+#         self.browser.get('%s%s' %(self.live_server_url, '/sequencelistings/add_sequencelisting')) 
+#                   
+# #         =======add seql no inventor=================
+#         inventionTitle = self.browser.find_element_by_id('id_inventionTitle')
+#         inventionTitleLanguageCode = self.browser.find_element_by_id('id_inventionTitleLanguageCode')
+#         fileName = self.browser.find_element_by_id('id_fileName')
+#         applicantFileReference = self.browser.find_element_by_id('id_applicantFileReference')
+#         IPOfficeCode = self.browser.find_element_by_id('id_IPOfficeCode')
+#         applicationNumberText = self.browser.find_element_by_id('id_applicationNumberText')
+#         filingDate = self.browser.find_element_by_id('id_filingDate')
+#         earliestPriorityIPOfficeCode = self.browser.find_element_by_id('id_earliestPriorityIPOfficeCode')
+#         earliestPriorityApplicationNumberText = self.browser.find_element_by_id('id_earliestPriorityApplicationNumberText')
+#         earliestPriorityFilingDate = self.browser.find_element_by_id('id_earliestPriorityFilingDate')
+#         applicantName = self.browser.find_element_by_id('id_applicantName')
+#         applicantNameLanguageCode = self.browser.find_element_by_id('id_applicantNameLanguageCode')
+#         applicantNameLatin = self.browser.find_element_by_id('id_applicantNameLatin')
+#               
+#         inventionTitle.send_keys('axx')
+#         inventionTitleLanguageCode.send_keys('b')
+#         fileName.send_keys('selenium_test_file_name_no_inventor')
+#         applicantFileReference.send_keys('d')
+#         IPOfficeCode.send_keys('e')
+#         applicationNumberText.send_keys('f')
+#         filingDate.send_keys('2010-12-20')
+#         earliestPriorityIPOfficeCode.send_keys('g')
+#         earliestPriorityApplicationNumberText.send_keys('h')
+#         earliestPriorityFilingDate.send_keys('2009-12-20')
+#         applicantName.send_keys('i')
+#         applicantNameLanguageCode.send_keys('j')
+#         applicantNameLatin.send_keys('k')
+#               
+#         self.browser.find_element_by_xpath('//input[@value="Submit"]').click()
+# # =================
+#         self.browser.get('%s%s' %(self.live_server_url, '/sequencelistings/')) 
+#    
+#         table = self.browser.find_element_by_id('home_page_table')
+#         cells = table.find_elements_by_tag_name('td')
+#         self.assertIn('selenium_test_file_name_no_inventor', [cell.text for cell in cells])
+#                
+#     def test_add_sequencelisting_no_application_identification_functionality(self):
+#         """
+#         Test that a seql can be created without providing application identification data.
+#         """
+#         print 'Selenium: Running %s ...' % self._testMethodName
+#           
+#         self.browser.get('%s%s' %(self.live_server_url, '/sequencelistings/add_sequencelisting')) 
+#                
+# #         =======add seql no inventor=================
+#         inventionTitle = self.browser.find_element_by_id('id_inventionTitle')
+#         inventionTitleLanguageCode = self.browser.find_element_by_id('id_inventionTitleLanguageCode')
+#         fileName = self.browser.find_element_by_id('id_fileName')
+#         applicantFileReference = self.browser.find_element_by_id('id_applicantFileReference')
+# #         IPOfficeCode = self.browser.find_element_by_id('id_IPOfficeCode')
+# #         applicationNumberText = self.browser.find_element_by_id('id_applicationNumberText')
+#         filingDate = self.browser.find_element_by_id('id_filingDate')
+#         earliestPriorityIPOfficeCode = self.browser.find_element_by_id('id_earliestPriorityIPOfficeCode')
+#         earliestPriorityApplicationNumberText = self.browser.find_element_by_id('id_earliestPriorityApplicationNumberText')
+#         earliestPriorityFilingDate = self.browser.find_element_by_id('id_earliestPriorityFilingDate')
+#         applicantName = self.browser.find_element_by_id('id_applicantName')
+#         applicantNameLanguageCode = self.browser.find_element_by_id('id_applicantNameLanguageCode')
+#         applicantNameLatin = self.browser.find_element_by_id('id_applicantNameLatin')
+#                
+#         inventionTitle.send_keys('axx')
+#         inventionTitleLanguageCode.send_keys('b')
+#         fileName.send_keys('selenium_test_file_name_no_applIdentification')
+#         applicantFileReference.send_keys('d')
+# #         IPOfficeCode.send_keys('e')
+# #         applicationNumberText.send_keys('f')
+# #         filingDate.send_keys('2010-12-20')
+#         earliestPriorityIPOfficeCode.send_keys('g')
+#         earliestPriorityApplicationNumberText.send_keys('h')
+#         earliestPriorityFilingDate.send_keys('2009-12-20')
+#         applicantName.send_keys('i')
+#         applicantNameLanguageCode.send_keys('j')
+#         applicantNameLatin.send_keys('k')
+#                
+#         self.browser.find_element_by_xpath('//input[@value="Submit"]').click()
+# # =================
+#                
+#         self.browser.get('%s%s' %(self.live_server_url, '/sequencelistings/')) 
+#                 
+#         table = self.browser.find_element_by_id('home_page_table')
+#         cells = table.find_elements_by_tag_name('td')
+#         self.assertIn('selenium_test_file_name_no_applIdentification', [cell.text for cell in cells])
+# 
+#            
+# class EditSequenceListingTest(LiveServerTestCase):
+#     def setUp(self):
+#         self.browser = webdriver.Firefox()
+#         self.browser.implicitly_wait(3)
+#           
+#         self.fixture = SeqlSeleniumTestFixture()
+#           
+#         self.browser.get('%s%s' %(self.live_server_url, '/accounts/register/')) 
+#         self.fixture.register(self.browser)
+#         
+#     def tearDown(self):
+#         self.browser.quit()
+#     
+#     def test_add_sequence(self):
+#         print 'Selenium: Running %s ...' % self._testMethodName
+#         
+#         self.browser.get('%s%s' %(self.live_server_url, '/sequencelistings/add_sequencelisting')) 
+#         self.fixture.add_sequencelisting(self.browser)
+#         
+#         self.browser.get('%s%s' %(self.live_server_url, '/sequencelistings'))
+# #         time.sleep(20) 
+#          
+# #         check that there is a web page for the created seql with pk=1         
+#         self.browser.find_element_by_link_text("selenium_test_file_name").click()
+# #         self.browser.get('%s%s' %(self.live_server_url, '/sequencelistings/sl1'))
+# #         print self.browser.page_source
+#         
+#         headers_h2 = self.browser.find_elements_by_tag_name('h2')
+#         self.assertIn('EXPORT', [h.text for h in headers_h2])
+#            
+# #         check that the link to edit sequence listing is displayed
+#         edit_seql_link = self.browser.find_element_by_link_text('Edit sequence listing')
+#         self.assertTrue(edit_seql_link.is_displayed())       
+#    
+# #         add a sequence
+#         edit_seql_link.click()
+#         
+#         add_seq_link = self.browser.find_element_by_link_text('Add new sequence')
+#         self.assertTrue(add_seq_link.is_displayed()) 
+#         
+#         add_seq_link.click() 
+#         
+# #         self.browser.get('%s%s' %(self.live_server_url, '/sequencelistings/sl1/add_seq'))
+#         headers_h2_add_seq = self.browser.find_elements_by_tag_name('h2')
+#         self.assertIn('Add new sequence', [h.text for h in headers_h2_add_seq])
+#            
+#         moltype = self.browser.find_element_by_id('id_moltype')
+#         residues = self.browser.find_element_by_id('id_residues') 
+#         organism  = self.browser.find_element_by_id('id_organism') 
+#            
+#         moltype.send_keys('DNA')
+#         residues.send_keys('acgtacgtacgt')
+#         organism.send_keys('Homo sapiens selenium')
+#            
+#         self.browser.find_element_by_xpath('//input[@value="Submit"]').click()
+# #         self.browser.execute_script("document.getElementsByTagName('input')[0].click();")
+# #         self.browser.execute_script("document.querySelectorAll('input[value]=\x22Submit\x22').click();")
+#            
+# #         check that the sequence has been created
+# #         self.browser.get('%s%s' %(self.live_server_url, '/sequencelistings/sl1'))
+#         self.browser.find_element_by_link_text("selenium_test_file_name").click()   
+#         headers_h2 = self.browser.find_elements_by_tag_name('h2')
+#         self.assertIn('EXPORT', [h.text for h in headers_h2])
+#            
+# #         check that the seql page contains now the new sequence
+#         tds = self.browser.find_elements_by_tag_name('td')
+#         self.assertIn('Homo sapiens selenium', [td.text for td in tds])
+#            
+# #         cant test residues because they are not loaded (due to JavaScript????)
+# #         residues_elements = self.browser.find_element_by_class_name('residues')
+# #         print residues_elements.text
+# #         self.assertIn('acgtacgtac gt 12', [r.text for r in residues_elements])
+#    
+# #         generate SEQL XML file
+#         self.browser.find_element_by_link_text("Generate XML").click()
+#            
+# #         self.browser.get('%s%s' %(self.live_server_url, '/sequencelistings/sl1/xmloutput'))
+#            
+#         display_link = self.browser.find_element_by_link_text("display generated sequence listing")
+#            
+# #         check that the link to display the generated xml file is displayed
+#         self.assertTrue(display_link.is_displayed()) 
+#            
+# #         cant test display generated xml because of JavaScript probably?
+# #         self.browser.execute_script("document.getElementsByTagName('a')[0].click();")
+# #         print 'executed script'       
+# #         self.browser.get('%s%s' %(self.live_server_url, '/sequencelistings/display/selenium_test_file_name'))
+# #         time.sleep(20)
+# #         print self.browser.page_source
+#            
+# #         headers_h1 = self.browser.find_elements_by_tag_name('h1')
+# #         self.assertIn('ST26 SEQUENCE LISTING with client side XSLT', [h.text for h in headers_h1])
+#       
+#         
