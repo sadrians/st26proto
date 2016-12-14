@@ -177,7 +177,7 @@ def add_multiple_feature(request, pk, spk):
                                              qualifierValue = qv)
                 q.save()
              
-            return HttpResponseRedirect(reverse('sequencelistings:edit_sequence_data', args=(seq.sequenceListing.pk,)))
+            return HttpResponseRedirect(reverse('sequencelistings:edit_seql', args=(seq.sequenceListing.pk,)))
     else:
         form = MultipleFeatureForm(request.POST, moltype=seq.moltype)
     return render(request, 'sequencelistings/add_multiple_feature.html', {'form': form, 'seq': seq})
@@ -260,7 +260,7 @@ def add_feature(request, pk, spk):
             fl = cd['location']
             f = Feature.objects.create(sequence=seq, featureKey=fk, location=fl)
             f.save()
-            return HttpResponseRedirect(reverse('sequencelistings:edit_sequence_data', args=(pk,)))
+            return HttpResponseRedirect(reverse('sequencelistings:edit_seql', args=(pk,)))
     else:
         form = FeatureForm(mt=seq.moltype)
     return render(request, 'sequencelistings/add_feature.html', {'form': form, 'seq': seq})
