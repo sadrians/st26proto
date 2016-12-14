@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+    <head>
+        <title>generated xseql</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'sequencelistings/output/resources/style.css' %}"/>
+        
+        <script>
+    
+            function splitString(as) {
+                return as.match(/.{1,10}/g);
+            }
+    
+            function writeSplitString(aStr) {
+                var li = splitString(aStr);
+                var cntr = 0;
+                var groupIndex = 0;
+                var currentString = "";
+                var i;
+                var list_length = li.length;
+    
+                for (i = 0; i < list_length; i++)
+                {
+                    cntr += li[i].length;
+                    groupIndex += 1;
+                    currentString += li[i] + " ";
+                    if (groupIndex == 6)
+                    {
+                        document.write(currentString + cntr + "<br />");
+                        currentString = "";
+                        groupIndex = 0;
+                    }
+    
+                }
+                if (currentString !== "") {
+                    document.write(currentString + cntr + "<br />");
+                }
+            }
+    
+            function getSplitString(aStr) {
+                var res = "";
+                var li = splitString(aStr);
+                var cntr = 0;
+                var groupIndex = 0;
+                var currentString = "";
+                var i;
+                var list_length = li.length;
+    
+                for (i = 0; i < list_length; i++)
+                {
+                    cntr += li[i].length;
+                    groupIndex += 1;
+                    currentString += li[i] + " ";
+                    if (groupIndex == 6)
+                    {
+                        res = res + currentString + cntr + "<br />";
+                        currentString = "";
+                        groupIndex = 0;
+                    }
+    
+                }
+                if (currentString !== "") {
+                    res = res + currentString + cntr + "<br />";
+                }
+    
+                return res;
+            }
+    
+            function loadXMLDoc(filename)
+            {
+                if (window.ActiveXObject)
+                  {
+                    xhttp = new ActiveXObject("Msxml2.XMLHTTP");
+                  }
+                else
+                  {
+                    xhttp = new XMLHttpRequest();
+                  }
+                xhttp.open("GET", filename, false);
+                try {xhttp.responseType = "msxml-document"} catch(err) {} // Helping IE11
+                    xhttp.send("");
+                    return xhttp.responseXML;
+            }
+    
+            function displayResult()
+            {
+                var filePath = "{% static 'sequencelistings/output/' %}" + 
+                "{{fileName}}" + ".xml";
+                console.log(filePath);
+                
+                xml = loadXMLDoc(filePath);
+                xsl = loadXMLDoc("{% static 'sequencelistings/output/resources/stylesheet_client.xsl' %}");
+                // code for IE
+                if (window.ActiveXObject || xhttp.responseType == "msxml-document")
+                  {
+                    ex = xml.transformNode(xsl);
+                    document.getElementById("example").innerHTML = ex;
+                  }
+                // code for Chrome, Firefox, Opera, etc.
+                else if (document.implementation && document.implementation.createDocument)
+                  {
+                    xsltProcessor = new XSLTProcessor();
+                    xsltProcessor.importStylesheet(xsl);
+                    resultDocument = xsltProcessor.transformToFragment(xml, document);
+                    document.getElementById("example").appendChild(resultDocument);
+                  }
+    
+                x = document.getElementsByClassName("residuesTest");
+                for (i = 0; i < x.length; i++)
+                {
+                    var currentResidues = getSplitString(x[i].innerHTML);
+    
+                    x[i].innerHTML = currentResidues;
+                }
+            }
+    
+        </script>
+    </head>
+    <body onload="displayResult()">
+        <div id="example"/>
+    </body>
+</html>

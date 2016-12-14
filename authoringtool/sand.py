@@ -25,3 +25,5 @@ def myCopyScript(aFileName):
 
 # print 'GGGX'*100
 # print expandFormula('cg(agg)4..7')
+# <?xml-stylesheet type="text/xsl" href="resources/st26_w3_4.xsl"?>
+# <p><a href="{% static filePath %}">see generated sequence listing</a></p>

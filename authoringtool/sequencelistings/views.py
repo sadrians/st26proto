@@ -351,6 +351,11 @@ def download(request, fileName):
     
     return response 
 
+def display(request, fileName):    
+    """Display the generated XML sequence listing file using XSLT stylesheet.""" 
+    return render(request, 'sequencelistings/generated.html', 
+                  {'fileName': fileName, }) 
+
 @login_required
 def restricted(request):
     return HttpResponse("This is a test page. You see this text because you're logged in.")

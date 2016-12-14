@@ -434,8 +434,9 @@ class ViewsTests(TestCase):
         response = self.client.get(reverse('sequencelistings:xmloutput', args=[self.sequenceListing.pk, ]))
         self.assertEqual(response.status_code, 200)
 #         test that the page returns expected html contents
-        self.assertContains(response, '%s.xml' % self.sequenceListing.fileName)
-         
+#         self.assertContains(response, '%s.xml' % self.sequenceListing.fileName)
+        self.assertContains(response, self.sequenceListing.fileName)
+
     def test_about_view(self):
         """
         The about_view page is correctly displayed.

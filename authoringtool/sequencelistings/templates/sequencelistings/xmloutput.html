@@ -13,7 +13,7 @@
     <hr>
     
     <h2>View in the browser</h2>
-        <p><a href="{% static filePath %}">see generated sequence listing</a></p>
+        <p><a href="{% url 'sequencelistings:display' fileName  %}">display generated sequence listing</a></p>
     <hr>
     <h2>Download</h2>
         <p><a href="{% url 'sequencelistings:download' fileName %}">download XML file</a></p>
