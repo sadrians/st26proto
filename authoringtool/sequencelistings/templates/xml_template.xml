@@ -37,7 +37,7 @@
             <INSDSeq_moltype>{{seq.moltype}}</INSDSeq_moltype>
             <INSDSeq_division>{{seq.division}}</INSDSeq_division>
             <INSDSeq_feature-table>
-                {% for f in seq.feature_set.all %}
+                {% for f in seq.getOrderedFeatures %}
                 <INSDFeature>
                     <INSDFeature_key>{{f.featureKey}}</INSDFeature_key>
                     <INSDFeature_location>{{f.location}}</INSDFeature_location>
