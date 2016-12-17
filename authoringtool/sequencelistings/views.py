@@ -333,7 +333,8 @@ def generateXml(request, pk):
 #                     productionDate="{{sequenceListing.productionDate}}"
 #                     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 #                     xsi:noNamespaceSchemaLocation="st26.xsd"> -->
-        
+
+# probably not used any longer        
 @login_required
 def render_xmlFile(request):
 #     Take the user to the xml file.
@@ -342,6 +343,7 @@ def render_xmlFile(request):
 # TODO: refactor first line of this function ...
 # TODO: TEST IT!!!
 def download(request, fileName):
+    """Download the generated XML sequence listing file."""
     s = '%s has not been found.' % fileName 
     filePath = os.path.join(util.PROJECT_DIRECTORY, 'sequencelistings', 'static', 'sequencelistings', 'output', '%s.xml' % fileName)
     with open(filePath, 'r') as f:

@@ -184,7 +184,28 @@ class Sequence(models.Model): #good
             result = organismQualifier.qualifierValue
             
         return result
-     
+    
+    def getOrderedFeatures(self):
+        """
+        Return a sorted list of the Feature instances of this sequence.
+        The ordering is: first the source feature, then the other features 
+        sorted ascending by the start location and alphabetically ascending 
+        for the same start location.
+        """
+        
+        unordered_features = self.feature_set.all()
+        ordered_features = sorted(unordered_features, 
+                                  key = lambda feat: (util.getStartLocation(feat.location), 
+                                                      feat.featureKey))
+        
+        source_feature = next((f for f in ordered_features if f.featureKey in ['source', 'SOURCE']), None)
+        
+        if source_feature:
+            index_of_source_feature = ordered_features.index(source_feature)
+            if index_of_source_feature != 0:
+                ordered_features.insert(0, ordered_features.pop(index_of_source_feature))
+        
+        return ordered_features  
  
 class Feature(models.Model):
     sequence = models.ForeignKey(Sequence)

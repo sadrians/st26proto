@@ -27,3 +27,4 @@ def myCopyScript(aFileName):
 # print expandFormula('cg(agg)4..7')
 # <?xml-stylesheet type="text/xsl" href="resources/st26_w3_4.xsl"?>
 # <p><a href="{% static filePath %}">see generated sequence listing</a></p>
+# {% for f in seq.feature_set.all %}

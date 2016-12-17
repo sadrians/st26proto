@@ -135,6 +135,10 @@ def helper_generateXml(sl):
     
     with open(outf, 'w') as gf:
         gf.write(clean_xml) 
+
+def getStartLocation(aLoc):
+    numbers = re.findall(r'\d+', aLoc)
+    return int(numbers[0]) if numbers else 0
     
 def validateDocumentWithSchema(aFilePath, aSchemaPath):
     result = False

@@ -649,6 +649,97 @@ class ModelsTests(TestCase):
         views.feature_source_helper(s3, 'Mus musculus')
         self.assertEqual('Mus musculus', s3.getOrganism())
  
+    def test_getOrderedFeatures(self):
+        """
+        Test that the Sequence object returns correctly the ordered features.
+        """
+        print 'Running %s ...' % getName()
+               
+        s1 = self.sequenceListingFixture.create_sequence_instance(self.sequenceListing)             
+        
+#         test that source feature is at index 0 when feature table has only 1 feature 
+        source_feature = next((f for f in s1.feature_set.all() if f.featureKey == 'source'), None)
+        ordered_features = s1.getOrderedFeatures()
+        self.assertTrue(source_feature)
+        self.assertEqual(0, ordered_features.index(source_feature))
+        
+#         add feature
+        f1_1 = Feature.objects.create(sequence=s1, 
+                                      featureKey='misc_feature', 
+                                      location='4')
+        
+        ordered_features_after_f1_1 = s1.getOrderedFeatures()
+        
+        self.assertEqual(0, ordered_features_after_f1_1.index(source_feature))
+        self.assertEqual(1, ordered_features_after_f1_1.index(f1_1))
+        
+        #         add feature
+        f1_2 = Feature.objects.create(sequence=s1, 
+                                      featureKey='misc_feature', 
+                                      location='2')
+        
+        ordered_features_after_f1_2 = s1.getOrderedFeatures()
+        
+        self.assertEqual(0, ordered_features_after_f1_2.index(source_feature))
+        self.assertEqual(1, ordered_features_after_f1_2.index(f1_2))
+        self.assertEqual(2, ordered_features_after_f1_2.index(f1_1))
+        
+        #         add feature
+        f1_3 = Feature.objects.create(sequence=s1, 
+                                      featureKey='variation', 
+                                      location='9')
+        
+        ordered_features_after_f1_3 = s1.getOrderedFeatures()
+        
+        self.assertEqual(0, ordered_features_after_f1_3.index(source_feature))
+        self.assertEqual(1, ordered_features_after_f1_3.index(f1_2))
+        self.assertEqual(2, ordered_features_after_f1_3.index(f1_1))
+        self.assertEqual(3, ordered_features_after_f1_3.index(f1_3))
+        
+        #         add feature
+        f1_4 = Feature.objects.create(sequence=s1, 
+                                      featureKey='allele', 
+                                      location='9')
+        
+        ordered_features_after_f1_4 = s1.getOrderedFeatures()
+        
+        self.assertEqual(0, ordered_features_after_f1_4.index(source_feature))
+        self.assertEqual(1, ordered_features_after_f1_4.index(f1_2))
+        self.assertEqual(2, ordered_features_after_f1_4.index(f1_1))
+        self.assertEqual(3, ordered_features_after_f1_4.index(f1_4))
+        self.assertEqual(4, ordered_features_after_f1_4.index(f1_3))
+        
+        #         add feature
+        f1_5 = Feature.objects.create(sequence=s1, 
+                                      featureKey='iDNA', 
+                                      location='9')
+        
+        ordered_features_after_f1_5 = s1.getOrderedFeatures()
+        
+        self.assertEqual(0, ordered_features_after_f1_5.index(source_feature))
+        self.assertEqual(1, ordered_features_after_f1_5.index(f1_2))
+        self.assertEqual(2, ordered_features_after_f1_5.index(f1_1))
+        self.assertEqual(3, ordered_features_after_f1_5.index(f1_4))
+        self.assertEqual(4, ordered_features_after_f1_5.index(f1_5))
+        self.assertEqual(5, ordered_features_after_f1_5.index(f1_3))
+        
+        #         add feature this will be ordered before 'allele', because 
+#         capital letters are lower than lower case in ASCII
+        f1_6 = Feature.objects.create(sequence=s1, 
+                                      featureKey='CDS', 
+                                      location='9..17')
+        
+        ordered_features_after_f1_6 = s1.getOrderedFeatures()
+        
+        self.assertEqual(0, ordered_features_after_f1_6.index(source_feature))
+        self.assertEqual(1, ordered_features_after_f1_6.index(f1_2))
+        self.assertEqual(2, ordered_features_after_f1_6.index(f1_1))
+        self.assertEqual(3, ordered_features_after_f1_6.index(f1_6))
+        self.assertEqual(4, ordered_features_after_f1_6.index(f1_4))
+        self.assertEqual(5, ordered_features_after_f1_6.index(f1_5))
+        self.assertEqual(6, ordered_features_after_f1_6.index(f1_3))
+        
+ 
 class UtilTests(TestCase):
     def setUp(self):
         self.sequenceListingFixture = SequenceListingFixture()
@@ -758,7 +849,37 @@ class UtilTests(TestCase):
 #         SequenceTotalQuantity element is missing
         f8 = os.path.join(util.TEST_DATA_DIR_PATH, 'test8.xml')
         self.assertFalse(util.validateDocumentWithDtd(f8, util.XML_DTD_PATH))
-         
+    
+    def test_getStartLocation(self):
+        """
+        Test that start location is correctly returned.
+        """
+        print 'Running %s ...' % getName()
+        loc1 = '467'
+        loc2 = '340..565'
+        loc3 = '<345..500'
+        loc4 = '<1..888'  
+        loc5 = '1..>888'  
+        loc6 = '102.110'  
+        loc7 = '123^124'  
+        loc8 = 'join(12..78,134..202)'  
+        loc9 = 'complement(34..126)'    
+        loc10 = 'complement(join(2691..4571,4918..5163))'
+#         for loc11 the start location returned will be 4918, i.e. the first 
+#         number, which is not the lowest
+        loc11 = 'join(complement(4918..5163),complement(2691..4571))' 
+        loc12 = ''
+        loc13 = 'abc'
+        loc14 = '<1..>888'
+        
+        loc = [loc1, loc2, loc3, loc4, loc5, loc6, loc7, 
+               loc8, loc9, loc10, loc11, loc12, loc13, loc14]
+        
+        expected = [467, 340, 345, 1, 1, 102, 123, 12, 34, 2691, 4918, 0, 0, 1]
+        actual = [util.getStartLocation(lo) for lo in loc]
+        
+        self.assertEqual(expected, actual)
+                                  
 class FormsTests(TestCase):
     @classmethod
     def setUpClass(cls):
