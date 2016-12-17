@@ -137,7 +137,7 @@
         <h4>FEATURES    Location/Qualifiers</h4> 
         <!-- FEATURE TABLE -->
         {% if seq.feature_set.all %}
-            {% for f in seq.feature_set.all %}
+            {% for f in seq.getOrderedFeatures %}
                 <div class="indented">
                     <b>{{f.featureKey}}</b> {{f.location}}<br />
                     {% if f.qualifier_set.all %}
