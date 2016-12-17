@@ -758,7 +758,37 @@ class UtilTests(TestCase):
 #         SequenceTotalQuantity element is missing
         f8 = os.path.join(util.TEST_DATA_DIR_PATH, 'test8.xml')
         self.assertFalse(util.validateDocumentWithDtd(f8, util.XML_DTD_PATH))
-         
+    
+    def test_getStartLocation(self):
+        """
+        Test that start location is correctly returned.
+        """
+        print 'Running %s ...' % getName()
+        loc1 = '467'
+        loc2 = '340..565'
+        loc3 = '<345..500'
+        loc4 = '<1..888'  
+        loc5 = '1..>888'  
+        loc6 = '102.110'  
+        loc7 = '123^124'  
+        loc8 = 'join(12..78,134..202)'  
+        loc9 = 'complement(34..126)'    
+        loc10 = 'complement(join(2691..4571,4918..5163))'
+#         for loc11 the start location returned will be 4918, i.e. the first 
+#         number, which is not the lowest
+        loc11 = 'join(complement(4918..5163),complement(2691..4571))' 
+        loc12 = ''
+        loc13 = 'abc'
+        loc14 = '<1..>888'
+        
+        loc = [loc1, loc2, loc3, loc4, loc5, loc6, loc7, 
+               loc8, loc9, loc10, loc11, loc12, loc13, loc14]
+        
+        expected = [467, 340, 345, 1, 1, 102, 123, 12, 34, 2691, 4918, 0, 0, 1]
+        actual = [util.getStartLocation(lo) for lo in loc]
+        
+        self.assertEqual(expected, actual)
+                                  
 class FormsTests(TestCase):
     @classmethod
     def setUpClass(cls):
