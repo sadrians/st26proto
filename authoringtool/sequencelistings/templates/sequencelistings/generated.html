@@ -2,8 +2,11 @@
 {% load staticfiles %}
 <html>
     <head>
-        <title>generated xseql</title>
-        <link rel="stylesheet" type="text/css" href="{% static 'sequencelistings/output/resources/style.css' %}"/>
+        <title>XHTML generated seql</title>
+        
+        <link rel="stylesheet" type="text/css" href="{% static 'sequencelistings/output/resources/style_colour.css' %}" title="colour"/>
+        <link rel="alternate stylesheet" type="text/css" href="{% static 'sequencelistings/output/resources/style_basic.css' %}" title="basic"/>
+ 
         <script src="{% static 'sequencelistings/output/resources/splitLines.js' %}"></script>
         <script>
         
@@ -35,7 +38,7 @@
                 if (window.ActiveXObject || xhttp.responseType == "msxml-document")
                   {
                     ex = xml.transformNode(xsl);
-                    document.getElementById("example").innerHTML = ex;
+                    document.getElementById("seql").innerHTML = ex;
                   }
                 // code for Chrome, Firefox, Opera, etc.
                 else if (document.implementation && document.implementation.createDocument)
@@ -43,10 +46,10 @@
                     xsltProcessor = new XSLTProcessor();
                     xsltProcessor.importStylesheet(xsl);
                     resultDocument = xsltProcessor.transformToFragment(xml, document);
-                    document.getElementById("example").appendChild(resultDocument);
+                    document.getElementById("seql").appendChild(resultDocument);
                   }
     
-                x = document.getElementsByClassName("residuesTest");
+                x = document.getElementsByClassName("residues");
                 for (i = 0; i < x.length; i++)
                 {
                     var currentResidues = getSplitString(x[i].innerHTML);
@@ -58,6 +61,6 @@
         </script>
     </head>
     <body onload="displayResult()">
-        <div id="example"/>
+        <div id="seql"/>
     </body>
 </html>

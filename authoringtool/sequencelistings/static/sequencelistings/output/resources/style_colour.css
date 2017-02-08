@@ -1,0 +1,40 @@
+body {
+    font-size: 20px;
+}
+
+/* ===================TABLE STYLE ==============================*/
+table{
+    border: 2px solid black;
+    text-align: left;
+    /* border-spacing: 0 10px; */
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-spacing: 0 10px;
+    padding: 10px 10px 0px 10px;
+}
+
+
+
+th{
+    background-color: #B8DBF2;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2}
+
+
+/* ===================RESIDUES TABLE STYLE ==============================*/
+
+.residues {
+    font-family: "Courier New", Courier, monospace;
+}
+
+.indented {
+    text-indent: 50px;
+}
+
+.qualifier {
+    text-indent: 100px;
+}

@@ -1,0 +1,20 @@
+body {
+    font-size: 20px;
+}
+
+table {
+    text-align:left;
+}
+
+.indented {
+    text-indent: 50px;
+}
+
+.qualifier {
+    text-indent: 100px;
+}
+
+.residues {
+    font-family: "Courier New", Courier, monospace;
+}
+

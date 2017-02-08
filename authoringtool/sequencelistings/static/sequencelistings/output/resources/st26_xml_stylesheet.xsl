@@ -5,7 +5,7 @@
 
     <xsl:template match="/">
 
-                <h1>ST26 SEQUENCE LISTING with client side XSLT</h1>
+                <h1>ST26 SEQUENCE LISTING displayed with XSLT</h1>
                 <h2>GENERAL INFORMATION</h2>
 
                 <table>
@@ -189,17 +189,16 @@
                             </div>
                         </xsl:for-each>
                     </xsl:for-each>
-                    <br />
                     <!-- END FEATURE TABLE -->
                     
                     <!-- RESIDUES -->
                     <h4 id="sequenceHeading">SEQUENCE:</h4>
                     <!-- <div class="residuesTest"> -->
-                    <div class="residuesTest">
+                    <div class="residues">
                         <xsl:value-of select="INSDSeq/INSDSeq_sequence"/>
                     </div>
                     <!-- END RESIDUES -->
-                    <br />
+                    <hr />
                 </xsl:for-each>
     </xsl:template>
 </xsl:stylesheet>
