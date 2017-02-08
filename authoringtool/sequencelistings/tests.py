@@ -4,6 +4,7 @@ import django
 django.setup()
 
 from django.test import TestCase
+from django.contrib.auth.models import User 
 # from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from django.core.urlresolvers import resolve, reverse
 from models import SequenceListing, Title, Sequence, Feature, Qualifier
@@ -130,12 +131,6 @@ class ViewsTests(TestCase):
                                  ['<SequenceListing: Sequence listing test_xmlsql>'])
      
      
-    def test_add_sequencelisting_view(self):
-        print 'Running %s ...' % getName()
-#         test that URL resolves to correct views function
-        found = resolve('/sequencelistings/add_sequencelisting/')
-        self.assertEqual(found.func, views.add_sequencelisting)
- 
 #     def test_add_sequencelisting_page_can_save_a_post_request(self):
 # #         TODO: add code similar to TDD online book? ...
  
@@ -271,30 +266,56 @@ class ViewsTests(TestCase):
         self.assertContains(response, "test for note")
   
 #     TODO: status code is 302 instead of 200. why???? bc of some redirection (2016 Jun 30)
-#     def test_add_sequencelisting_view(self):
-#         """
-#         The form add_sequencelisting is correctly displayed.
-#         """
-#         print 'Running %s ...' % getName()
-#         response = self.client.get(reverse('sequencelistings:add_sequencelisting'))
-#         print 'response:', response
-#         self.assertEqual(response.status_code, 200)
-#         self.assertContains(response, "Create a sequence listing")
-#         self.assertContains(response, "File name:")
+    
+    def test_add_sequencelisting_view(self):
+        """
+        The form add_sequencelisting is correctly displayed.
+        """
+        print 'Running %s ...' % getName()
+        found = resolve('/sequencelistings/add_sequencelisting/')
+        self.assertEqual(found.func, views.add_sequencelisting)
+        
+        response = self.client.get(reverse('sequencelistings:add_sequencelisting'))
+        
+        #         first redirected because not logged in 
+        self.assertEqual(response.status_code, 302)
+#         create a user and log in
+        self.user = User.objects.create_user(username='testuser', password='12345')
+        self.user.save()
+        login = self.client.login(username='testuser', password='12345')
+        
+        response = self.client.get(reverse('sequencelistings:add_sequencelisting'))
+        
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "Create a sequence listing")
+        self.assertContains(response, "File name:")
      
-    def test_edit_sequence_data_view(self):
+    def test_edit_seql_view(self):
         print 'Running %s ...' % getName()
          
-        found = resolve('/sequencelistings/sl%d/edit_sequence_data/' % self.sequenceListing.id)
-        self.assertEqual(found.func, views.edit_sequence_data)
+        found = resolve('/sequencelistings/sl%d/edit_seql/' % self.sequenceListing.id)
+        self.assertEqual(found.func, views.edit_seql)
          
         self.sequenceListingFixture.create_sequence_instance(self.sequenceListing)
          
-        response = self.client.get(reverse('sequencelistings:edit_sequence_data', 
+        response = self.client.get(reverse('sequencelistings:edit_seql', 
                                            args=[self.sequenceListing.id]))
 #         test that the page returns expected html contents
+#         first redirected because not logged in 
+        self.assertEqual(response.status_code, 302)
+#         create a user and log in
+        self.user = User.objects.create_user(username='testuser', password='12345')
+        self.user.save()
+        login = self.client.login(username='testuser', password='12345')
+        
+        response = self.client.get(reverse('sequencelistings:edit_seql', 
+                                           args=[self.sequenceListing.id]))
         self.assertEqual(response.status_code, 200)
-        self.assertContains(response, "EDIT SEQUENCE DATA")
+        
+        self.assertContains(response, "EDIT SEQUENCE LISTING")
+        self.assertContains(response, "Add new title")
+        self.assertContains(response, "Add new sequence")        
+        self.assertContains(response, "Add new feature")        
         self.assertContains(response, "Add new qualifier")        
  
     def test_sequence_view(self):

@@ -15,8 +15,6 @@ urlpatterns = patterns('',
     url(r'^download/(?P<fileName>.*)/$', views.download, name='download'),
     url(r'^display/(?P<fileName>.*)/$', views.display, name='display'),
     url(r'^sl(?P<pk>\d+)/$', views.detail, name='detail'),
-    url(r'^sl(?P<pk>\d+)/edit_sequence_data/$', views.edit_sequence_data, 
-        name='edit_sequence_data'),
     url(r'^sl(?P<pk>\d+)/edit_seql/$', views.edit_seql, name='edit_seql'),
 #     inconsistent names url vs function add_seq vs add_sequence!!!!
     url(r'^sl(?P<pk>\d+)/add_seq/$', views.add_sequence, name='add_seq'),

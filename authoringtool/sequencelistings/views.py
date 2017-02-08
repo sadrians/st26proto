@@ -38,18 +38,12 @@ def detail(request, pk): #good
         
     return render(request, 'sequencelistings/detail.html', {'sequencelisting': sl})
 
-# TODO: is this needed?
-
-def edit_sequence_data(request, pk): #good
-    sl = get_object_or_404(SequenceListing, pk=pk)
-        
-    return render(request, 'sequencelistings/edit_sequence_data_w3.html', {'sequencelisting': sl})
 
 @login_required 
 def edit_seql(request, pk):
     sl = get_object_or_404(SequenceListing, pk=pk)
         
-    return render(request, 'sequencelistings/edit_seql_w3_4.html', {'sequencelisting': sl})
+    return render(request, 'sequencelistings/edit_seql.html', {'sequencelisting': sl})
 
 
 @login_required 
