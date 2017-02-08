@@ -176,7 +176,7 @@
                     <h4>FEATURES    Location/Qualifiers</h4> 
                     
                     <xsl:for-each select="INSDSeq/INSDSeq_feature-table/INSDFeature">
-                        <div class="indented">
+                        <div class="feature">
                             <b><xsl:value-of select="INSDFeature_key"/></b> 
                             <xsl:text> </xsl:text>
                             <xsl:value-of select="INSDFeature_location"/>

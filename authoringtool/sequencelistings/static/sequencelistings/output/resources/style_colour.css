@@ -25,13 +25,13 @@ th{
 tr:nth-child(even) {background-color: #f2f2f2}
 
 
-/* ===================RESIDUES TABLE STYLE ==============================*/
+/* =================================================*/
 
 .residues {
     font-family: "Courier New", Courier, monospace;
 }
 
-.indented {
+.feature {
     text-indent: 50px;
 }
 
