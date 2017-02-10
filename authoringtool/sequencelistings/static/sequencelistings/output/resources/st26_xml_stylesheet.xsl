@@ -8,7 +8,7 @@
                 <h1>ST26 SEQUENCE LISTING displayed with XSLT</h1>
                 <h2>GENERAL INFORMATION</h2>
 
-                <table>
+                <table class="genTable">
                     <tr>
                         <th>File name</th>
                         <td>
@@ -161,7 +161,7 @@
                 <!-- SEQUENCE DATA -->
                 <h2>SEQUENCE DATA</h2>
                 <xsl:for-each select="ST26SequenceListing/SequenceData">
-                    <table>
+                    <table class="genTable">
                         <tr>
                             <th>SEQ ID NO:</th>
                             <td><xsl:value-of select="@sequenceIDNumber"/></td>

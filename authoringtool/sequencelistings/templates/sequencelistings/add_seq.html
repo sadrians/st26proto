@@ -16,7 +16,7 @@
 </p>
 <form action="{% url 'sequencelistings:add_seq' pk %}" method="post">
     {% csrf_token %}
-    <table>
+    <table class="genTable">
         {{ form.as_table }}
     </table>
     <br>

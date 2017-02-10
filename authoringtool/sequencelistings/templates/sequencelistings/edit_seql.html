@@ -5,7 +5,6 @@
 {%block header_block %}
     <p>
         <a href="{% url 'sequencelistings:index' %}">Home &gt;&gt;</a>
-        <!-- TODO: add navigation back to seql detail -->
         <a href="{% url 'sequencelistings:detail' sequencelisting.pk %}">{{ sequencelisting }}</a>
     </p>
     <h1>EDIT SEQUENCE LISTING {{ sequencelisting.fileName }}</h1>
@@ -26,7 +25,7 @@
         </button>
         
         <div id="genInfo" class="w3-accordion-content">    
-            <table class="w3-table w3-bordered w3-border w3-striped">
+            <table class="genTable">
                 <tr>
                     <th>File name</th><td>{{sequencelisting.fileName}}</td>
                 </tr>
@@ -113,7 +112,7 @@
     <h2>SEQUENCE DATA</h2>
     
     {% for seq in sequencelisting.sequence_set.all %}
-        <table>
+        <table class="genTable">
             <tr>
                 <th>SEQ ID NO:</th>
                 <td>

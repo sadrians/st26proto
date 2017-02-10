@@ -33,7 +33,7 @@
         </button>
         
         <div id="genInfo" class="w3-accordion-content">    
-            <table class="w3-table w3-bordered w3-border w3-striped">
+            <table class="genTable">
                 <tr>
                     <th>File name</th><td>{{sequencelisting.fileName}}</td>
                 </tr>
@@ -121,7 +121,7 @@
     <h2>SEQUENCE DATA</h2>
     
     {% for seq in sequencelisting.sequence_set.all %}
-        <table>
+        <table class="genTable">
             <tr>
                 <th>SEQ ID NO:</th>
                 <td>{{ seq.sequenceIdNo }}</td>

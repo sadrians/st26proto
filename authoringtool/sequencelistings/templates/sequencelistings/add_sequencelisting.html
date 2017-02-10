@@ -11,12 +11,12 @@
 
 <form action="{% url 'sequencelistings:add_sequencelisting' %}" method="post">
     {% csrf_token %}
-    <table>
+    <table class="genTable">
         {{ title_form.as_table }}
     </table>
     <hr>
     
-    <table>
+    <table class="genTable">
         {{ form.as_table }}
     </table>
     <br>

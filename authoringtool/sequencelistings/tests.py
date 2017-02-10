@@ -94,7 +94,7 @@ class IndexViewNoSequenceListingTest(TestCase):
         response = self.client.get(reverse('sequencelistings:index'))
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, "No sequence listings are available.")
-        self.assertContains(response, "sequencelistings/output/resources/style.css")
+        self.assertContains(response, "sequencelistings/output/resources/style_colour.css")
         self.assertQuerysetEqual(response.context['sequencelistings'], [])
               
 class ViewsTests(TestCase):
