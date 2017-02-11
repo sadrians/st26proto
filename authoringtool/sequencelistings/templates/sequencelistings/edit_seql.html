@@ -140,7 +140,7 @@
         <!-- FEATURE TABLE -->
         {% if seq.feature_set.all %}
             {% for f in seq.feature_set.all %}
-                <div class="indented">
+                <div class="feature">
                     <a href="{% url 'sequencelistings:edit_feature' sequencelisting.pk seq.pk f.pk %}">{{f.featureKey}}</a> 
                     {{f.location}} 
                     <br />
@@ -167,7 +167,7 @@
         <!-- if the user is logged in show link for adding feature  -->
         {% if user.is_authenticated %}
             {% if sequencelisting.isEditable or user.is_staff  %}
-                <div class="indented">
+                <div class="feature">
                     <a href='/sequencelistings/sl{{sequencelisting.pk}}/seq{{seq.pk}}/add_feature/'>Add new feature</a> 
                 </div>
             {% endif %}

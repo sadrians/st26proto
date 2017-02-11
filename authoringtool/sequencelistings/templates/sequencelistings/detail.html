@@ -138,7 +138,7 @@
         <!-- FEATURE TABLE -->
         {% if seq.feature_set.all %}
             {% for f in seq.getOrderedFeatures %}
-                <div class="indented">
+                <div class="feature">
                     <b>{{f.featureKey}}</b> {{f.location}}<br />
                     {% if f.qualifier_set.all %}
                             {% for q in f.qualifier_set.all %}
