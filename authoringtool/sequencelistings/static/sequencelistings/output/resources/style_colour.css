@@ -6,6 +6,10 @@ a {
     color: blue;
 }
 
+.toggleButton {
+    background-color: #25ce66;
+}
+
 /* ===================TABLE STYLE ==============================*/
 .genTable{
     text-align: left;
