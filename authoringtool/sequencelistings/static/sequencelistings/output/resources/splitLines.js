@@ -56,3 +56,7 @@ function getSplitString(aStr) {
 
     return res;
 }
+
+function seqlToggle(anId) {
+    document.getElementById(anId).classList.toggle("w3-show");
+}
