@@ -120,7 +120,16 @@
     <hr />
     <!-- SEQUENCES ==================================================-->
     <h2>SEQUENCE DATA</h2>
+    <br>
+    <!-- if the user is logged in show link for adding sequences  -->
+    {% if user.is_authenticated %}
+        {% if sequencelisting.isEditable or user.is_staff  %}
+            <p><a href="{% url 'sequencelistings:add_seq' sequencelisting.pk %}">Add new sequence</a></p>
+        {% endif %}
     
+    {% endif %}
+    
+    <!-- display the existent sequences -->
     {% for seq in sequencelisting.sequence_set.all %}
         <table class="genTable">
             <tr>
