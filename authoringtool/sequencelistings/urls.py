@@ -18,6 +18,7 @@ urlpatterns = patterns('',
     url(r'^sl(?P<pk>\d+)/edit_seql/$', views.edit_seql, name='edit_seql'),
 #     inconsistent names url vs function add_seq vs add_sequence!!!!
     url(r'^sl(?P<pk>\d+)/add_seq/$', views.add_sequence, name='add_seq'),
+    url(r'^sl(?P<pk>\d+)/import_seq/$', views.import_sequence, name='import_seq'),
     url(r'^sl(?P<pk>\d+)/add_title/$', views.add_title, name='add_title'),
     url(r'^sl(?P<pk>\d+)/seq(?P<spk>\d+)/$', views.sequence, name='sequence'),
     url(r'^sl(?P<pk>\d+)/seq(?P<spk>\d+)/add_feature/$', views.add_feature, 

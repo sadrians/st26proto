@@ -900,7 +900,26 @@ class UtilTests(TestCase):
         actual = [util.getStartLocation(lo) for lo in loc]
         
         self.assertEqual(expected, actual)
-                                  
+        
+    def test_importSequence(self):
+        """
+        Test that a sequence is correctly imported.
+        """
+        print 'Running %s ...' % getName()
+        
+        imp1 = os.path.join(util.TEST_DATA_DIR_PATH, 'imp1.fasta')
+        
+        res = util.importSequenceFile(imp1)
+        
+        expectedDescLine = 'P01013 GENE X PROTEIN (OVALBUMIN-RELATED)'
+        
+        expectedSeq = """QIKDLLVSSSTDLDTTLVLVNAIYFKGMWKTAFNAEDTREMPFHVTKQESKPVQMMCMNNSFNVATLPAE
+KMKILELPFASGDLSMLVLLPDEVSDLERIEKTINFEKLTEWTNPNTMEKRRVKVYLPQMKIEEKYNLTS
+VLMALGMTDLFIPSANLTGISSAESLKISQAVHGAFMELSEDGIEMAGSTGVIEDIKHSPESEQFRADHP
+FLFLIKHNPTNTIVYFGRYWSP"""
+        self.assertEqual(expectedDescLine, res['descLine'])
+        self.assertEqual(expectedSeq, res['seq'])
+                       
 class FormsTests(TestCase):
     @classmethod
     def setUpClass(cls):

@@ -10,7 +10,7 @@ from django.contrib.auth.decorators import login_required
 import util
 import os
 
-from forms import SequenceListingForm, TitleForm, SequenceForm, FeatureForm, QualifierForm, EditFeatureForm
+from forms import SequenceListingForm, TitleForm, SequenceForm, ImportSequenceForm, FeatureForm, QualifierForm, EditFeatureForm
 
 from models import SequenceListing, Title, Sequence, Feature, Qualifier
 from forms import MultipleFeatureForm
@@ -210,6 +210,43 @@ def add_sequence(request, pk):
     else:
         form = SequenceForm()
     return render(request, 'sequencelistings/add_seq.html', {'form': form, 'pk': pk, 'seql': sl})
+
+def import_sequence(request, pk):
+    sl = SequenceListing.objects.get(pk=pk)
+    if request.method == 'POST':
+#         organism = request.POST.get('organism')
+        form = ImportSequenceForm(request.POST)
+# 
+        if form.is_valid():
+            cd = form.cleaned_data
+#             raw_residues = cd['residues']
+#             
+#             sequence_instance = Sequence(sequenceListing = sl,
+#                 length = len(cd['residues']),
+#                 moltype = cd['moltype'],
+#                 residues = cd['residues'] 
+#                 )
+#             
+#             sequence_instance.save()
+#             feature_source_helper(sequence_instance, organism)
+# #             create a note qualifier to indicate the a formula if applicable
+#             if '(' in raw_residues:
+#                 value_for_note = 'note'
+#                 if cd['moltype'] == 'AA':
+#                     value_for_note = 'NOTE'
+#                 
+#                 feature_instance = Feature.objects.filter(sequence = sequence_instance)[0]
+#                 note_qualifier_instance = Qualifier.objects.create(feature=feature_instance, 
+#                                                           qualifierName=value_for_note, 
+#                                                           qualifierValue=raw_residues)
+#                 note_qualifier_instance.save()
+#             
+            return HttpResponseRedirect(reverse('sequencelistings:detail', args=(pk,)))
+    else:
+        form = ImportSequenceForm()
+#     return render(request, 'sequencelistings/add_seq.html', {'form': form, 'pk': pk, 'seql': sl})
+    return render(request, 'sequencelistings/import_seq.html', {'form': form, 'pk': pk, 'seql': sl})
+
 
 def feature_source_helper(seq, organism):
     '''

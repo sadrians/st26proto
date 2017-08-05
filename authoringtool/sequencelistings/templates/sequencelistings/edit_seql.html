@@ -121,12 +121,13 @@
     <!-- SEQUENCES ==================================================-->
     <h2>SEQUENCE DATA</h2>
     <br>
-    <!-- if the user is logged in show link for adding sequences  -->
+    
+    <!-- if the user is logged in show links for adding and importing sequence  -->
     {% if user.is_authenticated %}
         {% if sequencelisting.isEditable or user.is_staff  %}
             <p><a href="{% url 'sequencelistings:add_seq' sequencelisting.pk %}">Add new sequence</a></p>
+            <p><a href="{% url 'sequencelistings:import_seq' sequencelisting.pk %}">Import sequence</a></p>      
         {% endif %}
-    
     {% endif %}
     
     <!-- display the existent sequences -->
@@ -203,12 +204,12 @@
     <!-- END SEQUENCES ==================================================-->
     
     <br>
-    <!-- if the user is logged in show link for adding sequences  -->
+    <!-- if the user is logged in show links for adding and importing sequence  -->
     {% if user.is_authenticated %}
         {% if sequencelisting.isEditable or user.is_staff  %}
             <p><a href="{% url 'sequencelistings:add_seq' sequencelisting.pk %}">Add new sequence</a></p>
+            <p><a href="{% url 'sequencelistings:import_seq' sequencelisting.pk %}">Import sequence</a></p>      
         {% endif %}
-    
     {% endif %}
     
 {% endblock %}

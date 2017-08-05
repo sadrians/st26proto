@@ -4,7 +4,7 @@ Created on Apr 11, 2015
 @author: ad
 '''
 
-from django.forms import Form, ModelForm, CharField, ChoiceField, PasswordInput
+from django.forms import Form, ModelForm, CharField, ChoiceField, PasswordInput, FileField
 from django.contrib.auth.models import User 
 from models import SequenceListing, Title, Sequence, Feature, Qualifier 
 import util
@@ -54,6 +54,10 @@ class SequenceForm(ModelForm):
 #                   'otherSeqId',
                   'residues'] 
 
+class ImportSequenceForm(Form):
+#     sequence = CharField(max_length=50)
+    file = FileField(label='Select a file', help_text='Recognised formats: FASTA, (more will be added later).')
+    
 class FeatureForm(ModelForm):
     c = []
     def __init__(self, *args, **kwargs):

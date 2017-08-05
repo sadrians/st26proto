@@ -61,6 +61,9 @@ FORMULA_CHARS = '[a-zA-Z]+'
 FORMULA_REGEX = r'(?P<head>%s)\((?P<region>%s)\)(?P<startOccurrence>\d+)(\.\.(?P<endOccurrence>\d+))?(?P<tail>%s)?' % (FORMULA_CHARS, FORMULA_CHARS, FORMULA_CHARS)
 FORMULA_PATTERN = re.compile(FORMULA_REGEX)
 
+FASTA_REGEX = r'>(?P<descLine>.*?\n)(?P<seq>.*)'
+FASTA_PATTERN = re.compile(FASTA_REGEX, re.DOTALL)
+
 def generate_list(inputFilePath):
     lis = []
     with open(inputFilePath, 'r') as f:
@@ -182,6 +185,26 @@ def generateXmlSchemaFeatureKeyValuesEnumeration():
         print '<xs:enumeration value="%s"/>' % fk 
 
 # generateXmlSchemaFeatureKeyValuesEnumeration()
+
+def importSequenceFile(aFilePath):
+    res = {}
+    with open(aFilePath, 'r') as f:
+        fileContents = f.read()
+        
+        print 'test:', fileContents
+        
+        m = re.match(FASTA_PATTERN, fileContents)
+        
+        if m:
+            print 'match found'
+            
+            res['descLine'] = m.group('descLine').strip()
+            res['seq'] = m.group('seq').strip()
+            
+            print 'desc:', res['descLine']
+            print 'seq:', res['seq']
+            
+    return res
 
 # <INSDSeq_other-seqids>
 #                     <INSDSeqid>{{seq.otherSeqId}}</INSDSeqid>
