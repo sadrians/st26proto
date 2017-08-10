@@ -56,8 +56,13 @@ class SequenceForm(ModelForm):
 
 class ImportSequenceForm(Form):
 #     sequence = CharField(max_length=50)
-    file = FileField(label='Select a file', help_text='Recognised formats: FASTA, (more will be added later).')
-    
+#     file = FileField(label='Select a file', help_text='Recognised formats: FASTA, (more will be added later).')
+#     title = CharField(max_length=50)
+    sequenceName = CharField(max_length=50)
+    organism = CharField(max_length=50)
+    molType = CharField(max_length=3)
+    file = FileField()
+
 class FeatureForm(ModelForm):
     c = []
     def __init__(self, *args, **kwargs):

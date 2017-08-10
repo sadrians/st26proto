@@ -4,6 +4,7 @@ Created on Apr 17, 2015
 @author: ad
 '''
 import os, re, logging 
+from collections import namedtuple
 from django.template.loader import render_to_string
 from lxml import etree 
 
@@ -204,6 +205,20 @@ def importSequenceFile(aFilePath):
             print 'desc:', res['descLine']
             print 'seq:', res['seq']
             
+    return res
+
+def parseString_fasta(aString):
+    ParsedFasta = namedtuple('ParsedFasta', 'descriptionLine sequenceLine')
+    
+    res = ('ee', 'ee')
+    
+    m = re.match(FASTA_PATTERN, aString)
+        
+    if m:
+        res = ParsedFasta(m.group('descLine').strip(), m.group('seq').replace('\n', ''))
+        
+#         print 'desc:', res.descriptionLine
+#         print 'seq:', res.sequenceLine        
     return res
 
 # <INSDSeq_other-seqids>

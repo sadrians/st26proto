@@ -919,6 +919,26 @@ VLMALGMTDLFIPSANLTGISSAESLKISQAVHGAFMELSEDGIEMAGSTGVIEDIKHSPESEQFRADHP
 FLFLIKHNPTNTIVYFGRYWSP"""
         self.assertEqual(expectedDescLine, res['descLine'])
         self.assertEqual(expectedSeq, res['seq'])
+        
+    def test_parseString_fasta(self):
+        """
+        Test that a Fasta sequence is correctly parsed.
+        """
+        print 'Running %s ...' % getName()
+        
+        imp1 = """>P01013 GENE X PROTEIN (OVALBUMIN-RELATED)
+QIKDLLVSSSTDLDTTLVLVNAIYFKGMWKTAFNAEDTREMPFHVTKQESKPVQMMCMNNSFNVATLPAE
+KMKILELPFASGDLSMLVLLPDEVSDLERIEKTINFEKLTEWTNPNTMEKRRVKVYLPQMKIEEKYNLTS
+VLMALGMTDLFIPSANLTGISSAESLKISQAVHGAFMELSEDGIEMAGSTGVIEDIKHSPESEQFRADHP
+FLFLIKHNPTNTIVYFGRYWSP"""
+        
+        res = util.parseString_fasta(imp1)
+        
+        expectedDescLine = 'P01013 GENE X PROTEIN (OVALBUMIN-RELATED)'
+        
+        expectedSeq = """QIKDLLVSSSTDLDTTLVLVNAIYFKGMWKTAFNAEDTREMPFHVTKQESKPVQMMCMNNSFNVATLPAEKMKILELPFASGDLSMLVLLPDEVSDLERIEKTINFEKLTEWTNPNTMEKRRVKVYLPQMKIEEKYNLTSVLMALGMTDLFIPSANLTGISSAESLKISQAVHGAFMELSEDGIEMAGSTGVIEDIKHSPESEQFRADHPFLFLIKHNPTNTIVYFGRYWSP"""
+        self.assertEqual(expectedDescLine, res.descriptionLine)
+        self.assertEqual(expectedSeq, res.sequenceLine)
                        
 class FormsTests(TestCase):
     @classmethod

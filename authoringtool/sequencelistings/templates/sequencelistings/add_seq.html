@@ -21,6 +21,9 @@
 </p>
 <form action="{% url 'sequencelistings:add_seq' pk %}" method="post">
     {% csrf_token %}
+    
+    <!-- <p>Sequence name:<input type='text' name='sequenceName' placeholder='Still to be implemented.'></p> -->
+    
     <table class="genTable">
         {{ form.as_table }}
     </table>

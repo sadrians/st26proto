@@ -13,28 +13,35 @@
 <!-- import -->
 <hr>
 <h3>IMPORT</h3>
-<form action="{% url 'sequencelistings:add_seq' pk %}" method="post">
+<form enctype="multipart/form-data" action="{% url 'sequencelistings:import_seq' pk %}" method="post">
     {% csrf_token %}
-    <table class="genTable">
-        {{ form.as_table }}
+    <!-- {{form}} -->
+    <!-- <table class='genTable'> -->
+        <!-- <tr>
+            <th>Sequence name</th>
+            <td><input type='text' name='sequenceName' placeholder='Still to be implemented.'></td>
+        </tr> -->
+        <!-- <tr>
+            <th>Organism</th>
+            <td><input type='text' name='organism'></td>
+        </tr> -->
+        <!-- <tr>
+            <th>Molecule type</th>
+            <td><input type='text' name='molType'></td>
+        </tr> -->
+        <!-- <tr> -->
+            <!-- <th>File path</th> -->
+            <!-- <td><input type='file' enctype="multipart/form-data" name='my_uploaded_file'></td> -->
+        <!-- </tr> -->
+    <!-- </table> -->
+    <br>
+    <table class='genTable'>
+    {{form.as_table}}
     </table>
+    
+    <p>Recognised formats: FASTA, (more will come later).</p>
     <br>
     <p><input type="submit" value="Upload file" /></p>
     
 </form>
-<!-- create -->
-<!-- <hr>
-<h3>CREATE</h3>
-<p>
-<strong>Note:</strong> In addition to the standard residues symbols, <strong>Residues</strong> field accepts formulas. For example, 'cgt(cgta)4..6gt' will be expanded to the longest possible sequence (in this case, 'cgta' group will be repeated 6 times).
-</p>
-<form action="{% url 'sequencelistings:add_seq' pk %}" method="post">
-    {% csrf_token %}
-    <table class="genTable">
-        {{ form.as_table }}
-    </table>
-    <br>
-    <p><input type="submit" value="Submit" /></p>
-    
-</form>
-{% endblock %} -->
+{% endblock %}
