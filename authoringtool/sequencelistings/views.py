@@ -211,13 +211,15 @@ def add_sequence(request, pk):
         form = SequenceForm()
     return render(request, 'sequencelistings/add_seq.html', {'form': form, 'pk': pk, 'seql': sl})
 
+
+# this function is GOOD!!!
 def import_sequence(request, pk):
     sl = SequenceListing.objects.get(pk=pk)
-#     seqIdNo = len(Sequence.objects.all()) +1
-         
+    seqIdNo = len(sl.sequence_set.all()) +1
+          
     if request.method == 'POST':
         form = ImportSequenceForm(request.POST, request.FILES)
-
+ 
         if form.is_valid():
             cd = form.cleaned_data
             sequenceName = cd['sequenceName']
@@ -235,7 +237,7 @@ def import_sequence(request, pk):
                 moltype = molType,
                 residues = rs 
                 )
-                
+                 
             sequence_instance.save()
             feature_source_helper(sequence_instance, organism)
             if de:
@@ -245,10 +247,10 @@ def import_sequence(request, pk):
                                                         qualifierName=value_for_note, 
                                                         qualifierValue=de)
                 note_qualifier_instance.save()
-              
+               
         return HttpResponseRedirect(reverse('sequencelistings:detail', args=(pk,)))
     else:
-        form = ImportSequenceForm()
+        form = ImportSequenceForm(initial={'sequenceName': 'seq_%i' % seqIdNo})
     return render(request, 'sequencelistings/import_seq.html', {'pk': pk, 'seql': sl, 'form': form})
 
 

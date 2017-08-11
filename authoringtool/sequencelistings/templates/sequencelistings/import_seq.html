@@ -15,31 +15,10 @@
 <h3>IMPORT</h3>
 <form enctype="multipart/form-data" action="{% url 'sequencelistings:import_seq' pk %}" method="post">
     {% csrf_token %}
-    <!-- {{form}} -->
-    <!-- <table class='genTable'> -->
-        <!-- <tr>
-            <th>Sequence name</th>
-            <td><input type='text' name='sequenceName' placeholder='Still to be implemented.'></td>
-        </tr> -->
-        <!-- <tr>
-            <th>Organism</th>
-            <td><input type='text' name='organism'></td>
-        </tr> -->
-        <!-- <tr>
-            <th>Molecule type</th>
-            <td><input type='text' name='molType'></td>
-        </tr> -->
-        <!-- <tr> -->
-            <!-- <th>File path</th> -->
-            <!-- <td><input type='file' enctype="multipart/form-data" name='my_uploaded_file'></td> -->
-        <!-- </tr> -->
-    <!-- </table> -->
-    <br>
     <table class='genTable'>
     {{form.as_table}}
     </table>
     
-    <p>Recognised formats: FASTA, (more will come later).</p>
     <br>
     <p><input type="submit" value="Upload file" /></p>
     
