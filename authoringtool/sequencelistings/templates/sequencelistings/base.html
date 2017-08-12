@@ -9,12 +9,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="http://getbootstrap.com/favicon.ico">
+    <!-- <link rel="icon" href="http://getbootstrap.com/favicon.ico"> -->
     
     <title>st26proto - {% block title %}seql{% endblock %}</title>
 
-    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="http://getbootstrap.com/examples/dashboard/dashboard.css" rel="stylesheet">
+    <!-- <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+    <!-- <link href="http://getbootstrap.com/examples/dashboard/dashboard.css" rel="stylesheet"> -->
     <!-- <link rel="stylesheet" type="text/css" href="{% static 'sequencelistings/w3.css' %}"> -->
     <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
 
@@ -28,7 +28,7 @@
 
   <body>
     
-    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <!-- <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container-fluid">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
@@ -55,16 +55,30 @@
             </ul>
         </div>
       </div>
-    </div>
+    </div> -->
 
+    <ul>
+                <li><a href="{% url 'sequencelistings:index' %}">Home</a></li>
+                {% if user.is_authenticated %}
+                    <li><a href="{% url 'sequencelistings:restricted' %}">Restricted Page</a></li>
+                    <li><a href="{% url 'auth_logout' %}?next=/sequencelistings/">Logout</a></li>
+                        
+                {% else %}
+                    <li><a href="{% url 'registration_register' %}">Register Here</a></li>
+                    <li><a href="{% url 'auth_login' %}">Login</a></li>
+                {% endif %}
+                <li><a href="{% url 'sequencelistings:about' %}">About</a></li>
+                
+    </ul>
+            
     <div class="container-fluid">
       <div class="row">
-        <div class="col-sm-3 col-md-2 sidebar">
+        <!-- <div class="col-sm-3 col-md-2 sidebar">
                 {% block side_block %}
                 {% get_sequenceListing_list sequenceListing %}
-                <!-- from base sequenceListing is {{sequenceListing}} -->
+                from base sequenceListing is {{sequenceListing}}
                 {% endblock %}
-        </div>
+        </div> -->
         
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
            <div>
@@ -78,7 +92,7 @@
                 
                 <hr>
                 <div id="footer">
-                <p>&copy; 2016, adrian stoica</p>
+                <p>&copy; 2017, adrian stoica</p>
                 </div>
                 
             </div>
@@ -89,10 +103,10 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> -->
+    <!-- <script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script> -->
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="http://getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js"></script>
+    <!-- <script src="http://getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js"></script> -->
   
   </body>
 </html>
