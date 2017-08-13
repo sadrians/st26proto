@@ -3,23 +3,21 @@
 {% load staticfiles %}
 
 {%block header_block %}
-    <p><a href="{% url 'sequencelistings:index' %}">Home &gt;&gt;</a></p>
     <h1>SEQUENCE LISTING {{ sequencelisting.fileName }}</h1>
 {% endblock %}
 
 {% block body_block %}
-    <h2>EXPORT</h2>
-    <p><a href="{% url 'sequencelistings:xmloutput' sequencelisting.pk %}">Generate XML</a></p>
-    <hr />
-    
-    <!-- if the user is logged in show link for editing sequence data  -->
-    {% if user.is_authenticated %}
-        {% if sequencelisting.isEditable or user.is_staff  %}
-            <h2>EDIT</h2>
-            <a href="{% url 'sequencelistings:edit_seql' sequencelisting.pk %}">Edit sequence listing</a>
-            <hr />
+    <!-- top nav bar -->
+    <div class='topnav' id='seqlTopnav'>
+        <a href="{% url 'sequencelistings:detail' sequencelisting.pk %}">Preview</a>
+        <!-- if the user is logged in show link for editing sequence data  -->
+        {% if user.is_authenticated %}
+            {% if sequencelisting.isEditable or user.is_staff  %}
+                <a href="{% url 'sequencelistings:edit_seql' sequencelisting.pk %}">Edit</a>
+            {% endif %}
         {% endif %}
-    {% endif %}
+        <a href="{% url 'sequencelistings:xmloutput' sequencelisting.pk %}">Generate XML</a>
+    </div>
     
     <!-- file information - from XML root attributes =============================== -->
     <h2>FILE INFORMATION</h2>
@@ -120,13 +118,11 @@
             
         </div>
     </div>
-    
     <!-- END GENERAL INFORMATION accordion ========================== -->
-
     <hr />
-    <!-- SEQUENCES ==================================================-->
-    <h2>SEQUENCE DATA</h2>
     
+    <!-- SEQUENCES ==================================================-->
+    <h2>SEQUENCE DATA</h2> 
     {% for seq in sequencelisting.sequence_set.all %}
         <table class="genTable">
             <tr>
@@ -141,8 +137,8 @@
             </tr>
         </table>
         
-        <h4>FEATURES    Location/Qualifiers</h4> 
         <!-- FEATURE TABLE -->
+        <h4>FEATURES    Location/Qualifiers</h4> 
         {% if seq.feature_set.all %}
             {% for f in seq.getOrderedFeatures %}
                 <div class="feature">
@@ -159,8 +155,8 @@
         {% else %}
         no features
         {% endif %}
-        
         <!-- END FEATURE TABLE -->
+        
         <!-- RESIDUES -->
         <h4 id="sequenceHeading">SEQUENCE:</h4>
         <div class="residues">

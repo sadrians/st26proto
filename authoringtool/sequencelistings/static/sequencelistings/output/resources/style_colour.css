@@ -41,6 +41,10 @@ header {
     color: white;
 }
 
+#seqlTopnav {
+    background-color: #ce2ce8;
+}
+
 /* end of topnav */
 
 a {

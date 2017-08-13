@@ -246,13 +246,17 @@ class EditSequenceListingTest(LiveServerTestCase):
 #         check that there is a detail page is produced for the newly created seql        
         self.browser.find_element_by_link_text(self.fileName).click()
         
-        headers_h2 = self.browser.find_elements_by_tag_name('h2')
-        self.assertIn('EXPORT', [h.text for h in headers_h2])
+#         headers_h2 = self.browser.find_elements_by_tag_name('h2')
+#         self.assertIn('EXPORT', [h.text for h in headers_h2])
            
-#         check that the link to edit sequence listing is displayed
-        edit_seql_link = self.browser.find_element_by_link_text('Edit sequence listing')
+#         check that the link to preview, edit and generate XML sequence listing is displayed
+        preview_seql_link = self.browser.find_element_by_link_text('Preview')
+        self.assertTrue(preview_seql_link.is_displayed())
+        edit_seql_link = self.browser.find_element_by_link_text('Edit')
         self.assertTrue(edit_seql_link.is_displayed())       
-   
+        generatexml_seql_link = self.browser.find_element_by_link_text('Generate XML')
+        self.assertTrue(generatexml_seql_link.is_displayed())       
+           
 #         add a sequence
         edit_seql_link.click()
         
@@ -280,9 +284,11 @@ class EditSequenceListingTest(LiveServerTestCase):
 #         check that the sequence has been created
 #         self.browser.get('%s%s' %(self.live_server_url, '/sequencelistings/sl1'))
 #         this commented out because it gives an error "NoSuchElementException: Message: Unable to locate element: {"method":"link text","selector":"selenium_test2"}" after disabling bootstrap which is broken since launching of v.4 beta version.
-#         self.browser.find_element_by_link_text(self.fileName).click()   
-        headers_h2 = self.browser.find_elements_by_tag_name('h2')
-        self.assertIn('EXPORT', [h.text for h in headers_h2])
+#         self.browser.find_element_by_link_text(self.fileName).click()  
+
+#         now we are on detail view
+        residues_element = self.browser.find_element_by_class_name('residues')
+        self.assert_('acgtacgtac gt', residues_element.text)
            
 #         check that the seql page contains now the new sequence
         tds = self.browser.find_elements_by_tag_name('td')

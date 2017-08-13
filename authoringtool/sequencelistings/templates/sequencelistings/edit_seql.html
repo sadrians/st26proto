@@ -3,18 +3,21 @@
 {% load staticfiles %}
 
 {%block header_block %}
-    <p>
-        <a href="{% url 'sequencelistings:index' %}">Home &gt;&gt;</a>
-        <a href="{% url 'sequencelistings:detail' sequencelisting.pk %}">{{ sequencelisting }}</a>
-    </p>
     <h1>EDIT SEQUENCE LISTING {{ sequencelisting.fileName }}</h1>
 {% endblock %}
 
 {% block body_block %}
-    
-    <h2>EXPORT</h2>
-    <p><a href="{% url 'sequencelistings:xmloutput' sequencelisting.pk %}">Generate XML</a></p>
-    <hr />
+ <!-- top nav bar -->
+    <div class='topnav' id='seqlTopnav'>
+        <a href="{% url 'sequencelistings:detail' sequencelisting.pk %}">Preview</a>
+        <!-- if the user is logged in show link for editing sequence data  -->
+        {% if user.is_authenticated %}
+            {% if sequencelisting.isEditable or user.is_staff  %}
+                <a href="{% url 'sequencelistings:edit_seql' sequencelisting.pk %}">Edit</a>
+            {% endif %}
+        {% endif %}
+        <a href="{% url 'sequencelistings:xmloutput' sequencelisting.pk %}">Generate XML</a>
+    </div>
 
     <!-- file information - from XML root attributes =============================== -->
     <h2>FILE INFORMATION</h2>
@@ -108,28 +111,21 @@
     
     <!-- END GENERAL INFORMATION accordion ========================== -->
 
-    <!-- if the user is logged in show link for adding title  -->
-    {% if user.is_authenticated %}
-        <br />
-        {% if sequencelisting.isEditable or user.is_staff  %}
-            <p><a href="{% url 'sequencelistings:add_title' sequencelisting.pk %}">Add new title</a></p>
-        {% endif %}
-    
-    {% endif %}
-    
-    <hr />
-    <!-- SEQUENCES ==================================================-->
-    <h2>SEQUENCE DATA</h2>
+    <!-- test -->
     <br>
-    
-    <!-- if the user is logged in show links for adding and importing sequence  -->
     {% if user.is_authenticated %}
         {% if sequencelisting.isEditable or user.is_staff  %}
-            <p><a href="{% url 'sequencelistings:add_seq' sequencelisting.pk %}">Add new sequence</a></p>
-            <p><a href="{% url 'sequencelistings:import_seq' sequencelisting.pk %}">Import sequence</a></p>      
+            <div class='topnav' id='editTopnav'>
+                <a href="{% url 'sequencelistings:add_title' sequencelisting.pk %}">Add new title</a>
+                <a href="{% url 'sequencelistings:add_seq' sequencelisting.pk %}">Add new sequence</a>
+                <a href="{% url 'sequencelistings:import_seq' sequencelisting.pk %}">Import sequence</a>
+            </div>
         {% endif %}
-    {% endif %}
+    {% endif %}    
+    <hr />
     
+    <!-- SEQUENCES ==================================================-->
+    <h2>SEQUENCE DATA</h2>    
     <!-- display the existent sequences -->
     {% for seq in sequencelisting.sequence_set.all %}
         <table class="genTable">
@@ -193,6 +189,7 @@
             {% endif %}
         {% endif %}
         <!-- END FEATURE TABLE -->
+        
         <!-- RESIDUES -->
         <h4 id="sequenceHeading">SEQUENCE:</h4>
         <div class="residues">
