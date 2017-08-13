@@ -9,6 +9,8 @@ from sequencelistings import views
 
 urlpatterns = patterns('',
     url(r'^$', views.IndexView.as_view(), name='index'),
+#     url(r'^$', views.index, name='index'),
+    url(r'^overview/$', views.OverviewView.as_view(), name='overview'),
     url(r'^add_sequencelisting/$', views.add_sequencelisting, 
         name='add_sequencelisting'),
     url(r'^about/$', views.about, name='about'),

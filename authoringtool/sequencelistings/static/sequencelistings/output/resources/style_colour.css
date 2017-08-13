@@ -51,6 +51,10 @@ a {
     background-color: #25ce66;
 }
 
+.newItem{
+    background-color: yellow;
+}
+
 /* ===================TABLE STYLE ==============================*/
 .genTable{
     text-align: left;

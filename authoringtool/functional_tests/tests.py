@@ -68,16 +68,16 @@ class VisitorTest(LiveServerTestCase):
     def tearDown(self):
         self.browser.quit()
                     
-    def test_can_access_index_page_no_seqls(self):
+    def test_can_access_overview_page_no_seqls(self):
         print 'Selenium: Running %s ...' % self._testMethodName
                
-        self.browser.get('%s%s' %(self.live_server_url, '/sequencelistings/'))
+        self.browser.get('%s%s' %(self.live_server_url, '/sequencelistings/overview'))
                
-        self.assertIn('st26proto - Index', self.browser.title) 
+        self.assertIn('st26proto - Overview', self.browser.title) 
                
-        headers_h2 = self.browser.find_elements_by_tag_name('h2')
-        self.assertIn('WELCOME', [h.text for h in headers_h2])
-        self.assertIn('SEQUENCE LISTING PORTOFOLIO', [h.text for h in headers_h2])
+#         headers_h2 = self.browser.find_elements_by_tag_name('h2')
+#         self.assertIn('WELCOME', [h.text for h in headers_h2])
+#         self.assertIn('SEQUENCE LISTING PORTOFOLIO', [h.text for h in headers_h2])
                      
         no_seqls_par = self.browser.find_element_by_id('no_seqls_par')  
         self.assertEqual('No sequence listings are available.', no_seqls_par.text)
@@ -110,9 +110,10 @@ class CreateSequenceListingTest(LiveServerTestCase):
         print 'Selenium: Running %s ...' % self._testMethodName
      
  #         check that the index page of registered user is displayed
-        self.browser.get('%s%s' % (self.live_server_url, '/sequencelistings/'))
+        self.browser.get('%s%s' % (self.live_server_url, '/sequencelistings'))
         self.assertIn('st26proto - Index', self.browser.title)
-        self.assertIn('user20', self.browser.find_element_by_class_name('page-header').text)
+#         self.assertIn('user20', self.browser.find_element_by_class_name('page-header').text)
+        self.assertIn('user20', self.browser.find_element_by_id('welcomeHeader').text)
        
     def test_add_sequencelisting_functionality(self):
         print 'Selenium: Running %s ...' % self._testMethodName
@@ -122,7 +123,7 @@ class CreateSequenceListingTest(LiveServerTestCase):
         self.browser.get('%s%s' %(self.live_server_url, '/sequencelistings/add_sequencelisting')) 
         SeqlSeleniumTestFixture.add_sequencelisting(self.browser, fileName)
    
-        self.browser.get('%s%s' % (self.live_server_url, '/sequencelistings/'))
+        self.browser.get('%s%s' % (self.live_server_url, '/sequencelistings/overview'))
            
         table = self.browser.find_element_by_id('home_page_table')
 #         self.assertEqual(1, len(table), 'There should be a table if a seql added.')
@@ -168,7 +169,7 @@ class CreateSequenceListingTest(LiveServerTestCase):
                
         self.browser.find_element_by_xpath('//input[@value="Submit"]').click()
 # =================
-        self.browser.get('%s%s' %(self.live_server_url, '/sequencelistings/')) 
+        self.browser.get('%s%s' %(self.live_server_url, '/sequencelistings/overview')) 
     
         table = self.browser.find_element_by_id('home_page_table')
         cells = table.find_elements_by_tag_name('td')
@@ -214,7 +215,7 @@ class CreateSequenceListingTest(LiveServerTestCase):
         self.browser.find_element_by_xpath('//input[@value="Submit"]').click()
 # =================
                 
-        self.browser.get('%s%s' %(self.live_server_url, '/sequencelistings/')) 
+        self.browser.get('%s%s' %(self.live_server_url, '/sequencelistings/overview')) 
                  
         table = self.browser.find_element_by_id('home_page_table')
         cells = table.find_elements_by_tag_name('td')
@@ -240,7 +241,7 @@ class EditSequenceListingTest(LiveServerTestCase):
     def test_add_sequence(self):
         print 'Selenium: Running %s ...' % self._testMethodName
          
-        self.browser.get('%s%s' %(self.live_server_url, '/sequencelistings'))
+        self.browser.get('%s%s' %(self.live_server_url, '/sequencelistings/overview'))
          
 #         check that there is a detail page is produced for the newly created seql        
         self.browser.find_element_by_link_text(self.fileName).click()

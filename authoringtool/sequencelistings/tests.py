@@ -83,15 +83,15 @@ class SequenceListingFixture(object):
         
         return seq 
  
-class IndexViewNoSequenceListingTest(TestCase):
+class OverviewViewNoSequenceListingTest(TestCase):
     def test_index_view_with_no_sequencelistings(self):
         """
         If no sequence listings exist, an appropriate message should be displayed 
-        on index page.
+        on overview page.
         """
         print 'Running %s ...' % getName()
         
-        response = self.client.get(reverse('sequencelistings:index'))
+        response = self.client.get(reverse('sequencelistings:overview'))
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, "No sequence listings are available.")
         self.assertContains(response, "sequencelistings/output/resources/style_colour.css")
@@ -115,13 +115,13 @@ class ViewsTests(TestCase):
         self.sequenceListing.delete()
      
 #     TODO: add test after refactoring Index class into index function 
-                       
-    def test_index_view_with_one_sequencelisting(self):
+                               
+    def test_overview_view_with_one_sequencelisting(self):
         """
-        The index page displays one sequence listing.
+        The overview page displays one sequence listing.
         """
         print 'Running %s ...' % getName()
-        response = self.client.get(reverse('sequencelistings:index'))
+        response = self.client.get(reverse('sequencelistings:overview'))
          
         self.assertEqual(response.status_code, 200)
 #         test that the page returns expected html contents

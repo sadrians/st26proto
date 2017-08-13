@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+{% extends 'sequencelistings/base.html' %}
+
+{% block title%}Overview{% endblock %}
+
+{%block header_block %}
+    <h2>SEQUENCE LISTINGS</h2>
+{% endblock %}
+
+{% block body_block %}
+    {% if user.is_authenticated %}
+        <a id="add_seql_link" href="{% url 'sequencelistings:add_sequencelisting' %}">Add new sequence listing</a>
+    {% endif %}
+    
+    <p>Navigate to previously created sequence listings by following the link in the column 'file name'.</p>
+    <p>Registered users can create sequence listings or add sequences to previously created sequence listings.</p> 
+        
+    {% if not user.is_authenticated %}
+        <p>Follow this link for <a href="{% url 'registration_register' %}">registration</a>.
+    {% endif %}
+    <h4>Note</h4>
+    <p>The sequence listing 'Invention_SEQL' is not editable (it is a specimen).</p>
+    </p>
+    {% if sequencelistings %}
+        <table id="home_page_table" class="genTable">
+            <tr>
+                <th>file name</th>
+                <th>invention title</th>
+                <th>number of sequences</th>
+            </tr>
+            {% for sl in sequencelistings %}
+                <tr>
+                    <td><a href="{% url 'sequencelistings:detail' sl.id %}">{{ sl.fileName }}</a></td>
+                    <td>{{sl.getFirstTitle}}</td>
+                    <td>{{sl.sequenceTotalQuantity}}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p id="no_seqls_par">No sequence listings are available.</p>
+    {% endif %}
+    
+{% endblock %}

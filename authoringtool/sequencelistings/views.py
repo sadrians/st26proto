@@ -23,6 +23,19 @@ logger = logging.getLogger(__name__)
 class IndexView(generic.ListView):
     template_name = 'sequencelistings/index.html'
     context_object_name = 'sequencelistings'
+   
+    def get_queryset(self):
+        """Return all sequence listings."""
+         
+        return SequenceListing.objects.all()
+
+# def index(request):
+#     return render_to_response('sequencelistings/index.html', {}, {})
+
+    
+class OverviewView(generic.ListView):
+    template_name = 'sequencelistings/overview.html'
+    context_object_name = 'sequencelistings'
   
     def get_queryset(self):
         """Return all sequence listings."""
@@ -38,13 +51,11 @@ def detail(request, pk): #good
         
     return render(request, 'sequencelistings/detail.html', {'sequencelisting': sl})
 
-
 @login_required 
 def edit_seql(request, pk):
     sl = get_object_or_404(SequenceListing, pk=pk)
         
     return render(request, 'sequencelistings/edit_seql.html', {'sequencelisting': sl})
-
 
 @login_required 
 def add_sequencelisting(request):
@@ -211,7 +222,6 @@ def add_sequence(request, pk):
         form = SequenceForm()
     return render(request, 'sequencelistings/add_seq.html', {'form': form, 'pk': pk, 'seql': sl})
 
-
 # this function is GOOD!!!
 def import_sequence(request, pk):
     sl = SequenceListing.objects.get(pk=pk)
@@ -252,44 +262,6 @@ def import_sequence(request, pk):
     else:
         form = ImportSequenceForm(initial={'sequenceName': 'seq_%i' % seqIdNo})
     return render(request, 'sequencelistings/import_seq.html', {'pk': pk, 'seql': sl, 'form': form})
-
-
-# def import_sequence(request, pk):
-#     sl = SequenceListing.objects.get(pk=pk)
-# #     seqIdNo = len(Sequence.objects.all()) +1
-#          
-#     if request.method == 'POST':
-#         organism = request.POST.get('organism')
-#         molType = request.POST.get('molType')
-#         sn = request.POST.get('sequenceName')
-# #         files = request.FILES
-#         fi = request.FILES['my_uploaded_file'].read()
-#         if fi:
-#             lines = fi.splitlines()
-#             de = lines[0]
-#             rs = ''.join(lines[1:])
-#         else:
-#             rs = 'file could not be imported'
-#         sequence_instance = Sequence(sequenceListing = sl,
-#             length = len(rs),
-#             moltype = molType,
-#             residues = rs 
-#             )
-#           
-#         sequence_instance.save()
-#         feature_source_helper(sequence_instance, organism)
-#         if de:
-#             feature_instance = Feature.objects.filter(sequence = sequence_instance)[0]
-#             value_for_note = 'note' if molType in ('DNA', 'RNA') else 'NOTE'
-#             note_qualifier_instance = Qualifier.objects.create(feature=feature_instance, 
-#                                                     qualifierName=value_for_note, 
-#                                                     qualifierValue=de)
-#             note_qualifier_instance.save()
-# #              
-#         return HttpResponseRedirect(reverse('sequencelistings:detail', args=(pk,)))
-#     else:
-#         return render(request, 'sequencelistings/import_seq.html', {'pk': pk, 'seql': sl})
-
 
 def feature_source_helper(seq, organism):
     '''
