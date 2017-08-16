@@ -350,6 +350,23 @@ class ViewsTests(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, "Molecule type")
         self.assertContains(response, "Residues")
+        
+    def test_import_sequence_view(self):
+        """
+        The form import_seq is correctly displayed.
+        """
+        print 'Running %s ...' % getName()
+#         test that URL resolves to correct views function        
+        found = resolve('/sequencelistings/sl%d/import_seq/' % self.sequenceListing.id)
+        self.assertEqual(found.func, views.import_sequence)
+          
+        response = self.client.get(reverse('sequencelistings:import_seq', 
+                                           args=[self.sequenceListing.id]))
+#         test that the page returns expected html contents
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "Molecule type")
+        self.assertContains(response, "File")
+        self.assertContains(response, "Upload file")
       
     def test_add_title_view(self):
          
@@ -900,29 +917,10 @@ class UtilTests(TestCase):
         actual = [util.getStartLocation(lo) for lo in loc]
         
         self.assertEqual(expected, actual)
-        
-    def test_importSequence(self):
+         
+    def test_parseSequenceStringFromFile(self):
         """
-        Test that a sequence is correctly imported.
-        """
-        print 'Running %s ...' % getName()
-        
-        imp1 = os.path.join(util.TEST_DATA_DIR_PATH, 'imp1.fasta')
-        
-        res = util.importSequenceFile(imp1)
-        
-        expectedDescLine = 'P01013 GENE X PROTEIN (OVALBUMIN-RELATED)'
-        
-        expectedSeq = """QIKDLLVSSSTDLDTTLVLVNAIYFKGMWKTAFNAEDTREMPFHVTKQESKPVQMMCMNNSFNVATLPAE
-KMKILELPFASGDLSMLVLLPDEVSDLERIEKTINFEKLTEWTNPNTMEKRRVKVYLPQMKIEEKYNLTS
-VLMALGMTDLFIPSANLTGISSAESLKISQAVHGAFMELSEDGIEMAGSTGVIEDIKHSPESEQFRADHP
-FLFLIKHNPTNTIVYFGRYWSP"""
-        self.assertEqual(expectedDescLine, res['descLine'])
-        self.assertEqual(expectedSeq, res['seq'])
-        
-    def test_parseString_fasta(self):
-        """
-        Test that a Fasta sequence is correctly parsed.
+        Test that a string is correctly parsed into components.
         """
         print 'Running %s ...' % getName()
          
@@ -932,13 +930,27 @@ KMKILELPFASGDLSMLVLLPDEVSDLERIEKTINFEKLTEWTNPNTMEKRRVKVYLPQMKIEEKYNLTS
 VLMALGMTDLFIPSANLTGISSAESLKISQAVHGAFMELSEDGIEMAGSTGVIEDIKHSPESEQFRADHP
 FLFLIKHNPTNTIVYFGRYWSP"""
          
-        res = util.parseString_fasta(imp1)
+        res1 = util.parseSequenceStringFromFile(imp1)
          
         expectedDescLine = 'P01013 GENE X PROTEIN (OVALBUMIN-RELATED)'
          
         expectedSeq = """QIKDLLVSSSTDLDTTLVLVNAIYFKGMWKTAFNAEDTREMPFHVTKQESKPVQMMCMNNSFNVATLPAEKMKILELPFASGDLSMLVLLPDEVSDLERIEKTINFEKLTEWTNPNTMEKRRVKVYLPQMKIEEKYNLTSVLMALGMTDLFIPSANLTGISSAESLKISQAVHGAFMELSEDGIEMAGSTGVIEDIKHSPESEQFRADHPFLFLIKHNPTNTIVYFGRYWSP"""
-        self.assertEqual(expectedDescLine, res.descriptionLine)
-        self.assertEqual(expectedSeq, res.sequenceLine)
+        self.assertEqual(expectedDescLine, res1.descriptionLine)
+        self.assertEqual(expectedSeq, res1.sequenceLine)
+        
+        imp2 = """atgagcaagaacaaggaccagcggaccgccaagaccctggaacggacctgggacaccctg
+aaccatctgctgttcatcagtagctgcctgtacaagctgaacctgaagtccgtggcccag
+atcaccctgagcatcctggccatgatcatcagcaccagcctgatcattgccgccatcatc
+tttatcgccagcgccaaccacaaagtgacccccaccacagccatcatccaggacgccacg
+tcccagatcaagaacaccacccccacctacctgacccagaaccctcagctgggcatcagc"""
+         
+        res2 = util.parseSequenceStringFromFile(imp2)
+         
+        expectedDescLine = ''
+         
+        expectedSeq = """atgagcaagaacaaggaccagcggaccgccaagaccctggaacggacctgggacaccctgaaccatctgctgttcatcagtagctgcctgtacaagctgaacctgaagtccgtggcccagatcaccctgagcatcctggccatgatcatcagcaccagcctgatcattgccgccatcatctttatcgccagcgccaaccacaaagtgacccccaccacagccatcatccaggacgccacgtcccagatcaagaacaccacccccacctacctgacccagaaccctcagctgggcatcagc"""
+        self.assertEqual(expectedDescLine, res2.descriptionLine)
+        self.assertEqual(expectedSeq, res2.sequenceLine)
  
     def test_determineFormat_raw(self):
         """

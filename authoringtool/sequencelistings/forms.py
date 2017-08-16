@@ -55,43 +55,10 @@ class SequenceForm(ModelForm):
                   'residues'] 
 
 class ImportSequenceForm(Form):
-#     sequence = CharField(max_length=50)
-#     file = FileField(label='Select a file', help_text='Recognised formats: FASTA, (more will be added later).')
-#     title = CharField(max_length=50)
     sequenceName = CharField(label='Sequence name', max_length=50)
     organism = CharField(max_length=50)
     molType = ChoiceField(label='Molecule type', choices=util.MOLTYPE_CHOICES)
-    file = FileField(help_text='Recognised formats: FASTA, (more will come later).')
-#     class Meta:
-#         model = Sequence
-#         fields = [
-# #                   'sequenceListing', 
-# #                 'sequenceIdNo', 
-# #                   'length',
-#                   'moltype',
-# #                   'division',
-# #                   'otherSeqId',
-# #                   'residues'
-#                 ] 
-# class ImportSequenceForm(ModelForm):
-# #     sequence = CharField(max_length=50)
-# #     file = FileField(label='Select a file', help_text='Recognised formats: FASTA, (more will be added later).')
-# #     title = CharField(max_length=50)
-#     sequenceName = CharField(label='Sequence name', max_length=50)
-#     organism = CharField(max_length=50)
-# #     molType = ChoiceField(label='Molecule type', choices=util.MOLTYPE_CHOICES)
-#     file = FileField(help_text='Recognised formats: FASTA, (more will come later).')
-#     class Meta:
-#         model = Sequence
-#         fields = [
-# #                   'sequenceListing', 
-# #                 'sequenceIdNo', 
-# #                   'length',
-#                   'moltype',
-# #                   'division',
-# #                   'otherSeqId',
-# #                   'residues'
-#                 ] 
+    file = FileField(help_text='Recognised formats: raw, FASTA, (more will come later).')
 
 class FeatureForm(ModelForm):
     c = []

@@ -187,45 +187,29 @@ def validateDocumentWithDtd(afile, adtd):
     return result
 
 # helper used to generate XML code for the schema 
-
 def generateXmlSchemaFeatureKeyValuesEnumeration():
     for fk in fkdna + fkprt:
         print '<xs:enumeration value="%s"/>' % fk 
 
 # generateXmlSchemaFeatureKeyValuesEnumeration()
 
-def importSequenceFile(aFilePath):
-    res = {}
-    with open(aFilePath, 'r') as f:
-        fileContents = f.read()
-        
-        print 'test:', fileContents
-        
-        m = re.match(FASTA_PATTERN, fileContents)
-        
-        if m:
-            print 'match found'
-            
-            res['descLine'] = m.group('descLine').strip()
-            res['seq'] = m.group('seq').strip()
-            
-            print 'desc:', res['descLine']
-            print 'seq:', res['seq']
-            
-    return res
-
-def parseString_fasta(aString):
-    ParsedFasta = namedtuple('ParsedFasta', 'descriptionLine sequenceLine')
+def parseSequenceStringFromFile(aString):
+    ParsedFileContents = namedtuple('ParsedFileContents', 'descriptionLine sequenceLine')
     
     res = ('ee', 'ee')
     
-    m = re.match(FASTA_PATTERN, aString)
+    fileFormat = determineFormat(aString)
         
-    if m:
-        res = ParsedFasta(m.group('descLine').strip(), m.group('seq').replace('\n', ''))
+    if fileFormat == 'raw':
+        res = ParsedFileContents(descriptionLine='', 
+                                 sequenceLine=aString.replace('\n', ''))
         
-#         print 'desc:', res.descriptionLine
-#         print 'seq:', res.sequenceLine        
+    elif fileFormat == 'fasta':
+        m = re.match(FASTA_PATTERN, aString)
+        
+        if m:
+            res = ParsedFileContents(m.group('descLine').strip(), m.group('seq').replace('\n', ''))
+
     return res
 
 def determineFormat(aString):
@@ -234,11 +218,9 @@ def determineFormat(aString):
     res = 'unknown'
      
     lines = aString.splitlines()
-     
     line0 = lines[0].strip()
-     
-     
-    print 'x%sx' % line0
+        
+#     print 'x%sx' % line0
      
     if isResiduesLine(line0):
         res = 'raw'

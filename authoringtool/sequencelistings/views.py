@@ -237,7 +237,8 @@ def import_sequence(request, pk):
             molType = cd['molType']
             fi = request.FILES['file'].read()
             if fi:
-                parsed = util.parseString_fasta(fi)
+#                 parsed = util.parseString_fasta(fi)
+                parsed = util.parseSequenceStringFromFile(fi)
                 de = parsed.descriptionLine
                 rs = parsed.sequenceLine
             else:
