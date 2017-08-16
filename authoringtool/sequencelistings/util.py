@@ -62,6 +62,13 @@ FORMULA_CHARS = '[a-zA-Z]+'
 FORMULA_REGEX = r'(?P<head>%s)\((?P<region>%s)\)(?P<startOccurrence>\d+)(\.\.(?P<endOccurrence>\d+))?(?P<tail>%s)?' % (FORMULA_CHARS, FORMULA_CHARS, FORMULA_CHARS)
 FORMULA_PATTERN = re.compile(FORMULA_REGEX)
 
+# regex for residues
+REGEX_NUC = '^[a,c,g,t,u,n,v,k,r,s,b,h,d]{10,}$' #TODO: add the full set of valid chars
+REGEX_PRT = '^[A,C,D,E,F,G,H,I,K,L,M,N,O,P,Q,R,S,T,U,V,W,Y,X,J,B,Z]{4,}$'
+PATTERN_NUC = re.compile(REGEX_NUC, re.IGNORECASE)
+PATTERN_PRT = re.compile(REGEX_PRT, re.IGNORECASE)
+
+# regex for file format
 FASTA_REGEX = r'>(?P<descLine>.*?\n)(?P<seq>.*)'
 FASTA_PATTERN = re.compile(FASTA_REGEX, re.DOTALL)
 
@@ -220,6 +227,30 @@ def parseString_fasta(aString):
 #         print 'desc:', res.descriptionLine
 #         print 'seq:', res.sequenceLine        
     return res
+
+# def determineFormat(aString):
+#     """Determine the format of the input string.
+#     """
+#     res = 'unknown'
+#     
+#     lines = aString.splitlines()
+#     
+#     line0 = lines[0].strip()
+#     
+#     
+#     print 'x%sx' % line0
+#     
+#     if isResiduesLine(line0):
+#         res = 'raw'
+#     elif len(lines) > 1:
+#         line1 = lines[1].strip()
+#         if line0.startswith('>') and isResiduesLine(line1):
+#             res = 'fasta'
+#              
+#     return res  
+# 
+# def isResiduesLine(aLine):
+#     return PATTERN_NUC.match(aLine) or PATTERN_PRT.match(aLine)
 
 # <INSDSeq_other-seqids>
 #                     <INSDSeqid>{{seq.otherSeqId}}</INSDSeqid>
