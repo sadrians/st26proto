@@ -228,29 +228,29 @@ def parseString_fasta(aString):
 #         print 'seq:', res.sequenceLine        
     return res
 
-# def determineFormat(aString):
-#     """Determine the format of the input string.
-#     """
-#     res = 'unknown'
-#     
-#     lines = aString.splitlines()
-#     
-#     line0 = lines[0].strip()
-#     
-#     
-#     print 'x%sx' % line0
-#     
-#     if isResiduesLine(line0):
-#         res = 'raw'
-#     elif len(lines) > 1:
-#         line1 = lines[1].strip()
-#         if line0.startswith('>') and isResiduesLine(line1):
-#             res = 'fasta'
-#              
-#     return res  
-# 
-# def isResiduesLine(aLine):
-#     return PATTERN_NUC.match(aLine) or PATTERN_PRT.match(aLine)
+def determineFormat(aString):
+    """Determine the format of the input string.
+    """
+    res = 'unknown'
+     
+    lines = aString.splitlines()
+     
+    line0 = lines[0].strip()
+     
+     
+    print 'x%sx' % line0
+     
+    if isResiduesLine(line0):
+        res = 'raw'
+    elif len(lines) > 1:
+        line1 = lines[1].strip()
+        if line0.startswith('>') and isResiduesLine(line1):
+            res = 'fasta'
+              
+    return res  
+ 
+def isResiduesLine(aLine):
+    return PATTERN_NUC.match(aLine) or PATTERN_PRT.match(aLine)
 
 # <INSDSeq_other-seqids>
 #                     <INSDSeqid>{{seq.otherSeqId}}</INSDSeqid>

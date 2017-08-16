@@ -939,163 +939,163 @@ FLFLIKHNPTNTIVYFGRYWSP"""
         expectedSeq = """QIKDLLVSSSTDLDTTLVLVNAIYFKGMWKTAFNAEDTREMPFHVTKQESKPVQMMCMNNSFNVATLPAEKMKILELPFASGDLSMLVLLPDEVSDLERIEKTINFEKLTEWTNPNTMEKRRVKVYLPQMKIEEKYNLTSVLMALGMTDLFIPSANLTGISSAESLKISQAVHGAFMELSEDGIEMAGSTGVIEDIKHSPESEQFRADHPFLFLIKHNPTNTIVYFGRYWSP"""
         self.assertEqual(expectedDescLine, res.descriptionLine)
         self.assertEqual(expectedSeq, res.sequenceLine)
-# 
-#     def test_determineFormat_raw(self):
-#         """
-#         Test that the format of an input string is correctly determined.
-#         """
-#         print 'Running %s ...' % getName()
-#                 
-# #         returns raw because the space will be trimmed by splitlines func
-#         imp1 = """PROTEIN """
-#         self.assertEqual('raw', util.determineFormat(imp1))
-#         
-#         imp2 = """PROTEIN"""
-#         self.assertEqual('raw', util.determineFormat(imp2))
-# 
-#         imp3 = """QIKDLLVSSSTDLDTTLVLVNAIYFKGMWKTAFNAEDTREMPFHVTKQESKPVQMMCMNNSFNVATLPAE
-# KMKILELPFASGDLSMLVLLPDEVSDLERIEKTINFEKLTEWTNPNTMEKRRVKVYLPQMKIEEKYNLTS
-# VLMALGMTDLFIPSANLTGISSAESLKISQAVHGAFMELSEDGIEMAGSTGVIEDIKHSPESEQFRADHP
-# FLFLIKHNPTNTIVYFGRYWSP"""
-#         self.assertEqual('raw', util.determineFormat(imp3))
-# 
-#         imp4 = """QIKDLLVSSSTDLDTTLVLVNAIYFKGMWKTAFNAEDTREMPFHVTKQESKPV"""
-#         self.assertEqual('raw', util.determineFormat(imp4))
-#         
-#         imp5 = """qikdllvssstdldttlvlvnaiyfkgmwktafnaedtrempfhvtkqeskpv"""
-#         self.assertEqual('raw', util.determineFormat(imp5))
-#                 
-#         imp6 = """uugaccaagc"""
-#         self.assertEqual('raw', util.determineFormat(imp6))
-#         
-# #         returns raw because it matches the PRT pattern, even though it is less than 10 chars
-#         imp7 = """uugaccaag"""
-#         self.assertEqual('raw', util.determineFormat(imp7))
-#         
-#         imp8 = """atgatgatgcatgatgatgta"""
-#         self.assertEqual('raw', util.determineFormat(imp8))
-#         
-#         imp9 = """ATGATGATGATGATGCATGTA"""
-#         self.assertEqual('raw', util.determineFormat(imp9))
-#               
-#     def test_determineFormat_fasta(self):
-#         """
-#         Test that the format of an input string is correctly determined.
-#         """
-#         print 'Running %s ...' % getName()
-#                 
-#         imp1 = """>P01013 GENE X PROTEIN (OVALBUMIN-RELATED)
-# QIKDLLVSSSTDLDTTLVLVNAIYFKGMWKTAFNAEDTREMPFHVTKQESKPVQMMCMNNSFNVATLPAE
-# KMKILELPFASGDLSMLVLLPDEVSDLERIEKTINFEKLTEWTNPNTMEKRRVKVYLPQMKIEEKYNLTS
-# VLMALGMTDLFIPSANLTGISSAESLKISQAVHGAFMELSEDGIEMAGSTGVIEDIKHSPESEQFRADHP
-# FLFLIKHNPTNTIVYFGRYWSP"""
-#         self.assertEqual('fasta', util.determineFormat(imp1))
-# 
-#     def test_determineFormat_unknown(self):
-#         """
-#         Test that the format unknown of an input string is correctly determined.
-#         """
-#         print 'Running %s ...' % getName()
-#         
-# #         returns unknown because it contains spaces
-#         imp1 = """>P01013 GENE X PROTEIN (OVALBUMIN-RELATED)"""
-#         self.assertEqual('unknown', util.determineFormat(imp1))
-#         
-# #         returns unknown because it contains spaces
-#         imp2 = """atgatgatga tgatgatgta cctgcagacc ccgtttccct ggtgccagtg gcagaggagt       60"""
-#         self.assertEqual('unknown', util.determineFormat(imp2))
-#         
-# #         returns unknown because it contains spaces        
-#         imp3 = """uugaccaagc uggggacccc ggucccuugg gaccaguggc agaggaguc                   49"""
-#         self.assertEqual('unknown', util.determineFormat(imp3))
-#         
-# #         returns unknown because it contains spaces and end of line char
-#         imp4 = """atgatgatga tgatgatgta cctgcagacc ccgtttccct ggtgccagtg gcagaggagt       60
-#  
-# c                                                                       61
-# """
-#         self.assertEqual('unknown', util.determineFormat(imp4))
-#             
-# #         returns unknown because it is less than 3 chars
-#         imp5 = """act"""
-#         self.assertEqual('unknown', util.determineFormat(imp5))
-#       
-#     def test_isResiduesLine(self):
-#         """
-#         Test that an input string containing one letter symbols is correctly 
-#         recognised as a residues line.
-#         """
-#         print 'Running %s ...' % getName()
-#         
-# #         returns false because it contains spaces
-#         imp1 = """>P01013 GENE X PROTEIN (OVALBUMIN-RELATED)"""
-# 
-# #         returns false because it contains spaces and end of line char       
-#         imp2 = """>P01013 GENE X PROTEIN (OVALBUMIN-RELATED)
-# QIKDLLVSSSTDLDTTLVLVNAIYFKGMWKTAFNAEDTREMPFHVTKQESKPVQMMCMNNSFNVATLPAE
-# KMKILELPFASGDLSMLVLLPDEVSDLERIEKTINFEKLTEWTNPNTMEKRRVKVYLPQMKIEEKYNLTS
-# VLMALGMTDLFIPSANLTGISSAESLKISQAVHGAFMELSEDGIEMAGSTGVIEDIKHSPESEQFRADHP
-# FLFLIKHNPTNTIVYFGRYWSP"""
-# 
-# #         returns false because it contains space
-#         imp3 = """PROTEIN """
-# 
-# #         returns true
-#         imp4 = """PROTEIN"""
-# 
-# #         returns false because it contains end of line chars
-#         imp5 = """QIKDLLVSSSTDLDTTLVLVNAIYFKGMWKTAFNAEDTREMPFHVTKQESKPVQMMCMNNSFNVATLPAE
-# KMKILELPFASGDLSMLVLLPDEVSDLERIEKTINFEKLTEWTNPNTMEKRRVKVYLPQMKIEEKYNLTS
-# VLMALGMTDLFIPSANLTGISSAESLKISQAVHGAFMELSEDGIEMAGSTGVIEDIKHSPESEQFRADHP
-# FLFLIKHNPTNTIVYFGRYWSP"""
-# 
-# #         returns true
-#         imp6 = """QIKDLLVSSSTDLDTTLVLVNAIYFKGMWKTAFNAEDTREMPFHVTKQESKPV"""
-#         
-# #         returns true
-#         imp7 = """qikdllvssstdldttlvlvnaiyfkgmwktafnaedtrempfhvtkqeskpv"""
-# 
-# #         returns false because it contains spaces
-#         imp8 = """atgatgatga tgatgatgta cctgcagacc ccgtttccct ggtgccagtg gcagaggagt       60"""
-# 
-# #         returns false because it contains spaces        
-#         imp9 = """uugaccaagc uggggacccc ggucccuugg gaccaguggc agaggaguc                   49"""
-# 
-# #         returns false because it contains spaces and end of line char
-#         imp10 = """atgatgatga tgatgatgta cctgcagacc ccgtttccct ggtgccagtg gcagaggagt       60
-# 
-# c                                                                       61
-# """
-# #         returns true
-#         imp11 = """uugaccaagc"""
-# 
-# #         returns true because it matches the PRT pattern, even though it is less than 10 chars
-#         imp12 = """uugaccaag"""
-# 
-# #         returns true
-#         imp13 = """atgatgatgcatgatgatgta"""
-# 
-# #         returns true
-#         imp14 = """ATGATGATGATGATGCATGTA"""
-# 
-# #         returns false because it is less than 3 chars
-#         imp15 = """act"""
-# 
-#         self.assertFalse(util.isResiduesLine(imp1))
-#         self.assertFalse(util.isResiduesLine(imp2))
-#         self.assertFalse(util.isResiduesLine(imp3))
-#         self.assertTrue(util.isResiduesLine(imp4))
-#         self.assertFalse(util.isResiduesLine(imp5))
-#         self.assertTrue(util.isResiduesLine(imp6))
-#         self.assertTrue(util.isResiduesLine(imp7))
-#         self.assertFalse(util.isResiduesLine(imp8))
-#         self.assertFalse(util.isResiduesLine(imp9))
-#         self.assertFalse(util.isResiduesLine(imp10))
-#         self.assertTrue(util.isResiduesLine(imp11))
-#         self.assertTrue(util.isResiduesLine(imp12))
-#         self.assertTrue(util.isResiduesLine(imp13))
-#         self.assertTrue(util.isResiduesLine(imp14))
-#         self.assertFalse(util.isResiduesLine(imp15))
+ 
+    def test_determineFormat_raw(self):
+        """
+        Test that the format of an input string is correctly determined.
+        """
+        print 'Running %s ...' % getName()
+                 
+#         returns raw because the space will be trimmed by splitlines func
+        imp1 = """PROTEIN """
+        self.assertEqual('raw', util.determineFormat(imp1))
+         
+        imp2 = """PROTEIN"""
+        self.assertEqual('raw', util.determineFormat(imp2))
+ 
+        imp3 = """QIKDLLVSSSTDLDTTLVLVNAIYFKGMWKTAFNAEDTREMPFHVTKQESKPVQMMCMNNSFNVATLPAE
+KMKILELPFASGDLSMLVLLPDEVSDLERIEKTINFEKLTEWTNPNTMEKRRVKVYLPQMKIEEKYNLTS
+VLMALGMTDLFIPSANLTGISSAESLKISQAVHGAFMELSEDGIEMAGSTGVIEDIKHSPESEQFRADHP
+FLFLIKHNPTNTIVYFGRYWSP"""
+        self.assertEqual('raw', util.determineFormat(imp3))
+ 
+        imp4 = """QIKDLLVSSSTDLDTTLVLVNAIYFKGMWKTAFNAEDTREMPFHVTKQESKPV"""
+        self.assertEqual('raw', util.determineFormat(imp4))
+         
+        imp5 = """qikdllvssstdldttlvlvnaiyfkgmwktafnaedtrempfhvtkqeskpv"""
+        self.assertEqual('raw', util.determineFormat(imp5))
+                 
+        imp6 = """uugaccaagc"""
+        self.assertEqual('raw', util.determineFormat(imp6))
+         
+#         returns raw because it matches the PRT pattern, even though it is less than 10 chars
+        imp7 = """uugaccaag"""
+        self.assertEqual('raw', util.determineFormat(imp7))
+         
+        imp8 = """atgatgatgcatgatgatgta"""
+        self.assertEqual('raw', util.determineFormat(imp8))
+         
+        imp9 = """ATGATGATGATGATGCATGTA"""
+        self.assertEqual('raw', util.determineFormat(imp9))
+               
+    def test_determineFormat_fasta(self):
+        """
+        Test that the format of an input string is correctly determined.
+        """
+        print 'Running %s ...' % getName()
+                 
+        imp1 = """>P01013 GENE X PROTEIN (OVALBUMIN-RELATED)
+QIKDLLVSSSTDLDTTLVLVNAIYFKGMWKTAFNAEDTREMPFHVTKQESKPVQMMCMNNSFNVATLPAE
+KMKILELPFASGDLSMLVLLPDEVSDLERIEKTINFEKLTEWTNPNTMEKRRVKVYLPQMKIEEKYNLTS
+VLMALGMTDLFIPSANLTGISSAESLKISQAVHGAFMELSEDGIEMAGSTGVIEDIKHSPESEQFRADHP
+FLFLIKHNPTNTIVYFGRYWSP"""
+        self.assertEqual('fasta', util.determineFormat(imp1))
+ 
+    def test_determineFormat_unknown(self):
+        """
+        Test that the format unknown of an input string is correctly determined.
+        """
+        print 'Running %s ...' % getName()
+         
+#         returns unknown because it contains spaces
+        imp1 = """>P01013 GENE X PROTEIN (OVALBUMIN-RELATED)"""
+        self.assertEqual('unknown', util.determineFormat(imp1))
+         
+#         returns unknown because it contains spaces
+        imp2 = """atgatgatga tgatgatgta cctgcagacc ccgtttccct ggtgccagtg gcagaggagt       60"""
+        self.assertEqual('unknown', util.determineFormat(imp2))
+         
+#         returns unknown because it contains spaces        
+        imp3 = """uugaccaagc uggggacccc ggucccuugg gaccaguggc agaggaguc                   49"""
+        self.assertEqual('unknown', util.determineFormat(imp3))
+         
+#         returns unknown because it contains spaces and end of line char
+        imp4 = """atgatgatga tgatgatgta cctgcagacc ccgtttccct ggtgccagtg gcagaggagt       60
+  
+c                                                                       61
+"""
+        self.assertEqual('unknown', util.determineFormat(imp4))
+             
+#         returns unknown because it is less than 3 chars
+        imp5 = """act"""
+        self.assertEqual('unknown', util.determineFormat(imp5))
+       
+    def test_isResiduesLine(self):
+        """
+        Test that an input string containing one letter symbols is correctly 
+        recognised as a residues line.
+        """
+        print 'Running %s ...' % getName()
+         
+#         returns false because it contains spaces
+        imp1 = """>P01013 GENE X PROTEIN (OVALBUMIN-RELATED)"""
+ 
+#         returns false because it contains spaces and end of line char       
+        imp2 = """>P01013 GENE X PROTEIN (OVALBUMIN-RELATED)
+QIKDLLVSSSTDLDTTLVLVNAIYFKGMWKTAFNAEDTREMPFHVTKQESKPVQMMCMNNSFNVATLPAE
+KMKILELPFASGDLSMLVLLPDEVSDLERIEKTINFEKLTEWTNPNTMEKRRVKVYLPQMKIEEKYNLTS
+VLMALGMTDLFIPSANLTGISSAESLKISQAVHGAFMELSEDGIEMAGSTGVIEDIKHSPESEQFRADHP
+FLFLIKHNPTNTIVYFGRYWSP"""
+ 
+#         returns false because it contains space
+        imp3 = """PROTEIN """
+ 
+#         returns true
+        imp4 = """PROTEIN"""
+ 
+#         returns false because it contains end of line chars
+        imp5 = """QIKDLLVSSSTDLDTTLVLVNAIYFKGMWKTAFNAEDTREMPFHVTKQESKPVQMMCMNNSFNVATLPAE
+KMKILELPFASGDLSMLVLLPDEVSDLERIEKTINFEKLTEWTNPNTMEKRRVKVYLPQMKIEEKYNLTS
+VLMALGMTDLFIPSANLTGISSAESLKISQAVHGAFMELSEDGIEMAGSTGVIEDIKHSPESEQFRADHP
+FLFLIKHNPTNTIVYFGRYWSP"""
+ 
+#         returns true
+        imp6 = """QIKDLLVSSSTDLDTTLVLVNAIYFKGMWKTAFNAEDTREMPFHVTKQESKPV"""
+         
+#         returns true
+        imp7 = """qikdllvssstdldttlvlvnaiyfkgmwktafnaedtrempfhvtkqeskpv"""
+ 
+#         returns false because it contains spaces
+        imp8 = """atgatgatga tgatgatgta cctgcagacc ccgtttccct ggtgccagtg gcagaggagt       60"""
+ 
+#         returns false because it contains spaces        
+        imp9 = """uugaccaagc uggggacccc ggucccuugg gaccaguggc agaggaguc                   49"""
+ 
+#         returns false because it contains spaces and end of line char
+        imp10 = """atgatgatga tgatgatgta cctgcagacc ccgtttccct ggtgccagtg gcagaggagt       60
+ 
+c                                                                       61
+"""
+#         returns true
+        imp11 = """uugaccaagc"""
+ 
+#         returns true because it matches the PRT pattern, even though it is less than 10 chars
+        imp12 = """uugaccaag"""
+ 
+#         returns true
+        imp13 = """atgatgatgcatgatgatgta"""
+ 
+#         returns true
+        imp14 = """ATGATGATGATGATGCATGTA"""
+ 
+#         returns false because it is less than 3 chars
+        imp15 = """act"""
+ 
+        self.assertFalse(util.isResiduesLine(imp1))
+        self.assertFalse(util.isResiduesLine(imp2))
+        self.assertFalse(util.isResiduesLine(imp3))
+        self.assertTrue(util.isResiduesLine(imp4))
+        self.assertFalse(util.isResiduesLine(imp5))
+        self.assertTrue(util.isResiduesLine(imp6))
+        self.assertTrue(util.isResiduesLine(imp7))
+        self.assertFalse(util.isResiduesLine(imp8))
+        self.assertFalse(util.isResiduesLine(imp9))
+        self.assertFalse(util.isResiduesLine(imp10))
+        self.assertTrue(util.isResiduesLine(imp11))
+        self.assertTrue(util.isResiduesLine(imp12))
+        self.assertTrue(util.isResiduesLine(imp13))
+        self.assertTrue(util.isResiduesLine(imp14))
+        self.assertFalse(util.isResiduesLine(imp15))
             
 class FormsTests(TestCase):
     @classmethod
