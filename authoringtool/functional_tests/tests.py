@@ -227,8 +227,6 @@ class EditSequenceListingTest(LiveServerTestCase):
         self.browser = webdriver.Firefox()
         self.browser.implicitly_wait(3)
           
-#         self.fixture = SeqlSeleniumTestFixture()
-          
         self.browser.get('%s%s' %(self.live_server_url, '/accounts/register/')) 
         SeqlSeleniumTestFixture.register(self.browser)
         self.fileName = 'selenium_test2'
@@ -320,4 +318,63 @@ class EditSequenceListingTest(LiveServerTestCase):
            
 #         headers_h1 = self.browser.find_elements_by_tag_name('h1')
 #         self.assertIn('ST26 SEQUENCE LISTING with client side XSLT', [h.text for h in headers_h1])
-       
+
+    def test_import_sequence(self):
+        print 'Selenium: Running %s ...' % self._testMethodName
+         
+        self.browser.get('%s%s' %(self.live_server_url, '/sequencelistings/overview'))
+          
+#         check that there is a detail page is produced for the newly created seql        
+        self.browser.find_element_by_link_text(self.fileName).click()
+            
+#         check that the link to edit is displayed
+        edit_seql_link = self.browser.find_element_by_link_text('Edit')
+        self.assertTrue(edit_seql_link.is_displayed())       
+            
+#         add a sequence
+        edit_seql_link.click()
+         
+        import_seq_link = self.browser.find_element_by_link_text('Import sequence')
+        self.assertTrue(import_seq_link.is_displayed()) 
+         
+        import_seq_link.click() 
+        
+#         self.browser.get('%s%s' %(self.live_server_url, '/sequencelistings/sl1/import_seq'))
+        headers_h2_import_seq = self.browser.find_elements_by_tag_name('h2')
+        self.assertIn('Import sequence', [h.text for h in headers_h2_import_seq])
+        
+        sequenceName = self.browser.find_element_by_id('id_sequenceName')
+        organism  = self.browser.find_element_by_id('id_organism')
+        moltype = self.browser.find_element_by_id('id_molType')
+        fileField = self.browser.find_element_by_id('id_file')
+         
+        sequenceName.send_keys('sequence name import selenium')    
+        organism.send_keys('Felix catus selenium')
+        moltype.send_keys('AA')
+        fileField.send_keys(r'/Users/ad/pyton/projects/st26proto/authoringtool/functional_tests/imp1.fasta')
+        
+        self.browser.find_element_by_xpath('//input[@value="Upload file"]').click()
+
+#         now we are on detail view
+        residues_element = self.browser.find_element_by_class_name('residues')
+        self.assert_('QIKDLLVSSS', residues_element.text)
+#         self.assert_('QIKDLLVSSS TDLDTTLVLV NAIYFKGMWK ', residues_element.text)
+#            TODO: continue uncommenting to test import!!!!!!!!!!!
+# #         check that the seql page contains now the new sequence
+#         tds = self.browser.find_elements_by_tag_name('td')
+#         self.assertIn('Homo sapiens selenium', [td.text for td in tds])
+#            
+# #         cant test residues because they are not loaded (due to JavaScript????)
+# #         residues_elements = self.browser.find_element_by_class_name('residues')
+# #         print residues_elements.text
+# #         self.assertIn('acgtacgtac gt 12', [r.text for r in residues_elements])
+#    
+# #         generate SEQL XML file
+#         self.browser.find_element_by_link_text("Generate XML").click()
+#            
+# #         self.browser.get('%s%s' %(self.live_server_url, '/sequencelistings/sl1/xmloutput'))
+#            
+#         display_link = self.browser.find_element_by_link_text("display generated sequence listing")
+#            
+# #         check that the link to display the generated xml file is displayed
+#         self.assertTrue(display_link.is_displayed()) 
