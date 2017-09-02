@@ -370,7 +370,8 @@ def generateXml(request, pk):
         return render(request, 'sequencelistings/xmloutput.html', 
                       {'filePath': xmlFilePath, 
                         'location': util.OUTPUT_DIR, 
-                        'fileName': sl.fileName,
+                        'fileName': sl.fileName, # can be obtained in the template from sequencelisting!!!!
+                        'sequencelisting': sl,
                         }) 
 #         this version of xml root uses xsd schema file
 #         <!-- <ST26SequenceListing dtdVersion="{{sequenceListing.dtdVersion}}" 
