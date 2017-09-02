@@ -35,10 +35,6 @@ header {
     color: black;
 }
 
-/* #seqlTopnav {
-    background-color: #ce2ce8;
-} */
-
 /* Add a color to the active/current link */
 .topnav a.active {
     background-color: #4CAF50;
