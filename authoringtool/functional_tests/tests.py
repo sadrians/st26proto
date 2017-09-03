@@ -8,19 +8,19 @@ from selenium.webdriver.common.keys import Keys
 import time 
 
 class SeqlSeleniumTestFixture():    
-    @classmethod
-    def register(cls, aBrowser):
-        username = aBrowser.find_element_by_id('id_username')
-        email = aBrowser.find_element_by_id('id_email')
-        password1 = aBrowser.find_element_by_id('id_password1')
-        password2 = aBrowser.find_element_by_id('id_password2')
-                   
-        username.send_keys('user20')
-        email.send_keys('user20@email.com')
-        password1.send_keys('password20')
-        password2.send_keys('password20')
-         
-        aBrowser.find_element_by_class_name("btn").click()
+#     @classmethod
+#     def register(cls, aBrowser):
+#         username = aBrowser.find_element_by_id('id_username')
+#         email = aBrowser.find_element_by_id('id_email')
+#         password1 = aBrowser.find_element_by_id('id_password1')
+#         password2 = aBrowser.find_element_by_id('id_password2')
+#                    
+#         username.send_keys('user20')
+#         email.send_keys('user20@email.com')
+#         password1.send_keys('password20')
+#         password2.send_keys('password20')
+#          
+#         aBrowser.find_element_by_class_name("btn").click()
     
     @classmethod
     def add_sequencelisting(cls, aBrowser, aFileName):
@@ -100,20 +100,20 @@ class CreateSequenceListingTest(LiveServerTestCase):
         self.browser.implicitly_wait(3)
             
         # register
-        self.browser.get('%s%s' %(self.live_server_url, '/accounts/register/'))    
-        SeqlSeleniumTestFixture.register(self.browser)
+#         self.browser.get('%s%s' %(self.live_server_url, '/accounts/register/'))    
+#         SeqlSeleniumTestFixture.register(self.browser)
              
     def tearDown(self):
         self.browser.quit()
                 
-    def test_register(self):
-        print 'Selenium: Running %s ...' % self._testMethodName
-     
- #         check that the index page of registered user is displayed
-        self.browser.get('%s%s' % (self.live_server_url, '/sequencelistings'))
-        self.assertIn('st26proto - Index', self.browser.title)
-#         self.assertIn('user20', self.browser.find_element_by_class_name('page-header').text)
-        self.assertIn('user20', self.browser.find_element_by_id('welcomeHeader').text)
+#     def test_register(self):
+#         print 'Selenium: Running %s ...' % self._testMethodName
+#      
+#  #         check that the index page of registered user is displayed
+#         self.browser.get('%s%s' % (self.live_server_url, '/sequencelistings'))
+#         self.assertIn('st26proto - Index', self.browser.title)
+# #         self.assertIn('user20', self.browser.find_element_by_class_name('page-header').text)
+#         self.assertIn('user20', self.browser.find_element_by_id('welcomeHeader').text)
        
     def test_add_sequencelisting_functionality(self):
         print 'Selenium: Running %s ...' % self._testMethodName
@@ -227,8 +227,8 @@ class EditSequenceListingTest(LiveServerTestCase):
         self.browser = webdriver.Firefox()
         self.browser.implicitly_wait(3)
           
-        self.browser.get('%s%s' %(self.live_server_url, '/accounts/register/')) 
-        SeqlSeleniumTestFixture.register(self.browser)
+#         self.browser.get('%s%s' %(self.live_server_url, '/accounts/register/')) 
+#         SeqlSeleniumTestFixture.register(self.browser)
         self.fileName = 'selenium_test2'
         self.browser.get('%s%s' %(self.live_server_url, '/sequencelistings/add_sequencelisting')) 
         SeqlSeleniumTestFixture.add_sequencelisting(self.browser, self.fileName)
