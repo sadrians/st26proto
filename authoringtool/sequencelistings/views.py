@@ -32,20 +32,6 @@ class IndexView(generic.ListView):
 # def index(request):
 #     return render_to_response('sequencelistings/index.html', {}, {})
 
-    
-# class OverviewView(generic.ListView):
-#     template_name = 'sequencelistings/overview.html'
-#     context_object_name = 'sequencelistings'
-#   
-#     def get_queryset(self):
-#         """Return all sequence listings."""
-#         
-#         return SequenceListing.objects.all()
-
-# class DetailView(generic.DetailView):
-#     model = SequenceListing
-#     template_name = 'sequencelistings/detail.html'
-
 def overview(request): #test
     sls = SequenceListing.objects.all()
 
@@ -54,13 +40,15 @@ def overview(request): #test
         
     return render(request, 'sequencelistings/overview.html', {'sequencelistings': slgen, 
                                                               'sequencelistings_specimens': slspec})
+def login1(request): #test
+    return render(request, 'sequencelistings/login1.html')
+
 
 def detail(request, pk): #good
     sl = get_object_or_404(SequenceListing, pk=pk)
         
     return render(request, 'sequencelistings/detail.html', {'sequencelisting': sl})
 
-# @login_required 
 def edit_seql(request, pk):
     sl = get_object_or_404(SequenceListing, pk=pk)
         
@@ -231,7 +219,6 @@ def add_sequence(request, pk):
         form = SequenceForm()
     return render(request, 'sequencelistings/add_seq.html', {'form': form, 'pk': pk, 'seql': sl})
 
-# this function is GOOD!!!
 def import_sequence(request, pk):
     sl = SequenceListing.objects.get(pk=pk)
     seqIdNo = len(sl.sequence_set.all()) +1
@@ -336,7 +323,6 @@ def edit_feature(request, pk, spk, fpk):
             f.featureKey = cd['featureKey']
             f.location = cd['location']
             f.save()
-#             return HttpResponseRedirect(reverse('sequencelistings:edit_sequence_data', args=(pk,)))
             return HttpResponseRedirect(reverse('sequencelistings:edit_seql', args=(pk,)))
     else:
         form = FeatureForm(mt=seq.moltype)
@@ -352,7 +338,6 @@ def add_qualifier(request, pk, spk, fpk):
             qv = request.POST.get('qualifierValue')
             q = Qualifier.objects.create(feature=f, qualifierName=qn, qualifierValue=qv)
             q.save()
-#             return HttpResponseRedirect(reverse('sequencelistings:edit_sequence_data', args=(pk, )))
             return HttpResponseRedirect(reverse('sequencelistings:edit_seql', args=(pk, )))
 
     else:
@@ -414,10 +399,6 @@ def display(request, fileName):
     """Display the generated XML sequence listing file using XSLT stylesheet.""" 
     return render(request, 'sequencelistings/generated.html', 
                   {'fileName': fileName, }) 
-
-@login_required
-def restricted(request):
-    return HttpResponse("This is a test page. You see this text because you're logged in.")
 
 def about(request):
     return render_to_response('sequencelistings/about.html', {}, {})

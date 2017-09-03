@@ -4,13 +4,12 @@ Created on Apr 12, 2015
 @author: ad
 '''
 from django.conf.urls import patterns, url
-
 from sequencelistings import views
 
 urlpatterns = patterns('',
     url(r'^$', views.IndexView.as_view(), name='index'),
 #     url(r'^$', views.index, name='index'),
-#     url(r'^overview/$', views.OverviewView.as_view(), name='overview'),
+    url(r'^login1/$', views.login1, name='login1'),
     url(r'^overview/$', views.overview, name='overview'),
     url(r'^add_sequencelisting/$', views.add_sequencelisting, 
         name='add_sequencelisting'),
@@ -33,9 +32,6 @@ urlpatterns = patterns('',
         name='add_qualifier'),
     url(r'^sl(?P<pk>\d+)/seq(?P<spk>\d+)/f(?P<fpk>\d+)/edit_feature/$', 
         views.edit_feature, name='edit_feature'),
-    
     url(r'^sl(?P<pk>\d+)/xmloutput/$', views.generateXml, name='xmloutput'),
-    
-    url(r'^restricted/$', views.restricted, name='restricted'),
     
 )
