@@ -33,18 +33,27 @@ class IndexView(generic.ListView):
 #     return render_to_response('sequencelistings/index.html', {}, {})
 
     
-class OverviewView(generic.ListView):
-    template_name = 'sequencelistings/overview.html'
-    context_object_name = 'sequencelistings'
-  
-    def get_queryset(self):
-        """Return all sequence listings."""
-        
-        return SequenceListing.objects.all()
+# class OverviewView(generic.ListView):
+#     template_name = 'sequencelistings/overview.html'
+#     context_object_name = 'sequencelistings'
+#   
+#     def get_queryset(self):
+#         """Return all sequence listings."""
+#         
+#         return SequenceListing.objects.all()
 
 # class DetailView(generic.DetailView):
 #     model = SequenceListing
 #     template_name = 'sequencelistings/detail.html'
+
+def overview(request): #test
+    sls = SequenceListing.objects.all()
+
+    slspec = sls.filter(isEditable=False)
+    slgen = [sl for sl in sls if sl not in slspec]
+        
+    return render(request, 'sequencelistings/overview.html', {'sequencelistings': slgen, 
+                                                              'sequencelistings_specimens': slspec})
 
 def detail(request, pk): #good
     sl = get_object_or_404(SequenceListing, pk=pk)

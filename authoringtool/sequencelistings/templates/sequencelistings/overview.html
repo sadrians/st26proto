@@ -8,20 +8,38 @@
 {% endblock %}
 
 {% block body_block %}
-    {% if user.is_authenticated %}
+    <!-- {% if user.is_authenticated %}
         <a id="add_seql_link" href="{% url 'sequencelistings:add_sequencelisting' %}">Add new sequence listing</a>
     {% endif %}
     
-    <p>Navigate to previously created sequence listings by following the link in the column 'file name'.</p>
-    <p>Registered users can create sequence listings or add sequences to previously created sequence listings.</p> 
         
     {% if not user.is_authenticated %}
         <p>Follow this link for <a href="{% url 'registration_register' %}">registration</a>.
-    {% endif %}
-    <h4>Note</h4>
-    <p>The sequence listing 'Invention_SEQL' is not editable (it is a specimen).</p>
-    </p>
+    {% endif %} -->
+    
     {% if sequencelistings %}
+        <h3>Specimens</h3>
+        <p>These sequence listings can't be edited.</p>
+        <table id="specimens_table" class="genTable">
+            <tr>
+                <th>file name</th>
+                <th>invention title</th>
+                <th>number of sequences</th>
+            </tr>
+            {% for slsp in sequencelistings_specimens %}
+                <tr>
+                    <td><a href="{% url 'sequencelistings:detail' slsp.id %}">{{ slsp.fileName }}</a></td>
+                    <td>{{slsp.getFirstTitle}}</td>
+                    <td>{{slsp.sequenceTotalQuantity}}</td>
+                </tr>
+            {% endfor %}
+        </table>
+        <br>
+        
+        <h3>Tests</h3>
+        <a id="add_seql_link" href="{% url 'sequencelistings:add_sequencelisting' %}">Add new sequence listing</a>
+        <p>These sequence listings can be edited.</p>
+    
         <table id="home_page_table" class="genTable">
             <tr>
                 <th>file name</th>
