@@ -40,19 +40,14 @@ def overview(request): #test
         
     return render(request, 'sequencelistings/overview.html', {'sequencelistings': slgen, 
                                                               'sequencelistings_specimens': slspec})
+
 def login1(request): #test
     return render(request, 'sequencelistings/login1.html')
-
 
 def detail(request, pk): #good
     sl = get_object_or_404(SequenceListing, pk=pk)
         
     return render(request, 'sequencelistings/detail.html', {'sequencelisting': sl})
-
-def edit_seql(request, pk):
-    sl = get_object_or_404(SequenceListing, pk=pk)
-        
-    return render(request, 'sequencelistings/edit_seql.html', {'sequencelisting': sl})
 
 # @login_required 
 def add_sequencelisting(request):
@@ -110,6 +105,11 @@ def add_sequencelisting(request):
         
     return render(request, 'sequencelistings/add_sequencelisting.html', 
                   {'form': form, 'title_form': title_form})
+
+def edit_seql(request, pk):
+    sl = get_object_or_404(SequenceListing, pk=pk)
+        
+    return render(request, 'sequencelistings/edit_seql.html', {'sequencelisting': sl})
 
 # TODO: is this needed?
 
@@ -214,7 +214,7 @@ def add_sequence(request, pk):
                                                           qualifierValue=raw_residues)
                 note_qualifier_instance.save()
             
-            return HttpResponseRedirect(reverse('sequencelistings:detail', args=(pk,)))
+            return HttpResponseRedirect(reverse('sequencelistings:edit_seql', args=(pk,)))
     else:
         form = SequenceForm()
     return render(request, 'sequencelistings/add_seq.html', {'form': form, 'pk': pk, 'seql': sl})
@@ -255,7 +255,7 @@ def import_sequence(request, pk):
                                                         qualifierValue=de)
                 note_qualifier_instance.save()
                
-        return HttpResponseRedirect(reverse('sequencelistings:detail', args=(pk,)))
+        return HttpResponseRedirect(reverse('sequencelistings:edit_seql', args=(pk,)))
     else:
         form = ImportSequenceForm(initial={'sequenceName': 'seq_%i' % seqIdNo})
     return render(request, 'sequencelistings/import_seq.html', {'pk': pk, 'seql': sl, 'form': form})
