@@ -139,7 +139,7 @@ def add_title(request, pk):
                 )
             title_instance.save()
             
-            return HttpResponseRedirect(reverse('sequencelistings:detail', args=(pk,)))
+            return HttpResponseRedirect(reverse('sequencelistings:edit_seql', args=(pk,)))
     else:
         form = TitleForm()
     return render(request, 'sequencelistings/add_title.html', {'form': form, 'pk': pk})
