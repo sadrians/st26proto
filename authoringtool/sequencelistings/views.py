@@ -114,7 +114,7 @@ def add_sequencelisting(request):
             
             title_instance.save()
             
-            return HttpResponseRedirect(reverse('sequencelistings:detail', 
+            return HttpResponseRedirect(reverse('sequencelistings:edit_seql', 
                                                 args=(sl_instance.pk,)))
     else:
         form = SequenceListingForm()
