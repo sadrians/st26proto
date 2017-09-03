@@ -11,10 +11,13 @@
     <div class='topnav' id='seqlTopnav'>
         <a class='active' href="{% url 'sequencelistings:detail' sequencelisting.pk %}">Preview</a>
         <!-- if the user is logged in show link for editing sequence data  -->
-        {% if user.is_authenticated %}
+        <!-- {% if user.is_authenticated %}
             {% if sequencelisting.isEditable or user.is_staff  %}
                 <a href="{% url 'sequencelistings:edit_seql' sequencelisting.pk %}">Edit</a>
             {% endif %}
+        {% endif %} -->
+        {% if sequencelisting.isEditable or user.is_staff  %}
+            <a href="{% url 'sequencelistings:edit_seql' sequencelisting.pk %}">Edit</a>
         {% endif %}
         <a href="{% url 'sequencelistings:xmloutput' sequencelisting.pk %}">Generate XML</a>
     </div>
