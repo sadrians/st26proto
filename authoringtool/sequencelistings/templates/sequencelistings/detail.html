@@ -16,6 +16,7 @@
                 <a href="{% url 'sequencelistings:edit_seql' sequencelisting.pk %}">Edit</a>
             {% endif %}
         {% endif %} -->
+        
         {% if sequencelisting.isEditable or user.is_staff  %}
             <a href="{% url 'sequencelistings:edit_seql' sequencelisting.pk %}">Edit</a>
         {% endif %}

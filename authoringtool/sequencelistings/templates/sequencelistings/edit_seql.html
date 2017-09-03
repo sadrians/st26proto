@@ -11,10 +11,13 @@
     <div class='topnav' id='seqlTopnav'>
         <a href="{% url 'sequencelistings:detail' sequencelisting.pk %}">Preview</a>
         <!-- if the user is logged in show link for editing sequence data  -->
-        {% if user.is_authenticated %}
+        <!-- {% if user.is_authenticated %}
             {% if sequencelisting.isEditable or user.is_staff  %}
                 <a class='active' href="{% url 'sequencelistings:edit_seql' sequencelisting.pk %}">Edit</a>
             {% endif %}
+        {% endif %} -->
+        {% if sequencelisting.isEditable or user.is_staff  %}
+            <a class='active' href="{% url 'sequencelistings:edit_seql' sequencelisting.pk %}">Edit</a>
         {% endif %}
         <a href="{% url 'sequencelistings:xmloutput' sequencelisting.pk %}">Generate XML</a>
     </div>
@@ -113,7 +116,7 @@
 
     <!-- test -->
     <br>
-    {% if user.is_authenticated %}
+    <!-- {% if user.is_authenticated %}
         {% if sequencelisting.isEditable or user.is_staff  %}
             <div class='topnav' id='editTopnav'>
                 <a href="{% url 'sequencelistings:add_title' sequencelisting.pk %}">Add new title</a>
@@ -121,7 +124,14 @@
                 <a href="{% url 'sequencelistings:import_seq' sequencelisting.pk %}">Import sequence</a>
             </div>
         {% endif %}
-    {% endif %}    
+    {% endif %}     -->
+    {% if sequencelisting.isEditable or user.is_staff  %}
+        <div class='topnav' id='editTopnav'>
+            <a href="{% url 'sequencelistings:add_title' sequencelisting.pk %}">Add new title</a>
+            <a href="{% url 'sequencelistings:add_seq' sequencelisting.pk %}">Add new sequence</a>
+            <a href="{% url 'sequencelistings:import_seq' sequencelisting.pk %}">Import sequence</a>
+        </div>
+    {% endif %}
     <hr />
     
     <!-- SEQUENCES ==================================================-->
@@ -133,7 +143,7 @@
                 <th>SEQ ID NO:</th>
                 <td>
                     <!-- if the user is logged in, have access rights and seql is editable show link for editing sequence  -->
-                    {% if user.is_authenticated %}
+                    <!-- {% if user.is_authenticated %}
                         {% if sequencelisting.isEditable or user.is_staff  %}
                             <a href="{% url 'sequencelistings:sequence' sequencelisting.pk seq.pk %}">{{ seq.sequenceIdNo }}</a>
                         {% else %}
@@ -141,7 +151,13 @@
                         {% endif %}
                     {% else %}
                         {{ seq.sequenceIdNo }}
+                    {% endif %} -->
+                    {% if sequencelisting.isEditable or user.is_staff  %}
+                        <a href="{% url 'sequencelistings:sequence' sequencelisting.pk seq.pk %}">{{ seq.sequenceIdNo }}</a>
+                    {% else %}
+                        {{ seq.sequenceIdNo }}
                     {% endif %}
+                    
                 </td>
                 <th>type</th>
                 <td>{{ seq.moltype }}</td>
@@ -168,12 +184,17 @@
                             {% endfor %}
                     {% endif %}
                     <!-- if the user is logged in show link for adding qualifier  -->
-                    {% if user.is_authenticated %}
+                    <!-- {% if user.is_authenticated %}
                         {% if sequencelisting.isEditable or user.is_staff  %}
                             <div class="qualifier">
                                 <a href='/sequencelistings/sl{{sequencelisting.pk}}/seq{{seq.pk}}/f{{f.pk}}/add_qualifier/'>Add new qualifier</a>
                             </div>
                         {% endif %}
+                    {% endif %} -->
+                    {% if sequencelisting.isEditable or user.is_staff  %}
+                        <div class="qualifier">
+                            <a href='/sequencelistings/sl{{sequencelisting.pk}}/seq{{seq.pk}}/f{{f.pk}}/add_qualifier/'>Add new qualifier</a>
+                        </div>
                     {% endif %}
                 </div>
             {% endfor %}
@@ -181,12 +202,17 @@
         no features
         {% endif %}
         <!-- if the user is logged in show link for adding feature  -->
-        {% if user.is_authenticated %}
+        <!-- {% if user.is_authenticated %}
             {% if sequencelisting.isEditable or user.is_staff  %}
                 <div class="feature">
                     <a href='/sequencelistings/sl{{sequencelisting.pk}}/seq{{seq.pk}}/add_feature/'>Add new feature</a> 
                 </div>
             {% endif %}
+        {% endif %} -->
+        {% if sequencelisting.isEditable or user.is_staff  %}
+            <div class="feature">
+                <a href='/sequencelistings/sl{{sequencelisting.pk}}/seq{{seq.pk}}/add_feature/'>Add new feature</a> 
+            </div>
         {% endif %}
         <!-- END FEATURE TABLE -->
         
@@ -202,11 +228,15 @@
     
     <br>
     <!-- if the user is logged in show links for adding and importing sequence  -->
-    {% if user.is_authenticated %}
+    <!-- {% if user.is_authenticated %}
         {% if sequencelisting.isEditable or user.is_staff  %}
             <p><a href="{% url 'sequencelistings:add_seq' sequencelisting.pk %}">Add new sequence</a></p>
             <p><a href="{% url 'sequencelistings:import_seq' sequencelisting.pk %}">Import sequence</a></p>      
         {% endif %}
+    {% endif %} -->
+    {% if sequencelisting.isEditable or user.is_staff  %}
+        <p><a href="{% url 'sequencelistings:add_seq' sequencelisting.pk %}">Add new sequence</a></p>
+        <p><a href="{% url 'sequencelistings:import_seq' sequencelisting.pk %}">Import sequence</a></p>      
     {% endif %}
     
 {% endblock %}

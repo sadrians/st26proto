@@ -60,13 +60,13 @@ def detail(request, pk): #good
         
     return render(request, 'sequencelistings/detail.html', {'sequencelisting': sl})
 
-@login_required 
+# @login_required 
 def edit_seql(request, pk):
     sl = get_object_or_404(SequenceListing, pk=pk)
         
     return render(request, 'sequencelistings/edit_seql.html', {'sequencelisting': sl})
 
-@login_required 
+# @login_required 
 def add_sequencelisting(request):
     if request.method == 'POST':
         form = SequenceListingForm(request.POST)

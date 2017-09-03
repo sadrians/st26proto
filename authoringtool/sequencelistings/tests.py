@@ -277,14 +277,14 @@ class ViewsTests(TestCase):
         
         response = self.client.get(reverse('sequencelistings:add_sequencelisting'))
         
-        #         first redirected because not logged in 
-        self.assertEqual(response.status_code, 302)
-#         create a user and log in
-        self.user = User.objects.create_user(username='testuser', password='12345')
-        self.user.save()
-        login = self.client.login(username='testuser', password='12345')
-        
-        response = self.client.get(reverse('sequencelistings:add_sequencelisting'))
+#         #         first redirected because not logged in 
+#         self.assertEqual(response.status_code, 302)
+# #         create a user and log in
+#         self.user = User.objects.create_user(username='testuser', password='12345')
+#         self.user.save()
+#         login = self.client.login(username='testuser', password='12345')
+#         
+#         response = self.client.get(reverse('sequencelistings:add_sequencelisting'))
         
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, "Create a sequence listing")
@@ -301,15 +301,15 @@ class ViewsTests(TestCase):
         response = self.client.get(reverse('sequencelistings:edit_seql', 
                                            args=[self.sequenceListing.id]))
 #         test that the page returns expected html contents
-#         first redirected because not logged in 
-        self.assertEqual(response.status_code, 302)
-#         create a user and log in
-        self.user = User.objects.create_user(username='testuser', password='12345')
-        self.user.save()
-        login = self.client.login(username='testuser', password='12345')
-        
-        response = self.client.get(reverse('sequencelistings:edit_seql', 
-                                           args=[self.sequenceListing.id]))
+# #         first redirected because not logged in 
+#         self.assertEqual(response.status_code, 302)
+# #         create a user and log in
+#         self.user = User.objects.create_user(username='testuser', password='12345')
+#         self.user.save()
+#         login = self.client.login(username='testuser', password='12345')
+#         
+#         response = self.client.get(reverse('sequencelistings:edit_seql', 
+#                                            args=[self.sequenceListing.id]))
         self.assertEqual(response.status_code, 200)
         
         self.assertContains(response, "EDIT SEQUENCE LISTING")
