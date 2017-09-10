@@ -42,12 +42,17 @@ class TitleForm(ModelForm):
         
 class SequenceForm(ModelForm):
     organism = CharField(label='Organism', max_length=200)
-
+#     def __init__(self, *args, **kwargs):
+#         seqName = kwargs.pop('sn')
+#         super(SequenceForm, self).__init__(*args, **kwargs)
+#         self.fields['sequenceName'] = CharField(label='Sequence name', max_length=100, default=seqName)
+        
     class Meta:
         model = Sequence
         fields = [
 #                   'sequenceListing', 
 #                 'sequenceIdNo', 
+                    'sequenceName',
 #                   'length',
                   'moltype',
 #                   'division',

@@ -188,17 +188,20 @@ def add_sequence(request, pk):
     sl = SequenceListing.objects.get(pk=pk)
     if request.method == 'POST':
         organism = request.POST.get('organism')
-        form = SequenceForm(request.POST)
+        form = SequenceForm(request.POST)#, sn='seq_%i' % (sl.sequenceTotalQuantity + 1))
+#         form = SequenceForm(initial={'sequenceName': 'abc'})
 
         if form.is_valid():
             cd = form.cleaned_data
             raw_residues = cd['residues']
             
             sequence_instance = Sequence(sequenceListing = sl,
+                sequenceName = cd['sequenceName'],
                 length = len(cd['residues']),
                 moltype = cd['moltype'],
                 residues = cd['residues'] 
                 )
+            
             
             sequence_instance.save()
             feature_source_helper(sequence_instance, organism)
