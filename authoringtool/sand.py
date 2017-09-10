@@ -21,6 +21,17 @@ def myCopyScript(aFileName):
     copySequenceListing(sl)
     print 'Done with copying', aFileName
 
+def setSequenceName(sequenceListing):
+    sequences = sequenceListing.sequence_set.all()
+    for seq in sequences:
+        seq.sequenceName = 'seq_%i' % seq.sequenceIdNo
+        seq.save()
+        seq.inspectSequence()
+        
+# sls = SequenceListing.objects.all()
+# for sl in sls:
+#     setSequenceName(sl)
+
 # myCopyScript('Invention_SEQL')
 
 # print 'GGGX'*100
