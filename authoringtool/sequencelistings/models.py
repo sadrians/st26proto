@@ -98,7 +98,7 @@ class Sequence(models.Model): #good
     sequenceListing = models.ForeignKey(SequenceListing)
     
     sequenceIdNo = models.IntegerField('SEQ. ID. NO.', default=0)
-    sequenceName = models.CharField('Sequence name', max_length=100, default='seq_')
+    sequenceName = models.CharField('Sequence name', max_length=100)
     length = models.IntegerField('Length', default=0)
     moltype = models.CharField('Molecule type', max_length=3, choices=util.MOLTYPE_CHOICES)
     division = models.CharField('Division', max_length=3, default='PAT')

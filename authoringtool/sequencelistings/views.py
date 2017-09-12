@@ -186,9 +186,11 @@ def add_multiple_feature(request, pk, spk):
 
 def add_sequence(request, pk):
     sl = SequenceListing.objects.get(pk=pk)
+    currentSeqIdNo = len(sl.sequence_set.all()) + 1
+    currentSequenceName = 'seq_%i' % currentSeqIdNo
     if request.method == 'POST':
         organism = request.POST.get('organism')
-        form = SequenceForm(request.POST)#, sn='seq_%i' % (sl.sequenceTotalQuantity + 1))
+        form = SequenceForm(request.POST, sn=currentSequenceName)#, sn='seq_%i' % (sl.sequenceTotalQuantity + 1))
 #         form = SequenceForm(initial={'sequenceName': 'abc'})
 
         if form.is_valid():
@@ -219,7 +221,7 @@ def add_sequence(request, pk):
             
             return HttpResponseRedirect(reverse('sequencelistings:edit_seql', args=(pk,)))
     else:
-        form = SequenceForm()
+        form = SequenceForm(sn=currentSequenceName)
     return render(request, 'sequencelistings/add_seq.html', {'form': form, 'pk': pk, 'seql': sl})
 
 def import_sequence(request, pk):
