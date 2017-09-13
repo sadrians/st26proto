@@ -381,6 +381,7 @@ class EditSequenceListingTest(LiveServerTestCase):
 
 #         now we are on edit_seql view
 #         test sequenceName value
+#         print 'residues:', self.browser.find_element_by_class_name('residues')
         sequenceName_element = self.browser.find_element_by_class_name('sequenceName')
         self.assert_('xxyyzz', sequenceName_element.text) 
         

@@ -133,10 +133,14 @@ def add_title(request, pk):
     return render(request, 'sequencelistings/add_title.html', {'form': form, 'pk': pk})
 
 # TODO: is this view used actually?
+# needed????
 def sequence(request, pk, spk):
     seq = Sequence.objects.get(pk=spk)
-    form = SequenceForm(instance=seq, sn = seq.sequenceName, 
-                        initial={'organism': seq.getOrganism(),})
+    form = SequenceForm(instance=seq, 
+#                         sn = seq.sequenceName, 
+                        initial={'organism': seq.getOrganism(),
+                                'sequenceName': seq.sequenceName
+                                  })
     
     form.organism = seq.getOrganism()
     featureFormDic = {}
@@ -186,45 +190,93 @@ def add_multiple_feature(request, pk, spk):
         form = MultipleFeatureForm(request.POST, moltype=seq.moltype)
     return render(request, 'sequencelistings/add_multiple_feature.html', {'form': form, 'seq': seq})
 
+# def add_sequence(request, pk):
+#     sl = SequenceListing.objects.get(pk=pk)
+#     currentSeqIdNo = len(sl.sequence_set.all()) + 1
+#     currentSequenceName = 'seq_%i' % currentSeqIdNo
+#     if request.method == 'POST':
+#         organism = request.POST.get('organism')
+#         form = SequenceForm(request.POST, sn=currentSequenceName)#, sn='seq_%i' % (sl.sequenceTotalQuantity + 1))
+# 
+# #         print 'form from if:', form 
+# 
+#         if form.is_valid():
+#             print 'form is valid'
+#             cd = form.cleaned_data
+#             raw_residues = cd['residues']
+#             
+#             sequence_instance = Sequence(sequenceListing = sl,
+#                 sequenceName = cd['sequenceName'],
+#                 length = len(cd['residues']),
+#                 moltype = cd['moltype'],
+#                 residues = cd['residues'] 
+#                 )
+#             
+#             sequence_instance.save()
+#             feature_source_helper(sequence_instance, organism)
+# #             create a note qualifier to indicate the a formula if applicable
+#             if '(' in raw_residues:
+#                 value_for_note = 'note'
+#                 if cd['moltype'] == 'AA':
+#                     value_for_note = 'NOTE'
+#                 
+#                 feature_instance = Feature.objects.filter(sequence = sequence_instance)[0]
+#                 note_qualifier_instance = Qualifier.objects.create(feature=feature_instance, 
+#                                                           qualifierName=value_for_note, 
+#                                                           qualifierValue=raw_residues)
+#                 note_qualifier_instance.save()
+#             
+#             return HttpResponseRedirect(reverse('sequencelistings:edit_seql', args=(pk,)))
+#         else:
+#             print 'Form not valid.'
+#     else:
+#         form = SequenceForm(sn=currentSequenceName)
+# #         print 'form from else:', form
+#     return render(request, 'sequencelistings/add_seq.html', {'form': form, 'pk': pk, 'seql': sl})
+
+# good
 def add_sequence(request, pk):
     sl = SequenceListing.objects.get(pk=pk)
     currentSeqIdNo = len(sl.sequence_set.all()) + 1
     currentSequenceName = 'seq_%i' % currentSeqIdNo
-    if request.method == 'POST':
-        organism = request.POST.get('organism')
-        form = SequenceForm(request.POST, sn=currentSequenceName)#, sn='seq_%i' % (sl.sequenceTotalQuantity + 1))
-#         form = SequenceForm(initial={'sequenceName': 'abc'})
-
+    if request.method == 'POST':              
+        form = SequenceForm(request.POST)
+ 
         if form.is_valid():
+            print 'form is valid'
             cd = form.cleaned_data
             raw_residues = cd['residues']
-            
+             
             sequence_instance = Sequence(sequenceListing = sl,
                 sequenceName = cd['sequenceName'],
                 length = len(cd['residues']),
                 moltype = cd['moltype'],
                 residues = cd['residues'] 
                 )
-            
-            
             sequence_instance.save()
+            
+            organism = request.POST.get('organism')
             feature_source_helper(sequence_instance, organism)
 #             create a note qualifier to indicate the a formula if applicable
             if '(' in raw_residues:
                 value_for_note = 'note'
                 if cd['moltype'] == 'AA':
                     value_for_note = 'NOTE'
-                
+                 
                 feature_instance = Feature.objects.filter(sequence = sequence_instance)[0]
                 note_qualifier_instance = Qualifier.objects.create(feature=feature_instance, 
                                                           qualifierName=value_for_note, 
                                                           qualifierValue=raw_residues)
                 note_qualifier_instance.save()
-            
-            return HttpResponseRedirect(reverse('sequencelistings:edit_seql', args=(pk,)))
+             
+            return HttpResponseRedirect(reverse('sequencelistings:edit_seql', 
+                                                args=(pk,)))
+        else:
+            print 'Form not valid.'
     else:
-        form = SequenceForm(sn=currentSequenceName)
+        form = SequenceForm(initial={'sequenceName': currentSequenceName})
     return render(request, 'sequencelistings/add_seq.html', {'form': form, 'pk': pk, 'seql': sl})
+
 
 def import_sequence(request, pk):
     sl = SequenceListing.objects.get(pk=pk)
