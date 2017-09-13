@@ -84,7 +84,7 @@ class VisitorTest(LiveServerTestCase):
         self.assertEqual(0, len(self.browser.find_elements_by_tag_name('table')), 
                          'There should be no table if no seqls created.')
            
-          # unregistered visitors are not allowed to add seqls i.e. there is no link to add seql
+#         unregistered visitors are not allowed to add seqls i.e. there is no link to add seql
         self.assertEqual(0, len(self.browser.find_elements_by_id('add_seql_link'))) 
                              
     def test_about_page(self):
@@ -235,18 +235,15 @@ class EditSequenceListingTest(LiveServerTestCase):
         
     def tearDown(self):
         self.browser.quit()
-    
-    def test_add_sequence(self):
+
+    def test_add_sequence_form(self):
         print 'Selenium: Running %s ...' % self._testMethodName
          
         self.browser.get('%s%s' %(self.live_server_url, '/sequencelistings/overview'))
          
 #         check that there is a detail page is produced for the newly created seql        
         self.browser.find_element_by_link_text(self.fileName).click()
-        
-#         headers_h2 = self.browser.find_elements_by_tag_name('h2')
-#         self.assertIn('EXPORT', [h.text for h in headers_h2])
-           
+                   
 #         check that the link to preview, edit and generate XML sequence listing is displayed
         preview_seql_link = self.browser.find_element_by_link_text('Preview')
         self.assertTrue(preview_seql_link.is_displayed())
@@ -255,22 +252,35 @@ class EditSequenceListingTest(LiveServerTestCase):
         generatexml_seql_link = self.browser.find_element_by_link_text('Generate XML')
         self.assertTrue(generatexml_seql_link.is_displayed())       
            
-#         add a sequence
-        edit_seql_link.click()
+    def test_add_sequence_functionality(self):
+        print 'Selenium: Running %s ...' % self._testMethodName
+         
+        self.browser.get('%s%s' %(self.live_server_url, '/sequencelistings/overview'))
+         
+#         check that there is a detail page is produced for the newly created seql        
+        self.browser.find_element_by_link_text(self.fileName).click()
         
+#         check that the link to edit is displayed
+        edit_seql_link = self.browser.find_element_by_link_text('Edit')
+        self.assertTrue(edit_seql_link.is_displayed())       
+   
+#         render the page to edit seql form to add a sequence
+        edit_seql_link.click()
+
+#         check that the link to add a sequence is displayed        
         add_seq_link = self.browser.find_element_by_link_text('Add new sequence')
         self.assertTrue(add_seq_link.is_displayed()) 
-        
+
+#         render the page to add a sequence        
         add_seq_link.click() 
         
-#         self.browser.get('%s%s' %(self.live_server_url, '/sequencelistings/sl1/add_seq'))
         headers_h2_add_seq = self.browser.find_elements_by_tag_name('h2')
         self.assertIn('Add new sequence', [h.text for h in headers_h2_add_seq])
-           
+        
         moltype = self.browser.find_element_by_id('id_moltype')
         residues = self.browser.find_element_by_id('id_residues') 
         organism  = self.browser.find_element_by_id('id_organism') 
-           
+        
         moltype.send_keys('DNA')
         residues.send_keys('acgtacgtacgt')
         organism.send_keys('Homo sapiens selenium')
@@ -291,7 +301,7 @@ class EditSequenceListingTest(LiveServerTestCase):
 #         check that the seql page contains now the new sequence
         tds = self.browser.find_elements_by_tag_name('td')
         self.assertIn('Homo sapiens selenium', [td.text for td in tds])
-           
+          
 #         cant test residues because they are not loaded (due to JavaScript????)
 #         residues_elements = self.browser.find_element_by_class_name('residues')
 #         print residues_elements.text
@@ -319,6 +329,61 @@ class EditSequenceListingTest(LiveServerTestCase):
 #         headers_h1 = self.browser.find_elements_by_tag_name('h1')
 #         self.assertIn('ST26 SEQUENCE LISTING with client side XSLT', [h.text for h in headers_h1])
 
+    def test_add_sequence_functionality_sequenceName(self):
+        print 'Selenium: Running %s ...' % self._testMethodName
+         
+        self.browser.get('%s%s' %(self.live_server_url, '/sequencelistings/overview'))
+         
+        self.browser.find_element_by_link_text(self.fileName).click()
+        edit_seql_link = self.browser.find_element_by_link_text('Edit')
+        edit_seql_link.click()
+        add_seq_link = self.browser.find_element_by_link_text('Add new sequence')
+        add_seq_link.click() 
+                
+        sequenceName = self.browser.find_element_by_id('id_sequenceName')   
+        moltype = self.browser.find_element_by_id('id_moltype')
+        residues = self.browser.find_element_by_id('id_residues') 
+        organism  = self.browser.find_element_by_id('id_organism') 
+
+#         test that the sequenceName field is prepopulated
+        self.assert_('seq_1', sequenceName.text)
+           
+#         sequenceName.send_keys('selenium_test_seq_name')
+        moltype.send_keys('DNA')
+        residues.send_keys('acgtacgtacgt')
+        organism.send_keys('Homo sapiens selenium')
+           
+        self.browser.find_element_by_xpath('//input[@value="Submit"]').click()
+
+#         now we are on edit_seql view
+#         test sequenceName value
+        sequenceName_element = self.browser.find_element_by_class_name('sequenceName')
+        self.assert_('seq_1', sequenceName_element.text)
+             
+#           test 
+        add_seq_link = self.browser.find_element_by_link_text('Add new sequence')
+        add_seq_link.click()
+        sequenceName = self.browser.find_element_by_id('id_sequenceName')   
+        moltype = self.browser.find_element_by_id('id_moltype')
+        residues = self.browser.find_element_by_id('id_residues') 
+        organism  = self.browser.find_element_by_id('id_organism') 
+
+#         test that the sequenceName field is prepopulated
+        self.assert_('seq_2', sequenceName.text)
+           
+#         sequenceName.send_keys('selenium_test_seq_name')
+        moltype.send_keys('DNA')
+        sequenceName.send_keys('xxyyzz')
+        residues.send_keys('acgtacgtacgt')
+        organism.send_keys('Homo sapiens selenium2')
+           
+        self.browser.find_element_by_xpath('//input[@value="Submit"]').click()
+
+#         now we are on edit_seql view
+#         test sequenceName value
+        sequenceName_element = self.browser.find_element_by_class_name('sequenceName')
+        self.assert_('xxyyzz', sequenceName_element.text) 
+        
     def test_import_sequence(self):
         print 'Selenium: Running %s ...' % self._testMethodName
          
@@ -343,19 +408,17 @@ class EditSequenceListingTest(LiveServerTestCase):
         headers_h2_import_seq = self.browser.find_elements_by_tag_name('h2')
         self.assertIn('Import sequence', [h.text for h in headers_h2_import_seq])
         
-        sequenceName = self.browser.find_element_by_id('id_sequenceName')
         organism  = self.browser.find_element_by_id('id_organism')
         moltype = self.browser.find_element_by_id('id_molType')
         fileField = self.browser.find_element_by_id('id_file')
          
-        sequenceName.send_keys('sequence name import selenium')    
         organism.send_keys('Felix catus selenium')
         moltype.send_keys('AA')
         fileField.send_keys(r'/Users/ad/pyton/projects/st26proto/authoringtool/functional_tests/imp1.fasta')
         
         self.browser.find_element_by_xpath('//input[@value="Upload file"]').click()
 
-#         now we are on detail view
+#         now we are on edit_seql view
         residues_element = self.browser.find_element_by_class_name('residues')
         self.assert_('QIKDLLVSSS', residues_element.text)
 #         self.assert_('QIKDLLVSSS TDLDTTLVLV NAIYFKGMWK ', residues_element.text)

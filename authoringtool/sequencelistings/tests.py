@@ -64,8 +64,11 @@ class SequenceListingFixture(object):
                     inventionTitleLanguageCode = 'EN')
       
     def create_sequence_instance(self, sl):
+        currentSeqIdNo = len(sl.sequence_set.all()) +1
+        currentSequenceName = 'test_seq_%i' % currentSeqIdNo
         seq = Sequence.objects.create(
                     sequenceListing = sl,
+                    sequenceName = currentSequenceName,
                     moltype = 'DNA',
                     residues = 'catcatcatcatcatcat')
 
@@ -74,8 +77,12 @@ class SequenceListingFixture(object):
         return seq 
     
     def create_custom_sequence_instance(self, sl, mt, res, org):
+        currentSeqIdNo = len(sl.sequence_set.all()) +1
+        currentSequenceName = 'test_seq_%i' % currentSeqIdNo
+        
         seq = Sequence.objects.create(
                 sequenceListing = sl,
+                sequenceName = currentSequenceName,
                 moltype = mt,
                 residues = res)
 
@@ -164,6 +171,7 @@ class ViewsTests(TestCase):
 #         print response
 #         test that the page returns expected html contents
 #         self.assertContains(response, "location")
+        self.assertContains(response, "Sequence name")
         self.assertContains(response, "Location")
         self.assertContains(response, "Generate XML")
         self.assertContains(response, "source")
@@ -186,6 +194,7 @@ class ViewsTests(TestCase):
         self.assertEqual(1, self.sequenceListing.sequenceTotalQuantity)
 #         check however that the sequence has been correctly created
         self.assertEqual(1, s1.sequenceIdNo)
+        self.assertEqual('test_seq_1', s1.sequenceName)
         self.assertEqual('catcatcatcatcatcat', s1.residues)
           
         response = self.client.get(reverse('sequencelistings:detail', 
@@ -197,6 +206,7 @@ class ViewsTests(TestCase):
 #         create another sequence      
         s2 = Sequence.objects.create(
             sequenceListing = self.sequenceListing,
+            sequenceName = 'test_xyz',
             moltype = 'RNA',
             residues = 'caucaucaucaucaucaucc')
                  
@@ -206,6 +216,7 @@ class ViewsTests(TestCase):
                                            args=[self.sequenceListing.id]))
         self.assertEqual(response.status_code, 200)
 #         test that the page returns expected html contents
+        self.assertContains(response, 'test_xyz')
         self.assertContains(response, "18")
         self.assertContains(response, "catcatcatcatcatcat")
         self.assertContains(response, "20")
@@ -314,7 +325,8 @@ class ViewsTests(TestCase):
         
         self.assertContains(response, "EDIT SEQUENCE LISTING")
         self.assertContains(response, "Add new title")
-        self.assertContains(response, "Add new sequence")        
+        self.assertContains(response, "Add new sequence") 
+        self.assertContains(response, "Import sequence")        
         self.assertContains(response, "Add new feature")        
         self.assertContains(response, "Add new qualifier")        
  
@@ -330,6 +342,7 @@ class ViewsTests(TestCase):
                                            args=[self.sequenceListing.id, seq.id]))
 #         test that the page returns expected html contents
         self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "Sequence name")
         self.assertContains(response, "Molecule type")
         self.assertContains(response, "Submit")
          
@@ -348,6 +361,7 @@ class ViewsTests(TestCase):
                                            args=[self.sequenceListing.id]))
 #         test that the page returns expected html contents
         self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "Sequence name")
         self.assertContains(response, "Molecule type")
         self.assertContains(response, "Residues")
         
@@ -364,6 +378,7 @@ class ViewsTests(TestCase):
                                            args=[self.sequenceListing.id]))
 #         test that the page returns expected html contents
         self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "Sequence name")
         self.assertContains(response, "Molecule type")
         self.assertContains(response, "File")
         self.assertContains(response, "Upload file")
@@ -609,6 +624,11 @@ class ModelsTests(TestCase):
           
         self.assertEqual('DNA', first_saved_seq.moltype)
         self.assertEqual('AA', second_saved_seq.moltype)
+        
+#         test that the sequenceName is properly set
+        self.assertEqual('test_seq_1', first_saved_seq.sequenceName)
+        self.assertEqual('test_seq_2', second_saved_seq.sequenceName)
+        
      
     def test_deleting_sequence(self):
         print 'Running %s ...' % getName()
@@ -621,7 +641,6 @@ class ModelsTests(TestCase):
         seq4 = self.sequenceListingFixture.create_custom_sequence_instance(self.sequenceListing,
                     'DNA', 'cgtatacggattaccatatatacagagatacca', 'Tomato')
          
- 
         saved_seqs = Sequence.objects.all()
         self.assertEqual(4, saved_seqs.count())
         self.assertEqual(4, self.sequenceListing.sequenceTotalQuantity)

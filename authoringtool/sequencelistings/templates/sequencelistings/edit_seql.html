@@ -167,8 +167,11 @@
                 <td>{{ seq.getOrganism }}</td>
             </tr>
         </table>
-        <p><strong>Sequence name: </strong>{{seq.sequenceName}}</p>
-        
+        <br />
+        <!-- <p><strong>Sequence name: </strong>{{seq.sequenceName}}</p> -->
+        <div class='sequenceName'>
+            <strong>Sequence name: </strong>{{seq.sequenceName}}
+        </div>
         <h4>FEATURES    Location/Qualifiers</h4> 
         <!-- FEATURE TABLE -->
         {% if seq.feature_set.all %}

@@ -61,21 +61,19 @@ class TitleForm(ModelForm):
 
 class SequenceForm(ModelForm):
     organism = CharField(label='Organism', max_length=200)
-    sequenceName = CharField(label='Sequence name', max_length=200)
     
     def __init__(self, *args, **kwargs):
         seqName = kwargs.pop('sn')
         super(SequenceForm, self).__init__(*args, **kwargs)
         self.fields['sequenceName'] = CharField(label='Sequence name', 
-                                                max_length=200, 
-                                                initial=seqName)
-        
+                                                max_length=100, 
+                                                initial=seqName)      
     class Meta:
         model = Sequence
         fields = [
 #                   'sequenceListing', 
 #                 'sequenceIdNo', 
-#                     'sequenceName',
+                    'sequenceName',
 #                   'length',
                   'moltype',
 #                   'division',
@@ -83,10 +81,17 @@ class SequenceForm(ModelForm):
                   'residues'] 
 
 class ImportSequenceForm(Form):
-    sequenceName = CharField(label='Sequence name', max_length=50)
+    sequenceName = CharField(label='Sequence name', max_length=100)
     organism = CharField(max_length=50)
     molType = ChoiceField(label='Molecule type', choices=util.MOLTYPE_CHOICES)
     file = FileField(help_text='Recognised formats: raw, FASTA, (more will come later).')
+    
+#     def __init__(self, *args, **kwargs):
+#         seqName = kwargs.pop('sn')
+#         super(SequenceForm, self).__init__(*args, **kwargs)
+#         self.fields['sequenceName'] = CharField(label='Sequence name', 
+#                                                 max_length=200, 
+#                                                 initial=seqName) 
 
 class FeatureForm(ModelForm):
     c = []

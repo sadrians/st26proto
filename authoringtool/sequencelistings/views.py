@@ -135,7 +135,9 @@ def add_title(request, pk):
 # TODO: is this view used actually?
 def sequence(request, pk, spk):
     seq = Sequence.objects.get(pk=spk)
-    form = SequenceForm(instance=seq, initial={'organism': seq.getOrganism()})
+    form = SequenceForm(instance=seq, sn = seq.sequenceName, 
+                        initial={'organism': seq.getOrganism(),})
+    
     form.organism = seq.getOrganism()
     featureFormDic = {}
     qualifierFormDic = {}
@@ -227,6 +229,8 @@ def add_sequence(request, pk):
 def import_sequence(request, pk):
     sl = SequenceListing.objects.get(pk=pk)
     seqIdNo = len(sl.sequence_set.all()) +1
+#     currentSeqIdNo = len(sl.sequence_set.all()) + 1
+#     currentSequenceName = 'seq_%i' % currentSeqIdNo
           
     if request.method == 'POST':
         form = ImportSequenceForm(request.POST, request.FILES)
@@ -245,6 +249,7 @@ def import_sequence(request, pk):
             else:
                 rs = 'file could not be imported'
             sequence_instance = Sequence(sequenceListing = sl,
+                sequenceName = sequenceName,
                 length = len(rs),
                 moltype = molType,
                 residues = rs 
