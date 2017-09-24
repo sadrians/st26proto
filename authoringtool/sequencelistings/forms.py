@@ -61,7 +61,10 @@ class TitleForm(ModelForm):
 
 class SequenceForm(ModelForm):
     organism = CharField(label='Organism', max_length=200)
-    
+#     test
+    def __init__(self, *args, **kwargs):
+        super(SequenceForm, self).__init__(*args, **kwargs)
+        self.fields['moltype'].widget.attrs['onchange'] = 'javascript: dynamicdropdown(this.options[this.selectedIndex].value);'
     class Meta:
         model = Sequence
         fields = [
@@ -74,18 +77,64 @@ class SequenceForm(ModelForm):
 #                   'otherSeqId',
                   'residues'] 
 
-class ImportSequenceForm(Form):
-    sequenceName = CharField(label='Sequence name', max_length=100)
-    organism = CharField(max_length=50)
-    molType = ChoiceField(label='Molecule type', choices=util.MOLTYPE_CHOICES)
+class ImportSequenceForm(ModelForm):
+#     sequenceName = CharField(label='Sequence name', max_length=100)
+    organism = CharField(label='Organism', max_length=200)
+#     molType = ChoiceField(label='Molecule type', choices=util.MOLTYPE_CHOICES,) 
+#                         onchange='javascript: dynamicdropdown(this.options[this.selectedIndex].value);')
     file = FileField(help_text='Recognised formats: raw, FASTA, (more will come later).')
     
+    def __init__(self, *args, **kwargs):
+        super(ImportSequenceForm, self).__init__(*args, **kwargs)
+        self.fields['moltype'].widget.attrs['onchange'] = 'javascript: dynamicdropdown(this.options[this.selectedIndex].value);'
+    class Meta:
+        model = Sequence
+        fields = [
+# #                   'sequenceListing', 
+# #                 'sequenceIdNo', 
+                    'sequenceName',
+# #                   'length',
+                    'moltype',
+# #                   'division',
+# #                   'otherSeqId',
+# #                   'residues',
+                    'file',
+                ]     
 #     def __init__(self, *args, **kwargs):
 #         seqName = kwargs.pop('sn')
 #         super(SequenceForm, self).__init__(*args, **kwargs)
 #         self.fields['sequenceName'] = CharField(label='Sequence name', 
 #                                                 max_length=200, 
 #                                                 initial=seqName) 
+
+# class ImportSequenceForm(Form):
+#     sequenceName = CharField(label='Sequence name', max_length=100)
+#     organism = CharField(max_length=50)
+#     molType = ChoiceField(label='Molecule type', choices=util.MOLTYPE_CHOICES,) 
+# #                         onchange='javascript: dynamicdropdown(this.options[this.selectedIndex].value);')
+#     file = FileField(help_text='Recognised formats: raw, FASTA, (more will come later).')
+#     
+# #     def __init__(self, *args, **kwargs):
+# #         super(ImportSequenceForm, self).__init__(*args, **kwargs)
+# #         self.fields['moltype'].widget.attrs['onchange'] = 'javascript: dynamicdropdown(this.options[this.selectedIndex].value);'
+# #     class Meta:
+# #         model = Sequence
+# #         fields = [
+# # #                   'sequenceListing', 
+# # #                 'sequenceIdNo', 
+# # #                     'sequenceName',
+# # #                   'length',
+# #                   'moltype',
+# # #                   'division',
+# # #                   'otherSeqId',
+# # #                   'residues'
+# #                   ]     
+# #     def __init__(self, *args, **kwargs):
+# #         seqName = kwargs.pop('sn')
+# #         super(SequenceForm, self).__init__(*args, **kwargs)
+# #         self.fields['sequenceName'] = CharField(label='Sequence name', 
+# #                                                 max_length=200, 
+# #                                                 initial=seqName) 
 
 class FeatureForm(ModelForm):
     c = []

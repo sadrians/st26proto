@@ -72,11 +72,11 @@ class SequenceListingFixture(object):
                     moltype = 'DNA',
                     residues = 'catcatcatcatcatcat')
 
-        views.feature_source_helper(seq, 'Homo sapiens')
+        views.feature_source_helper(seq, 'Homo sapiens', 'genomic DNA')
         
         return seq 
     
-    def create_custom_sequence_instance(self, sl, mt, res, org):
+    def create_custom_sequence_instance(self, sl, mt, res, org, mtq):
         currentSeqIdNo = len(sl.sequence_set.all()) +1
         currentSequenceName = 'test_seq_%i' % currentSeqIdNo
         
@@ -86,7 +86,7 @@ class SequenceListingFixture(object):
                 moltype = mt,
                 residues = res)
 
-        views.feature_source_helper(seq, org)
+        views.feature_source_helper(seq, org, mtq)
         
         return seq 
  
@@ -614,7 +614,7 @@ class ModelsTests(TestCase):
          
         self.sequenceListingFixture.create_sequence_instance(self.sequenceListing)
         self.sequenceListingFixture.create_custom_sequence_instance(self.sequenceListing,
-                    'AA', 'MRSVTF', 'Mus musculus')
+                    'AA', 'MRSVTF', 'Mus musculus', 'protein')
  
         saved_seqs = Sequence.objects.all()
         self.assertEqual(2, saved_seqs.count())
@@ -635,11 +635,11 @@ class ModelsTests(TestCase):
          
         seq1 = self.sequenceListingFixture.create_sequence_instance(self.sequenceListing)
         seq2 = self.sequenceListingFixture.create_custom_sequence_instance(self.sequenceListing,
-                    'AA', 'MRSVTF', 'Mus musculus')
+                    'AA', 'MRSVTF', 'Mus musculus', 'protein')
         seq3 = self.sequenceListingFixture.create_custom_sequence_instance(self.sequenceListing,
-                    'AA', 'MRAVTQVRT', 'Felis catus')
+                    'AA', 'MRAVTQVRT', 'Felis catus', 'protein')
         seq4 = self.sequenceListingFixture.create_custom_sequence_instance(self.sequenceListing,
-                    'DNA', 'cgtatacggattaccatatatacagagatacca', 'Tomato')
+                    'DNA', 'cgtatacggattaccatatatacagagatacca', 'Tomato', 'protein')
          
         saved_seqs = Sequence.objects.all()
         self.assertEqual(4, saved_seqs.count())
@@ -695,7 +695,7 @@ class ModelsTests(TestCase):
                 residues = 'MRTAVTAD')
         self.assertEqual(None, s2.getOrganism())
           
-        views.feature_source_helper(s2, 'Drosophila melanogaster')
+        views.feature_source_helper(s2, 'Drosophila melanogaster', 'protein')
         self.assertEqual('Drosophila melanogaster', s2.getOrganism())
                         
         s3 = Sequence.objects.create(
@@ -703,7 +703,7 @@ class ModelsTests(TestCase):
             moltype = 'RNA',
             residues = 'caucaucaucaucaucau')
           
-        views.feature_source_helper(s3, 'Mus musculus')
+        views.feature_source_helper(s3, 'Mus musculus', 'genomic RNA')
         self.assertEqual('Mus musculus', s3.getOrganism())
  
     def test_getOrderedFeatures(self):

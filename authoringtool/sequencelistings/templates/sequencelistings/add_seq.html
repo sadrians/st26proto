@@ -30,20 +30,12 @@
     
     <br>
     <!-- test drop -->
-    <div class="category_div" id="category_div">Molecule type:
-        <select name="category" class="required-entry" id="category" onchange="javascript: dynamicdropdown(this.options[this.selectedIndex].value);">
-            <option value="">select molecule type</option>
-            <option value="DNA">DNA</option>
-            <option value="RNA">RNA</option>
-            <option value="AA">AA</option>
-        </select>
-    </div>
-    <div class="sub_category_div" id="sub_category_div">Qualifier mol_type:
+    <div class="qualmoltype_div" id="qualmoltype_div">Qualifier mol_type:
         <script type="text/javascript" language="JavaScript">
-            document.write('<select name="subcategory" id="subcategory"><option value="">select mol_type</option></select>')
+            document.write('<select name="qualmoltype" id="qualmoltype"><option value="">select mol_type</option></select>')
         </script>
         <noscript>
-            <select name="subcategory" id="subcategory" >
+            <select name="qualmoltype" id="qualmoltype" >
                 <option value="">select qualifier mol_type</option>
             </select>
         </noscript>
@@ -56,25 +48,30 @@
 <script language="javascript" type="text/javascript">
      function dynamicdropdown(listindex)
      {
-         document.getElementById("subcategory").length = 0;
+         document.getElementById("qualmoltype").length = 0;
          switch (listindex)
          {
              case "DNA" :
-                 document.getElementById("subcategory").options[0]=new Option("select mol_type","");
-                 document.getElementById("subcategory").options[1]=new Option("genomic DNA","genomic DNA");
-                 document.getElementById("subcategory").options[2]=new Option("optionA","optionA");
-                 document.getElementById("subcategory").options[3]=new Option("optionB","optionB");
+//                  document.getElementById("qualmoltype").options[0]=new Option("select mol_type","");
+                 document.getElementById("qualmoltype").options[0]=new Option("genomic DNA","genomic DNA");
+                 document.getElementById("qualmoltype").options[1]=new Option("other DNA","other DNA");
+                 document.getElementById("qualmoltype").options[2]=new Option("unassigned DNA","unassigned DNA");
                  break;
-             
+                              
              case "RNA" :
-                 document.getElementById("subcategory").options[0]=new Option("select mol_type","");
-                 document.getElementById("subcategory").options[1]=new Option("genomic RNA","genomic RNA");
-                 document.getElementById("subcategory").options[2]=new Option("optionC","optionC");
+//                  document.getElementById("qualmoltype").options[0]=new Option("select mol_type","");
+                 document.getElementById("qualmoltype").options[0]=new Option("genomic RNA","genomic RNA");
+                 document.getElementById("qualmoltype").options[1]=new Option("mRNA","mRNA");
+                 document.getElementById("qualmoltype").options[2]=new Option("tRNA","tRNA");
+                 document.getElementById("qualmoltype").options[3]=new Option("rRNA","rRNA");
+                 document.getElementById("qualmoltype").options[4]=new Option("other RNA","other RNA");
+                 document.getElementById("qualmoltype").options[5]=new Option("transcribed RNA","transcribed RNA");
+                 document.getElementById("qualmoltype").options[6]=new Option("viral cRNA","viral cRNA");
+                 document.getElementById("qualmoltype").options[7]=new Option("unassigned RNA","unassigned RNA");
                  break;
              case "AA" :
-                 document.getElementById("subcategory").options[0]=new Option("select mol_type","");
-                 document.getElementById("subcategory").options[1]=new Option("protein","protein");
-                 document.getElementById("subcategory").options[2]=new Option("optionD","optionD");
+//                  document.getElementById("qualmoltype").options[0]=new Option("select mol_type","");
+                 document.getElementById("qualmoltype").options[0]=new Option("protein","protein");
                  break;
          }
          return true;

@@ -132,7 +132,8 @@ class Sequence(models.Model): #good
          
         
         
-    
+#     TODO: reinstate it as appropriate. Disabled so that ImportSequenceForm 
+#     can be used in the new implementation as ext of ModelForm
     def clean(self):
         if self.moltype == 'AA':
             p = pattern_prt  
@@ -140,8 +141,8 @@ class Sequence(models.Model): #good
             p = pattern_nuc
         self.residues = util.expandFormula(self.residues)
         
-        if not p.match(self.residues):
-            raise ValidationError('Enter a valid residue symbol.')
+#         if not p.match(self.residues):
+#             raise ValidationError('Enter a valid residue symbol.')
     
 #     this method is to be used only temporarily for Berthold; 20160710 TO REtain it!  
     def delete(self, *args, **kwargs):

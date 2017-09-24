@@ -410,7 +410,7 @@ class EditSequenceListingTest(LiveServerTestCase):
         self.assertIn('Import sequence', [h.text for h in headers_h2_import_seq])
         
         organism  = self.browser.find_element_by_id('id_organism')
-        moltype = self.browser.find_element_by_id('id_molType')
+        moltype = self.browser.find_element_by_id('id_moltype')
         fileField = self.browser.find_element_by_id('id_file')
          
         organism.send_keys('Felix catus selenium')

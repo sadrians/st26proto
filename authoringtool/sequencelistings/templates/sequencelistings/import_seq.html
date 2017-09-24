@@ -20,7 +20,54 @@
     </table>
     
     <br>
+    <!-- test drop -->
+    <div class="qualmoltype_div" id="qualmoltype_div">Qualifier mol_type:
+        <script type="text/javascript" language="JavaScript">
+            document.write('<select name="qualmoltype" id="qualmoltype"><option value="">select mol_type</option></select>')
+        </script>
+        <noscript>
+            <select name="qualmoltype" id="qualmoltype" >
+                <option value="">select qualifier mol_type</option>
+            </select>
+        </noscript>
+    </div>
+    <!-- end test drop -->
+    
     <p><input type="submit" value="Upload file" /></p>
     
 </form>
+<!-- test js -->
+<script language="javascript" type="text/javascript">
+     function dynamicdropdown(listindex)
+     {
+         document.getElementById("qualmoltype").length = 0;
+         switch (listindex)
+         {
+             case "DNA" :
+//                  document.getElementById("qualmoltype").options[0]=new Option("select mol_type","");
+                 document.getElementById("qualmoltype").options[0]=new Option("genomic DNA","genomic DNA");
+                 document.getElementById("qualmoltype").options[1]=new Option("other DNA","other DNA");
+                 document.getElementById("qualmoltype").options[2]=new Option("unassigned DNA","unassigned DNA");
+                 break;
+                              
+             case "RNA" :
+//                  document.getElementById("qualmoltype").options[0]=new Option("select mol_type","");
+                 document.getElementById("qualmoltype").options[0]=new Option("genomic RNA","genomic RNA");
+                 document.getElementById("qualmoltype").options[1]=new Option("mRNA","mRNA");
+                 document.getElementById("qualmoltype").options[2]=new Option("tRNA","tRNA");
+                 document.getElementById("qualmoltype").options[3]=new Option("rRNA","rRNA");
+                 document.getElementById("qualmoltype").options[4]=new Option("other RNA","other RNA");
+                 document.getElementById("qualmoltype").options[5]=new Option("transcribed RNA","transcribed RNA");
+                 document.getElementById("qualmoltype").options[6]=new Option("viral cRNA","viral cRNA");
+                 document.getElementById("qualmoltype").options[7]=new Option("unassigned RNA","unassigned RNA");
+                 break;
+             case "AA" :
+//                  document.getElementById("qualmoltype").options[0]=new Option("select mol_type","");
+                 document.getElementById("qualmoltype").options[0]=new Option("protein","protein");
+                 break;
+         }
+         return true;
+     }
+</script>
+<!-- end test js -->
 {% endblock %}

@@ -256,7 +256,8 @@ def add_sequence(request, pk):
             sequence_instance.save()
             
             organism = request.POST.get('organism')
-            feature_source_helper(sequence_instance, organism)
+            qualmoltype = request.POST.get('qualmoltype')
+            feature_source_helper(sequence_instance, organism, qualmoltype)
 #             create a note qualifier to indicate the a formula if applicable
             if '(' in raw_residues:
                 value_for_note = 'note'
@@ -277,21 +278,71 @@ def add_sequence(request, pk):
         form = SequenceForm(initial={'sequenceName': currentSequenceName})
     return render(request, 'sequencelistings/add_seq.html', {'form': form, 'pk': pk, 'seql': sl})
 
+# def import_sequence(request, pk):
+#     sl = SequenceListing.objects.get(pk=pk)
+# #     seqIdNo = len(sl.sequence_set.all()) +1
+#     currentSeqIdNo = len(sl.sequence_set.all()) + 1
+#     currentSequenceName = 'seq_%i' % currentSeqIdNo
+#            
+#     if request.method == 'POST':
+#         form = ImportSequenceForm(request.POST, request.FILES)
+#  
+#         if form.is_valid():
+#             print 'import form is valid'
+#             cd = form.cleaned_data
+#             
+#             fi = request.FILES['file'].read()
+#             if fi:
+# #                 parsed = util.parseString_fasta(fi)
+#                 parsed = util.parseSequenceStringFromFile(fi)
+#                 de = parsed.descriptionLine
+#                 rs = parsed.sequenceLine
+#             else:
+#                 rs = 'file could not be imported'
+#             
+#             mt = cd['moltype']    
+#             sequence_instance = Sequence(sequenceListing = sl,
+#                 sequenceName = cd['sequenceName'],
+#                 length = len(rs),
+#                 moltype = mt,
+#                 residues = rs 
+#                 )
+#                  
+#             sequence_instance.save()
+#             organism = request.POST.get('organism')
+#             qualmoltype = request.POST.get('qualmoltype')
+#             feature_source_helper(sequence_instance, organism, qualmoltype)
+#             if de:
+#                 feature_instance = Feature.objects.filter(sequence = sequence_instance)[0]
+#                 value_for_note = 'note' if mt in ('DNA', 'RNA') else 'NOTE'
+#                 note_qualifier_instance = Qualifier.objects.create(feature=feature_instance, 
+#                                                         qualifierName=value_for_note, 
+#                                                         qualifierValue=de)
+#                 note_qualifier_instance.save()
+#          
+#         else:
+#             print 'Invalid import form!!!'  
+#             print 'form', form      
+#         return HttpResponseRedirect(reverse('sequencelistings:edit_seql', args=(pk,)))
+#     else:
+#         form = ImportSequenceForm(initial={'sequenceName': currentSequenceName})
+#     return render(request, 'sequencelistings/import_seq.html', {'pk': pk, 'seql': sl, 'form': form})
+
 
 def import_sequence(request, pk):
     sl = SequenceListing.objects.get(pk=pk)
     seqIdNo = len(sl.sequence_set.all()) +1
 #     currentSeqIdNo = len(sl.sequence_set.all()) + 1
 #     currentSequenceName = 'seq_%i' % currentSeqIdNo
-          
+           
     if request.method == 'POST':
         form = ImportSequenceForm(request.POST, request.FILES)
- 
+  
         if form.is_valid():
             cd = form.cleaned_data
             sequenceName = cd['sequenceName']
             organism = cd['organism']
-            molType = cd['molType']
+            molType = cd['moltype']
             fi = request.FILES['file'].read()
             if fi:
 #                 parsed = util.parseString_fasta(fi)
@@ -306,9 +357,10 @@ def import_sequence(request, pk):
                 moltype = molType,
                 residues = rs 
                 )
-                 
+                  
             sequence_instance.save()
-            feature_source_helper(sequence_instance, organism)
+            qualmoltype = request.POST.get('qualmoltype')
+            feature_source_helper(sequence_instance, organism, qualmoltype)
             if de:
                 feature_instance = Feature.objects.filter(sequence = sequence_instance)[0]
                 value_for_note = 'note' if molType in ('DNA', 'RNA') else 'NOTE'
@@ -316,15 +368,18 @@ def import_sequence(request, pk):
                                                         qualifierName=value_for_note, 
                                                         qualifierValue=de)
                 note_qualifier_instance.save()
-               
+          
+        else:
+            print 'Invalid form!!!'  
+            print 'form', form      
         return HttpResponseRedirect(reverse('sequencelistings:edit_seql', args=(pk,)))
     else:
         form = ImportSequenceForm(initial={'sequenceName': 'seq_%i' % seqIdNo})
     return render(request, 'sequencelistings/import_seq.html', {'pk': pk, 'seql': sl, 'form': form})
 
-def feature_source_helper(seq, organism):
+def feature_source_helper(seq, organism, qualmoltype):
     '''
-    Create automatically feature source for a given sequence and organism.
+    Create automatically feature source for a given sequence, organism and qualmoltype.
     '''
     value_for_source = 'source'
     value_for_organism = 'organism'
@@ -349,7 +404,8 @@ def feature_source_helper(seq, organism):
     
     mol_type_qualifier_instance = Qualifier.objects.create(feature=feature_instance, 
                                                   qualifierName=value_for_moltype, 
-                                                  qualifierValue=util.MOL_TYPE_QUALIFIER_VALUES[molType])
+                                                  qualifierValue=qualmoltype#util.MOL_TYPE_QUALIFIER_VALUES[molType]
+                                                  )
     mol_type_qualifier_instance.save()
 
 def add_feature(request, pk, spk):
