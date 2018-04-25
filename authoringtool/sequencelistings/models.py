@@ -105,6 +105,8 @@ class Sequence(models.Model): #good
     otherSeqId = models.CharField('Other seq ID', max_length=100, default='-')
  
     residues = models.TextField()
+    
+    skipped = models.BooleanField('Skipped', default=False)
  
     def __unicode__(self):
         return str(self.sequenceListing) + ' / seq ' + str(self.sequenceIdNo)

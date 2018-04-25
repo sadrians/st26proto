@@ -53,6 +53,7 @@ class SequenceForm(ModelForm):
 #                   'sequenceListing', 
 #                 'sequenceIdNo', 
                     'sequenceName',
+                    'skipped',
 #                   'length',
                   'moltype',
 #                   'division',

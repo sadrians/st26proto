@@ -207,7 +207,8 @@ def add_sequence(request, pk):
                 sequenceName = cd['sequenceName'],
                 length = len(cd['residues']),
                 moltype = cd['moltype'],
-                residues = cd['residues'] 
+                residues = cd['residues'], 
+                skipped = cd['skipped']
                 )
             sequence_instance.save()
             
