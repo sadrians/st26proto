@@ -6,7 +6,7 @@ Used only for testing. Not suitable for real population!!!
 '''
 import os
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'authoringtool.settings')
- 
+import copy 
 import django
 django.setup()
  
@@ -136,27 +136,71 @@ def add_qualifier(feature, qualifierName, qualifierValue):
     print 'created', q 
     return q 
 
-def copySequenceListing(aSequenceListing):
+def copySequenceListing(aSequenceListingTitle):
     '''
-    Copy the SequenceListing instance given as argument and the corresponding 
+    Copy the SequenceListing instance whose title given as argument and the corresponding 
     title(s). 
     '''
-    titles = Title.objects.filter(sequenceListing=aSequenceListing)
-    
-    aSequenceListing.pk = None
-    fileName = aSequenceListing.fileName 
-    aSequenceListing.fileName = '%s_copy' % fileName
-    aSequenceListing.sequenceTotalQuantity = 0
-    
-    aSequenceListing.save()
+    sl = SequenceListing.objects.filter(fileName=aSequenceListingTitle)[0] 
 
+    titles = Title.objects.filter(sequenceListing=sl)
+     
+    sl.pk = None
+    fileName = sl.fileName 
+    sl.fileName = '%s_copy' % fileName
+    sl.sequenceTotalQuantity = 0
+     
+    sl.save()
+     
     sls = SequenceListing.objects.all()
     newPk = max([sl.pk for sl in sls])
     newSl = SequenceListing.objects.get(pk=newPk)
-        
+         
     for t in titles:
         add_title(newSl, t.inventionTitle, t.inventionTitleLanguageCode)  
+         
+    oldSl = SequenceListing.objects.filter(fileName=aSequenceListingTitle)[0] 
 
+    for seq in oldSl.sequence_set.all():
+        seqCopy = copy.deepcopy(seq)
+        seq.pk = None 
+        seq.sequenceListing = newSl 
+        seq.save()
+        
+        for feat in seqCopy.feature_set.all():
+            featCopy = copy.deepcopy(feat)
+            feat.pk = None
+            feat.sequence = seq 
+            feat.save()
+
+            for qual in featCopy.qualifier_set.all():
+                qual.pk = None
+                qual.feature = feat 
+                qual.save()
+                
+    print 'Done with copying', aSequenceListingTitle
+                
+
+def deleteSequenceListing(aSequenceListingTitle):
+    '''
+    Delete the SequenceListing instance whose title is given as argument and the corresponding 
+    title(s). 
+    '''
+    sl = SequenceListing.objects.filter(fileName=aSequenceListingTitle)[0] 
+    print 'Deleting SL ', aSequenceListingTitle
+    titles = Title.objects.filter(sequenceListing=sl)
+    for t in titles:
+        t.delete()
+    for seq in sl.sequence_set.all():
+        for feat in seq.feature_set.all():
+            for qual in feat.qualifier_set.all():
+                qual.delete()
+            feat.delete()
+        seq.delete()
+    sl.delete()
+    
+    print 'Done with deleting SL ', aSequenceListingTitle
+    
 def mytest():
     sls = SequenceListing.objects.all()
      

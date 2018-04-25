@@ -15,14 +15,27 @@ django.setup()
 
 from django.utils import timezone
 from sequencelistings.models import SequenceListing, Title, Sequence, Feature, Qualifier
-from populate_db import add_title, copySequenceListing
+from populate_db import add_title, copySequenceListing, deleteSequenceListing
 
 from sequencelistings import util
 
-def myCopyScript(aFileName):
-    sl = SequenceListing.objects.filter(fileName=aFileName)[0] 
-    copySequenceListing(sl)
-    print 'Done with copying', aFileName
+# def myCopyScript(aFileName):
+#     sl = SequenceListing.objects.filter(fileName=aFileName)[0] 
+#     copySequenceListing(sl)
+#     print 'Done with copying', aFileName
+#     
+# def myTestCopyQualifier(aFileName):
+#     sl = SequenceListing.objects.filter(fileName=aFileName)[0] 
+#     sequence_1 = sl.sequence_set.all()[0]
+#     feature_1 = sequence_1.feature_set.all()[1]
+#     feature_2 = sequence_1.feature_set.all()[2]
+#     qualifier_1 = feature_1.qualifier_set.all()[0]
+#     qualifier_1.pk = None
+#     qualifier_1.feature = feature_2
+#     qualifier_1.save()
+#     
+#     
+#     print qualifier_1
 
 def setSequenceName(sequenceListing):
     sequences = sequenceListing.sequence_set.all()
@@ -59,7 +72,7 @@ def setQualifierSets(aFilePath):
             print '\toptional:', sorted(opt[k])
             
     
-fp = os.path.join(util.PROJECT_DIRECTORY, 'sequencelistings', 'static', 'res', 'FeatureKeyQualifierCrossRef_wINSD_FT_10_6_14_Jul_2017.csv')
+# fp = os.path.join(util.PROJECT_DIRECTORY, 'sequencelistings', 'static', 'res', 'FeatureKeyQualifierCrossRef_wINSD_FT_10_6_14_Jul_2017.csv')
 
 # setQualifierSets(fp)
         
@@ -68,6 +81,13 @@ fp = os.path.join(util.PROJECT_DIRECTORY, 'sequencelistings', 'static', 'res', '
 #     setSequenceName(sl)
 
 # myCopyScript('Invention_SEQL')
+# myCopyScript('Guidance_Document_SEQL')
+# myCopyScript('test1')
+# deleteSequenceListing('test2_copy')
+# copySequenceListing('Guidance_Document_SEQL')
+# deleteSequenceListing('test2_copy')
+
+# myTestCopyQualifier('test1')
 
 # print 'GGGX'*100
 # print util.expandFormula('cg(agg)4..7')
