@@ -118,6 +118,15 @@ class Sequence(models.Model): #good
             self.sequenceListing.save()
         self.residues = util.expandFormula(self.residues)
         self.length = len(self.residues)
+        
+        shortNuc = self.moltype in [util.MOLTYPE_DNA, util.MOLTYPE_RNA] and self.length < 10
+        shortPrt = self.moltype in [util.MOLTYPE_AA] and self.length < 4
+        if shortNuc or shortPrt:
+            self.skipped = True
+#         I think elif is not needed TODO: perhaps there is a better way to write this condition ...
+#         elif self.skipped != True:
+#             self.skipped = False
+            
         super(Sequence, self).save(*args, **kwargs)
         
 #     def delete(self, *args, **kwargs):

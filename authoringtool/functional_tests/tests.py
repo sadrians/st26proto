@@ -64,48 +64,48 @@ class VisitorTest(LiveServerTestCase):
     def setUp(self):
         self.browser = webdriver.Firefox()
         self.browser.implicitly_wait(3)
-            
+             
     def tearDown(self):
         self.browser.quit()
-                    
+                     
     def test_can_access_overview_page_no_seqls(self):
         print 'Selenium: Running %s ...' % self._testMethodName
-               
+                
         self.browser.get('%s%s' %(self.live_server_url, '/sequencelistings/overview'))
-               
+                
         self.assertIn('st26proto - Overview', self.browser.title) 
-               
+                
 #         headers_h2 = self.browser.find_elements_by_tag_name('h2')
 #         self.assertIn('WELCOME', [h.text for h in headers_h2])
 #         self.assertIn('SEQUENCE LISTING PORTOFOLIO', [h.text for h in headers_h2])
-                     
+                      
         no_seqls_par = self.browser.find_element_by_id('no_seqls_par')  
         self.assertEqual('No sequence listings are available.', no_seqls_par.text)
         self.assertEqual(0, len(self.browser.find_elements_by_tag_name('table')), 
                          'There should be no table if no seqls created.')
-           
+            
 #         unregistered visitors are not allowed to add seqls i.e. there is no link to add seql
         self.assertEqual(0, len(self.browser.find_elements_by_id('add_seql_link'))) 
-                             
+                              
     def test_about_page(self):
         print 'Selenium: Running %s ...' % self._testMethodName
-               
+                
         self.browser.get('%s%s' %(self.live_server_url, '/sequencelistings/about'))     
         self.assertIn('st26proto - About', self.browser.title)
-       
-   
+        
+    
 class CreateSequenceListingTest(LiveServerTestCase):
     def setUp(self):
         self.browser = webdriver.Firefox()
         self.browser.implicitly_wait(3)
-            
+             
         # register
 #         self.browser.get('%s%s' %(self.live_server_url, '/accounts/register/'))    
 #         SeqlSeleniumTestFixture.register(self.browser)
-             
+              
     def tearDown(self):
         self.browser.quit()
-                
+                 
 #     def test_register(self):
 #         print 'Selenium: Running %s ...' % self._testMethodName
 #      
@@ -114,30 +114,30 @@ class CreateSequenceListingTest(LiveServerTestCase):
 #         self.assertIn('st26proto - Index', self.browser.title)
 # #         self.assertIn('user20', self.browser.find_element_by_class_name('page-header').text)
 #         self.assertIn('user20', self.browser.find_element_by_id('welcomeHeader').text)
-       
+        
     def test_add_sequencelisting_functionality(self):
         print 'Selenium: Running %s ...' % self._testMethodName
-         
+          
         fileName = 'selenium_test1'
-         
+          
         self.browser.get('%s%s' %(self.live_server_url, '/sequencelistings/add_sequencelisting')) 
         SeqlSeleniumTestFixture.add_sequencelisting(self.browser, fileName)
-   
+    
         self.browser.get('%s%s' % (self.live_server_url, '/sequencelistings/overview'))
-           
+            
         table = self.browser.find_element_by_id('home_page_table')
 #         self.assertEqual(1, len(table), 'There should be a table if a seql added.')
         cells = table.find_elements_by_tag_name('td')
         self.assertIn(fileName, [cell.text for cell in cells])
-               
+                
     def test_add_sequencelisting_no_inventor_functionality(self):
         """
         Test that a seql can be created without providing inventor data.
         """
         print 'Selenium: Running %s ...' % self._testMethodName
-               
+                
         self.browser.get('%s%s' %(self.live_server_url, '/sequencelistings/add_sequencelisting')) 
-                   
+                    
 #         =======add seql no inventor=================
         inventionTitle = self.browser.find_element_by_id('id_inventionTitle')
         inventionTitleLanguageCode = self.browser.find_element_by_id('id_inventionTitleLanguageCode')
@@ -152,7 +152,7 @@ class CreateSequenceListingTest(LiveServerTestCase):
         applicantName = self.browser.find_element_by_id('id_applicantName')
         applicantNameLanguageCode = self.browser.find_element_by_id('id_applicantNameLanguageCode')
         applicantNameLatin = self.browser.find_element_by_id('id_applicantNameLatin')
-               
+                
         inventionTitle.send_keys('axx')
         inventionTitleLanguageCode.send_keys('b')
         fileName.send_keys('selenium_test_file_name_no_inventor')
@@ -166,23 +166,23 @@ class CreateSequenceListingTest(LiveServerTestCase):
         applicantName.send_keys('i')
         applicantNameLanguageCode.send_keys('j')
         applicantNameLatin.send_keys('k')
-               
+                
         self.browser.find_element_by_xpath('//input[@value="Submit"]').click()
 # =================
         self.browser.get('%s%s' %(self.live_server_url, '/sequencelistings/overview')) 
-    
+     
         table = self.browser.find_element_by_id('home_page_table')
         cells = table.find_elements_by_tag_name('td')
         self.assertIn('selenium_test_file_name_no_inventor', [cell.text for cell in cells])
-                
+                 
     def test_add_sequencelisting_no_application_identification_functionality(self):
         """
         Test that a seql can be created without providing application identification data.
         """
         print 'Selenium: Running %s ...' % self._testMethodName
-           
+            
         self.browser.get('%s%s' %(self.live_server_url, '/sequencelistings/add_sequencelisting')) 
-                
+                 
 #         =======add seql no inventor=================
         inventionTitle = self.browser.find_element_by_id('id_inventionTitle')
         inventionTitleLanguageCode = self.browser.find_element_by_id('id_inventionTitleLanguageCode')
@@ -197,7 +197,7 @@ class CreateSequenceListingTest(LiveServerTestCase):
         applicantName = self.browser.find_element_by_id('id_applicantName')
         applicantNameLanguageCode = self.browser.find_element_by_id('id_applicantNameLanguageCode')
         applicantNameLatin = self.browser.find_element_by_id('id_applicantNameLatin')
-                
+                 
         inventionTitle.send_keys('axx')
         inventionTitleLanguageCode.send_keys('b')
         fileName.send_keys('selenium_test_file_name_no_applIdentification')
@@ -211,17 +211,17 @@ class CreateSequenceListingTest(LiveServerTestCase):
         applicantName.send_keys('i')
         applicantNameLanguageCode.send_keys('j')
         applicantNameLatin.send_keys('k')
-                
+                 
         self.browser.find_element_by_xpath('//input[@value="Submit"]').click()
 # =================
-                
-        self.browser.get('%s%s' %(self.live_server_url, '/sequencelistings/overview')) 
                  
+        self.browser.get('%s%s' %(self.live_server_url, '/sequencelistings/overview')) 
+                  
         table = self.browser.find_element_by_id('home_page_table')
         cells = table.find_elements_by_tag_name('td')
         self.assertIn('selenium_test_file_name_no_applIdentification', [cell.text for cell in cells])
-
-           
+ 
+            
 class EditSequenceListingTest(LiveServerTestCase):
     def setUp(self):
         self.browser = webdriver.Firefox()
@@ -380,8 +380,9 @@ class EditSequenceListingTest(LiveServerTestCase):
         self.browser.find_element_by_xpath('//input[@value="Submit"]').click()
 
 #         now we are on edit_seql view
+#         if I comment out this line the test fails
+        print 'residues:', self.browser.find_element_by_class_name('residues').text
 #         test sequenceName value
-#         print 'residues:', self.browser.find_element_by_class_name('residues')
         sequenceName_element = self.browser.find_element_by_class_name('sequenceName')
         self.assert_('xxyyzz', sequenceName_element.text) 
         

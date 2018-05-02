@@ -634,6 +634,8 @@ class ModelsTests(TestCase):
         self.assertFalse(second_saved_seq.skipped)
 
     def test_create_sequence(self):
+        print 'Running %s ...' % getName()
+        
         s1 = self.sequenceListingFixture.create_custom_sequence_instance(self.sequenceListing, 'RNA', 'acgtaataatagcca', 
                                             'Mus musculus', 'genomic DNA')
         self.assertEqual(self.sequenceListing, s1.sequenceListing)
@@ -642,9 +644,17 @@ class ModelsTests(TestCase):
         self.assertEqual('acgtaataatagcca', s1.residues)
         self.assertFalse(s1.skipped)
         
+#         test that skipped is properly set for short sequence 
+        s2 = self.sequenceListingFixture.create_custom_sequence_instance(self.sequenceListing, 
+                'DNA', 'acgt', 'Mus musculus', 'genomic DNA')
+        self.assertEqual('acgt', s2.residues)
+        self.assertTrue(s2.skipped)
+        
     def test_edit_sequence(self):
-        s1 = self.sequenceListingFixture.create_custom_sequence_instance(self.sequenceListing, 'RNA', 'acgtaataatagcca', 
-                                            'Mus musculus', 'genomic DNA')
+        print 'Running %s ...' % getName()
+        
+        s1 = self.sequenceListingFixture.create_custom_sequence_instance(self.sequenceListing, 
+                'RNA', 'acgtaataatagcca', 'Mus musculus', 'genomic DNA')
         self.assertEqual(self.sequenceListing, s1.sequenceListing)
         self.assertEqual('test_seq_1', s1.sequenceName)
         self.assertEqual('RNA', s1.moltype)
@@ -655,6 +665,9 @@ class ModelsTests(TestCase):
         s1.save()
         self.assertEqual('DNA', s1.moltype)
         s1.skipped = True
+        s1.save()
+        self.assertTrue(s1.skipped)
+        s1.residues = 'acgt'
         s1.save()
         self.assertTrue(s1.skipped)
         
