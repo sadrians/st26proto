@@ -33,28 +33,36 @@
     {% for seq in sequenceListing.sequence_set.all %}
     <SequenceData sequenceIDNumber="{{seq.sequenceIdNo}}">
         <INSDSeq>
-            <INSDSeq_length>{{seq.length}}</INSDSeq_length>
-            <INSDSeq_moltype>{{seq.moltype}}</INSDSeq_moltype>
-            <INSDSeq_division>{{seq.division}}</INSDSeq_division>
-            <INSDSeq_feature-table>
-                {% for f in seq.getOrderedFeatures %}
-                <INSDFeature>
-                    <INSDFeature_key>{{f.featureKey}}</INSDFeature_key>
-                    <INSDFeature_location>{{f.location}}</INSDFeature_location>
-                    {% if f.qualifier_set.all %}
-                    <INSDFeature_quals>
-                        {% for q in f.qualifier_set.all %}
-                        <INSDQualifier>
-                            <INSDQualifier_name>{{q.qualifierName}}</INSDQualifier_name>
-                            <INSDQualifier_value>{{q.qualifierValue}}</INSDQualifier_value>
-                        </INSDQualifier>
-                        {% endfor %}
-                    </INSDFeature_quals>
-                    {% endif %}
-                </INSDFeature>
-                {% endfor %}
-            </INSDSeq_feature-table>
-            <INSDSeq_sequence>{{seq.residues}}</INSDSeq_sequence>
+            {% if not seq.skipped %}
+                <INSDSeq_length>{{seq.length}}</INSDSeq_length>
+                <INSDSeq_moltype>{{seq.moltype}}</INSDSeq_moltype>
+                <INSDSeq_division>{{seq.division}}</INSDSeq_division>
+                <INSDSeq_feature-table>
+                    {% for f in seq.getOrderedFeatures %}
+                    <INSDFeature>
+                        <INSDFeature_key>{{f.featureKey}}</INSDFeature_key>
+                        <INSDFeature_location>{{f.location}}</INSDFeature_location>
+                        {% if f.qualifier_set.all %}
+                        <INSDFeature_quals>
+                            {% for q in f.qualifier_set.all %}
+                            <INSDQualifier>
+                                <INSDQualifier_name>{{q.qualifierName}}</INSDQualifier_name>
+                                <INSDQualifier_value>{{q.qualifierValue}}</INSDQualifier_value>
+                            </INSDQualifier>
+                            {% endfor %}
+                        </INSDFeature_quals>
+                        {% endif %}
+                    </INSDFeature>
+                    {% endfor %}
+                </INSDSeq_feature-table>
+                <INSDSeq_sequence>{{seq.residues}}</INSDSeq_sequence>
+            {% endif %}
+            {% if seq.skipped %}
+                <INSDSeq_length/>
+                <INSDSeq_moltype/>
+                <INSDSeq_division/>
+                <INSDSeq_sequence>000</INSDSeq_sequence>
+            {% endif %}
         </INSDSeq>
     </SequenceData>
     {% endfor %}  
