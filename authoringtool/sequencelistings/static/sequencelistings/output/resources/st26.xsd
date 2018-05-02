@@ -99,6 +99,7 @@
                                                     <xs:enumeration value="DNA"/>
                                                     <xs:enumeration value="RNA"/>
                                                     <xs:enumeration value="AA"/>
+                                                    <xs:enumeration value=""/>
                                                 </xs:restriction>
                                             </xs:simpleType>
                                         </xs:element>
@@ -117,7 +118,7 @@
                                             </xs:complexType>
                                         </xs:element>
 
-                                        <xs:element name="INSDSeq_feature-table">
+                                        <xs:element name="INSDSeq_feature-table" minOccurs="0" maxOccurs="1">
                                             <xs:complexType>
                                                 <xs:sequence>
                                                     <xs:element name="INSDFeature"

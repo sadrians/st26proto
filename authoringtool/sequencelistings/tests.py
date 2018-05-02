@@ -916,6 +916,11 @@ class UtilTests(TestCase):
         f8 = os.path.join(util.TEST_DATA_DIR_PATH, 'test8.xml')
         self.assertFalse(util.validateDocumentWithSchema(f8, util.XML_SCHEMA_PATH))
        
+#         skipped sequences
+        f9 = os.path.join(util.TEST_DATA_DIR_PATH, 'test9.xml')
+        self.assertTrue(util.validateDocumentWithSchema(f9, util.XML_SCHEMA_PATH))
+
+
     def test_validateDocumentWithDtd(self):
         """
         Test that xml sequence listing files are correctly validated 
@@ -948,6 +953,11 @@ class UtilTests(TestCase):
 #         SequenceTotalQuantity element is missing
         f8 = os.path.join(util.TEST_DATA_DIR_PATH, 'test8.xml')
         self.assertFalse(util.validateDocumentWithDtd(f8, util.XML_DTD_PATH))
+
+#         skipped sequences
+        f9 = os.path.join(util.TEST_DATA_DIR_PATH, 'test9.xml')
+        self.assertTrue(util.validateDocumentWithDtd(f9, util.XML_DTD_PATH))
+
     
     def test_getStartLocation(self):
         """
