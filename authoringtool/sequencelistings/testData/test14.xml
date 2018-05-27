@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE ST26SequenceListing PUBLIC "-//WIPO//DTD Sequence Listing 1.0//EN" "resources/ST26SequenceListing_V1_0.dtd">
+<ST26SequenceListing dtdVersion="V1_0" fileName="test2" softwareName="prototype" softwareVersion="0.1" productionDate="2018-05-02">
+    <ApplicationIdentification>
+        <IPOfficeCode>DE</IPOfficeCode>
+        <ApplicationNumberText>2014888888</ApplicationNumberText>
+        <FilingDate>2015-04-28</FilingDate>
+    </ApplicationIdentification>
+    <ApplicantFileReference>456</ApplicantFileReference>
+    <EarliestPriorityApplicationIdentification>
+        <IPOfficeCode>GB</IPOfficeCode>
+        <ApplicationNumberText>2233445</ApplicationNumberText>
+        <FilingDate>2015-04-28</FilingDate>
+    </EarliestPriorityApplicationIdentification>
+    <ApplicantName languageCode="en">Richard Gore</ApplicantName>
+    <ApplicantNameLatin>the same</ApplicantNameLatin>
+    <InventorName languageCode="fr">Mary Dorio</InventorName>
+    <InventorNameLatin>Mary Dorio</InventorNameLatin>
+    <InventionTitle languageCode="en">An invention 2</InventionTitle>
+    
+    <SequenceTotalQuantity>5</SequenceTotalQuantity>
+    
+    <SequenceData sequenceIDNumber="1">
+        <INSDSeq>
+                <INSDSeq_length>10</INSDSeq_length>
+                <INSDSeq_moltype>DNA</INSDSeq_moltype>
+                <INSDSeq_division>PAT</INSDSeq_division>
+                <INSDSeq_feature-table>
+                    <INSDFeature>
+                        <INSDFeature_key>source</INSDFeature_key>
+                        <INSDFeature_location>1..10</INSDFeature_location>
+                        <INSDFeature_quals>
+                            <INSDQualifier>
+                                <INSDQualifier_name>organism</INSDQualifier_name>
+                                <INSDQualifier_value>Mus musculus</INSDQualifier_value>
+                            </INSDQualifier>
+                            <INSDQualifier>
+                                <INSDQualifier_name>mol_type</INSDQualifier_name>
+                                <INSDQualifier_value>genomic DNA</INSDQualifier_value>
+                            </INSDQualifier>
+                            
+                        </INSDFeature_quals>
+                    </INSDFeature>
+                </INSDSeq_feature-table>
+                <INSDSeq_sequence>atgacttgca</INSDSeq_sequence>
+        </INSDSeq>
+    </SequenceData>
+    <SequenceData sequenceIDNumber="2">
+        <INSDSeq>
+                <INSDSeq_length>4</INSDSeq_length>
+                <INSDSeq_moltype>AA</INSDSeq_moltype>
+                <INSDSeq_division>PAT</INSDSeq_division>
+                <INSDSeq_feature-table>
+                    <INSDFeature>
+                        <INSDFeature_key>SOURCE</INSDFeature_key>
+                        <INSDFeature_location>1..4</INSDFeature_location>
+                        <INSDFeature_quals>
+                            <INSDQualifier>
+                                <INSDQualifier_name>ORGANISM</INSDQualifier_name>
+                                <INSDQualifier_value>Solanum lycopersicum</INSDQualifier_value>
+                            </INSDQualifier>
+                            <INSDQualifier>
+                                <INSDQualifier_name>MOL_TYPE</INSDQualifier_name>
+                                <INSDQualifier_value>protein</INSDQualifier_value>
+                            </INSDQualifier>
+                        </INSDFeature_quals>
+                    </INSDFeature>
+                </INSDSeq_feature-table>
+                <INSDSeq_sequence>MSSR</INSDSeq_sequence>
+        </INSDSeq>
+    </SequenceData>
+    <SequenceData sequenceIDNumber="3">
+        <INSDSeq>
+                <INSDSeq_length>12</INSDSeq_length>
+                <INSDSeq_moltype>RNA</INSDSeq_moltype>
+                <INSDSeq_division>PAT</INSDSeq_division>
+                <INSDSeq_feature-table>
+                    <INSDFeature>
+                        <INSDFeature_key>source</INSDFeature_key>
+                        <INSDFeature_location>1..12</INSDFeature_location>
+                        <INSDFeature_quals>
+                            <INSDQualifier>
+                                <INSDQualifier_name>organism</INSDQualifier_name>
+                                <INSDQualifier_value>Solanum lycopersicum</INSDQualifier_value>
+                            </INSDQualifier>
+                            <INSDQualifier>
+                                <INSDQualifier_name>mol_type</INSDQualifier_name>
+                                <INSDQualifier_value>genomic RNA</INSDQualifier_value>
+                            </INSDQualifier>
+                        </INSDFeature_quals>
+                    </INSDFeature>
+                    
+                </INSDSeq_feature-table>
+                <INSDSeq_sequence>acgtnvkrsbhd</INSDSeq_sequence>
+        </INSDSeq>
+    </SequenceData>
+    
+    <SequenceData sequenceIDNumber="4">
+        <INSDSeq>
+                <INSDSeq_length>27</INSDSeq_length>
+                <INSDSeq_moltype>AA</INSDSeq_moltype>
+                <INSDSeq_division>PAT</INSDSeq_division>
+                <INSDSeq_feature-table>
+                    <INSDFeature>
+                        <INSDFeature_key>SOURCE</INSDFeature_key>
+                        <INSDFeature_location>1..27</INSDFeature_location>
+                        <INSDFeature_quals>
+                            <INSDQualifier>
+                                <INSDQualifier_name>ORGANISM</INSDQualifier_name>
+                                <INSDQualifier_value>mus</INSDQualifier_value>
+                            </INSDQualifier>
+                            <INSDQualifier>
+                                <INSDQualifier_name>MOL_TYPE</INSDQualifier_name>
+                                <INSDQualifier_value>protein</INSDQualifier_value>
+                            </INSDQualifier>
+                        </INSDFeature_quals>
+                    </INSDFeature>
+                    
+                </INSDSeq_feature-table>
+                <INSDSeq_sequence>AiCDEFGHIKLMNOPQRSTUVWYXJBZ</INSDSeq_sequence>
+        </INSDSeq>
+    </SequenceData>
+    <SequenceData sequenceIDNumber="5">
+        <INSDSeq>
+                <INSDSeq_length/>
+                <INSDSeq_moltype/>
+                <INSDSeq_division/>
+                <INSDSeq_sequence>000</INSDSeq_sequence>
+        </INSDSeq>
+    </SequenceData>
+</ST26SequenceListing>

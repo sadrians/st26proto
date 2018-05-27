@@ -165,6 +165,8 @@ def validateDocumentWithSchema(aFilePath, aSchemaPath):
         else:
             logger.error('\nfile: %s' % aFilePath)
             logger.error('\n%s' % xmlschema.error_log)
+#             print os.path.basename(aFilePath)
+            print xmlschema.error_log
     except etree.XMLSyntaxError as syntErr:
         logger.error('\n%s\n%s' % (aFilePath, syntErr))
     
