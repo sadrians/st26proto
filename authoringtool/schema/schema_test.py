@@ -10,7 +10,7 @@ from django.test import TestCase
 
 import os 
 # from unittest import TestCase
-import client 
+# import client 
 from sequencelistings import util
 
 SCHEMA_PATH = os.path.join(util.PROJECT_DIRECTORY, 'schema', 'xsd', 'st26.xsd')
@@ -26,7 +26,6 @@ class SchemaTests(TestCase):
         against the schema.
         """
 #         print 'Running %s ...' % getName()
-        print util.PROJECT_DIRECTORY
 #         valid seql contains the first 2 seqs from f2 - goes via if branch
         f3 = os.path.join(util.TEST_DATA_DIR_PATH, 'test3.xml')
         self.assertTrue(util.validateDocumentWithSchema(f3, SCHEMA_PATH))
