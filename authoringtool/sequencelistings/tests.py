@@ -920,7 +920,6 @@ class UtilTests(TestCase):
         f9 = os.path.join(util.TEST_DATA_DIR_PATH, 'test9.xml')
         self.assertTrue(util.validateDocumentWithSchema(f9, util.XML_SCHEMA_PATH))
 
-
     def test_validateDocumentWithDtd(self):
         """
         Test that xml sequence listing files are correctly validated 
@@ -957,7 +956,6 @@ class UtilTests(TestCase):
 #         skipped sequences
         f9 = os.path.join(util.TEST_DATA_DIR_PATH, 'test9.xml')
         self.assertTrue(util.validateDocumentWithDtd(f9, util.XML_DTD_PATH))
-
     
     def test_getStartLocation(self):
         """
