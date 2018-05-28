@@ -79,3 +79,11 @@ class SchemaTests(TestCase):
 # residues pattern: invalid symbol aa seq 5 - i
         f15 = os.path.join(util.TEST_DATA_DIR_PATH, 'test15.xml')
         self.assertFalse(util.validateDocumentWithSchema(f15, SCHEMA_PATH))
+        
+# invalid value SequenceTotalQuantity is 0
+        f16 = os.path.join(util.TEST_DATA_DIR_PATH, 'test16.xml')
+        self.assertFalse(util.validateDocumentWithSchema(f16, SCHEMA_PATH))
+        
+# invalid value SequenceTotalQuantity is xxx
+        f17 = os.path.join(util.TEST_DATA_DIR_PATH, 'test17.xml')
+        self.assertFalse(util.validateDocumentWithSchema(f17, SCHEMA_PATH))

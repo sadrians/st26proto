@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" version = "1.0">
+    <xs:simpleType name="featureKeyValue_prt">
+        <xs:annotation>
+            <xs:documentation>
+            Legal values for INSDFeature_key element for prt.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="ACT_SITE"/>
+            <xs:enumeration value="BINDING"/>
+            <xs:enumeration value="CA_BIND"/>
+            <xs:enumeration value="CARBOHYD"/>
+            <xs:enumeration value="CHAIN"/>
+            <xs:enumeration value="COILED"/>
+            <xs:enumeration value="COMPBIAS"/>
+            <xs:enumeration value="CONFLICT"/>
+            <xs:enumeration value="CROSSLNK"/>
+            <xs:enumeration value="DISULFID"/>
+            <xs:enumeration value="DNA_BIND"/>
+            <xs:enumeration value="DOMAIN"/>
+            <xs:enumeration value="HELIX"/>
+            <xs:enumeration value="INIT_MET"/>
+            <xs:enumeration value="INTRAMEM"/>
+            <xs:enumeration value="LIPID"/>
+            <xs:enumeration value="METAL"/>
+            <xs:enumeration value="MOD_RES"/>
+            <xs:enumeration value="MOTIF"/>
+            <xs:enumeration value="MUTAGEN"/>
+            <xs:enumeration value="NON_STD"/>
+            <xs:enumeration value="NON_TER"/>
+            <xs:enumeration value="NP_BIND"/>
+            <xs:enumeration value="PEPTIDE"/>
+            <xs:enumeration value="PROPEP"/>
+            <xs:enumeration value="REGION"/>
+            <xs:enumeration value="REPEAT"/>
+            <xs:enumeration value="SIGNAL"/>
+            <xs:enumeration value="SITE"/>
+            <xs:enumeration value="SOURCE"/>
+            <xs:enumeration value="STRAND"/>
+            <xs:enumeration value="TOPO_DOM"/>
+            <xs:enumeration value="TRANSMEM"/>
+            <xs:enumeration value="TRANSIT"/>
+            <xs:enumeration value="TURN"/>
+            <xs:enumeration value="UNSURE"/>
+            <xs:enumeration value="VARIANT"/>
+            <xs:enumeration value="VAR_SEQ"/>
+            <xs:enumeration value="ZN_FING"/> 
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:schema>
