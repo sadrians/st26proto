@@ -429,3 +429,5 @@ def display(request, fileName):
 def about(request):
     return render_to_response('sequencelistings/about.html', {}, {})
 
+def validation(request):
+    return render_to_response('sequencelistings/validation.html', {}, {})

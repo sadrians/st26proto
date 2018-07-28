@@ -33,5 +33,6 @@ urlpatterns = patterns('',
     url(r'^sl(?P<pk>\d+)/seq(?P<spk>\d+)/f(?P<fpk>\d+)/edit_feature/$', 
         views.edit_feature, name='edit_feature'),
     url(r'^sl(?P<pk>\d+)/xmloutput/$', views.generateXml, name='xmloutput'),
-    
+    url(r'^validation/$', views.validation, name='validation'),
+
 )

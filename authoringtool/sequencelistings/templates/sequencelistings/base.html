@@ -27,6 +27,7 @@
     <div class='topnav' id='baseTopnav'>
         <a href="{% url 'sequencelistings:index' %}">Home</a>
         <a href="{% url 'sequencelistings:overview' %}">Sequence listings</a>
+        <a href="{% url 'sequencelistings:validation' %}">Validation</a>
         <a href="{% url 'sequencelistings:about' %}">About</a>
         {% if user.is_authenticated %}
             <a href="{% url 'auth_logout' %}?next=/sequencelistings/">Logout</a>
