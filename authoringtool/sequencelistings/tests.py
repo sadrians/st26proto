@@ -2,7 +2,8 @@
 # -*- coding: utf-8 -*-
 import django
 django.setup()
-
+import os
+# os.environ['DJANGO_SETTINGS_MODULE'] = 'authoringtool.settings'
 from django.test import TestCase
 from django.contrib.auth.models import User 
 # from django.contrib.staticfiles.testing import StaticLiveServerTestCase
@@ -15,7 +16,7 @@ from django.utils import timezone
 import util 
 
 import inspect 
-import os
+# import os
 # import logging
 
 # TODO: revive logging whenever necessary
@@ -1214,4 +1215,10 @@ class FormsTests(TestCase):
                                   'qualifierValue':'test for xxx value'})
                
         self.assertTrue(qf2.is_valid())
-        
+
+
+if __name__ == '__main__':
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE',
+                          os.path.join(util.PROJECT_DIRECTORY,
+                                       'authoringtool', 'settings.py'))
+    # unittest.main()
