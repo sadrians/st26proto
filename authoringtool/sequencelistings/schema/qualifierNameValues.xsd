@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" version = "1.0">
+    <xs:simpleType name="qualifierNameValues">
+        <xs:annotation>
+            <xs:documentation>
+            Qualifier name values cf. ST.26, Annex I, sections 6 and 8.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="allele"/>
+<xs:enumeration value="anticodon"/>
+<xs:enumeration value="bound_moiety"/>
+<xs:enumeration value="cell_line"/>
+<xs:enumeration value="cell_type"/>
+<xs:enumeration value="chromosome"/>
+<xs:enumeration value="clone"/>
+<xs:enumeration value="clone_lib"/>
+<xs:enumeration value="codon_start"/>
+<xs:enumeration value="collected_by"/>
+<xs:enumeration value="collection_date"/>
+<xs:enumeration value="compare"/>
+<xs:enumeration value="cultivar"/>
+<xs:enumeration value="dev_stage"/>
+<xs:enumeration value="direction"/>
+<xs:enumeration value="EC_number"/>
+<xs:enumeration value="ecotype"/>
+<xs:enumeration value="environmental_sample"/>
+<xs:enumeration value="exception"/>
+<xs:enumeration value="frequency"/>
+<xs:enumeration value="function"/>
+<xs:enumeration value="gene"/>
+<xs:enumeration value="gene_synonym"/>
+<xs:enumeration value="germline"/>
+<xs:enumeration value="haplogroup"/>
+<xs:enumeration value="haplotype"/>
+<xs:enumeration value="host"/>
+<xs:enumeration value="identified_by"/>
+<xs:enumeration value="isolate"/>
+<xs:enumeration value="isolation_source"/>
+<xs:enumeration value="lab_host"/>
+<xs:enumeration value="lat_lon"/>
+<xs:enumeration value="macronuclear"/>
+<xs:enumeration value="map"/>
+<xs:enumeration value="mating_type"/>
+<xs:enumeration value="mobile_element_type"/>
+<xs:enumeration value="mod_base"/>
+<xs:enumeration value="mol_type"/>
+<xs:enumeration value="ncRNA_class"/>
+<xs:enumeration value="note"/>
+<xs:enumeration value="number"/>
+<xs:enumeration value="operon"/>
+<xs:enumeration value="organelle"/>
+<xs:enumeration value="organism"/>
+<xs:enumeration value="PCR_primers"/>
+<xs:enumeration value="phenotype"/>
+<xs:enumeration value="plasmid"/>
+<xs:enumeration value="pop_variant"/>
+<xs:enumeration value="product"/>
+<xs:enumeration value="protein_id"/>
+<xs:enumeration value="proviral"/>
+<xs:enumeration value="pseudo"/>
+<xs:enumeration value="pseudogene"/>
+<xs:enumeration value="rearranged"/>
+<xs:enumeration value="recombination_class"/>
+<xs:enumeration value="regulatory_class"/>
+<xs:enumeration value="replace"/>
+<xs:enumeration value="ribosomal_slippage"/>
+<xs:enumeration value="rpt_family"/>
+<xs:enumeration value="rpt_type"/>
+<xs:enumeration value="rpt_unit_range"/>
+<xs:enumeration value="rpt_unit_seq"/>
+<xs:enumeration value="satellite"/>
+<xs:enumeration value="segment"/>
+<xs:enumeration value="serotype"/>
+<xs:enumeration value="serovar"/>
+<xs:enumeration value="sex"/>
+<xs:enumeration value="standard_name"/>
+<xs:enumeration value="strain"/>
+<xs:enumeration value="sub_clone"/>
+<xs:enumeration value="sub_species"/>
+<xs:enumeration value="sub_strain"/>
+<xs:enumeration value="tag_peptide"/>
+<xs:enumeration value="tissue_lib"/>
+<xs:enumeration value="tissue_type"/>
+<xs:enumeration value="transl_except"/>
+<xs:enumeration value="transl_table"/>
+<xs:enumeration value="translation"/>
+<xs:enumeration value="trans_splicing"/>
+<xs:enumeration value="variety"/>
+<xs:enumeration value="MOL_TYPE"/>
+<xs:enumeration value="NOTE"/>
+<xs:enumeration value="ORGANISM"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:schema>

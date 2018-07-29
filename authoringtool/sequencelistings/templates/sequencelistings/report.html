@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test</title>
+</head>
+<body>
+    {% if parserError %}
+        <h2>parser error</h2>
+        <p>{{parserError}}</p>
+    {% endif %}
+    {% if schemaError %}
+        <h2>schemaError</h2>
+        <ul>
+        {% for er in schemaError %}
+            <li>{{er}}</li>
+        <!--<li><a href="/polls/{{ question.id }}/">{{ question.question_text }}</a></li>-->
+        {% endfor %}
+        </ul>
+    {% endif %}
+
+{{resp}}
+</body>
+</html>

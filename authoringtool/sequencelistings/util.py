@@ -23,6 +23,10 @@ OUTPUT_DIR = os.path.join(PROJECT_DIRECTORY, 'sequencelistings',
                                'static', 'sequencelistings', 'output')
 
 XML_SCHEMA_PATH = os.path.join(OUTPUT_DIR, 'resources', 'st26.xsd')
+XML_SCHEMA_PATH_20180729 = os.path.join(PROJECT_DIRECTORY,
+                                        'sequencelistings',
+                                        'schema',
+                                        'st26.xsd')
 
 XML_DTD_PATH = os.path.join(OUTPUT_DIR, 'resources', 'ST26SequenceListing_V1_0.dtd')
 # XML_DTD_PATH = os.path.join(OUTPUT_DIR, 'resources', 'cws_4_7-en-annex2-AN-II_amended.dtd')
@@ -235,6 +239,26 @@ def determineFormat(aString):
  
 def isResiduesLine(aLine):
     return PATTERN_NUC.match(aLine) or PATTERN_PRT.match(aLine)
+
+def validateDocumentWithSchemaStr(aString, aSchemaPath):
+    result = {'parserError': None, 'schemaError': None}
+
+    xmlschema_doc = etree.parse(aSchemaPath)
+    xmlschema = etree.XMLSchema(xmlschema_doc)
+
+    try:
+        doc = etree.fromstring(aString)
+#         at this point the input file was successfully parsed
+        if not xmlschema.validate(doc):
+            result['schemaError'] = xmlschema.error_log
+            logger.error(xmlschema.error_log)
+
+    except etree.XMLSyntaxError as syntErr:
+        result['parserError'] = syntErr
+        logger.error('%s\n%s' % ('aFilePath', syntErr))
+
+    return result
+
 
 # <INSDSeq_other-seqids>
 #                     <INSDSeqid>{{seq.otherSeqId}}</INSDSeqid>

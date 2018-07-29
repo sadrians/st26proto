@@ -4,16 +4,24 @@
 {% block title%}Validation{% endblock %}
 
 {%block header_block %}
-    <h2>VALIDATION</h2>
+<h2>VALIDATION</h2>
 {% endblock %}
 
 {% block body_block %}
 
-    <p>This is a prototype for validation with XML Schema.</p>
+<p>This is a prototype for validation with XML Schema.</p>
+<h1>Upload file for verification</h1>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="file" name="myfile">
+    <input type="submit" value="Validate"/>
+</form>
 
-    <hr />
-    <h4>Disclaimer</h4>
-    <p>This website has been built <strong>only for information purposes</strong>.</p>
-    <p>No rights can be derived from visiting, registering and/or exploring the functionality of this website.</p>
-    <p>More on <a href="{% url 'sequencelistings:about' %}">About</a> page</p>
+<hr/>
+<h4>Disclaimer</h4>
+<p>This website has been built <strong>only for information purposes</strong>.
+</p>
+<p>No rights can be derived from visiting, registering and/or exploring the
+    functionality of this website.</p>
+<p>More on <a href="{% url 'sequencelistings:about' %}">About</a> page</p>
 {% endblock %}
