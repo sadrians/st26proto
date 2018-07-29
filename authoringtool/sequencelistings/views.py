@@ -430,26 +430,18 @@ def about(request):
     return render_to_response('sequencelistings/about.html', {}, {})
 
 def validation(request):
-    # return render_to_response('sequencelistings/validation.html', {}, {})
-
-# def upload_file(request):
-    # return HttpResponse("Upload file page.")
     if request.method == 'POST':
         f = request.FILES['myfile']
         # print 'File size:', f.size
         tx = f.read()
         res = util.validateDocumentWithSchemaStr(tx, util.XML_SCHEMA_PATH_20180729)
-        # print 'File text:', tx
-
-        # return render(request, 'validator/test_page.html',
-        #               {'resp': res})
-        schemaErrorClean = [str(er).split('Element')[1] for er in res['schemaError']]
+        # schemaErrorClean = [str(er).split('Element')[1] for er in res['schemaError']]
         return render(request, 'sequencelistings/report.html',
-                      {'parserError': res['parserError'],
-                       # 'schemaError': res['schemaError']})
-                    'schemaError': schemaErrorClean})
+                      {'fileName': f,
+                          'parserError': res['parserError'],
+                       'schemaError': res['schemaError']})
+                    # 'schemaError': schemaErrorClean})
     else:
-        # return render(request, 'validator/upload_file.html')
         return render(request, 'sequencelistings/validation.html')
 
 

@@ -2,19 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Test</title>
+    <title>Report</title>
 </head>
 <body>
+<h1>Verification report for file: {{fileName}}</h1>
     {% if parserError %}
-        <h2>parser error</h2>
+        <h2>Parser error</h2>
         <p>{{parserError}}</p>
     {% endif %}
     {% if schemaError %}
-        <h2>schemaError</h2>
+        <h2>Schema error</h2>
         <ul>
         {% for er in schemaError %}
             <li>{{er}}</li>
-        <!--<li><a href="/polls/{{ question.id }}/">{{ question.question_text }}</a></li>-->
         {% endfor %}
         </ul>
     {% endif %}
