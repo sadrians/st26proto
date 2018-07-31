@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0">
+	<xs:annotation>
+		<xs:documentation xml:lang="en">
+            XML schema proposal for ST.26 authoring and validation tool.
+        </xs:documentation>
+	</xs:annotation>
+    <!--
+    =======================================================
+    predefined vocabularies with large number of values
+    NOTE: these vocabularies are provided for demonstration. Their contents
+    need to be double checked before being used for any other purpose.
+    =======================================================
+    -->
+	<xs:include schemaLocation="languageCodeValues.xsd"/>
+	<xs:include schemaLocation="IPOfficeCodeValues.xsd"/>
+	<xs:include schemaLocation="featureKeyValues.xsd"/>
+	<xs:include schemaLocation="qualifierNameValues.xsd"/>
+	<!--
+	=======================================================
+	the subset of Basic Latin as defined in ST.26, Annex IV
+	=======================================================
+	-->
+	<!--TODO: EPO/USTPO review the definition of the Basic Latin for ST.26.-->
+	<xs:simpleType name="ST26basicLatinChars">
+		<!--TODO: evaluate whether xs:token rather than xs:string-->
+		<xs:restriction base="xs:string">
+			<!--NOTE: This is the current Basic Latin subset defined in ST.26.
+			Currently sequence listings containing any of &#x003B;&#x003D;&#x003F;-&#x007E; will fail the schema validation-->
+			<xs:pattern value="[&#x0020;&#x0021;&#x0023;-&#x0026;&#x0028;-&#x003B;&#x003D;&#x003F;-&#x007E;]+"/>
+			<!--alternative regex with same effect-->
+			<!--<xs:pattern value="[&#x0020;-&#x007E;-[&#x0022;&#x0027;&#x003C;&#x003E;]]+"/>-->
+			<!--<xs:pattern value="[&#x0020;-&#x007E;-[&lt;&gt;&apos;&quot;]]+"/>-->
+		</xs:restriction>
+	</xs:simpleType>
+	<!--
+	=======================================================
+	type for ApplicantName, InventorName, InventionTitle
+	=======================================================
+	-->
+	<xs:complexType name="elementWithLanguageCodeType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<!--ST.26 par.47, 9-->
+				<xs:attribute name="languageCode" type="languageCodeValues" use="required"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<!--
+	=======================================================
+	type for ApplicationIdentification and
+	EarliestPriorityApplicationIdentification
+	=======================================================
+	-->
+	<xs:complexType name="appIdentif">
+		<xs:sequence>
+			<!--ST.26 par. 45 rule XIPOC_1-->
+			<xs:element name="IPOfficeCode" type="IPOfficeCodeValues"/>
+			<xs:element name="ApplicationNumberText" type="ST26basicLatinChars"/>
+			<!--ST.26 par. 45 rule XFD_2 (i.e., ST.2 format: CCYY-MM-DD)-->
+			<xs:element name="FilingDate" type="xs:date" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+    <!--
+    =======================================================
+    perhaps there is a more readable manner to express the constrain on
+    InventorName and InventorNameLatin?
+    =======================================================
+    -->
+	<xs:group name="inventorNameGroup">
+		<xs:sequence>
+			<xs:element name="InventorName" type="elementWithLanguageCodeType"/>
+			<xs:element name="InventorNameLatin" type="ST26basicLatinChars" minOccurs="0"/>
+		</xs:sequence>
+	</xs:group>
+    <!--
+    =======================================================
+    schema starts here
+    =======================================================
+    -->
+	<xs:element name="ST26SequenceListing">
+		<xs:complexType>
+			<xs:sequence>
+                <!--
+                =======================================================
+                general information
+                =======================================================
+                -->
+				<xs:choice minOccurs="1" maxOccurs="2">
+					<xs:element name="ApplicationIdentification" type="appIdentif"/>
+					<xs:element name="ApplicantFileReference" type="ST26basicLatinChars"/>
+				</xs:choice>
+				<xs:element name="EarliestPriorityApplicationIdentification" type="appIdentif" minOccurs="0" maxOccurs="1"/>
+				<!--mandatory ST.26 par. 45 rule XAN_1, languageCode ST.26 par. 9, 47, 48 rule XLC_1-->
+				<xs:element name="ApplicantName" type="elementWithLanguageCodeType"/>
+				<!--optional ST.26 par 45, 47 rule XANL_1-->
+				<xs:element name="ApplicantNameLatin" type="ST26basicLatinChars" minOccurs="0"/>
+				<xs:group ref="inventorNameGroup" minOccurs="0" maxOccurs="1"/>
+				<!--ST.26 par.48-->
+				<xs:element name="InventionTitle" type="elementWithLanguageCodeType" minOccurs="1" maxOccurs="unbounded"/>
+				<!--mandatory ST.26 par. 10 rule XSTQ_1, positiveInteger ST.26 par. 10, 45 rule XSTQ_2-->
+				<xs:element name="SequenceTotalQuantity" type="xs:positiveInteger"/>
+				<!--
+                =======================================================
+                sequence data
+                =======================================================
+                -->
+                <xs:element name="SequenceData" minOccurs="1" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="INSDSeq">
+								<xs:complexType>
+									<xs:sequence>
+                                        <!--
+                                        =======================================================
+                                        sequence length
+                                        =======================================================
+                                        -->
+										<xs:element name="INSDSeq_length">
+											<xs:simpleType>
+												<xs:union>
+													<!--ST.26 par. 52, 58 (empty for intentionally skipped sequence)-->
+													<xs:simpleType>
+														<xs:restriction base="xs:string">
+															<xs:length value="0"/>
+														</xs:restriction>
+													</xs:simpleType>
+													<!--ST.26 par. 53 rule XL_1-->
+													<xs:simpleType>
+														<xs:restriction base="xs:positiveInteger"/>
+													</xs:simpleType>
+												</xs:union>
+											</xs:simpleType>
+										</xs:element>
+                                        <!--
+                                        =======================================================
+                                        molecule type
+                                        =======================================================
+                                        -->
+										<xs:element name="INSDSeq_moltype">
+											<!--ST.26 par. 52, 54, 58-->
+                                            <xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:pattern value="DNA|RNA|AA|.{0}"/>
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+                                        <!--
+                                        =======================================================
+                                        division
+                                        =======================================================
+                                        -->
+										<xs:element name="INSDSeq_division">
+                                            <!--ST.26 par. 52, 58-->
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:pattern value="PAT|.{0}"/>
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+                                        <!--
+                                        =======================================================
+                                        publication info
+                                        =======================================================
+                                        -->
+										<!--ST.26 Annex V-->
+										<xs:element name="INSDSeq_other-seqids" minOccurs="0" maxOccurs="1">
+											<xs:complexType>
+												<xs:sequence>
+													<!--multiplicity is '?' in Annex II. That is nonsensical.
+													TODO: 20180708 check the multiplicity in the latest version of dtd and main body.-->
+													<xs:element name="INSDSeqid">
+														<xs:simpleType>
+															<xs:restriction base="xs:string">
+																<xs:pattern value="pat\|[A-Z]{2}\|[A-Z0-9]+\|[A-Z][0-9]\|[1-9][0-9]*"/>
+															</xs:restriction>
+														</xs:simpleType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+                                        <!--
+                                        =======================================================
+                                        feature table
+                                        =======================================================
+                                        -->
+										<!--optional ST.26 par. 52, 60 rule XFT_1-->
+										<xs:element name="INSDSeq_feature-table" minOccurs="0" maxOccurs="1">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="INSDFeature" minOccurs="1" maxOccurs="unbounded">
+														<xs:complexType>
+															<xs:sequence>
+																<!--ST.26 par. 62 rules XFK_1, XFK_2. See also ST.26 Annex I, 5.48 rule XFK_4.-->
+																<xs:element name="INSDFeature_key" type="featureKeyValues"/>
+																<!--probably the validation of feature location via xsd is too cumbersome-->
+																<!--TODO: come up with some pattern perhaps??? ST.26 par. 64 rule XFL_1, ST.26 par. 65, 66 rule XFL_2, ST.26 par. 67, 68 rule XFL_4. TODO: restriction on charset ST.26 par. 71 rule XFL_6.-->
+																<!--TODO: change type to ST26basicLatinChars when ST.26 par.40(b), Annex IV clarified -->
+																<!--<xs:element name="INSDFeature_location" type="ST26basicLatinChars"/>-->
+																<xs:element name="INSDFeature_location" type="xs:string"/>
+																<!--
+                                                                =======================================================
+                                                                qualifiers
+                                                                =======================================================
+                                                                -->
+                                                                <!--ST.26 par. 76 rule XQV_2-->
+																<!--is the multiplicity right for INSDFeature_quals???-->
+																<xs:element name="INSDFeature_quals" minOccurs="0" maxOccurs="1">
+																	<xs:complexType>
+																		<xs:sequence>
+																			<!--ST.26 par. 76 rule XFQ_3-->
+																			<xs:element name="INSDQualifier" minOccurs="1" maxOccurs="unbounded">
+																				<xs:complexType>
+																					<xs:sequence>
+																						<xs:element name="INSDQualifier_name" type="qualifierNameValues"/>
+																						<!--ST.26 par. 73, Annex I, 6.12, 6.18, 6.30, 6.36 rule XQN_1, ST.26 par. 73 rule XQN_2-->
+																						<xs:element name="INSDQualifier_value" minOccurs="0" maxOccurs="1">
+																							<xs:simpleType>
+																								<xs:restriction base="xs:string">
+																									<!--ST.26 par. 86 rule XQV_8-->
+                                                                                                    <xs:maxLength value="1000"/>
+																								</xs:restriction>
+																								<!--TODO: change type to ST26basicLatinChars when ST.26 par.40(b), Annex IV clarified -->
+																								<!--<xs:restriction base="ST26basicLatinChars">-->
+																							</xs:simpleType>
+																						</xs:element>
+																					</xs:sequence>
+																				</xs:complexType>
+																			</xs:element>
+																		</xs:sequence>
+																	</xs:complexType>
+																</xs:element>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+                                        <!--
+                                        =======================================================
+                                        sequence residues
+                                        =======================================================
+                                        -->
+										<xs:element name="INSDSeq_sequence">
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:pattern value="[a,c,g,t,m,r,w,s,y,k,v,h,d,b,n]{10,}|[A,C,D,E,F,G,H,I,K,L,M,N,O,P,Q,R,S,T,U,V,W,Y,X,J,B,Z]{4,}|000"/>
+													<!--nuc length ST.26 par. 3(k), 7(a), 8 rule XS_1;
+                                                    prt length ST.26 par. 3(k), 7(b), 8 rule XS_2;
+                                                    nuc alphabet ST.26 par. 13, 57 rules XS_3, XS_5;
+                                                    prt alphabet ST.26 par. 26, 28, 57 rules XS_4, XS_6
+                                                    skip alphabet ST.26 par. 52, 58-->
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+						<xs:attribute name="sequenceIDNumber" type="xs:positiveInteger" use="required"/>
+						<!--ST.26 par. 10 rule XSIDN_2, ST.26 par. 10, 51 XSIDN_3.
+                        However these rules can't be fully enforced via xsd!!!-->
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+            <!--
+            =======================================================
+            root attributes
+            =======================================================
+            -->
+			<xs:attribute name="dtdVersion" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:pattern value="V[0-9]+_[0-9]+"/>
+						<!--ST.26 par. 43 rule XDV_1-->
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="fileName" type="ST26basicLatinChars"/>
+			<xs:attribute name="softwareName" type="ST26basicLatinChars"/>
+			<xs:attribute name="softwareVersion" type="ST26basicLatinChars"/>
+			<xs:attribute name="productionDate" type="xs:date"/>
+			<!--ST.26 par. 43 rule XPD_1.
+			NOTE: Schema validation will give ERR when date is not CCYY-MM-DD,
+			whereas rule XPD_1 gives only WARN. We can relax the type of
+			productionDate to xs:string and not 'care' what value is provided.-->
+			<!--<xs:attribute name="productionDate" type="xs:string"/>-->
+		</xs:complexType>
+		<!--ST.26 par. 10 rule XSIDN_1-->
+		<xs:unique name="uniqueSequenceIDNumber">
+			<xs:selector xpath="SequenceData"/>
+			<xs:field xpath="@sequenceIDNumber"/>
+		</xs:unique>
+	</xs:element>
+</xs:schema>
