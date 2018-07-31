@@ -434,7 +434,7 @@ def validation(request):
         f = request.FILES['myfile']
         # print 'File size:', f.size
         tx = f.read()
-        res = util.validateDocumentWithSchemaStr(tx, util.XML_SCHEMA_PATH_20180729)
+        res = util.validateDocumentWithSchemaStr(tx, util.XML_SCHEMA_PATH)
         # schemaErrorClean = [str(er).split('Element')[1] for er in res['schemaError']]
         return render(request, 'sequencelistings/report.html',
                       {'fileName': f,

@@ -8,25 +8,45 @@ from collections import namedtuple
 from django.template.loader import render_to_string
 from lxml import etree 
 
-logger = logging.getLogger(__name__)
-logger.setLevel(logging.WARNING)
+# logger = logging.getLogger(__name__)
+# logger.setLevel(logging.WARNING)
+
+
 # handler = logging.handlers.RotatingFileHandler(maxBytes=1000000)
 # logger.addHandler(handler)
 currentDirectory = os.path.abspath(os.path.dirname(__file__))
 PROJECT_DIRECTORY = os.path.abspath(os.path.join(currentDirectory, os.pardir))
 
+LOG_FILE_PATH = os.path.join(PROJECT_DIRECTORY, 'log', 'seql.txt')
+logging.basicConfig(filename=LOG_FILE_PATH,#'seql_xsd_vld.log',
+                    filemode='w',
+                    level=logging.DEBUG,
+                    format='%(asctime)s %(levelname)s\n\t%(message)s',
+                    datefmt='%d/%b/%Y %H:%M:%S')
+logger = logging.getLogger(__name__)
+
 TEST_DATA_DIR_PATH = os.path.join(PROJECT_DIRECTORY, 
                                        'sequencelistings', 'testData')
+
+XTEST_DATA_DIR_PATH = os.path.join(PROJECT_DIRECTORY,
+                                    'sequencelistings', 'schema',
+                                   'xtestData')
 
 SCREENSHOT_DIR = os.path.join(TEST_DATA_DIR_PATH, 'screenshots')
 OUTPUT_DIR = os.path.join(PROJECT_DIRECTORY, 'sequencelistings',
                                'static', 'sequencelistings', 'output')
 
-XML_SCHEMA_PATH = os.path.join(OUTPUT_DIR, 'resources', 'st26.xsd')
-XML_SCHEMA_PATH_20180729 = os.path.join(PROJECT_DIRECTORY,
+# XML_SCHEMA_PATH = os.path.join(OUTPUT_DIR, 'resources', 'st26.xsd')
+XML_SCHEMA_PATH = os.path.join(PROJECT_DIRECTORY,
                                         'sequencelistings',
-                                        'schema',
+                                        'schema', 'xsd',
                                         'st26.xsd')
+
+# XML_SCHEMA_PATH_20180729 = os.path.join(PROJECT_DIRECTORY,
+#                                         'sequencelistings',
+#                                         'schema', 'xsd',
+#                                         'st26.xsd')
+
 
 XML_DTD_PATH = os.path.join(OUTPUT_DIR, 'resources', 'ST26SequenceListing_V1_0.dtd')
 # XML_DTD_PATH = os.path.join(OUTPUT_DIR, 'resources', 'cws_4_7-en-annex2-AN-II_amended.dtd')
@@ -155,26 +175,45 @@ def getStartLocation(aLoc):
     numbers = re.findall(r'\d+', aLoc)
     return int(numbers[0]) if numbers else 0
     
+# def validateDocumentWithSchema(aFilePath, aSchemaPath):
+#     result = False
+#     xmlschema_doc = etree.parse(aSchemaPath)
+#     xmlschema = etree.XMLSchema(xmlschema_doc)
+#
+#     try:
+#         doc = etree.parse(aFilePath)
+# #         at this point the input file was successfully parsed
+#
+#         if xmlschema.validate(doc):
+#             result = True
+#         else:
+#             logger.error('\nfile: %s' % aFilePath)
+#             logger.error('\n%s' % xmlschema.error_log)
+# #             print os.path.basename(aFilePath)
+#             print xmlschema.error_log
+#     except etree.XMLSyntaxError as syntErr:
+#         logger.error('\n%s\n%s' % (aFilePath, syntErr))
+#
+#     return result
+
 def validateDocumentWithSchema(aFilePath, aSchemaPath):
-    result = False
+    result = {'parserError': None, 'schemaError': None}
+
     xmlschema_doc = etree.parse(aSchemaPath)
     xmlschema = etree.XMLSchema(xmlschema_doc)
-    
+
     try:
         doc = etree.parse(aFilePath)
 #         at this point the input file was successfully parsed
-        
-        if xmlschema.validate(doc):
-            result = True
-        else:
-            logger.error('\nfile: %s' % aFilePath)
-            logger.error('\n%s' % xmlschema.error_log)
-#             print os.path.basename(aFilePath)
-            print xmlschema.error_log
+        if not xmlschema.validate(doc):
+            result['schemaError'] = xmlschema.error_log
+            logger.error(xmlschema.error_log)
+
     except etree.XMLSyntaxError as syntErr:
-        logger.error('\n%s\n%s' % (aFilePath, syntErr))
-    
-    return result 
+        result['parserError'] = syntErr
+        logger.error('%s\n%s' % (aFilePath, syntErr))
+
+    return result
 
 def validateDocumentWithDtd(afile, adtd):
     result = False
