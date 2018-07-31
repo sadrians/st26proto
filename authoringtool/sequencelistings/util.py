@@ -7,7 +7,7 @@ import os, re, logging
 from collections import namedtuple
 from django.template.loader import render_to_string
 from lxml import etree 
-# TODO: update lxml package on pythonanywhere
+
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.WARNING)
 # handler = logging.handlers.RotatingFileHandler(maxBytes=1000000)
@@ -25,7 +25,7 @@ OUTPUT_DIR = os.path.join(PROJECT_DIRECTORY, 'sequencelistings',
 XML_SCHEMA_PATH = os.path.join(OUTPUT_DIR, 'resources', 'st26.xsd')
 XML_SCHEMA_PATH_20180729 = os.path.join(PROJECT_DIRECTORY,
                                         'sequencelistings',
-                                        'schema', 'xsd',
+                                        'schema',
                                         'st26.xsd')
 
 XML_DTD_PATH = os.path.join(OUTPUT_DIR, 'resources', 'ST26SequenceListing_V1_0.dtd')
