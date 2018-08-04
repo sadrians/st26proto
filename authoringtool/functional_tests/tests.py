@@ -384,7 +384,7 @@ class EditSequenceListingTest(LiveServerTestCase):
 
 #         now we are on edit_seql view
 #         if I comment out this line the test fails
-        print 'residues:', self.browser.find_element_by_class_name('residues').text
+#         print 'residues:', self.browser.find_element_by_class_name('residues').text
 #         test sequenceName value
         sequenceName_element = self.browser.find_element_by_class_name('sequenceName')
         self.assert_('xxyyzz', sequenceName_element.text) 

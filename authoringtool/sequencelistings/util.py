@@ -17,10 +17,11 @@ from lxml import etree
 currentDirectory = os.path.abspath(os.path.dirname(__file__))
 PROJECT_DIRECTORY = os.path.abspath(os.path.join(currentDirectory, os.pardir))
 
-LOG_FILE_PATH = os.path.join(PROJECT_DIRECTORY, 'log', 'seql.txt')
-logging.basicConfig(filename=LOG_FILE_PATH,#'seql_xsd_vld.log',
+LOG_FILE_PATH = os.path.join(PROJECT_DIRECTORY, 'log', 'seql.log')
+logging.basicConfig(filename=LOG_FILE_PATH,
                     filemode='w',
-                    level=logging.DEBUG,
+                    # level=logging.DEBUG,
+                    level=logging.WARNING,
                     format='%(asctime)s %(levelname)s\n\t%(message)s',
                     datefmt='%d/%b/%Y %H:%M:%S')
 logger = logging.getLogger(__name__)
@@ -36,20 +37,13 @@ SCREENSHOT_DIR = os.path.join(TEST_DATA_DIR_PATH, 'screenshots')
 OUTPUT_DIR = os.path.join(PROJECT_DIRECTORY, 'sequencelistings',
                                'static', 'sequencelistings', 'output')
 
-# XML_SCHEMA_PATH = os.path.join(OUTPUT_DIR, 'resources', 'st26.xsd')
 XML_SCHEMA_PATH = os.path.join(PROJECT_DIRECTORY,
                                         'sequencelistings',
                                         'schema', 'xsd',
                                         'st26.xsd')
 
-# XML_SCHEMA_PATH_20180729 = os.path.join(PROJECT_DIRECTORY,
-#                                         'sequencelistings',
-#                                         'schema', 'xsd',
-#                                         'st26.xsd')
-
-
 XML_DTD_PATH = os.path.join(OUTPUT_DIR, 'resources', 'ST26SequenceListing_V1_0.dtd')
-# XML_DTD_PATH = os.path.join(OUTPUT_DIR, 'resources', 'cws_4_7-en-annex2-AN-II_amended.dtd')
+
 MOLTYPE_DNA = 'DNA'
 MOLTYPE_RNA = 'RNA'
 MOLTYPE_AA = 'AA'
