@@ -2,10 +2,12 @@ import django
 django.setup()
 
 from django.test import LiveServerTestCase
+# from django.test import tag
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys 
 
-import time 
+import time
+from unittest import skip
 
 class SeqlSeleniumTestFixture():    
 #     @classmethod
@@ -59,7 +61,8 @@ class SeqlSeleniumTestFixture():
         inventorNameLatin.send_keys('n')
             
         aBrowser.find_element_by_xpath('//input[@value="Submit"]').click()
-         
+
+# @skip('temporarily skipped')
 class VisitorTest(LiveServerTestCase):
     def setUp(self):
         self.browser = webdriver.Firefox()
@@ -93,7 +96,7 @@ class VisitorTest(LiveServerTestCase):
         self.browser.get('%s%s' %(self.live_server_url, '/sequencelistings/about'))     
         self.assertIn('st26proto - About', self.browser.title)
         
-    
+# @skip('temporarily skipped')
 class CreateSequenceListingTest(LiveServerTestCase):
     def setUp(self):
         self.browser = webdriver.Firefox()
@@ -221,7 +224,7 @@ class CreateSequenceListingTest(LiveServerTestCase):
         cells = table.find_elements_by_tag_name('td')
         self.assertIn('selenium_test_file_name_no_applIdentification', [cell.text for cell in cells])
  
-            
+# @skip('temporarily skipped')
 class EditSequenceListingTest(LiveServerTestCase):
     def setUp(self):
         self.browser = webdriver.Firefox()

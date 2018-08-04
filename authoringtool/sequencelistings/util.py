@@ -299,6 +299,9 @@ def validateDocumentWithSchemaStr(aString, aSchemaPath):
     return result
 
 
-# <INSDSeq_other-seqids>
+
+
+
+    # <INSDSeq_other-seqids>
 #                     <INSDSeqid>{{seq.otherSeqId}}</INSDSeqid>
 #                 </INSDSeq_other-seqids>

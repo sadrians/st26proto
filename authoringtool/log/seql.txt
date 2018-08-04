@@ -1,12 +1,1963 @@
-31/Jul/2018 23:12:55 ERROR
-	<string>:57:0:ERROR:SCHEMASV:SCHEMAV_CVC_PATTERN_VALID: Element 'INSDSeqid': [facet 'pattern'] The value 'abc' is not accepted by the pattern 'pat\|[A-Z]{2}\|[A-Z0-9]+\|[A-Z][0-9]\|[1-9][0-9]*'.
-<string>:57:0:ERROR:SCHEMASV:SCHEMAV_CVC_DATATYPE_VALID_1_2_1: Element 'INSDSeqid': 'abc' is not a valid value of the local atomic type.
-<string>:59:0:ERROR:SCHEMASV:SCHEMAV_ELEMENT_CONTENT: Element 'INSDSeq_other-seqids': This element is not expected. Expected is one of ( INSDSeq_feature-table, INSDSeq_sequence ).
-31/Jul/2018 23:13:55 ERROR
-	<string>:32:0:ERROR:SCHEMASV:SCHEMAV_CVC_PATTERN_VALID: Element 'INSDSeqid': [facet 'pattern'] The value 'abc' is not accepted by the pattern 'pat\|[A-Z]{2}\|[A-Z0-9]+\|[A-Z][0-9]\|[1-9][0-9]*'.
-<string>:32:0:ERROR:SCHEMASV:SCHEMAV_CVC_DATATYPE_VALID_1_2_1: Element 'INSDSeqid': 'abc' is not a valid value of the local atomic type.
-31/Jul/2018 23:14:23 ERROR
-	<string>:25:0:ERROR:SCHEMASV:SCHEMAV_ELEMENT_CONTENT: Element 'ExtraneousElementTest': This element is not expected. Expected is ( SequenceData ).
-31/Jul/2018 23:14:56 ERROR
-	aFilePath
+04/Aug/2018 07:15:35 DEBUG
+	POST http://127.0.0.1:53691/hub/session {"desiredCapabilities": {"platform": "ANY", "browserName": "firefox", "version": "", "marionette": false, "javascriptEnabled": true}}
+04/Aug/2018 07:15:35 DEBUG
+	Finished Request
+04/Aug/2018 07:15:35 DEBUG
+	POST http://127.0.0.1:53691/hub/session/ec1905bc-533f-314f-b88a-b16fc47bf536/timeouts/implicit_wait {"sessionId": "ec1905bc-533f-314f-b88a-b16fc47bf536", "ms": 3000.0}
+04/Aug/2018 07:15:35 DEBUG
+	Finished Request
+04/Aug/2018 07:15:35 DEBUG
+	POST http://127.0.0.1:53691/hub/session/ec1905bc-533f-314f-b88a-b16fc47bf536/url {"url": "http://localhost:8081/sequencelistings/add_sequencelisting", "sessionId": "ec1905bc-533f-314f-b88a-b16fc47bf536"}
+04/Aug/2018 07:15:35 WARNING
+	Not Found: /static/sequencelistings/output/resources/style_colour.css
+04/Aug/2018 07:15:35 WARNING
+	Not Found: /static/sequencelistings/output/resources/splitLines.js
+04/Aug/2018 07:15:36 WARNING
+	Not Found: /favicon.ico
+04/Aug/2018 07:15:36 WARNING
+	Not Found: /favicon.ico
+04/Aug/2018 07:15:36 DEBUG
+	Finished Request
+04/Aug/2018 07:15:36 DEBUG
+	POST http://127.0.0.1:53691/hub/session/ec1905bc-533f-314f-b88a-b16fc47bf536/element {"using": "id", "sessionId": "ec1905bc-533f-314f-b88a-b16fc47bf536", "value": "id_inventionTitle"}
+04/Aug/2018 07:15:36 DEBUG
+	Finished Request
+04/Aug/2018 07:15:36 DEBUG
+	POST http://127.0.0.1:53691/hub/session/ec1905bc-533f-314f-b88a-b16fc47bf536/element {"using": "id", "sessionId": "ec1905bc-533f-314f-b88a-b16fc47bf536", "value": "id_inventionTitleLanguageCode"}
+04/Aug/2018 07:15:36 DEBUG
+	Finished Request
+04/Aug/2018 07:15:36 DEBUG
+	POST http://127.0.0.1:53691/hub/session/ec1905bc-533f-314f-b88a-b16fc47bf536/element {"using": "id", "sessionId": "ec1905bc-533f-314f-b88a-b16fc47bf536", "value": "id_fileName"}
+04/Aug/2018 07:15:36 DEBUG
+	Finished Request
+04/Aug/2018 07:15:36 DEBUG
+	POST http://127.0.0.1:53691/hub/session/ec1905bc-533f-314f-b88a-b16fc47bf536/element {"using": "id", "sessionId": "ec1905bc-533f-314f-b88a-b16fc47bf536", "value": "id_applicantFileReference"}
+04/Aug/2018 07:15:36 DEBUG
+	Finished Request
+04/Aug/2018 07:15:36 DEBUG
+	POST http://127.0.0.1:53691/hub/session/ec1905bc-533f-314f-b88a-b16fc47bf536/element {"using": "id", "sessionId": "ec1905bc-533f-314f-b88a-b16fc47bf536", "value": "id_IPOfficeCode"}
+04/Aug/2018 07:15:36 DEBUG
+	Finished Request
+04/Aug/2018 07:15:36 DEBUG
+	POST http://127.0.0.1:53691/hub/session/ec1905bc-533f-314f-b88a-b16fc47bf536/element {"using": "id", "sessionId": "ec1905bc-533f-314f-b88a-b16fc47bf536", "value": "id_applicationNumberText"}
+04/Aug/2018 07:15:36 DEBUG
+	Finished Request
+04/Aug/2018 07:15:36 DEBUG
+	POST http://127.0.0.1:53691/hub/session/ec1905bc-533f-314f-b88a-b16fc47bf536/element {"using": "id", "sessionId": "ec1905bc-533f-314f-b88a-b16fc47bf536", "value": "id_filingDate"}
+04/Aug/2018 07:15:36 DEBUG
+	Finished Request
+04/Aug/2018 07:15:36 DEBUG
+	POST http://127.0.0.1:53691/hub/session/ec1905bc-533f-314f-b88a-b16fc47bf536/element {"using": "id", "sessionId": "ec1905bc-533f-314f-b88a-b16fc47bf536", "value": "id_earliestPriorityIPOfficeCode"}
+04/Aug/2018 07:15:36 DEBUG
+	Finished Request
+04/Aug/2018 07:15:36 DEBUG
+	POST http://127.0.0.1:53691/hub/session/ec1905bc-533f-314f-b88a-b16fc47bf536/element {"using": "id", "sessionId": "ec1905bc-533f-314f-b88a-b16fc47bf536", "value": "id_earliestPriorityApplicationNumberText"}
+04/Aug/2018 07:15:36 DEBUG
+	Finished Request
+04/Aug/2018 07:15:36 DEBUG
+	POST http://127.0.0.1:53691/hub/session/ec1905bc-533f-314f-b88a-b16fc47bf536/element {"using": "id", "sessionId": "ec1905bc-533f-314f-b88a-b16fc47bf536", "value": "id_earliestPriorityFilingDate"}
+04/Aug/2018 07:15:36 DEBUG
+	Finished Request
+04/Aug/2018 07:15:36 DEBUG
+	POST http://127.0.0.1:53691/hub/session/ec1905bc-533f-314f-b88a-b16fc47bf536/element {"using": "id", "sessionId": "ec1905bc-533f-314f-b88a-b16fc47bf536", "value": "id_applicantName"}
+04/Aug/2018 07:15:36 DEBUG
+	Finished Request
+04/Aug/2018 07:15:36 DEBUG
+	POST http://127.0.0.1:53691/hub/session/ec1905bc-533f-314f-b88a-b16fc47bf536/element {"using": "id", "sessionId": "ec1905bc-533f-314f-b88a-b16fc47bf536", "value": "id_applicantNameLanguageCode"}
+04/Aug/2018 07:15:36 DEBUG
+	Finished Request
+04/Aug/2018 07:15:36 DEBUG
+	POST http://127.0.0.1:53691/hub/session/ec1905bc-533f-314f-b88a-b16fc47bf536/element {"using": "id", "sessionId": "ec1905bc-533f-314f-b88a-b16fc47bf536", "value": "id_applicantNameLatin"}
+04/Aug/2018 07:15:36 DEBUG
+	Finished Request
+04/Aug/2018 07:15:36 DEBUG
+	POST http://127.0.0.1:53691/hub/session/ec1905bc-533f-314f-b88a-b16fc47bf536/element {"using": "id", "sessionId": "ec1905bc-533f-314f-b88a-b16fc47bf536", "value": "id_inventorName"}
+04/Aug/2018 07:15:36 DEBUG
+	Finished Request
+04/Aug/2018 07:15:36 DEBUG
+	POST http://127.0.0.1:53691/hub/session/ec1905bc-533f-314f-b88a-b16fc47bf536/element {"using": "id", "sessionId": "ec1905bc-533f-314f-b88a-b16fc47bf536", "value": "id_inventorNameLanguageCode"}
+04/Aug/2018 07:15:36 DEBUG
+	Finished Request
+04/Aug/2018 07:15:36 DEBUG
+	POST http://127.0.0.1:53691/hub/session/ec1905bc-533f-314f-b88a-b16fc47bf536/element {"using": "id", "sessionId": "ec1905bc-533f-314f-b88a-b16fc47bf536", "value": "id_inventorNameLatin"}
+04/Aug/2018 07:15:36 DEBUG
+	Finished Request
+04/Aug/2018 07:15:36 DEBUG
+	POST http://127.0.0.1:53691/hub/session/ec1905bc-533f-314f-b88a-b16fc47bf536/element/{253c5544-d62c-2a46-884c-3c2300e6a5ae}/value {"sessionId": "ec1905bc-533f-314f-b88a-b16fc47bf536", "id": "{253c5544-d62c-2a46-884c-3c2300e6a5ae}", "value": ["a"]}
+04/Aug/2018 07:15:36 DEBUG
+	Finished Request
+04/Aug/2018 07:15:36 DEBUG
+	POST http://127.0.0.1:53691/hub/session/ec1905bc-533f-314f-b88a-b16fc47bf536/element/{d1c6b201-ba4c-3941-9ecf-017c3cd40b35}/value {"sessionId": "ec1905bc-533f-314f-b88a-b16fc47bf536", "id": "{d1c6b201-ba4c-3941-9ecf-017c3cd40b35}", "value": ["b"]}
+04/Aug/2018 07:15:36 DEBUG
+	Finished Request
+04/Aug/2018 07:15:36 DEBUG
+	POST http://127.0.0.1:53691/hub/session/ec1905bc-533f-314f-b88a-b16fc47bf536/element/{4467cb51-b7f5-b042-a641-c03926f10448}/value {"sessionId": "ec1905bc-533f-314f-b88a-b16fc47bf536", "id": "{4467cb51-b7f5-b042-a641-c03926f10448}", "value": ["s", "e", "l", "e", "n", "i", "u", "m", "_", "t", "e", "s", "t", "1"]}
+04/Aug/2018 07:15:36 DEBUG
+	Finished Request
+04/Aug/2018 07:15:36 DEBUG
+	POST http://127.0.0.1:53691/hub/session/ec1905bc-533f-314f-b88a-b16fc47bf536/element/{b778cd96-5ba6-3a4e-b746-6f6956580d29}/value {"sessionId": "ec1905bc-533f-314f-b88a-b16fc47bf536", "id": "{b778cd96-5ba6-3a4e-b746-6f6956580d29}", "value": ["d"]}
+04/Aug/2018 07:15:36 DEBUG
+	Finished Request
+04/Aug/2018 07:15:36 DEBUG
+	POST http://127.0.0.1:53691/hub/session/ec1905bc-533f-314f-b88a-b16fc47bf536/element/{f562816e-a888-b34a-bc3d-8677146bdd4c}/value {"sessionId": "ec1905bc-533f-314f-b88a-b16fc47bf536", "id": "{f562816e-a888-b34a-bc3d-8677146bdd4c}", "value": ["e"]}
+04/Aug/2018 07:15:36 DEBUG
+	Finished Request
+04/Aug/2018 07:15:36 DEBUG
+	POST http://127.0.0.1:53691/hub/session/ec1905bc-533f-314f-b88a-b16fc47bf536/element/{9cf7c964-b5c9-a34f-a711-26113c58ef1d}/value {"sessionId": "ec1905bc-533f-314f-b88a-b16fc47bf536", "id": "{9cf7c964-b5c9-a34f-a711-26113c58ef1d}", "value": ["f"]}
+04/Aug/2018 07:15:36 DEBUG
+	Finished Request
+04/Aug/2018 07:15:36 DEBUG
+	POST http://127.0.0.1:53691/hub/session/ec1905bc-533f-314f-b88a-b16fc47bf536/element/{676b03a9-7089-864a-b864-2cd180ad3769}/value {"sessionId": "ec1905bc-533f-314f-b88a-b16fc47bf536", "id": "{676b03a9-7089-864a-b864-2cd180ad3769}", "value": ["2", "0", "1", "0", "-", "1", "2", "-", "2", "0"]}
+04/Aug/2018 07:15:36 DEBUG
+	Finished Request
+04/Aug/2018 07:15:36 DEBUG
+	POST http://127.0.0.1:53691/hub/session/ec1905bc-533f-314f-b88a-b16fc47bf536/element/{19f05f07-ddeb-e243-821f-a74e4fa54101}/value {"sessionId": "ec1905bc-533f-314f-b88a-b16fc47bf536", "id": "{19f05f07-ddeb-e243-821f-a74e4fa54101}", "value": ["g"]}
+04/Aug/2018 07:15:36 DEBUG
+	Finished Request
+04/Aug/2018 07:15:36 DEBUG
+	POST http://127.0.0.1:53691/hub/session/ec1905bc-533f-314f-b88a-b16fc47bf536/element/{cb0ef0c7-c356-f644-abdc-e07e82b6d306}/value {"sessionId": "ec1905bc-533f-314f-b88a-b16fc47bf536", "id": "{cb0ef0c7-c356-f644-abdc-e07e82b6d306}", "value": ["h"]}
+04/Aug/2018 07:15:36 DEBUG
+	Finished Request
+04/Aug/2018 07:15:36 DEBUG
+	POST http://127.0.0.1:53691/hub/session/ec1905bc-533f-314f-b88a-b16fc47bf536/element/{124008ea-720b-4943-af1c-e936702a9a7f}/value {"sessionId": "ec1905bc-533f-314f-b88a-b16fc47bf536", "id": "{124008ea-720b-4943-af1c-e936702a9a7f}", "value": ["2", "0", "0", "9", "-", "1", "2", "-", "2", "0"]}
+04/Aug/2018 07:15:36 DEBUG
+	Finished Request
+04/Aug/2018 07:15:36 DEBUG
+	POST http://127.0.0.1:53691/hub/session/ec1905bc-533f-314f-b88a-b16fc47bf536/element/{dafacdd9-fa8b-2846-9ef5-04afac35e746}/value {"sessionId": "ec1905bc-533f-314f-b88a-b16fc47bf536", "id": "{dafacdd9-fa8b-2846-9ef5-04afac35e746}", "value": ["i"]}
+04/Aug/2018 07:15:36 DEBUG
+	Finished Request
+04/Aug/2018 07:15:36 DEBUG
+	POST http://127.0.0.1:53691/hub/session/ec1905bc-533f-314f-b88a-b16fc47bf536/element/{b82a100c-01f0-0242-ab2d-869c39a660d7}/value {"sessionId": "ec1905bc-533f-314f-b88a-b16fc47bf536", "id": "{b82a100c-01f0-0242-ab2d-869c39a660d7}", "value": ["j"]}
+04/Aug/2018 07:15:36 DEBUG
+	Finished Request
+04/Aug/2018 07:15:36 DEBUG
+	POST http://127.0.0.1:53691/hub/session/ec1905bc-533f-314f-b88a-b16fc47bf536/element/{87e80270-fc7d-b94a-80ee-82a803754d0f}/value {"sessionId": "ec1905bc-533f-314f-b88a-b16fc47bf536", "id": "{87e80270-fc7d-b94a-80ee-82a803754d0f}", "value": ["k"]}
+04/Aug/2018 07:15:36 DEBUG
+	Finished Request
+04/Aug/2018 07:15:36 DEBUG
+	POST http://127.0.0.1:53691/hub/session/ec1905bc-533f-314f-b88a-b16fc47bf536/element/{a38f2ec1-50fb-324e-abbd-8ef1b2b46c98}/value {"sessionId": "ec1905bc-533f-314f-b88a-b16fc47bf536", "id": "{a38f2ec1-50fb-324e-abbd-8ef1b2b46c98}", "value": ["l"]}
+04/Aug/2018 07:15:36 DEBUG
+	Finished Request
+04/Aug/2018 07:15:36 DEBUG
+	POST http://127.0.0.1:53691/hub/session/ec1905bc-533f-314f-b88a-b16fc47bf536/element/{088fe4f4-a623-e743-825e-9c2b75ab6366}/value {"sessionId": "ec1905bc-533f-314f-b88a-b16fc47bf536", "id": "{088fe4f4-a623-e743-825e-9c2b75ab6366}", "value": ["m"]}
+04/Aug/2018 07:15:36 DEBUG
+	Finished Request
+04/Aug/2018 07:15:36 DEBUG
+	POST http://127.0.0.1:53691/hub/session/ec1905bc-533f-314f-b88a-b16fc47bf536/element/{3df781b2-2b4d-8840-b391-c5cc22bcd665}/value {"sessionId": "ec1905bc-533f-314f-b88a-b16fc47bf536", "id": "{3df781b2-2b4d-8840-b391-c5cc22bcd665}", "value": ["n"]}
+04/Aug/2018 07:15:36 DEBUG
+	Finished Request
+04/Aug/2018 07:15:36 DEBUG
+	POST http://127.0.0.1:53691/hub/session/ec1905bc-533f-314f-b88a-b16fc47bf536/element {"using": "xpath", "sessionId": "ec1905bc-533f-314f-b88a-b16fc47bf536", "value": "//input[@value=\"Submit\"]"}
+04/Aug/2018 07:15:36 DEBUG
+	Finished Request
+04/Aug/2018 07:15:36 DEBUG
+	POST http://127.0.0.1:53691/hub/session/ec1905bc-533f-314f-b88a-b16fc47bf536/element/{bf905b2a-1099-7543-88af-870c99cba4d4}/click {"sessionId": "ec1905bc-533f-314f-b88a-b16fc47bf536", "id": "{bf905b2a-1099-7543-88af-870c99cba4d4}"}
+04/Aug/2018 07:15:42 WARNING
+	Not Found: /static/sequencelistings/output/resources/style_colour.css
+04/Aug/2018 07:15:42 WARNING
+	Not Found: /static/sequencelistings/output/resources/splitLines.js
+04/Aug/2018 07:15:42 DEBUG
+	Finished Request
+04/Aug/2018 07:15:42 DEBUG
+	POST http://127.0.0.1:53691/hub/session/ec1905bc-533f-314f-b88a-b16fc47bf536/url {"url": "http://localhost:8081/sequencelistings/overview", "sessionId": "ec1905bc-533f-314f-b88a-b16fc47bf536"}
+04/Aug/2018 07:15:42 WARNING
+	Not Found: /static/sequencelistings/output/resources/style_colour.css
+04/Aug/2018 07:15:42 WARNING
+	Not Found: /static/sequencelistings/output/resources/splitLines.js
+04/Aug/2018 07:15:42 DEBUG
+	Finished Request
+04/Aug/2018 07:15:42 DEBUG
+	POST http://127.0.0.1:53691/hub/session/ec1905bc-533f-314f-b88a-b16fc47bf536/element {"using": "id", "sessionId": "ec1905bc-533f-314f-b88a-b16fc47bf536", "value": "home_page_table"}
+04/Aug/2018 07:15:42 DEBUG
+	Finished Request
+04/Aug/2018 07:15:42 DEBUG
+	POST http://127.0.0.1:53691/hub/session/ec1905bc-533f-314f-b88a-b16fc47bf536/element/{dde19b6b-2347-234c-8e9a-eace00c7788f}/elements {"using": "tag name", "sessionId": "ec1905bc-533f-314f-b88a-b16fc47bf536", "id": "{dde19b6b-2347-234c-8e9a-eace00c7788f}", "value": "td"}
+04/Aug/2018 07:15:42 DEBUG
+	Finished Request
+04/Aug/2018 07:15:42 DEBUG
+	GET http://127.0.0.1:53691/hub/session/ec1905bc-533f-314f-b88a-b16fc47bf536/element/{d6e6121b-c396-2f4f-8baa-df375980c73a}/text {"sessionId": "ec1905bc-533f-314f-b88a-b16fc47bf536", "id": "{d6e6121b-c396-2f4f-8baa-df375980c73a}"}
+04/Aug/2018 07:15:42 DEBUG
+	Finished Request
+04/Aug/2018 07:15:42 DEBUG
+	GET http://127.0.0.1:53691/hub/session/ec1905bc-533f-314f-b88a-b16fc47bf536/element/{1605fc24-6492-5d44-b0a5-49903942d622}/text {"sessionId": "ec1905bc-533f-314f-b88a-b16fc47bf536", "id": "{1605fc24-6492-5d44-b0a5-49903942d622}"}
+04/Aug/2018 07:15:42 DEBUG
+	Finished Request
+04/Aug/2018 07:15:42 DEBUG
+	GET http://127.0.0.1:53691/hub/session/ec1905bc-533f-314f-b88a-b16fc47bf536/element/{91454d06-d421-3d43-8050-d6b50e011638}/text {"sessionId": "ec1905bc-533f-314f-b88a-b16fc47bf536", "id": "{91454d06-d421-3d43-8050-d6b50e011638}"}
+04/Aug/2018 07:15:42 DEBUG
+	Finished Request
+04/Aug/2018 07:15:42 DEBUG
+	DELETE http://127.0.0.1:53691/hub/session/ec1905bc-533f-314f-b88a-b16fc47bf536 {"sessionId": "ec1905bc-533f-314f-b88a-b16fc47bf536"}
+04/Aug/2018 07:15:42 DEBUG
+	Finished Request
+04/Aug/2018 07:15:45 DEBUG
+	POST http://127.0.0.1:53767/hub/session {"desiredCapabilities": {"platform": "ANY", "browserName": "firefox", "version": "", "marionette": false, "javascriptEnabled": true}}
+04/Aug/2018 07:15:45 DEBUG
+	Finished Request
+04/Aug/2018 07:15:45 DEBUG
+	POST http://127.0.0.1:53767/hub/session/21795aea-c337-fa40-af56-1f04a25d4838/timeouts/implicit_wait {"sessionId": "21795aea-c337-fa40-af56-1f04a25d4838", "ms": 3000.0}
+04/Aug/2018 07:15:45 DEBUG
+	Finished Request
+04/Aug/2018 07:15:45 DEBUG
+	POST http://127.0.0.1:53767/hub/session/21795aea-c337-fa40-af56-1f04a25d4838/url {"url": "http://localhost:8081/sequencelistings/add_sequencelisting", "sessionId": "21795aea-c337-fa40-af56-1f04a25d4838"}
+04/Aug/2018 07:15:45 WARNING
+	Not Found: /static/sequencelistings/output/resources/style_colour.css
+04/Aug/2018 07:15:45 WARNING
+	Not Found: /static/sequencelistings/output/resources/splitLines.js
+04/Aug/2018 07:15:45 WARNING
+	Not Found: /favicon.ico
+04/Aug/2018 07:15:45 WARNING
+	Not Found: /favicon.ico
+04/Aug/2018 07:15:45 DEBUG
+	Finished Request
+04/Aug/2018 07:15:45 DEBUG
+	POST http://127.0.0.1:53767/hub/session/21795aea-c337-fa40-af56-1f04a25d4838/element {"using": "id", "sessionId": "21795aea-c337-fa40-af56-1f04a25d4838", "value": "id_inventionTitle"}
+04/Aug/2018 07:15:45 DEBUG
+	Finished Request
+04/Aug/2018 07:15:45 DEBUG
+	POST http://127.0.0.1:53767/hub/session/21795aea-c337-fa40-af56-1f04a25d4838/element {"using": "id", "sessionId": "21795aea-c337-fa40-af56-1f04a25d4838", "value": "id_inventionTitleLanguageCode"}
+04/Aug/2018 07:15:45 DEBUG
+	Finished Request
+04/Aug/2018 07:15:45 DEBUG
+	POST http://127.0.0.1:53767/hub/session/21795aea-c337-fa40-af56-1f04a25d4838/element {"using": "id", "sessionId": "21795aea-c337-fa40-af56-1f04a25d4838", "value": "id_fileName"}
+04/Aug/2018 07:15:45 DEBUG
+	Finished Request
+04/Aug/2018 07:15:45 DEBUG
+	POST http://127.0.0.1:53767/hub/session/21795aea-c337-fa40-af56-1f04a25d4838/element {"using": "id", "sessionId": "21795aea-c337-fa40-af56-1f04a25d4838", "value": "id_applicantFileReference"}
+04/Aug/2018 07:15:45 DEBUG
+	Finished Request
+04/Aug/2018 07:15:45 DEBUG
+	POST http://127.0.0.1:53767/hub/session/21795aea-c337-fa40-af56-1f04a25d4838/element {"using": "id", "sessionId": "21795aea-c337-fa40-af56-1f04a25d4838", "value": "id_filingDate"}
+04/Aug/2018 07:15:45 DEBUG
+	Finished Request
+04/Aug/2018 07:15:45 DEBUG
+	POST http://127.0.0.1:53767/hub/session/21795aea-c337-fa40-af56-1f04a25d4838/element {"using": "id", "sessionId": "21795aea-c337-fa40-af56-1f04a25d4838", "value": "id_earliestPriorityIPOfficeCode"}
+04/Aug/2018 07:15:45 DEBUG
+	Finished Request
+04/Aug/2018 07:15:45 DEBUG
+	POST http://127.0.0.1:53767/hub/session/21795aea-c337-fa40-af56-1f04a25d4838/element {"using": "id", "sessionId": "21795aea-c337-fa40-af56-1f04a25d4838", "value": "id_earliestPriorityApplicationNumberText"}
+04/Aug/2018 07:15:45 DEBUG
+	Finished Request
+04/Aug/2018 07:15:45 DEBUG
+	POST http://127.0.0.1:53767/hub/session/21795aea-c337-fa40-af56-1f04a25d4838/element {"using": "id", "sessionId": "21795aea-c337-fa40-af56-1f04a25d4838", "value": "id_earliestPriorityFilingDate"}
+04/Aug/2018 07:15:45 DEBUG
+	Finished Request
+04/Aug/2018 07:15:45 DEBUG
+	POST http://127.0.0.1:53767/hub/session/21795aea-c337-fa40-af56-1f04a25d4838/element {"using": "id", "sessionId": "21795aea-c337-fa40-af56-1f04a25d4838", "value": "id_applicantName"}
+04/Aug/2018 07:15:45 DEBUG
+	Finished Request
+04/Aug/2018 07:15:45 DEBUG
+	POST http://127.0.0.1:53767/hub/session/21795aea-c337-fa40-af56-1f04a25d4838/element {"using": "id", "sessionId": "21795aea-c337-fa40-af56-1f04a25d4838", "value": "id_applicantNameLanguageCode"}
+04/Aug/2018 07:15:45 DEBUG
+	Finished Request
+04/Aug/2018 07:15:45 DEBUG
+	POST http://127.0.0.1:53767/hub/session/21795aea-c337-fa40-af56-1f04a25d4838/element {"using": "id", "sessionId": "21795aea-c337-fa40-af56-1f04a25d4838", "value": "id_applicantNameLatin"}
+04/Aug/2018 07:15:45 DEBUG
+	Finished Request
+04/Aug/2018 07:15:45 DEBUG
+	POST http://127.0.0.1:53767/hub/session/21795aea-c337-fa40-af56-1f04a25d4838/element/{01e6c30f-fb79-a44e-9e11-9e2b0e7f1839}/value {"sessionId": "21795aea-c337-fa40-af56-1f04a25d4838", "id": "{01e6c30f-fb79-a44e-9e11-9e2b0e7f1839}", "value": ["a", "x", "x"]}
+04/Aug/2018 07:15:45 DEBUG
+	Finished Request
+04/Aug/2018 07:15:45 DEBUG
+	POST http://127.0.0.1:53767/hub/session/21795aea-c337-fa40-af56-1f04a25d4838/element/{6aeded4d-09c1-304b-afe1-2912f6718916}/value {"sessionId": "21795aea-c337-fa40-af56-1f04a25d4838", "id": "{6aeded4d-09c1-304b-afe1-2912f6718916}", "value": ["b"]}
+04/Aug/2018 07:15:45 DEBUG
+	Finished Request
+04/Aug/2018 07:15:45 DEBUG
+	POST http://127.0.0.1:53767/hub/session/21795aea-c337-fa40-af56-1f04a25d4838/element/{118fb718-3c25-d348-ad86-fcb9f70e23ba}/value {"sessionId": "21795aea-c337-fa40-af56-1f04a25d4838", "id": "{118fb718-3c25-d348-ad86-fcb9f70e23ba}", "value": ["s", "e", "l", "e", "n", "i", "u", "m", "_", "t", "e", "s", "t", "_", "f", "i", "l", "e", "_", "n", "a", "m", "e", "_", "n", "o", "_", "a", "p", "p", "l", "I", "d", "e", "n", "t", "i", "f", "i", "c", "a", "t", "i", "o", "n"]}
+04/Aug/2018 07:15:45 DEBUG
+	Finished Request
+04/Aug/2018 07:15:45 DEBUG
+	POST http://127.0.0.1:53767/hub/session/21795aea-c337-fa40-af56-1f04a25d4838/element/{3e391de4-b823-244f-b037-dd541501608c}/value {"sessionId": "21795aea-c337-fa40-af56-1f04a25d4838", "id": "{3e391de4-b823-244f-b037-dd541501608c}", "value": ["d"]}
+04/Aug/2018 07:15:45 DEBUG
+	Finished Request
+04/Aug/2018 07:15:45 DEBUG
+	POST http://127.0.0.1:53767/hub/session/21795aea-c337-fa40-af56-1f04a25d4838/element/{b8816993-e8e9-c343-bc8c-a6db011a150b}/value {"sessionId": "21795aea-c337-fa40-af56-1f04a25d4838", "id": "{b8816993-e8e9-c343-bc8c-a6db011a150b}", "value": ["g"]}
+04/Aug/2018 07:15:45 DEBUG
+	Finished Request
+04/Aug/2018 07:15:45 DEBUG
+	POST http://127.0.0.1:53767/hub/session/21795aea-c337-fa40-af56-1f04a25d4838/element/{9120f609-bf5a-9944-a409-0b9933ba6c49}/value {"sessionId": "21795aea-c337-fa40-af56-1f04a25d4838", "id": "{9120f609-bf5a-9944-a409-0b9933ba6c49}", "value": ["h"]}
+04/Aug/2018 07:15:45 DEBUG
+	Finished Request
+04/Aug/2018 07:15:45 DEBUG
+	POST http://127.0.0.1:53767/hub/session/21795aea-c337-fa40-af56-1f04a25d4838/element/{cf8c03bf-f33e-f34b-917c-f33c56c172e3}/value {"sessionId": "21795aea-c337-fa40-af56-1f04a25d4838", "id": "{cf8c03bf-f33e-f34b-917c-f33c56c172e3}", "value": ["2", "0", "0", "9", "-", "1", "2", "-", "2", "0"]}
+04/Aug/2018 07:15:45 DEBUG
+	Finished Request
+04/Aug/2018 07:15:45 DEBUG
+	POST http://127.0.0.1:53767/hub/session/21795aea-c337-fa40-af56-1f04a25d4838/element/{123160f7-4b0c-5e48-a8f1-ce302c295394}/value {"sessionId": "21795aea-c337-fa40-af56-1f04a25d4838", "id": "{123160f7-4b0c-5e48-a8f1-ce302c295394}", "value": ["i"]}
+04/Aug/2018 07:15:45 DEBUG
+	Finished Request
+04/Aug/2018 07:15:45 DEBUG
+	POST http://127.0.0.1:53767/hub/session/21795aea-c337-fa40-af56-1f04a25d4838/element/{4b5c3b8c-ab6d-e045-b5b5-96c1dfbf08ec}/value {"sessionId": "21795aea-c337-fa40-af56-1f04a25d4838", "id": "{4b5c3b8c-ab6d-e045-b5b5-96c1dfbf08ec}", "value": ["j"]}
+04/Aug/2018 07:15:45 DEBUG
+	Finished Request
+04/Aug/2018 07:15:45 DEBUG
+	POST http://127.0.0.1:53767/hub/session/21795aea-c337-fa40-af56-1f04a25d4838/element/{88345602-4318-e945-be92-c5826b74249e}/value {"sessionId": "21795aea-c337-fa40-af56-1f04a25d4838", "id": "{88345602-4318-e945-be92-c5826b74249e}", "value": ["k"]}
+04/Aug/2018 07:15:45 DEBUG
+	Finished Request
+04/Aug/2018 07:15:45 DEBUG
+	POST http://127.0.0.1:53767/hub/session/21795aea-c337-fa40-af56-1f04a25d4838/element {"using": "xpath", "sessionId": "21795aea-c337-fa40-af56-1f04a25d4838", "value": "//input[@value=\"Submit\"]"}
+04/Aug/2018 07:15:45 DEBUG
+	Finished Request
+04/Aug/2018 07:15:45 DEBUG
+	POST http://127.0.0.1:53767/hub/session/21795aea-c337-fa40-af56-1f04a25d4838/element/{4d60aa0b-2b5d-9148-a1a3-1dcacad128fd}/click {"sessionId": "21795aea-c337-fa40-af56-1f04a25d4838", "id": "{4d60aa0b-2b5d-9148-a1a3-1dcacad128fd}"}
+04/Aug/2018 07:15:51 WARNING
+	Not Found: /static/sequencelistings/output/resources/style_colour.css
+04/Aug/2018 07:15:51 WARNING
+	Not Found: /static/sequencelistings/output/resources/splitLines.js
+04/Aug/2018 07:15:51 DEBUG
+	Finished Request
+04/Aug/2018 07:15:51 DEBUG
+	POST http://127.0.0.1:53767/hub/session/21795aea-c337-fa40-af56-1f04a25d4838/url {"url": "http://localhost:8081/sequencelistings/overview", "sessionId": "21795aea-c337-fa40-af56-1f04a25d4838"}
+04/Aug/2018 07:15:51 WARNING
+	Not Found: /static/sequencelistings/output/resources/style_colour.css
+04/Aug/2018 07:15:51 WARNING
+	Not Found: /static/sequencelistings/output/resources/splitLines.js
+04/Aug/2018 07:15:51 DEBUG
+	Finished Request
+04/Aug/2018 07:15:51 DEBUG
+	POST http://127.0.0.1:53767/hub/session/21795aea-c337-fa40-af56-1f04a25d4838/element {"using": "id", "sessionId": "21795aea-c337-fa40-af56-1f04a25d4838", "value": "home_page_table"}
+04/Aug/2018 07:15:51 DEBUG
+	Finished Request
+04/Aug/2018 07:15:51 DEBUG
+	POST http://127.0.0.1:53767/hub/session/21795aea-c337-fa40-af56-1f04a25d4838/element/{7abe7013-356c-ac42-8132-71f2bcc02f72}/elements {"using": "tag name", "sessionId": "21795aea-c337-fa40-af56-1f04a25d4838", "id": "{7abe7013-356c-ac42-8132-71f2bcc02f72}", "value": "td"}
+04/Aug/2018 07:15:51 DEBUG
+	Finished Request
+04/Aug/2018 07:15:51 DEBUG
+	GET http://127.0.0.1:53767/hub/session/21795aea-c337-fa40-af56-1f04a25d4838/element/{789bf449-8045-5446-b2b1-317babe32334}/text {"sessionId": "21795aea-c337-fa40-af56-1f04a25d4838", "id": "{789bf449-8045-5446-b2b1-317babe32334}"}
+04/Aug/2018 07:15:51 DEBUG
+	Finished Request
+04/Aug/2018 07:15:51 DEBUG
+	GET http://127.0.0.1:53767/hub/session/21795aea-c337-fa40-af56-1f04a25d4838/element/{0dbe18f7-75ca-bc4d-a12d-3297d865edc4}/text {"sessionId": "21795aea-c337-fa40-af56-1f04a25d4838", "id": "{0dbe18f7-75ca-bc4d-a12d-3297d865edc4}"}
+04/Aug/2018 07:15:51 DEBUG
+	Finished Request
+04/Aug/2018 07:15:51 DEBUG
+	GET http://127.0.0.1:53767/hub/session/21795aea-c337-fa40-af56-1f04a25d4838/element/{fef7207a-96c5-4146-ac55-347cfedf2c16}/text {"sessionId": "21795aea-c337-fa40-af56-1f04a25d4838", "id": "{fef7207a-96c5-4146-ac55-347cfedf2c16}"}
+04/Aug/2018 07:15:51 DEBUG
+	Finished Request
+04/Aug/2018 07:15:51 DEBUG
+	DELETE http://127.0.0.1:53767/hub/session/21795aea-c337-fa40-af56-1f04a25d4838 {"sessionId": "21795aea-c337-fa40-af56-1f04a25d4838"}
+04/Aug/2018 07:15:51 DEBUG
+	Finished Request
+04/Aug/2018 07:15:53 DEBUG
+	POST http://127.0.0.1:53832/hub/session {"desiredCapabilities": {"platform": "ANY", "browserName": "firefox", "version": "", "marionette": false, "javascriptEnabled": true}}
+04/Aug/2018 07:15:53 DEBUG
+	Finished Request
+04/Aug/2018 07:15:53 DEBUG
+	POST http://127.0.0.1:53832/hub/session/1a98c43c-ddab-dd49-abb7-0e674275cd49/timeouts/implicit_wait {"sessionId": "1a98c43c-ddab-dd49-abb7-0e674275cd49", "ms": 3000.0}
+04/Aug/2018 07:15:53 DEBUG
+	Finished Request
+04/Aug/2018 07:15:53 DEBUG
+	POST http://127.0.0.1:53832/hub/session/1a98c43c-ddab-dd49-abb7-0e674275cd49/url {"url": "http://localhost:8081/sequencelistings/add_sequencelisting", "sessionId": "1a98c43c-ddab-dd49-abb7-0e674275cd49"}
+04/Aug/2018 07:15:53 WARNING
+	Not Found: /static/sequencelistings/output/resources/style_colour.css
+04/Aug/2018 07:15:53 WARNING
+	Not Found: /static/sequencelistings/output/resources/splitLines.js
+04/Aug/2018 07:15:53 WARNING
+	Not Found: /favicon.ico
+04/Aug/2018 07:15:53 WARNING
+	Not Found: /favicon.ico
+04/Aug/2018 07:15:53 DEBUG
+	Finished Request
+04/Aug/2018 07:15:53 DEBUG
+	POST http://127.0.0.1:53832/hub/session/1a98c43c-ddab-dd49-abb7-0e674275cd49/element {"using": "id", "sessionId": "1a98c43c-ddab-dd49-abb7-0e674275cd49", "value": "id_inventionTitle"}
+04/Aug/2018 07:15:53 DEBUG
+	Finished Request
+04/Aug/2018 07:15:53 DEBUG
+	POST http://127.0.0.1:53832/hub/session/1a98c43c-ddab-dd49-abb7-0e674275cd49/element {"using": "id", "sessionId": "1a98c43c-ddab-dd49-abb7-0e674275cd49", "value": "id_inventionTitleLanguageCode"}
+04/Aug/2018 07:15:53 DEBUG
+	Finished Request
+04/Aug/2018 07:15:53 DEBUG
+	POST http://127.0.0.1:53832/hub/session/1a98c43c-ddab-dd49-abb7-0e674275cd49/element {"using": "id", "sessionId": "1a98c43c-ddab-dd49-abb7-0e674275cd49", "value": "id_fileName"}
+04/Aug/2018 07:15:53 DEBUG
+	Finished Request
+04/Aug/2018 07:15:53 DEBUG
+	POST http://127.0.0.1:53832/hub/session/1a98c43c-ddab-dd49-abb7-0e674275cd49/element {"using": "id", "sessionId": "1a98c43c-ddab-dd49-abb7-0e674275cd49", "value": "id_applicantFileReference"}
+04/Aug/2018 07:15:53 DEBUG
+	Finished Request
+04/Aug/2018 07:15:53 DEBUG
+	POST http://127.0.0.1:53832/hub/session/1a98c43c-ddab-dd49-abb7-0e674275cd49/element {"using": "id", "sessionId": "1a98c43c-ddab-dd49-abb7-0e674275cd49", "value": "id_IPOfficeCode"}
+04/Aug/2018 07:15:53 DEBUG
+	Finished Request
+04/Aug/2018 07:15:53 DEBUG
+	POST http://127.0.0.1:53832/hub/session/1a98c43c-ddab-dd49-abb7-0e674275cd49/element {"using": "id", "sessionId": "1a98c43c-ddab-dd49-abb7-0e674275cd49", "value": "id_applicationNumberText"}
+04/Aug/2018 07:15:53 DEBUG
+	Finished Request
+04/Aug/2018 07:15:53 DEBUG
+	POST http://127.0.0.1:53832/hub/session/1a98c43c-ddab-dd49-abb7-0e674275cd49/element {"using": "id", "sessionId": "1a98c43c-ddab-dd49-abb7-0e674275cd49", "value": "id_filingDate"}
+04/Aug/2018 07:15:53 DEBUG
+	Finished Request
+04/Aug/2018 07:15:53 DEBUG
+	POST http://127.0.0.1:53832/hub/session/1a98c43c-ddab-dd49-abb7-0e674275cd49/element {"using": "id", "sessionId": "1a98c43c-ddab-dd49-abb7-0e674275cd49", "value": "id_earliestPriorityIPOfficeCode"}
+04/Aug/2018 07:15:53 DEBUG
+	Finished Request
+04/Aug/2018 07:15:53 DEBUG
+	POST http://127.0.0.1:53832/hub/session/1a98c43c-ddab-dd49-abb7-0e674275cd49/element {"using": "id", "sessionId": "1a98c43c-ddab-dd49-abb7-0e674275cd49", "value": "id_earliestPriorityApplicationNumberText"}
+04/Aug/2018 07:15:53 DEBUG
+	Finished Request
+04/Aug/2018 07:15:53 DEBUG
+	POST http://127.0.0.1:53832/hub/session/1a98c43c-ddab-dd49-abb7-0e674275cd49/element {"using": "id", "sessionId": "1a98c43c-ddab-dd49-abb7-0e674275cd49", "value": "id_earliestPriorityFilingDate"}
+04/Aug/2018 07:15:53 DEBUG
+	Finished Request
+04/Aug/2018 07:15:53 DEBUG
+	POST http://127.0.0.1:53832/hub/session/1a98c43c-ddab-dd49-abb7-0e674275cd49/element {"using": "id", "sessionId": "1a98c43c-ddab-dd49-abb7-0e674275cd49", "value": "id_applicantName"}
+04/Aug/2018 07:15:53 DEBUG
+	Finished Request
+04/Aug/2018 07:15:53 DEBUG
+	POST http://127.0.0.1:53832/hub/session/1a98c43c-ddab-dd49-abb7-0e674275cd49/element {"using": "id", "sessionId": "1a98c43c-ddab-dd49-abb7-0e674275cd49", "value": "id_applicantNameLanguageCode"}
+04/Aug/2018 07:15:53 DEBUG
+	Finished Request
+04/Aug/2018 07:15:53 DEBUG
+	POST http://127.0.0.1:53832/hub/session/1a98c43c-ddab-dd49-abb7-0e674275cd49/element {"using": "id", "sessionId": "1a98c43c-ddab-dd49-abb7-0e674275cd49", "value": "id_applicantNameLatin"}
+04/Aug/2018 07:15:53 DEBUG
+	Finished Request
+04/Aug/2018 07:15:53 DEBUG
+	POST http://127.0.0.1:53832/hub/session/1a98c43c-ddab-dd49-abb7-0e674275cd49/element/{e4c9ad54-9f9c-b943-a5c0-b9da3b8001ed}/value {"sessionId": "1a98c43c-ddab-dd49-abb7-0e674275cd49", "id": "{e4c9ad54-9f9c-b943-a5c0-b9da3b8001ed}", "value": ["a", "x", "x"]}
+04/Aug/2018 07:15:53 DEBUG
+	Finished Request
+04/Aug/2018 07:15:53 DEBUG
+	POST http://127.0.0.1:53832/hub/session/1a98c43c-ddab-dd49-abb7-0e674275cd49/element/{c9dd6493-3790-8843-89dc-6b5fecc44aa3}/value {"sessionId": "1a98c43c-ddab-dd49-abb7-0e674275cd49", "id": "{c9dd6493-3790-8843-89dc-6b5fecc44aa3}", "value": ["b"]}
+04/Aug/2018 07:15:53 DEBUG
+	Finished Request
+04/Aug/2018 07:15:53 DEBUG
+	POST http://127.0.0.1:53832/hub/session/1a98c43c-ddab-dd49-abb7-0e674275cd49/element/{8463f290-702f-d84b-9790-54436dbf0eb3}/value {"sessionId": "1a98c43c-ddab-dd49-abb7-0e674275cd49", "id": "{8463f290-702f-d84b-9790-54436dbf0eb3}", "value": ["s", "e", "l", "e", "n", "i", "u", "m", "_", "t", "e", "s", "t", "_", "f", "i", "l", "e", "_", "n", "a", "m", "e", "_", "n", "o", "_", "i", "n", "v", "e", "n", "t", "o", "r"]}
+04/Aug/2018 07:15:53 DEBUG
+	Finished Request
+04/Aug/2018 07:15:53 DEBUG
+	POST http://127.0.0.1:53832/hub/session/1a98c43c-ddab-dd49-abb7-0e674275cd49/element/{2d928122-ee4b-3644-9101-7eabc1b7db96}/value {"sessionId": "1a98c43c-ddab-dd49-abb7-0e674275cd49", "id": "{2d928122-ee4b-3644-9101-7eabc1b7db96}", "value": ["d"]}
+04/Aug/2018 07:15:54 DEBUG
+	Finished Request
+04/Aug/2018 07:15:54 DEBUG
+	POST http://127.0.0.1:53832/hub/session/1a98c43c-ddab-dd49-abb7-0e674275cd49/element/{80baa287-51ee-db49-92e8-456a13a17d93}/value {"sessionId": "1a98c43c-ddab-dd49-abb7-0e674275cd49", "id": "{80baa287-51ee-db49-92e8-456a13a17d93}", "value": ["e"]}
+04/Aug/2018 07:15:54 DEBUG
+	Finished Request
+04/Aug/2018 07:15:54 DEBUG
+	POST http://127.0.0.1:53832/hub/session/1a98c43c-ddab-dd49-abb7-0e674275cd49/element/{2230c74e-783f-bc4d-a9e5-c863843fea54}/value {"sessionId": "1a98c43c-ddab-dd49-abb7-0e674275cd49", "id": "{2230c74e-783f-bc4d-a9e5-c863843fea54}", "value": ["f"]}
+04/Aug/2018 07:15:54 DEBUG
+	Finished Request
+04/Aug/2018 07:15:54 DEBUG
+	POST http://127.0.0.1:53832/hub/session/1a98c43c-ddab-dd49-abb7-0e674275cd49/element/{351719b4-b86c-ac48-b4af-100c9dbb8ddb}/value {"sessionId": "1a98c43c-ddab-dd49-abb7-0e674275cd49", "id": "{351719b4-b86c-ac48-b4af-100c9dbb8ddb}", "value": ["2", "0", "1", "0", "-", "1", "2", "-", "2", "0"]}
+04/Aug/2018 07:15:54 DEBUG
+	Finished Request
+04/Aug/2018 07:15:54 DEBUG
+	POST http://127.0.0.1:53832/hub/session/1a98c43c-ddab-dd49-abb7-0e674275cd49/element/{f7ede0b4-51ad-1e42-913c-c98c2492f6b9}/value {"sessionId": "1a98c43c-ddab-dd49-abb7-0e674275cd49", "id": "{f7ede0b4-51ad-1e42-913c-c98c2492f6b9}", "value": ["g"]}
+04/Aug/2018 07:15:54 DEBUG
+	Finished Request
+04/Aug/2018 07:15:54 DEBUG
+	POST http://127.0.0.1:53832/hub/session/1a98c43c-ddab-dd49-abb7-0e674275cd49/element/{056faeb4-c1da-0e43-95c7-a7d17c9dc116}/value {"sessionId": "1a98c43c-ddab-dd49-abb7-0e674275cd49", "id": "{056faeb4-c1da-0e43-95c7-a7d17c9dc116}", "value": ["h"]}
+04/Aug/2018 07:15:54 DEBUG
+	Finished Request
+04/Aug/2018 07:15:54 DEBUG
+	POST http://127.0.0.1:53832/hub/session/1a98c43c-ddab-dd49-abb7-0e674275cd49/element/{1361b9f9-c9f9-de48-8e16-a7da777df540}/value {"sessionId": "1a98c43c-ddab-dd49-abb7-0e674275cd49", "id": "{1361b9f9-c9f9-de48-8e16-a7da777df540}", "value": ["2", "0", "0", "9", "-", "1", "2", "-", "2", "0"]}
+04/Aug/2018 07:15:54 DEBUG
+	Finished Request
+04/Aug/2018 07:15:54 DEBUG
+	POST http://127.0.0.1:53832/hub/session/1a98c43c-ddab-dd49-abb7-0e674275cd49/element/{6631a521-6630-d440-bebc-ee1ebaf50661}/value {"sessionId": "1a98c43c-ddab-dd49-abb7-0e674275cd49", "id": "{6631a521-6630-d440-bebc-ee1ebaf50661}", "value": ["i"]}
+04/Aug/2018 07:15:54 DEBUG
+	Finished Request
+04/Aug/2018 07:15:54 DEBUG
+	POST http://127.0.0.1:53832/hub/session/1a98c43c-ddab-dd49-abb7-0e674275cd49/element/{f9583a37-f03b-324f-99a9-7d9541900bf2}/value {"sessionId": "1a98c43c-ddab-dd49-abb7-0e674275cd49", "id": "{f9583a37-f03b-324f-99a9-7d9541900bf2}", "value": ["j"]}
+04/Aug/2018 07:15:54 DEBUG
+	Finished Request
+04/Aug/2018 07:15:54 DEBUG
+	POST http://127.0.0.1:53832/hub/session/1a98c43c-ddab-dd49-abb7-0e674275cd49/element/{6746c60a-994d-5c4e-8ca9-88363ee5b374}/value {"sessionId": "1a98c43c-ddab-dd49-abb7-0e674275cd49", "id": "{6746c60a-994d-5c4e-8ca9-88363ee5b374}", "value": ["k"]}
+04/Aug/2018 07:15:54 DEBUG
+	Finished Request
+04/Aug/2018 07:15:54 DEBUG
+	POST http://127.0.0.1:53832/hub/session/1a98c43c-ddab-dd49-abb7-0e674275cd49/element {"using": "xpath", "sessionId": "1a98c43c-ddab-dd49-abb7-0e674275cd49", "value": "//input[@value=\"Submit\"]"}
+04/Aug/2018 07:15:54 DEBUG
+	Finished Request
+04/Aug/2018 07:15:54 DEBUG
+	POST http://127.0.0.1:53832/hub/session/1a98c43c-ddab-dd49-abb7-0e674275cd49/element/{00a3d64d-013f-cd46-a640-6827bcec68f5}/click {"sessionId": "1a98c43c-ddab-dd49-abb7-0e674275cd49", "id": "{00a3d64d-013f-cd46-a640-6827bcec68f5}"}
+04/Aug/2018 07:15:54 WARNING
+	Not Found: /static/sequencelistings/output/resources/style_colour.css
+04/Aug/2018 07:15:54 WARNING
+	Not Found: /static/sequencelistings/output/resources/splitLines.js
+04/Aug/2018 07:15:54 DEBUG
+	Finished Request
+04/Aug/2018 07:15:54 DEBUG
+	POST http://127.0.0.1:53832/hub/session/1a98c43c-ddab-dd49-abb7-0e674275cd49/url {"url": "http://localhost:8081/sequencelistings/overview", "sessionId": "1a98c43c-ddab-dd49-abb7-0e674275cd49"}
+04/Aug/2018 07:15:54 WARNING
+	Not Found: /static/sequencelistings/output/resources/style_colour.css
+04/Aug/2018 07:15:54 WARNING
+	Not Found: /static/sequencelistings/output/resources/splitLines.js
+04/Aug/2018 07:15:54 DEBUG
+	Finished Request
+04/Aug/2018 07:15:54 DEBUG
+	POST http://127.0.0.1:53832/hub/session/1a98c43c-ddab-dd49-abb7-0e674275cd49/element {"using": "id", "sessionId": "1a98c43c-ddab-dd49-abb7-0e674275cd49", "value": "home_page_table"}
+04/Aug/2018 07:15:54 DEBUG
+	Finished Request
+04/Aug/2018 07:15:54 DEBUG
+	POST http://127.0.0.1:53832/hub/session/1a98c43c-ddab-dd49-abb7-0e674275cd49/element/{09fc503d-13d4-5a4e-a850-e028928e65e4}/elements {"using": "tag name", "sessionId": "1a98c43c-ddab-dd49-abb7-0e674275cd49", "id": "{09fc503d-13d4-5a4e-a850-e028928e65e4}", "value": "td"}
+04/Aug/2018 07:15:54 DEBUG
+	Finished Request
+04/Aug/2018 07:15:54 DEBUG
+	GET http://127.0.0.1:53832/hub/session/1a98c43c-ddab-dd49-abb7-0e674275cd49/element/{bbdc10b0-aa47-864c-bfad-5107b797e7ca}/text {"sessionId": "1a98c43c-ddab-dd49-abb7-0e674275cd49", "id": "{bbdc10b0-aa47-864c-bfad-5107b797e7ca}"}
+04/Aug/2018 07:15:54 DEBUG
+	Finished Request
+04/Aug/2018 07:15:54 DEBUG
+	GET http://127.0.0.1:53832/hub/session/1a98c43c-ddab-dd49-abb7-0e674275cd49/element/{7d0756c5-e70a-eb4b-8af1-2ab5eecde680}/text {"sessionId": "1a98c43c-ddab-dd49-abb7-0e674275cd49", "id": "{7d0756c5-e70a-eb4b-8af1-2ab5eecde680}"}
+04/Aug/2018 07:15:54 DEBUG
+	Finished Request
+04/Aug/2018 07:15:54 DEBUG
+	GET http://127.0.0.1:53832/hub/session/1a98c43c-ddab-dd49-abb7-0e674275cd49/element/{1493eacf-c374-5f43-9aad-e5019d5d09d4}/text {"sessionId": "1a98c43c-ddab-dd49-abb7-0e674275cd49", "id": "{1493eacf-c374-5f43-9aad-e5019d5d09d4}"}
+04/Aug/2018 07:15:54 DEBUG
+	Finished Request
+04/Aug/2018 07:15:54 DEBUG
+	DELETE http://127.0.0.1:53832/hub/session/1a98c43c-ddab-dd49-abb7-0e674275cd49 {"sessionId": "1a98c43c-ddab-dd49-abb7-0e674275cd49"}
+04/Aug/2018 07:15:54 DEBUG
+	Finished Request
+04/Aug/2018 07:15:57 DEBUG
+	POST http://127.0.0.1:53899/hub/session {"desiredCapabilities": {"platform": "ANY", "browserName": "firefox", "version": "", "marionette": false, "javascriptEnabled": true}}
+04/Aug/2018 07:15:57 DEBUG
+	Finished Request
+04/Aug/2018 07:15:57 DEBUG
+	POST http://127.0.0.1:53899/hub/session/3fc428d2-3819-5241-b258-4208ade32bd0/timeouts/implicit_wait {"sessionId": "3fc428d2-3819-5241-b258-4208ade32bd0", "ms": 3000.0}
+04/Aug/2018 07:15:57 DEBUG
+	Finished Request
+04/Aug/2018 07:15:57 DEBUG
+	POST http://127.0.0.1:53899/hub/session/3fc428d2-3819-5241-b258-4208ade32bd0/url {"url": "http://localhost:8081/sequencelistings/add_sequencelisting", "sessionId": "3fc428d2-3819-5241-b258-4208ade32bd0"}
+04/Aug/2018 07:15:57 WARNING
+	Not Found: /static/sequencelistings/output/resources/style_colour.css
+04/Aug/2018 07:15:57 WARNING
+	Not Found: /static/sequencelistings/output/resources/splitLines.js
+04/Aug/2018 07:15:57 WARNING
+	Not Found: /favicon.ico
+04/Aug/2018 07:15:57 WARNING
+	Not Found: /favicon.ico
+04/Aug/2018 07:15:57 DEBUG
+	Finished Request
+04/Aug/2018 07:15:57 DEBUG
+	POST http://127.0.0.1:53899/hub/session/3fc428d2-3819-5241-b258-4208ade32bd0/element {"using": "id", "sessionId": "3fc428d2-3819-5241-b258-4208ade32bd0", "value": "id_inventionTitle"}
+04/Aug/2018 07:15:57 DEBUG
+	Finished Request
+04/Aug/2018 07:15:57 DEBUG
+	POST http://127.0.0.1:53899/hub/session/3fc428d2-3819-5241-b258-4208ade32bd0/element {"using": "id", "sessionId": "3fc428d2-3819-5241-b258-4208ade32bd0", "value": "id_inventionTitleLanguageCode"}
+04/Aug/2018 07:15:57 DEBUG
+	Finished Request
+04/Aug/2018 07:15:57 DEBUG
+	POST http://127.0.0.1:53899/hub/session/3fc428d2-3819-5241-b258-4208ade32bd0/element {"using": "id", "sessionId": "3fc428d2-3819-5241-b258-4208ade32bd0", "value": "id_fileName"}
+04/Aug/2018 07:15:57 DEBUG
+	Finished Request
+04/Aug/2018 07:15:57 DEBUG
+	POST http://127.0.0.1:53899/hub/session/3fc428d2-3819-5241-b258-4208ade32bd0/element {"using": "id", "sessionId": "3fc428d2-3819-5241-b258-4208ade32bd0", "value": "id_applicantFileReference"}
+04/Aug/2018 07:15:57 DEBUG
+	Finished Request
+04/Aug/2018 07:15:57 DEBUG
+	POST http://127.0.0.1:53899/hub/session/3fc428d2-3819-5241-b258-4208ade32bd0/element {"using": "id", "sessionId": "3fc428d2-3819-5241-b258-4208ade32bd0", "value": "id_IPOfficeCode"}
+04/Aug/2018 07:15:57 DEBUG
+	Finished Request
+04/Aug/2018 07:15:57 DEBUG
+	POST http://127.0.0.1:53899/hub/session/3fc428d2-3819-5241-b258-4208ade32bd0/element {"using": "id", "sessionId": "3fc428d2-3819-5241-b258-4208ade32bd0", "value": "id_applicationNumberText"}
+04/Aug/2018 07:15:57 DEBUG
+	Finished Request
+04/Aug/2018 07:15:57 DEBUG
+	POST http://127.0.0.1:53899/hub/session/3fc428d2-3819-5241-b258-4208ade32bd0/element {"using": "id", "sessionId": "3fc428d2-3819-5241-b258-4208ade32bd0", "value": "id_filingDate"}
+04/Aug/2018 07:15:57 DEBUG
+	Finished Request
+04/Aug/2018 07:15:57 DEBUG
+	POST http://127.0.0.1:53899/hub/session/3fc428d2-3819-5241-b258-4208ade32bd0/element {"using": "id", "sessionId": "3fc428d2-3819-5241-b258-4208ade32bd0", "value": "id_earliestPriorityIPOfficeCode"}
+04/Aug/2018 07:15:57 DEBUG
+	Finished Request
+04/Aug/2018 07:15:57 DEBUG
+	POST http://127.0.0.1:53899/hub/session/3fc428d2-3819-5241-b258-4208ade32bd0/element {"using": "id", "sessionId": "3fc428d2-3819-5241-b258-4208ade32bd0", "value": "id_earliestPriorityApplicationNumberText"}
+04/Aug/2018 07:15:57 DEBUG
+	Finished Request
+04/Aug/2018 07:15:57 DEBUG
+	POST http://127.0.0.1:53899/hub/session/3fc428d2-3819-5241-b258-4208ade32bd0/element {"using": "id", "sessionId": "3fc428d2-3819-5241-b258-4208ade32bd0", "value": "id_earliestPriorityFilingDate"}
+04/Aug/2018 07:15:57 DEBUG
+	Finished Request
+04/Aug/2018 07:15:57 DEBUG
+	POST http://127.0.0.1:53899/hub/session/3fc428d2-3819-5241-b258-4208ade32bd0/element {"using": "id", "sessionId": "3fc428d2-3819-5241-b258-4208ade32bd0", "value": "id_applicantName"}
+04/Aug/2018 07:15:57 DEBUG
+	Finished Request
+04/Aug/2018 07:15:57 DEBUG
+	POST http://127.0.0.1:53899/hub/session/3fc428d2-3819-5241-b258-4208ade32bd0/element {"using": "id", "sessionId": "3fc428d2-3819-5241-b258-4208ade32bd0", "value": "id_applicantNameLanguageCode"}
+04/Aug/2018 07:15:57 DEBUG
+	Finished Request
+04/Aug/2018 07:15:57 DEBUG
+	POST http://127.0.0.1:53899/hub/session/3fc428d2-3819-5241-b258-4208ade32bd0/element {"using": "id", "sessionId": "3fc428d2-3819-5241-b258-4208ade32bd0", "value": "id_applicantNameLatin"}
+04/Aug/2018 07:15:57 DEBUG
+	Finished Request
+04/Aug/2018 07:15:57 DEBUG
+	POST http://127.0.0.1:53899/hub/session/3fc428d2-3819-5241-b258-4208ade32bd0/element {"using": "id", "sessionId": "3fc428d2-3819-5241-b258-4208ade32bd0", "value": "id_inventorName"}
+04/Aug/2018 07:15:57 DEBUG
+	Finished Request
+04/Aug/2018 07:15:57 DEBUG
+	POST http://127.0.0.1:53899/hub/session/3fc428d2-3819-5241-b258-4208ade32bd0/element {"using": "id", "sessionId": "3fc428d2-3819-5241-b258-4208ade32bd0", "value": "id_inventorNameLanguageCode"}
+04/Aug/2018 07:15:57 DEBUG
+	Finished Request
+04/Aug/2018 07:15:57 DEBUG
+	POST http://127.0.0.1:53899/hub/session/3fc428d2-3819-5241-b258-4208ade32bd0/element {"using": "id", "sessionId": "3fc428d2-3819-5241-b258-4208ade32bd0", "value": "id_inventorNameLatin"}
+04/Aug/2018 07:15:57 DEBUG
+	Finished Request
+04/Aug/2018 07:15:57 DEBUG
+	POST http://127.0.0.1:53899/hub/session/3fc428d2-3819-5241-b258-4208ade32bd0/element/{fe2d9ca1-3960-4d42-8dc4-b468fb196a4f}/value {"sessionId": "3fc428d2-3819-5241-b258-4208ade32bd0", "id": "{fe2d9ca1-3960-4d42-8dc4-b468fb196a4f}", "value": ["a"]}
+04/Aug/2018 07:15:57 DEBUG
+	Finished Request
+04/Aug/2018 07:15:57 DEBUG
+	POST http://127.0.0.1:53899/hub/session/3fc428d2-3819-5241-b258-4208ade32bd0/element/{7841c84a-c9f3-dd4b-8ff8-9d9fb398b307}/value {"sessionId": "3fc428d2-3819-5241-b258-4208ade32bd0", "id": "{7841c84a-c9f3-dd4b-8ff8-9d9fb398b307}", "value": ["b"]}
+04/Aug/2018 07:15:57 DEBUG
+	Finished Request
+04/Aug/2018 07:15:57 DEBUG
+	POST http://127.0.0.1:53899/hub/session/3fc428d2-3819-5241-b258-4208ade32bd0/element/{e9d99bba-92da-ca4e-ab3f-c9d6bde4329b}/value {"sessionId": "3fc428d2-3819-5241-b258-4208ade32bd0", "id": "{e9d99bba-92da-ca4e-ab3f-c9d6bde4329b}", "value": ["s", "e", "l", "e", "n", "i", "u", "m", "_", "t", "e", "s", "t", "2"]}
+04/Aug/2018 07:15:57 DEBUG
+	Finished Request
+04/Aug/2018 07:15:57 DEBUG
+	POST http://127.0.0.1:53899/hub/session/3fc428d2-3819-5241-b258-4208ade32bd0/element/{4fe0fc39-3988-3641-b71f-111f697e0341}/value {"sessionId": "3fc428d2-3819-5241-b258-4208ade32bd0", "id": "{4fe0fc39-3988-3641-b71f-111f697e0341}", "value": ["d"]}
+04/Aug/2018 07:15:57 DEBUG
+	Finished Request
+04/Aug/2018 07:15:57 DEBUG
+	POST http://127.0.0.1:53899/hub/session/3fc428d2-3819-5241-b258-4208ade32bd0/element/{5ab83287-4191-1a49-95a5-89dcd9b45207}/value {"sessionId": "3fc428d2-3819-5241-b258-4208ade32bd0", "id": "{5ab83287-4191-1a49-95a5-89dcd9b45207}", "value": ["e"]}
+04/Aug/2018 07:15:57 DEBUG
+	Finished Request
+04/Aug/2018 07:15:57 DEBUG
+	POST http://127.0.0.1:53899/hub/session/3fc428d2-3819-5241-b258-4208ade32bd0/element/{e60ca031-7fcb-734a-88a7-d1b0b90ea2ab}/value {"sessionId": "3fc428d2-3819-5241-b258-4208ade32bd0", "id": "{e60ca031-7fcb-734a-88a7-d1b0b90ea2ab}", "value": ["f"]}
+04/Aug/2018 07:15:57 DEBUG
+	Finished Request
+04/Aug/2018 07:15:57 DEBUG
+	POST http://127.0.0.1:53899/hub/session/3fc428d2-3819-5241-b258-4208ade32bd0/element/{032bb30f-4d0d-2342-8b8f-b838ac8fec13}/value {"sessionId": "3fc428d2-3819-5241-b258-4208ade32bd0", "id": "{032bb30f-4d0d-2342-8b8f-b838ac8fec13}", "value": ["2", "0", "1", "0", "-", "1", "2", "-", "2", "0"]}
+04/Aug/2018 07:15:57 DEBUG
+	Finished Request
+04/Aug/2018 07:15:57 DEBUG
+	POST http://127.0.0.1:53899/hub/session/3fc428d2-3819-5241-b258-4208ade32bd0/element/{39dcafee-7f73-384f-8393-4f6665b2317a}/value {"sessionId": "3fc428d2-3819-5241-b258-4208ade32bd0", "id": "{39dcafee-7f73-384f-8393-4f6665b2317a}", "value": ["g"]}
+04/Aug/2018 07:15:57 DEBUG
+	Finished Request
+04/Aug/2018 07:15:57 DEBUG
+	POST http://127.0.0.1:53899/hub/session/3fc428d2-3819-5241-b258-4208ade32bd0/element/{d6ac9d2c-272b-3e4e-8ba6-90819af50972}/value {"sessionId": "3fc428d2-3819-5241-b258-4208ade32bd0", "id": "{d6ac9d2c-272b-3e4e-8ba6-90819af50972}", "value": ["h"]}
+04/Aug/2018 07:15:57 DEBUG
+	Finished Request
+04/Aug/2018 07:15:57 DEBUG
+	POST http://127.0.0.1:53899/hub/session/3fc428d2-3819-5241-b258-4208ade32bd0/element/{e38454ba-db8e-4941-8d20-98ac94fd28bd}/value {"sessionId": "3fc428d2-3819-5241-b258-4208ade32bd0", "id": "{e38454ba-db8e-4941-8d20-98ac94fd28bd}", "value": ["2", "0", "0", "9", "-", "1", "2", "-", "2", "0"]}
+04/Aug/2018 07:15:57 DEBUG
+	Finished Request
+04/Aug/2018 07:15:57 DEBUG
+	POST http://127.0.0.1:53899/hub/session/3fc428d2-3819-5241-b258-4208ade32bd0/element/{aac5943c-10a9-9242-ad8e-c192b8d3058c}/value {"sessionId": "3fc428d2-3819-5241-b258-4208ade32bd0", "id": "{aac5943c-10a9-9242-ad8e-c192b8d3058c}", "value": ["i"]}
+04/Aug/2018 07:15:57 DEBUG
+	Finished Request
+04/Aug/2018 07:15:57 DEBUG
+	POST http://127.0.0.1:53899/hub/session/3fc428d2-3819-5241-b258-4208ade32bd0/element/{6562f8c7-9ef7-314a-b387-cb98506effbb}/value {"sessionId": "3fc428d2-3819-5241-b258-4208ade32bd0", "id": "{6562f8c7-9ef7-314a-b387-cb98506effbb}", "value": ["j"]}
+04/Aug/2018 07:15:57 DEBUG
+	Finished Request
+04/Aug/2018 07:15:57 DEBUG
+	POST http://127.0.0.1:53899/hub/session/3fc428d2-3819-5241-b258-4208ade32bd0/element/{64db258f-078c-8c47-8464-8d0c23e4c4a5}/value {"sessionId": "3fc428d2-3819-5241-b258-4208ade32bd0", "id": "{64db258f-078c-8c47-8464-8d0c23e4c4a5}", "value": ["k"]}
+04/Aug/2018 07:15:57 DEBUG
+	Finished Request
+04/Aug/2018 07:15:57 DEBUG
+	POST http://127.0.0.1:53899/hub/session/3fc428d2-3819-5241-b258-4208ade32bd0/element/{3228b5b8-7a3b-6e44-b4f0-bf1346852ee9}/value {"sessionId": "3fc428d2-3819-5241-b258-4208ade32bd0", "id": "{3228b5b8-7a3b-6e44-b4f0-bf1346852ee9}", "value": ["l"]}
+04/Aug/2018 07:15:57 DEBUG
+	Finished Request
+04/Aug/2018 07:15:57 DEBUG
+	POST http://127.0.0.1:53899/hub/session/3fc428d2-3819-5241-b258-4208ade32bd0/element/{6f04a153-ce54-0446-9590-cea2adb8fb10}/value {"sessionId": "3fc428d2-3819-5241-b258-4208ade32bd0", "id": "{6f04a153-ce54-0446-9590-cea2adb8fb10}", "value": ["m"]}
+04/Aug/2018 07:15:57 DEBUG
+	Finished Request
+04/Aug/2018 07:15:57 DEBUG
+	POST http://127.0.0.1:53899/hub/session/3fc428d2-3819-5241-b258-4208ade32bd0/element/{587a285a-da66-c640-a97c-bd48a5c8b88e}/value {"sessionId": "3fc428d2-3819-5241-b258-4208ade32bd0", "id": "{587a285a-da66-c640-a97c-bd48a5c8b88e}", "value": ["n"]}
+04/Aug/2018 07:15:57 DEBUG
+	Finished Request
+04/Aug/2018 07:15:57 DEBUG
+	POST http://127.0.0.1:53899/hub/session/3fc428d2-3819-5241-b258-4208ade32bd0/element {"using": "xpath", "sessionId": "3fc428d2-3819-5241-b258-4208ade32bd0", "value": "//input[@value=\"Submit\"]"}
+04/Aug/2018 07:15:57 DEBUG
+	Finished Request
+04/Aug/2018 07:15:57 DEBUG
+	POST http://127.0.0.1:53899/hub/session/3fc428d2-3819-5241-b258-4208ade32bd0/element/{33ba6ac7-322f-e84b-8f5f-2067a3a00e87}/click {"sessionId": "3fc428d2-3819-5241-b258-4208ade32bd0", "id": "{33ba6ac7-322f-e84b-8f5f-2067a3a00e87}"}
+04/Aug/2018 07:16:03 WARNING
+	Not Found: /static/sequencelistings/output/resources/style_colour.css
+04/Aug/2018 07:16:03 WARNING
+	Not Found: /static/sequencelistings/output/resources/splitLines.js
+04/Aug/2018 07:16:03 DEBUG
+	Finished Request
+04/Aug/2018 07:16:03 DEBUG
+	POST http://127.0.0.1:53899/hub/session/3fc428d2-3819-5241-b258-4208ade32bd0/url {"url": "http://localhost:8081/sequencelistings/overview", "sessionId": "3fc428d2-3819-5241-b258-4208ade32bd0"}
+04/Aug/2018 07:16:03 WARNING
+	Not Found: /static/sequencelistings/output/resources/style_colour.css
+04/Aug/2018 07:16:03 WARNING
+	Not Found: /static/sequencelistings/output/resources/splitLines.js
+04/Aug/2018 07:16:03 DEBUG
+	Finished Request
+04/Aug/2018 07:16:03 DEBUG
+	POST http://127.0.0.1:53899/hub/session/3fc428d2-3819-5241-b258-4208ade32bd0/element {"using": "link text", "sessionId": "3fc428d2-3819-5241-b258-4208ade32bd0", "value": "selenium_test2"}
+04/Aug/2018 07:16:03 DEBUG
+	Finished Request
+04/Aug/2018 07:16:03 DEBUG
+	POST http://127.0.0.1:53899/hub/session/3fc428d2-3819-5241-b258-4208ade32bd0/element/{080f564f-ac17-e44e-bbfa-74b520c89344}/click {"sessionId": "3fc428d2-3819-5241-b258-4208ade32bd0", "id": "{080f564f-ac17-e44e-bbfa-74b520c89344}"}
+04/Aug/2018 07:16:03 WARNING
+	Not Found: /static/sequencelistings/output/resources/style_colour.css
+04/Aug/2018 07:16:03 WARNING
+	Not Found: /static/sequencelistings/output/resources/splitLines.js
+04/Aug/2018 07:16:03 DEBUG
+	Finished Request
+04/Aug/2018 07:16:03 DEBUG
+	POST http://127.0.0.1:53899/hub/session/3fc428d2-3819-5241-b258-4208ade32bd0/element {"using": "link text", "sessionId": "3fc428d2-3819-5241-b258-4208ade32bd0", "value": "Preview"}
+04/Aug/2018 07:16:03 DEBUG
+	Finished Request
+04/Aug/2018 07:16:03 DEBUG
+	GET http://127.0.0.1:53899/hub/session/3fc428d2-3819-5241-b258-4208ade32bd0/element/{566d4065-a964-934f-a3b1-b59bfe0f5eb7}/displayed {"sessionId": "3fc428d2-3819-5241-b258-4208ade32bd0", "id": "{566d4065-a964-934f-a3b1-b59bfe0f5eb7}"}
+04/Aug/2018 07:16:03 DEBUG
+	Finished Request
+04/Aug/2018 07:16:03 DEBUG
+	POST http://127.0.0.1:53899/hub/session/3fc428d2-3819-5241-b258-4208ade32bd0/element {"using": "link text", "sessionId": "3fc428d2-3819-5241-b258-4208ade32bd0", "value": "Edit"}
+04/Aug/2018 07:16:03 DEBUG
+	Finished Request
+04/Aug/2018 07:16:03 DEBUG
+	GET http://127.0.0.1:53899/hub/session/3fc428d2-3819-5241-b258-4208ade32bd0/element/{5637fa05-a460-a246-af51-2c49788fced4}/displayed {"sessionId": "3fc428d2-3819-5241-b258-4208ade32bd0", "id": "{5637fa05-a460-a246-af51-2c49788fced4}"}
+04/Aug/2018 07:16:03 DEBUG
+	Finished Request
+04/Aug/2018 07:16:03 DEBUG
+	POST http://127.0.0.1:53899/hub/session/3fc428d2-3819-5241-b258-4208ade32bd0/element {"using": "link text", "sessionId": "3fc428d2-3819-5241-b258-4208ade32bd0", "value": "Generate XML"}
+04/Aug/2018 07:16:03 DEBUG
+	Finished Request
+04/Aug/2018 07:16:03 DEBUG
+	GET http://127.0.0.1:53899/hub/session/3fc428d2-3819-5241-b258-4208ade32bd0/element/{ad405b02-3196-a049-99dc-96b9609f56af}/displayed {"sessionId": "3fc428d2-3819-5241-b258-4208ade32bd0", "id": "{ad405b02-3196-a049-99dc-96b9609f56af}"}
+04/Aug/2018 07:16:03 DEBUG
+	Finished Request
+04/Aug/2018 07:16:03 DEBUG
+	DELETE http://127.0.0.1:53899/hub/session/3fc428d2-3819-5241-b258-4208ade32bd0 {"sessionId": "3fc428d2-3819-5241-b258-4208ade32bd0"}
+04/Aug/2018 07:16:03 DEBUG
+	Finished Request
+04/Aug/2018 07:16:05 DEBUG
+	POST http://127.0.0.1:53981/hub/session {"desiredCapabilities": {"platform": "ANY", "browserName": "firefox", "version": "", "marionette": false, "javascriptEnabled": true}}
+04/Aug/2018 07:16:05 DEBUG
+	Finished Request
+04/Aug/2018 07:16:05 DEBUG
+	POST http://127.0.0.1:53981/hub/session/d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e/timeouts/implicit_wait {"sessionId": "d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e", "ms": 3000.0}
+04/Aug/2018 07:16:05 DEBUG
+	Finished Request
+04/Aug/2018 07:16:05 DEBUG
+	POST http://127.0.0.1:53981/hub/session/d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e/url {"url": "http://localhost:8081/sequencelistings/add_sequencelisting", "sessionId": "d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e"}
+04/Aug/2018 07:16:05 WARNING
+	Not Found: /static/sequencelistings/output/resources/style_colour.css
+04/Aug/2018 07:16:05 WARNING
+	Not Found: /static/sequencelistings/output/resources/splitLines.js
+04/Aug/2018 07:16:05 WARNING
+	Not Found: /favicon.ico
+04/Aug/2018 07:16:05 WARNING
+	Not Found: /favicon.ico
+04/Aug/2018 07:16:05 DEBUG
+	Finished Request
+04/Aug/2018 07:16:05 DEBUG
+	POST http://127.0.0.1:53981/hub/session/d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e/element {"using": "id", "sessionId": "d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e", "value": "id_inventionTitle"}
+04/Aug/2018 07:16:05 DEBUG
+	Finished Request
+04/Aug/2018 07:16:05 DEBUG
+	POST http://127.0.0.1:53981/hub/session/d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e/element {"using": "id", "sessionId": "d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e", "value": "id_inventionTitleLanguageCode"}
+04/Aug/2018 07:16:05 DEBUG
+	Finished Request
+04/Aug/2018 07:16:05 DEBUG
+	POST http://127.0.0.1:53981/hub/session/d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e/element {"using": "id", "sessionId": "d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e", "value": "id_fileName"}
+04/Aug/2018 07:16:05 DEBUG
+	Finished Request
+04/Aug/2018 07:16:05 DEBUG
+	POST http://127.0.0.1:53981/hub/session/d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e/element {"using": "id", "sessionId": "d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e", "value": "id_applicantFileReference"}
+04/Aug/2018 07:16:05 DEBUG
+	Finished Request
+04/Aug/2018 07:16:05 DEBUG
+	POST http://127.0.0.1:53981/hub/session/d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e/element {"using": "id", "sessionId": "d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e", "value": "id_IPOfficeCode"}
+04/Aug/2018 07:16:05 DEBUG
+	Finished Request
+04/Aug/2018 07:16:05 DEBUG
+	POST http://127.0.0.1:53981/hub/session/d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e/element {"using": "id", "sessionId": "d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e", "value": "id_applicationNumberText"}
+04/Aug/2018 07:16:05 DEBUG
+	Finished Request
+04/Aug/2018 07:16:05 DEBUG
+	POST http://127.0.0.1:53981/hub/session/d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e/element {"using": "id", "sessionId": "d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e", "value": "id_filingDate"}
+04/Aug/2018 07:16:05 DEBUG
+	Finished Request
+04/Aug/2018 07:16:05 DEBUG
+	POST http://127.0.0.1:53981/hub/session/d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e/element {"using": "id", "sessionId": "d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e", "value": "id_earliestPriorityIPOfficeCode"}
+04/Aug/2018 07:16:05 DEBUG
+	Finished Request
+04/Aug/2018 07:16:05 DEBUG
+	POST http://127.0.0.1:53981/hub/session/d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e/element {"using": "id", "sessionId": "d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e", "value": "id_earliestPriorityApplicationNumberText"}
+04/Aug/2018 07:16:05 DEBUG
+	Finished Request
+04/Aug/2018 07:16:05 DEBUG
+	POST http://127.0.0.1:53981/hub/session/d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e/element {"using": "id", "sessionId": "d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e", "value": "id_earliestPriorityFilingDate"}
+04/Aug/2018 07:16:05 DEBUG
+	Finished Request
+04/Aug/2018 07:16:05 DEBUG
+	POST http://127.0.0.1:53981/hub/session/d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e/element {"using": "id", "sessionId": "d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e", "value": "id_applicantName"}
+04/Aug/2018 07:16:05 DEBUG
+	Finished Request
+04/Aug/2018 07:16:05 DEBUG
+	POST http://127.0.0.1:53981/hub/session/d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e/element {"using": "id", "sessionId": "d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e", "value": "id_applicantNameLanguageCode"}
+04/Aug/2018 07:16:05 DEBUG
+	Finished Request
+04/Aug/2018 07:16:05 DEBUG
+	POST http://127.0.0.1:53981/hub/session/d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e/element {"using": "id", "sessionId": "d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e", "value": "id_applicantNameLatin"}
+04/Aug/2018 07:16:05 DEBUG
+	Finished Request
+04/Aug/2018 07:16:05 DEBUG
+	POST http://127.0.0.1:53981/hub/session/d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e/element {"using": "id", "sessionId": "d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e", "value": "id_inventorName"}
+04/Aug/2018 07:16:05 DEBUG
+	Finished Request
+04/Aug/2018 07:16:05 DEBUG
+	POST http://127.0.0.1:53981/hub/session/d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e/element {"using": "id", "sessionId": "d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e", "value": "id_inventorNameLanguageCode"}
+04/Aug/2018 07:16:05 DEBUG
+	Finished Request
+04/Aug/2018 07:16:05 DEBUG
+	POST http://127.0.0.1:53981/hub/session/d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e/element {"using": "id", "sessionId": "d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e", "value": "id_inventorNameLatin"}
+04/Aug/2018 07:16:05 DEBUG
+	Finished Request
+04/Aug/2018 07:16:05 DEBUG
+	POST http://127.0.0.1:53981/hub/session/d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e/element/{0dec1826-5b5e-3648-91e2-688501bf1795}/value {"sessionId": "d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e", "id": "{0dec1826-5b5e-3648-91e2-688501bf1795}", "value": ["a"]}
+04/Aug/2018 07:16:05 DEBUG
+	Finished Request
+04/Aug/2018 07:16:05 DEBUG
+	POST http://127.0.0.1:53981/hub/session/d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e/element/{ba730c87-9a91-e24e-bac9-6c51fb355bb1}/value {"sessionId": "d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e", "id": "{ba730c87-9a91-e24e-bac9-6c51fb355bb1}", "value": ["b"]}
+04/Aug/2018 07:16:06 DEBUG
+	Finished Request
+04/Aug/2018 07:16:06 DEBUG
+	POST http://127.0.0.1:53981/hub/session/d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e/element/{248095a8-39c7-1d4e-b34e-eca7be85e1d1}/value {"sessionId": "d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e", "id": "{248095a8-39c7-1d4e-b34e-eca7be85e1d1}", "value": ["s", "e", "l", "e", "n", "i", "u", "m", "_", "t", "e", "s", "t", "2"]}
+04/Aug/2018 07:16:06 DEBUG
+	Finished Request
+04/Aug/2018 07:16:06 DEBUG
+	POST http://127.0.0.1:53981/hub/session/d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e/element/{23e2d70e-3fdc-1b49-be86-6b382916c5c3}/value {"sessionId": "d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e", "id": "{23e2d70e-3fdc-1b49-be86-6b382916c5c3}", "value": ["d"]}
+04/Aug/2018 07:16:06 DEBUG
+	Finished Request
+04/Aug/2018 07:16:06 DEBUG
+	POST http://127.0.0.1:53981/hub/session/d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e/element/{0b793d6a-fe9f-2a46-b098-11b0cb932198}/value {"sessionId": "d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e", "id": "{0b793d6a-fe9f-2a46-b098-11b0cb932198}", "value": ["e"]}
+04/Aug/2018 07:16:06 DEBUG
+	Finished Request
+04/Aug/2018 07:16:06 DEBUG
+	POST http://127.0.0.1:53981/hub/session/d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e/element/{8be7cc50-7f3b-9444-92c9-64f9d32055c4}/value {"sessionId": "d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e", "id": "{8be7cc50-7f3b-9444-92c9-64f9d32055c4}", "value": ["f"]}
+04/Aug/2018 07:16:06 DEBUG
+	Finished Request
+04/Aug/2018 07:16:06 DEBUG
+	POST http://127.0.0.1:53981/hub/session/d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e/element/{ca3ff8b2-5b69-0b44-aac0-be8ceefa7e69}/value {"sessionId": "d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e", "id": "{ca3ff8b2-5b69-0b44-aac0-be8ceefa7e69}", "value": ["2", "0", "1", "0", "-", "1", "2", "-", "2", "0"]}
+04/Aug/2018 07:16:06 DEBUG
+	Finished Request
+04/Aug/2018 07:16:06 DEBUG
+	POST http://127.0.0.1:53981/hub/session/d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e/element/{8fee9553-e130-7140-bc1b-f2bdb397a0ad}/value {"sessionId": "d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e", "id": "{8fee9553-e130-7140-bc1b-f2bdb397a0ad}", "value": ["g"]}
+04/Aug/2018 07:16:06 DEBUG
+	Finished Request
+04/Aug/2018 07:16:06 DEBUG
+	POST http://127.0.0.1:53981/hub/session/d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e/element/{c728329c-72cf-2840-99bd-c3310d406113}/value {"sessionId": "d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e", "id": "{c728329c-72cf-2840-99bd-c3310d406113}", "value": ["h"]}
+04/Aug/2018 07:16:06 DEBUG
+	Finished Request
+04/Aug/2018 07:16:06 DEBUG
+	POST http://127.0.0.1:53981/hub/session/d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e/element/{02e4a3d5-38b8-7a4d-b2ee-6a1942fafcb9}/value {"sessionId": "d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e", "id": "{02e4a3d5-38b8-7a4d-b2ee-6a1942fafcb9}", "value": ["2", "0", "0", "9", "-", "1", "2", "-", "2", "0"]}
+04/Aug/2018 07:16:06 DEBUG
+	Finished Request
+04/Aug/2018 07:16:06 DEBUG
+	POST http://127.0.0.1:53981/hub/session/d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e/element/{e7ea1470-ef3d-bb46-a36d-c7595d7d3554}/value {"sessionId": "d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e", "id": "{e7ea1470-ef3d-bb46-a36d-c7595d7d3554}", "value": ["i"]}
+04/Aug/2018 07:16:06 DEBUG
+	Finished Request
+04/Aug/2018 07:16:06 DEBUG
+	POST http://127.0.0.1:53981/hub/session/d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e/element/{2b0a775e-66ad-9646-9521-830e52f5d518}/value {"sessionId": "d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e", "id": "{2b0a775e-66ad-9646-9521-830e52f5d518}", "value": ["j"]}
+04/Aug/2018 07:16:06 DEBUG
+	Finished Request
+04/Aug/2018 07:16:06 DEBUG
+	POST http://127.0.0.1:53981/hub/session/d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e/element/{4f7bb166-c56c-9d4e-8cdc-88673bc51483}/value {"sessionId": "d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e", "id": "{4f7bb166-c56c-9d4e-8cdc-88673bc51483}", "value": ["k"]}
+04/Aug/2018 07:16:06 DEBUG
+	Finished Request
+04/Aug/2018 07:16:06 DEBUG
+	POST http://127.0.0.1:53981/hub/session/d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e/element/{5792b173-9e00-ca43-b5aa-48892e34dfb3}/value {"sessionId": "d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e", "id": "{5792b173-9e00-ca43-b5aa-48892e34dfb3}", "value": ["l"]}
+04/Aug/2018 07:16:06 DEBUG
+	Finished Request
+04/Aug/2018 07:16:06 DEBUG
+	POST http://127.0.0.1:53981/hub/session/d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e/element/{6a0a59b9-da7e-ad49-9ffa-fea6ad4c28c9}/value {"sessionId": "d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e", "id": "{6a0a59b9-da7e-ad49-9ffa-fea6ad4c28c9}", "value": ["m"]}
+04/Aug/2018 07:16:06 DEBUG
+	Finished Request
+04/Aug/2018 07:16:06 DEBUG
+	POST http://127.0.0.1:53981/hub/session/d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e/element/{c84eb6fc-8b47-bc4c-9678-2d073e553f87}/value {"sessionId": "d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e", "id": "{c84eb6fc-8b47-bc4c-9678-2d073e553f87}", "value": ["n"]}
+04/Aug/2018 07:16:06 DEBUG
+	Finished Request
+04/Aug/2018 07:16:06 DEBUG
+	POST http://127.0.0.1:53981/hub/session/d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e/element {"using": "xpath", "sessionId": "d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e", "value": "//input[@value=\"Submit\"]"}
+04/Aug/2018 07:16:06 DEBUG
+	Finished Request
+04/Aug/2018 07:16:06 DEBUG
+	POST http://127.0.0.1:53981/hub/session/d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e/element/{757ab6eb-d02a-e24a-984d-a9596085ad7b}/click {"sessionId": "d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e", "id": "{757ab6eb-d02a-e24a-984d-a9596085ad7b}"}
+04/Aug/2018 07:16:11 WARNING
+	Not Found: /static/sequencelistings/output/resources/style_colour.css
+04/Aug/2018 07:16:11 WARNING
+	Not Found: /static/sequencelistings/output/resources/splitLines.js
+04/Aug/2018 07:16:11 DEBUG
+	Finished Request
+04/Aug/2018 07:16:11 DEBUG
+	POST http://127.0.0.1:53981/hub/session/d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e/url {"url": "http://localhost:8081/sequencelistings/overview", "sessionId": "d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e"}
+04/Aug/2018 07:16:11 WARNING
+	Not Found: /static/sequencelistings/output/resources/style_colour.css
+04/Aug/2018 07:16:11 WARNING
+	Not Found: /static/sequencelistings/output/resources/splitLines.js
+04/Aug/2018 07:16:11 DEBUG
+	Finished Request
+04/Aug/2018 07:16:11 DEBUG
+	POST http://127.0.0.1:53981/hub/session/d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e/element {"using": "link text", "sessionId": "d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e", "value": "selenium_test2"}
+04/Aug/2018 07:16:11 DEBUG
+	Finished Request
+04/Aug/2018 07:16:11 DEBUG
+	POST http://127.0.0.1:53981/hub/session/d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e/element/{6163c5f5-d22f-1040-9778-e842e24f514e}/click {"sessionId": "d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e", "id": "{6163c5f5-d22f-1040-9778-e842e24f514e}"}
+04/Aug/2018 07:16:11 WARNING
+	Not Found: /static/sequencelistings/output/resources/style_colour.css
+04/Aug/2018 07:16:11 WARNING
+	Not Found: /static/sequencelistings/output/resources/splitLines.js
+04/Aug/2018 07:16:11 DEBUG
+	Finished Request
+04/Aug/2018 07:16:11 DEBUG
+	POST http://127.0.0.1:53981/hub/session/d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e/element {"using": "link text", "sessionId": "d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e", "value": "Edit"}
+04/Aug/2018 07:16:11 DEBUG
+	Finished Request
+04/Aug/2018 07:16:11 DEBUG
+	GET http://127.0.0.1:53981/hub/session/d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e/element/{ab1d3778-7918-a748-ac23-b4bcbd42c65d}/displayed {"sessionId": "d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e", "id": "{ab1d3778-7918-a748-ac23-b4bcbd42c65d}"}
+04/Aug/2018 07:16:11 DEBUG
+	Finished Request
+04/Aug/2018 07:16:11 DEBUG
+	POST http://127.0.0.1:53981/hub/session/d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e/element/{ab1d3778-7918-a748-ac23-b4bcbd42c65d}/click {"sessionId": "d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e", "id": "{ab1d3778-7918-a748-ac23-b4bcbd42c65d}"}
+04/Aug/2018 07:16:11 WARNING
+	Not Found: /static/sequencelistings/output/resources/style_colour.css
+04/Aug/2018 07:16:11 WARNING
+	Not Found: /static/sequencelistings/output/resources/splitLines.js
+04/Aug/2018 07:16:11 DEBUG
+	Finished Request
+04/Aug/2018 07:16:11 DEBUG
+	POST http://127.0.0.1:53981/hub/session/d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e/element {"using": "link text", "sessionId": "d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e", "value": "Add new sequence"}
+04/Aug/2018 07:16:11 DEBUG
+	Finished Request
+04/Aug/2018 07:16:11 DEBUG
+	GET http://127.0.0.1:53981/hub/session/d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e/element/{070607fc-9e5a-9449-90b4-ed44b5c720d9}/displayed {"sessionId": "d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e", "id": "{070607fc-9e5a-9449-90b4-ed44b5c720d9}"}
+04/Aug/2018 07:16:11 DEBUG
+	Finished Request
+04/Aug/2018 07:16:11 DEBUG
+	POST http://127.0.0.1:53981/hub/session/d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e/element/{070607fc-9e5a-9449-90b4-ed44b5c720d9}/click {"sessionId": "d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e", "id": "{070607fc-9e5a-9449-90b4-ed44b5c720d9}"}
+04/Aug/2018 07:16:11 WARNING
+	Not Found: /static/sequencelistings/output/resources/style_colour.css
+04/Aug/2018 07:16:11 WARNING
+	Not Found: /static/sequencelistings/output/resources/splitLines.js
+04/Aug/2018 07:16:12 DEBUG
+	Finished Request
+04/Aug/2018 07:16:12 DEBUG
+	POST http://127.0.0.1:53981/hub/session/d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e/elements {"using": "tag name", "sessionId": "d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e", "value": "h2"}
+04/Aug/2018 07:16:12 DEBUG
+	Finished Request
+04/Aug/2018 07:16:12 DEBUG
+	GET http://127.0.0.1:53981/hub/session/d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e/element/{9d346583-2445-e043-9091-18155e82da48}/text {"sessionId": "d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e", "id": "{9d346583-2445-e043-9091-18155e82da48}"}
+04/Aug/2018 07:16:12 DEBUG
+	Finished Request
+04/Aug/2018 07:16:12 DEBUG
+	POST http://127.0.0.1:53981/hub/session/d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e/element {"using": "id", "sessionId": "d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e", "value": "id_moltype"}
+04/Aug/2018 07:16:12 DEBUG
+	Finished Request
+04/Aug/2018 07:16:12 DEBUG
+	POST http://127.0.0.1:53981/hub/session/d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e/element {"using": "id", "sessionId": "d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e", "value": "id_residues"}
+04/Aug/2018 07:16:12 DEBUG
+	Finished Request
+04/Aug/2018 07:16:12 DEBUG
+	POST http://127.0.0.1:53981/hub/session/d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e/element {"using": "id", "sessionId": "d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e", "value": "id_organism"}
+04/Aug/2018 07:16:12 DEBUG
+	Finished Request
+04/Aug/2018 07:16:12 DEBUG
+	POST http://127.0.0.1:53981/hub/session/d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e/element/{4ab242b4-928d-c44f-9724-4176941374d8}/value {"sessionId": "d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e", "id": "{4ab242b4-928d-c44f-9724-4176941374d8}", "value": ["D", "N", "A"]}
+04/Aug/2018 07:16:12 DEBUG
+	Finished Request
+04/Aug/2018 07:16:12 DEBUG
+	POST http://127.0.0.1:53981/hub/session/d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e/element/{dbb9566a-ba6d-294f-9141-f5007763705a}/value {"sessionId": "d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e", "id": "{dbb9566a-ba6d-294f-9141-f5007763705a}", "value": ["a", "c", "g", "t", "a", "c", "g", "t", "a", "c", "g", "t"]}
+04/Aug/2018 07:16:12 DEBUG
+	Finished Request
+04/Aug/2018 07:16:12 DEBUG
+	POST http://127.0.0.1:53981/hub/session/d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e/element/{ff5c2256-a059-214d-bfa3-575218d7f686}/value {"sessionId": "d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e", "id": "{ff5c2256-a059-214d-bfa3-575218d7f686}", "value": ["H", "o", "m", "o", " ", "s", "a", "p", "i", "e", "n", "s", " ", "s", "e", "l", "e", "n", "i", "u", "m"]}
+04/Aug/2018 07:16:12 DEBUG
+	Finished Request
+04/Aug/2018 07:16:12 DEBUG
+	POST http://127.0.0.1:53981/hub/session/d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e/element {"using": "xpath", "sessionId": "d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e", "value": "//input[@value=\"Submit\"]"}
+04/Aug/2018 07:16:12 DEBUG
+	Finished Request
+04/Aug/2018 07:16:12 DEBUG
+	POST http://127.0.0.1:53981/hub/session/d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e/element/{4542b5bc-4683-b74b-9b2d-271c6d6aa6ff}/click {"sessionId": "d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e", "id": "{4542b5bc-4683-b74b-9b2d-271c6d6aa6ff}"}
+04/Aug/2018 07:16:12 WARNING
+	Not Found: /static/sequencelistings/output/resources/style_colour.css
+04/Aug/2018 07:16:12 WARNING
+	Not Found: /static/sequencelistings/output/resources/splitLines.js
+04/Aug/2018 07:16:12 DEBUG
+	Finished Request
+04/Aug/2018 07:16:12 DEBUG
+	POST http://127.0.0.1:53981/hub/session/d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e/element {"using": "class name", "sessionId": "d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e", "value": "residues"}
+04/Aug/2018 07:16:12 DEBUG
+	Finished Request
+04/Aug/2018 07:16:12 DEBUG
+	GET http://127.0.0.1:53981/hub/session/d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e/element/{80e9ff13-6f32-ff43-9922-f61c56bc5765}/text {"sessionId": "d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e", "id": "{80e9ff13-6f32-ff43-9922-f61c56bc5765}"}
+04/Aug/2018 07:16:12 DEBUG
+	Finished Request
+04/Aug/2018 07:16:12 DEBUG
+	POST http://127.0.0.1:53981/hub/session/d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e/elements {"using": "tag name", "sessionId": "d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e", "value": "td"}
+04/Aug/2018 07:16:12 DEBUG
+	Finished Request
+04/Aug/2018 07:16:12 DEBUG
+	GET http://127.0.0.1:53981/hub/session/d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e/element/{7232a466-0d6e-ae42-ae0f-856fa4fcf300}/text {"sessionId": "d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e", "id": "{7232a466-0d6e-ae42-ae0f-856fa4fcf300}"}
+04/Aug/2018 07:16:12 DEBUG
+	Finished Request
+04/Aug/2018 07:16:12 DEBUG
+	GET http://127.0.0.1:53981/hub/session/d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e/element/{30f89f42-81ac-3148-a053-443261029327}/text {"sessionId": "d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e", "id": "{30f89f42-81ac-3148-a053-443261029327}"}
+04/Aug/2018 07:16:12 DEBUG
+	Finished Request
+04/Aug/2018 07:16:12 DEBUG
+	GET http://127.0.0.1:53981/hub/session/d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e/element/{9b2aca02-ecfb-2f48-b57a-1f5c86b8d787}/text {"sessionId": "d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e", "id": "{9b2aca02-ecfb-2f48-b57a-1f5c86b8d787}"}
+04/Aug/2018 07:16:12 DEBUG
+	Finished Request
+04/Aug/2018 07:16:12 DEBUG
+	GET http://127.0.0.1:53981/hub/session/d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e/element/{7caa1ca4-541b-dd42-bc0f-0e0e29c409ad}/text {"sessionId": "d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e", "id": "{7caa1ca4-541b-dd42-bc0f-0e0e29c409ad}"}
+04/Aug/2018 07:16:12 DEBUG
+	Finished Request
+04/Aug/2018 07:16:12 DEBUG
+	GET http://127.0.0.1:53981/hub/session/d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e/element/{6f1f8cc6-da7a-4d49-8378-7e81761e4729}/text {"sessionId": "d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e", "id": "{6f1f8cc6-da7a-4d49-8378-7e81761e4729}"}
+04/Aug/2018 07:16:12 DEBUG
+	Finished Request
+04/Aug/2018 07:16:12 DEBUG
+	GET http://127.0.0.1:53981/hub/session/d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e/element/{6288e6f8-7d7d-1a42-a963-779e0f13bf84}/text {"sessionId": "d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e", "id": "{6288e6f8-7d7d-1a42-a963-779e0f13bf84}"}
+04/Aug/2018 07:16:12 DEBUG
+	Finished Request
+04/Aug/2018 07:16:12 DEBUG
+	GET http://127.0.0.1:53981/hub/session/d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e/element/{ab97603a-93db-ed4a-9151-4ba78eae4a13}/text {"sessionId": "d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e", "id": "{ab97603a-93db-ed4a-9151-4ba78eae4a13}"}
+04/Aug/2018 07:16:12 DEBUG
+	Finished Request
+04/Aug/2018 07:16:12 DEBUG
+	GET http://127.0.0.1:53981/hub/session/d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e/element/{8f23154c-3b89-3646-8533-9e4d3cc2e98b}/text {"sessionId": "d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e", "id": "{8f23154c-3b89-3646-8533-9e4d3cc2e98b}"}
+04/Aug/2018 07:16:12 DEBUG
+	Finished Request
+04/Aug/2018 07:16:12 DEBUG
+	GET http://127.0.0.1:53981/hub/session/d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e/element/{501553f1-fea8-c746-8570-88dd98dc763e}/text {"sessionId": "d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e", "id": "{501553f1-fea8-c746-8570-88dd98dc763e}"}
+04/Aug/2018 07:16:12 DEBUG
+	Finished Request
+04/Aug/2018 07:16:12 DEBUG
+	GET http://127.0.0.1:53981/hub/session/d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e/element/{9ccd2b10-0a43-c349-8028-d5accb1b2bef}/text {"sessionId": "d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e", "id": "{9ccd2b10-0a43-c349-8028-d5accb1b2bef}"}
+04/Aug/2018 07:16:12 DEBUG
+	Finished Request
+04/Aug/2018 07:16:12 DEBUG
+	GET http://127.0.0.1:53981/hub/session/d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e/element/{404eed9f-7ffe-7c43-ab43-fba38d8df510}/text {"sessionId": "d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e", "id": "{404eed9f-7ffe-7c43-ab43-fba38d8df510}"}
+04/Aug/2018 07:16:12 DEBUG
+	Finished Request
+04/Aug/2018 07:16:12 DEBUG
+	GET http://127.0.0.1:53981/hub/session/d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e/element/{b9160372-6a65-b943-b3d2-a4a85c5e4aa8}/text {"sessionId": "d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e", "id": "{b9160372-6a65-b943-b3d2-a4a85c5e4aa8}"}
+04/Aug/2018 07:16:12 DEBUG
+	Finished Request
+04/Aug/2018 07:16:12 DEBUG
+	GET http://127.0.0.1:53981/hub/session/d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e/element/{90c3bb42-4f81-e74b-a41c-1e4d7e0422e6}/text {"sessionId": "d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e", "id": "{90c3bb42-4f81-e74b-a41c-1e4d7e0422e6}"}
+04/Aug/2018 07:16:12 DEBUG
+	Finished Request
+04/Aug/2018 07:16:12 DEBUG
+	GET http://127.0.0.1:53981/hub/session/d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e/element/{03539a01-1543-b44b-8795-4472e3ddefdb}/text {"sessionId": "d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e", "id": "{03539a01-1543-b44b-8795-4472e3ddefdb}"}
+04/Aug/2018 07:16:12 DEBUG
+	Finished Request
+04/Aug/2018 07:16:12 DEBUG
+	GET http://127.0.0.1:53981/hub/session/d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e/element/{3e317377-3b9f-2648-a989-d54eba500c1c}/text {"sessionId": "d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e", "id": "{3e317377-3b9f-2648-a989-d54eba500c1c}"}
+04/Aug/2018 07:16:12 DEBUG
+	Finished Request
+04/Aug/2018 07:16:12 DEBUG
+	GET http://127.0.0.1:53981/hub/session/d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e/element/{808c65ec-d676-0a49-8d1d-3ba443438998}/text {"sessionId": "d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e", "id": "{808c65ec-d676-0a49-8d1d-3ba443438998}"}
+04/Aug/2018 07:16:12 DEBUG
+	Finished Request
+04/Aug/2018 07:16:12 DEBUG
+	GET http://127.0.0.1:53981/hub/session/d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e/element/{7c2df869-b427-cd48-9e39-54b4e06fce24}/text {"sessionId": "d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e", "id": "{7c2df869-b427-cd48-9e39-54b4e06fce24}"}
+04/Aug/2018 07:16:12 DEBUG
+	Finished Request
+04/Aug/2018 07:16:12 DEBUG
+	GET http://127.0.0.1:53981/hub/session/d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e/element/{53678b4f-32af-6546-8f8a-3d6fea186600}/text {"sessionId": "d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e", "id": "{53678b4f-32af-6546-8f8a-3d6fea186600}"}
+04/Aug/2018 07:16:12 DEBUG
+	Finished Request
+04/Aug/2018 07:16:12 DEBUG
+	GET http://127.0.0.1:53981/hub/session/d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e/element/{a5469bdd-9820-c045-ae35-3b738e029ef1}/text {"sessionId": "d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e", "id": "{a5469bdd-9820-c045-ae35-3b738e029ef1}"}
+04/Aug/2018 07:16:12 DEBUG
+	Finished Request
+04/Aug/2018 07:16:12 DEBUG
+	GET http://127.0.0.1:53981/hub/session/d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e/element/{51726a30-8809-6d4e-ac92-93984c4bdd0c}/text {"sessionId": "d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e", "id": "{51726a30-8809-6d4e-ac92-93984c4bdd0c}"}
+04/Aug/2018 07:16:12 DEBUG
+	Finished Request
+04/Aug/2018 07:16:12 DEBUG
+	GET http://127.0.0.1:53981/hub/session/d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e/element/{2e227897-22bb-4b40-af9b-3912f63189b8}/text {"sessionId": "d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e", "id": "{2e227897-22bb-4b40-af9b-3912f63189b8}"}
+04/Aug/2018 07:16:12 DEBUG
+	Finished Request
+04/Aug/2018 07:16:12 DEBUG
+	GET http://127.0.0.1:53981/hub/session/d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e/element/{e9892872-ff12-314b-bc93-f498813c1af1}/text {"sessionId": "d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e", "id": "{e9892872-ff12-314b-bc93-f498813c1af1}"}
+04/Aug/2018 07:16:12 DEBUG
+	Finished Request
+04/Aug/2018 07:16:12 DEBUG
+	GET http://127.0.0.1:53981/hub/session/d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e/element/{5b04a43d-2ad6-0048-a80e-67ded08b7c00}/text {"sessionId": "d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e", "id": "{5b04a43d-2ad6-0048-a80e-67ded08b7c00}"}
+04/Aug/2018 07:16:12 DEBUG
+	Finished Request
+04/Aug/2018 07:16:12 DEBUG
+	GET http://127.0.0.1:53981/hub/session/d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e/element/{a6798d6d-c78a-d242-a7ce-e49d69a7df1d}/text {"sessionId": "d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e", "id": "{a6798d6d-c78a-d242-a7ce-e49d69a7df1d}"}
+04/Aug/2018 07:16:12 DEBUG
+	Finished Request
+04/Aug/2018 07:16:12 DEBUG
+	GET http://127.0.0.1:53981/hub/session/d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e/element/{a61b8976-bb12-0044-bda8-494016e6de38}/text {"sessionId": "d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e", "id": "{a61b8976-bb12-0044-bda8-494016e6de38}"}
+04/Aug/2018 07:16:12 DEBUG
+	Finished Request
+04/Aug/2018 07:16:12 DEBUG
+	GET http://127.0.0.1:53981/hub/session/d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e/element/{5a2b2456-4f69-e442-aa5d-725337331e5e}/text {"sessionId": "d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e", "id": "{5a2b2456-4f69-e442-aa5d-725337331e5e}"}
+04/Aug/2018 07:16:12 DEBUG
+	Finished Request
+04/Aug/2018 07:16:12 DEBUG
+	POST http://127.0.0.1:53981/hub/session/d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e/element {"using": "link text", "sessionId": "d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e", "value": "Generate XML"}
+04/Aug/2018 07:16:12 DEBUG
+	Finished Request
+04/Aug/2018 07:16:12 DEBUG
+	POST http://127.0.0.1:53981/hub/session/d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e/element/{6621ed2f-cf80-5242-a08c-e34482bad660}/click {"sessionId": "d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e", "id": "{6621ed2f-cf80-5242-a08c-e34482bad660}"}
+04/Aug/2018 07:16:12 WARNING
+	Not Found: /static/sequencelistings/output/resources/style_colour.css
+04/Aug/2018 07:16:12 WARNING
+	Not Found: /static/sequencelistings/output/resources/splitLines.js
+04/Aug/2018 07:16:12 DEBUG
+	Finished Request
+04/Aug/2018 07:16:12 DEBUG
+	POST http://127.0.0.1:53981/hub/session/d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e/element {"using": "link text", "sessionId": "d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e", "value": "display generated sequence listing"}
+04/Aug/2018 07:16:12 DEBUG
+	Finished Request
+04/Aug/2018 07:16:12 DEBUG
+	GET http://127.0.0.1:53981/hub/session/d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e/element/{fc60a213-a984-af45-966e-07aa4709f90f}/displayed {"sessionId": "d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e", "id": "{fc60a213-a984-af45-966e-07aa4709f90f}"}
+04/Aug/2018 07:16:12 DEBUG
+	Finished Request
+04/Aug/2018 07:16:12 DEBUG
+	DELETE http://127.0.0.1:53981/hub/session/d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e {"sessionId": "d66f13cd-8ce8-6f4a-9faa-fa9e6ca9d98e"}
+04/Aug/2018 07:16:12 DEBUG
+	Finished Request
+04/Aug/2018 07:16:14 DEBUG
+	POST http://127.0.0.1:54121/hub/session {"desiredCapabilities": {"platform": "ANY", "browserName": "firefox", "version": "", "marionette": false, "javascriptEnabled": true}}
+04/Aug/2018 07:16:14 DEBUG
+	Finished Request
+04/Aug/2018 07:16:14 DEBUG
+	POST http://127.0.0.1:54121/hub/session/b3c596cd-e2e4-5f49-a6a7-0965308c1bf9/timeouts/implicit_wait {"sessionId": "b3c596cd-e2e4-5f49-a6a7-0965308c1bf9", "ms": 3000.0}
+04/Aug/2018 07:16:14 DEBUG
+	Finished Request
+04/Aug/2018 07:16:14 DEBUG
+	POST http://127.0.0.1:54121/hub/session/b3c596cd-e2e4-5f49-a6a7-0965308c1bf9/url {"url": "http://localhost:8081/sequencelistings/add_sequencelisting", "sessionId": "b3c596cd-e2e4-5f49-a6a7-0965308c1bf9"}
+04/Aug/2018 07:16:14 WARNING
+	Not Found: /static/sequencelistings/output/resources/style_colour.css
+04/Aug/2018 07:16:14 WARNING
+	Not Found: /static/sequencelistings/output/resources/splitLines.js
+04/Aug/2018 07:16:15 WARNING
+	Not Found: /favicon.ico
+04/Aug/2018 07:16:15 WARNING
+	Not Found: /favicon.ico
+04/Aug/2018 07:16:15 DEBUG
+	Finished Request
+04/Aug/2018 07:16:15 DEBUG
+	POST http://127.0.0.1:54121/hub/session/b3c596cd-e2e4-5f49-a6a7-0965308c1bf9/element {"using": "id", "sessionId": "b3c596cd-e2e4-5f49-a6a7-0965308c1bf9", "value": "id_inventionTitle"}
+04/Aug/2018 07:16:15 DEBUG
+	Finished Request
+04/Aug/2018 07:16:15 DEBUG
+	POST http://127.0.0.1:54121/hub/session/b3c596cd-e2e4-5f49-a6a7-0965308c1bf9/element {"using": "id", "sessionId": "b3c596cd-e2e4-5f49-a6a7-0965308c1bf9", "value": "id_inventionTitleLanguageCode"}
+04/Aug/2018 07:16:15 DEBUG
+	Finished Request
+04/Aug/2018 07:16:15 DEBUG
+	POST http://127.0.0.1:54121/hub/session/b3c596cd-e2e4-5f49-a6a7-0965308c1bf9/element {"using": "id", "sessionId": "b3c596cd-e2e4-5f49-a6a7-0965308c1bf9", "value": "id_fileName"}
+04/Aug/2018 07:16:15 DEBUG
+	Finished Request
+04/Aug/2018 07:16:15 DEBUG
+	POST http://127.0.0.1:54121/hub/session/b3c596cd-e2e4-5f49-a6a7-0965308c1bf9/element {"using": "id", "sessionId": "b3c596cd-e2e4-5f49-a6a7-0965308c1bf9", "value": "id_applicantFileReference"}
+04/Aug/2018 07:16:15 DEBUG
+	Finished Request
+04/Aug/2018 07:16:15 DEBUG
+	POST http://127.0.0.1:54121/hub/session/b3c596cd-e2e4-5f49-a6a7-0965308c1bf9/element {"using": "id", "sessionId": "b3c596cd-e2e4-5f49-a6a7-0965308c1bf9", "value": "id_IPOfficeCode"}
+04/Aug/2018 07:16:15 DEBUG
+	Finished Request
+04/Aug/2018 07:16:15 DEBUG
+	POST http://127.0.0.1:54121/hub/session/b3c596cd-e2e4-5f49-a6a7-0965308c1bf9/element {"using": "id", "sessionId": "b3c596cd-e2e4-5f49-a6a7-0965308c1bf9", "value": "id_applicationNumberText"}
+04/Aug/2018 07:16:15 DEBUG
+	Finished Request
+04/Aug/2018 07:16:15 DEBUG
+	POST http://127.0.0.1:54121/hub/session/b3c596cd-e2e4-5f49-a6a7-0965308c1bf9/element {"using": "id", "sessionId": "b3c596cd-e2e4-5f49-a6a7-0965308c1bf9", "value": "id_filingDate"}
+04/Aug/2018 07:16:15 DEBUG
+	Finished Request
+04/Aug/2018 07:16:15 DEBUG
+	POST http://127.0.0.1:54121/hub/session/b3c596cd-e2e4-5f49-a6a7-0965308c1bf9/element {"using": "id", "sessionId": "b3c596cd-e2e4-5f49-a6a7-0965308c1bf9", "value": "id_earliestPriorityIPOfficeCode"}
+04/Aug/2018 07:16:15 DEBUG
+	Finished Request
+04/Aug/2018 07:16:15 DEBUG
+	POST http://127.0.0.1:54121/hub/session/b3c596cd-e2e4-5f49-a6a7-0965308c1bf9/element {"using": "id", "sessionId": "b3c596cd-e2e4-5f49-a6a7-0965308c1bf9", "value": "id_earliestPriorityApplicationNumberText"}
+04/Aug/2018 07:16:15 DEBUG
+	Finished Request
+04/Aug/2018 07:16:15 DEBUG
+	POST http://127.0.0.1:54121/hub/session/b3c596cd-e2e4-5f49-a6a7-0965308c1bf9/element {"using": "id", "sessionId": "b3c596cd-e2e4-5f49-a6a7-0965308c1bf9", "value": "id_earliestPriorityFilingDate"}
+04/Aug/2018 07:16:15 DEBUG
+	Finished Request
+04/Aug/2018 07:16:15 DEBUG
+	POST http://127.0.0.1:54121/hub/session/b3c596cd-e2e4-5f49-a6a7-0965308c1bf9/element {"using": "id", "sessionId": "b3c596cd-e2e4-5f49-a6a7-0965308c1bf9", "value": "id_applicantName"}
+04/Aug/2018 07:16:15 DEBUG
+	Finished Request
+04/Aug/2018 07:16:15 DEBUG
+	POST http://127.0.0.1:54121/hub/session/b3c596cd-e2e4-5f49-a6a7-0965308c1bf9/element {"using": "id", "sessionId": "b3c596cd-e2e4-5f49-a6a7-0965308c1bf9", "value": "id_applicantNameLanguageCode"}
+04/Aug/2018 07:16:15 DEBUG
+	Finished Request
+04/Aug/2018 07:16:15 DEBUG
+	POST http://127.0.0.1:54121/hub/session/b3c596cd-e2e4-5f49-a6a7-0965308c1bf9/element {"using": "id", "sessionId": "b3c596cd-e2e4-5f49-a6a7-0965308c1bf9", "value": "id_applicantNameLatin"}
+04/Aug/2018 07:16:15 DEBUG
+	Finished Request
+04/Aug/2018 07:16:15 DEBUG
+	POST http://127.0.0.1:54121/hub/session/b3c596cd-e2e4-5f49-a6a7-0965308c1bf9/element {"using": "id", "sessionId": "b3c596cd-e2e4-5f49-a6a7-0965308c1bf9", "value": "id_inventorName"}
+04/Aug/2018 07:16:15 DEBUG
+	Finished Request
+04/Aug/2018 07:16:15 DEBUG
+	POST http://127.0.0.1:54121/hub/session/b3c596cd-e2e4-5f49-a6a7-0965308c1bf9/element {"using": "id", "sessionId": "b3c596cd-e2e4-5f49-a6a7-0965308c1bf9", "value": "id_inventorNameLanguageCode"}
+04/Aug/2018 07:16:15 DEBUG
+	Finished Request
+04/Aug/2018 07:16:15 DEBUG
+	POST http://127.0.0.1:54121/hub/session/b3c596cd-e2e4-5f49-a6a7-0965308c1bf9/element {"using": "id", "sessionId": "b3c596cd-e2e4-5f49-a6a7-0965308c1bf9", "value": "id_inventorNameLatin"}
+04/Aug/2018 07:16:15 DEBUG
+	Finished Request
+04/Aug/2018 07:16:15 DEBUG
+	POST http://127.0.0.1:54121/hub/session/b3c596cd-e2e4-5f49-a6a7-0965308c1bf9/element/{6fed5a61-889a-a746-a5f1-929486f96dc4}/value {"sessionId": "b3c596cd-e2e4-5f49-a6a7-0965308c1bf9", "id": "{6fed5a61-889a-a746-a5f1-929486f96dc4}", "value": ["a"]}
+04/Aug/2018 07:16:15 DEBUG
+	Finished Request
+04/Aug/2018 07:16:15 DEBUG
+	POST http://127.0.0.1:54121/hub/session/b3c596cd-e2e4-5f49-a6a7-0965308c1bf9/element/{ca818165-41bb-1542-8618-ab5dae7d91a9}/value {"sessionId": "b3c596cd-e2e4-5f49-a6a7-0965308c1bf9", "id": "{ca818165-41bb-1542-8618-ab5dae7d91a9}", "value": ["b"]}
+04/Aug/2018 07:16:15 DEBUG
+	Finished Request
+04/Aug/2018 07:16:15 DEBUG
+	POST http://127.0.0.1:54121/hub/session/b3c596cd-e2e4-5f49-a6a7-0965308c1bf9/element/{99f20cff-7e8c-2e40-ad8a-78a188af90a9}/value {"sessionId": "b3c596cd-e2e4-5f49-a6a7-0965308c1bf9", "id": "{99f20cff-7e8c-2e40-ad8a-78a188af90a9}", "value": ["s", "e", "l", "e", "n", "i", "u", "m", "_", "t", "e", "s", "t", "2"]}
+04/Aug/2018 07:16:15 DEBUG
+	Finished Request
+04/Aug/2018 07:16:15 DEBUG
+	POST http://127.0.0.1:54121/hub/session/b3c596cd-e2e4-5f49-a6a7-0965308c1bf9/element/{5942e7e4-335c-2448-b085-5e0318353cd1}/value {"sessionId": "b3c596cd-e2e4-5f49-a6a7-0965308c1bf9", "id": "{5942e7e4-335c-2448-b085-5e0318353cd1}", "value": ["d"]}
+04/Aug/2018 07:16:15 DEBUG
+	Finished Request
+04/Aug/2018 07:16:15 DEBUG
+	POST http://127.0.0.1:54121/hub/session/b3c596cd-e2e4-5f49-a6a7-0965308c1bf9/element/{f88b39bd-9718-0b42-810c-7c67153d28f6}/value {"sessionId": "b3c596cd-e2e4-5f49-a6a7-0965308c1bf9", "id": "{f88b39bd-9718-0b42-810c-7c67153d28f6}", "value": ["e"]}
+04/Aug/2018 07:16:15 DEBUG
+	Finished Request
+04/Aug/2018 07:16:15 DEBUG
+	POST http://127.0.0.1:54121/hub/session/b3c596cd-e2e4-5f49-a6a7-0965308c1bf9/element/{90f9a05f-67a6-8346-83d4-05e201d6530a}/value {"sessionId": "b3c596cd-e2e4-5f49-a6a7-0965308c1bf9", "id": "{90f9a05f-67a6-8346-83d4-05e201d6530a}", "value": ["f"]}
+04/Aug/2018 07:16:15 DEBUG
+	Finished Request
+04/Aug/2018 07:16:15 DEBUG
+	POST http://127.0.0.1:54121/hub/session/b3c596cd-e2e4-5f49-a6a7-0965308c1bf9/element/{b5aeaf94-5824-fb41-b1cf-82c368e84bc4}/value {"sessionId": "b3c596cd-e2e4-5f49-a6a7-0965308c1bf9", "id": "{b5aeaf94-5824-fb41-b1cf-82c368e84bc4}", "value": ["2", "0", "1", "0", "-", "1", "2", "-", "2", "0"]}
+04/Aug/2018 07:16:15 DEBUG
+	Finished Request
+04/Aug/2018 07:16:15 DEBUG
+	POST http://127.0.0.1:54121/hub/session/b3c596cd-e2e4-5f49-a6a7-0965308c1bf9/element/{3e0f2d86-d044-d04e-8716-68193a6fa3b5}/value {"sessionId": "b3c596cd-e2e4-5f49-a6a7-0965308c1bf9", "id": "{3e0f2d86-d044-d04e-8716-68193a6fa3b5}", "value": ["g"]}
+04/Aug/2018 07:16:15 DEBUG
+	Finished Request
+04/Aug/2018 07:16:15 DEBUG
+	POST http://127.0.0.1:54121/hub/session/b3c596cd-e2e4-5f49-a6a7-0965308c1bf9/element/{82d3e969-1670-c040-90b5-135ec53c9be0}/value {"sessionId": "b3c596cd-e2e4-5f49-a6a7-0965308c1bf9", "id": "{82d3e969-1670-c040-90b5-135ec53c9be0}", "value": ["h"]}
+04/Aug/2018 07:16:15 DEBUG
+	Finished Request
+04/Aug/2018 07:16:15 DEBUG
+	POST http://127.0.0.1:54121/hub/session/b3c596cd-e2e4-5f49-a6a7-0965308c1bf9/element/{722f3ff3-eb0a-8449-a63a-d6c0f5de193e}/value {"sessionId": "b3c596cd-e2e4-5f49-a6a7-0965308c1bf9", "id": "{722f3ff3-eb0a-8449-a63a-d6c0f5de193e}", "value": ["2", "0", "0", "9", "-", "1", "2", "-", "2", "0"]}
+04/Aug/2018 07:16:15 DEBUG
+	Finished Request
+04/Aug/2018 07:16:15 DEBUG
+	POST http://127.0.0.1:54121/hub/session/b3c596cd-e2e4-5f49-a6a7-0965308c1bf9/element/{b5548618-dd16-7b4a-85b3-fb7d14ab53e7}/value {"sessionId": "b3c596cd-e2e4-5f49-a6a7-0965308c1bf9", "id": "{b5548618-dd16-7b4a-85b3-fb7d14ab53e7}", "value": ["i"]}
+04/Aug/2018 07:16:15 DEBUG
+	Finished Request
+04/Aug/2018 07:16:15 DEBUG
+	POST http://127.0.0.1:54121/hub/session/b3c596cd-e2e4-5f49-a6a7-0965308c1bf9/element/{9e279df2-feea-834d-9b44-2eddfbabafdb}/value {"sessionId": "b3c596cd-e2e4-5f49-a6a7-0965308c1bf9", "id": "{9e279df2-feea-834d-9b44-2eddfbabafdb}", "value": ["j"]}
+04/Aug/2018 07:16:15 DEBUG
+	Finished Request
+04/Aug/2018 07:16:15 DEBUG
+	POST http://127.0.0.1:54121/hub/session/b3c596cd-e2e4-5f49-a6a7-0965308c1bf9/element/{86c1cad3-722c-df41-9fa3-f7f2a9610b4f}/value {"sessionId": "b3c596cd-e2e4-5f49-a6a7-0965308c1bf9", "id": "{86c1cad3-722c-df41-9fa3-f7f2a9610b4f}", "value": ["k"]}
+04/Aug/2018 07:16:15 DEBUG
+	Finished Request
+04/Aug/2018 07:16:15 DEBUG
+	POST http://127.0.0.1:54121/hub/session/b3c596cd-e2e4-5f49-a6a7-0965308c1bf9/element/{cdca9608-6709-0046-9ac1-dcce81aef395}/value {"sessionId": "b3c596cd-e2e4-5f49-a6a7-0965308c1bf9", "id": "{cdca9608-6709-0046-9ac1-dcce81aef395}", "value": ["l"]}
+04/Aug/2018 07:16:15 DEBUG
+	Finished Request
+04/Aug/2018 07:16:15 DEBUG
+	POST http://127.0.0.1:54121/hub/session/b3c596cd-e2e4-5f49-a6a7-0965308c1bf9/element/{2999b5fa-e2f1-7b43-88fd-f116aeb7a383}/value {"sessionId": "b3c596cd-e2e4-5f49-a6a7-0965308c1bf9", "id": "{2999b5fa-e2f1-7b43-88fd-f116aeb7a383}", "value": ["m"]}
+04/Aug/2018 07:16:15 DEBUG
+	Finished Request
+04/Aug/2018 07:16:15 DEBUG
+	POST http://127.0.0.1:54121/hub/session/b3c596cd-e2e4-5f49-a6a7-0965308c1bf9/element/{efb7edce-229b-fa44-95e3-27468fec3e8c}/value {"sessionId": "b3c596cd-e2e4-5f49-a6a7-0965308c1bf9", "id": "{efb7edce-229b-fa44-95e3-27468fec3e8c}", "value": ["n"]}
+04/Aug/2018 07:16:15 DEBUG
+	Finished Request
+04/Aug/2018 07:16:15 DEBUG
+	POST http://127.0.0.1:54121/hub/session/b3c596cd-e2e4-5f49-a6a7-0965308c1bf9/element {"using": "xpath", "sessionId": "b3c596cd-e2e4-5f49-a6a7-0965308c1bf9", "value": "//input[@value=\"Submit\"]"}
+04/Aug/2018 07:16:15 DEBUG
+	Finished Request
+04/Aug/2018 07:16:15 DEBUG
+	POST http://127.0.0.1:54121/hub/session/b3c596cd-e2e4-5f49-a6a7-0965308c1bf9/element/{da19371d-ed15-554b-8043-7ce3b144615f}/click {"sessionId": "b3c596cd-e2e4-5f49-a6a7-0965308c1bf9", "id": "{da19371d-ed15-554b-8043-7ce3b144615f}"}
+04/Aug/2018 07:16:21 WARNING
+	Not Found: /static/sequencelistings/output/resources/style_colour.css
+04/Aug/2018 07:16:21 WARNING
+	Not Found: /static/sequencelistings/output/resources/splitLines.js
+04/Aug/2018 07:16:21 DEBUG
+	Finished Request
+04/Aug/2018 07:16:21 DEBUG
+	POST http://127.0.0.1:54121/hub/session/b3c596cd-e2e4-5f49-a6a7-0965308c1bf9/url {"url": "http://localhost:8081/sequencelistings/overview", "sessionId": "b3c596cd-e2e4-5f49-a6a7-0965308c1bf9"}
+04/Aug/2018 07:16:21 WARNING
+	Not Found: /static/sequencelistings/output/resources/style_colour.css
+04/Aug/2018 07:16:21 WARNING
+	Not Found: /static/sequencelistings/output/resources/splitLines.js
+04/Aug/2018 07:16:21 DEBUG
+	Finished Request
+04/Aug/2018 07:16:21 DEBUG
+	POST http://127.0.0.1:54121/hub/session/b3c596cd-e2e4-5f49-a6a7-0965308c1bf9/element {"using": "link text", "sessionId": "b3c596cd-e2e4-5f49-a6a7-0965308c1bf9", "value": "selenium_test2"}
+04/Aug/2018 07:16:21 DEBUG
+	Finished Request
+04/Aug/2018 07:16:21 DEBUG
+	POST http://127.0.0.1:54121/hub/session/b3c596cd-e2e4-5f49-a6a7-0965308c1bf9/element/{032e26bc-e0a2-044b-aec9-00ef433a65e9}/click {"sessionId": "b3c596cd-e2e4-5f49-a6a7-0965308c1bf9", "id": "{032e26bc-e0a2-044b-aec9-00ef433a65e9}"}
+04/Aug/2018 07:16:21 WARNING
+	Not Found: /static/sequencelistings/output/resources/style_colour.css
+04/Aug/2018 07:16:21 WARNING
+	Not Found: /static/sequencelistings/output/resources/splitLines.js
+04/Aug/2018 07:16:21 DEBUG
+	Finished Request
+04/Aug/2018 07:16:21 DEBUG
+	POST http://127.0.0.1:54121/hub/session/b3c596cd-e2e4-5f49-a6a7-0965308c1bf9/element {"using": "link text", "sessionId": "b3c596cd-e2e4-5f49-a6a7-0965308c1bf9", "value": "Edit"}
+04/Aug/2018 07:16:21 DEBUG
+	Finished Request
+04/Aug/2018 07:16:21 DEBUG
+	POST http://127.0.0.1:54121/hub/session/b3c596cd-e2e4-5f49-a6a7-0965308c1bf9/element/{8b8948ca-fbbe-8c49-a0ab-1376b6cc0fd8}/click {"sessionId": "b3c596cd-e2e4-5f49-a6a7-0965308c1bf9", "id": "{8b8948ca-fbbe-8c49-a0ab-1376b6cc0fd8}"}
+04/Aug/2018 07:16:21 WARNING
+	Not Found: /static/sequencelistings/output/resources/style_colour.css
+04/Aug/2018 07:16:21 WARNING
+	Not Found: /static/sequencelistings/output/resources/splitLines.js
+04/Aug/2018 07:16:21 DEBUG
+	Finished Request
+04/Aug/2018 07:16:21 DEBUG
+	POST http://127.0.0.1:54121/hub/session/b3c596cd-e2e4-5f49-a6a7-0965308c1bf9/element {"using": "link text", "sessionId": "b3c596cd-e2e4-5f49-a6a7-0965308c1bf9", "value": "Add new sequence"}
+04/Aug/2018 07:16:21 DEBUG
+	Finished Request
+04/Aug/2018 07:16:21 DEBUG
+	POST http://127.0.0.1:54121/hub/session/b3c596cd-e2e4-5f49-a6a7-0965308c1bf9/element/{863f288c-3045-824c-b10c-ed1aa1360399}/click {"sessionId": "b3c596cd-e2e4-5f49-a6a7-0965308c1bf9", "id": "{863f288c-3045-824c-b10c-ed1aa1360399}"}
+04/Aug/2018 07:16:21 WARNING
+	Not Found: /static/sequencelistings/output/resources/style_colour.css
+04/Aug/2018 07:16:21 WARNING
+	Not Found: /static/sequencelistings/output/resources/splitLines.js
+04/Aug/2018 07:16:21 DEBUG
+	Finished Request
+04/Aug/2018 07:16:21 DEBUG
+	POST http://127.0.0.1:54121/hub/session/b3c596cd-e2e4-5f49-a6a7-0965308c1bf9/element {"using": "id", "sessionId": "b3c596cd-e2e4-5f49-a6a7-0965308c1bf9", "value": "id_sequenceName"}
+04/Aug/2018 07:16:21 DEBUG
+	Finished Request
+04/Aug/2018 07:16:21 DEBUG
+	POST http://127.0.0.1:54121/hub/session/b3c596cd-e2e4-5f49-a6a7-0965308c1bf9/element {"using": "id", "sessionId": "b3c596cd-e2e4-5f49-a6a7-0965308c1bf9", "value": "id_moltype"}
+04/Aug/2018 07:16:21 DEBUG
+	Finished Request
+04/Aug/2018 07:16:21 DEBUG
+	POST http://127.0.0.1:54121/hub/session/b3c596cd-e2e4-5f49-a6a7-0965308c1bf9/element {"using": "id", "sessionId": "b3c596cd-e2e4-5f49-a6a7-0965308c1bf9", "value": "id_residues"}
+04/Aug/2018 07:16:21 DEBUG
+	Finished Request
+04/Aug/2018 07:16:21 DEBUG
+	POST http://127.0.0.1:54121/hub/session/b3c596cd-e2e4-5f49-a6a7-0965308c1bf9/element {"using": "id", "sessionId": "b3c596cd-e2e4-5f49-a6a7-0965308c1bf9", "value": "id_organism"}
+04/Aug/2018 07:16:21 DEBUG
+	Finished Request
+04/Aug/2018 07:16:21 DEBUG
+	GET http://127.0.0.1:54121/hub/session/b3c596cd-e2e4-5f49-a6a7-0965308c1bf9/element/{757e8ce9-7edb-764a-8859-aa1eb70265eb}/text {"sessionId": "b3c596cd-e2e4-5f49-a6a7-0965308c1bf9", "id": "{757e8ce9-7edb-764a-8859-aa1eb70265eb}"}
+04/Aug/2018 07:16:21 DEBUG
+	Finished Request
+04/Aug/2018 07:16:21 DEBUG
+	POST http://127.0.0.1:54121/hub/session/b3c596cd-e2e4-5f49-a6a7-0965308c1bf9/element/{e12ee998-65e5-5640-9938-509879058d5d}/value {"sessionId": "b3c596cd-e2e4-5f49-a6a7-0965308c1bf9", "id": "{e12ee998-65e5-5640-9938-509879058d5d}", "value": ["D", "N", "A"]}
+04/Aug/2018 07:16:21 DEBUG
+	Finished Request
+04/Aug/2018 07:16:21 DEBUG
+	POST http://127.0.0.1:54121/hub/session/b3c596cd-e2e4-5f49-a6a7-0965308c1bf9/element/{a856c5c7-6c58-104d-b336-461e9340909f}/value {"sessionId": "b3c596cd-e2e4-5f49-a6a7-0965308c1bf9", "id": "{a856c5c7-6c58-104d-b336-461e9340909f}", "value": ["a", "c", "g", "t", "a", "c", "g", "t", "a", "c", "g", "t"]}
+04/Aug/2018 07:16:21 DEBUG
+	Finished Request
+04/Aug/2018 07:16:21 DEBUG
+	POST http://127.0.0.1:54121/hub/session/b3c596cd-e2e4-5f49-a6a7-0965308c1bf9/element/{080544d9-779e-5940-a97e-ced13306f2ab}/value {"sessionId": "b3c596cd-e2e4-5f49-a6a7-0965308c1bf9", "id": "{080544d9-779e-5940-a97e-ced13306f2ab}", "value": ["H", "o", "m", "o", " ", "s", "a", "p", "i", "e", "n", "s", " ", "s", "e", "l", "e", "n", "i", "u", "m"]}
+04/Aug/2018 07:16:21 DEBUG
+	Finished Request
+04/Aug/2018 07:16:21 DEBUG
+	POST http://127.0.0.1:54121/hub/session/b3c596cd-e2e4-5f49-a6a7-0965308c1bf9/element {"using": "xpath", "sessionId": "b3c596cd-e2e4-5f49-a6a7-0965308c1bf9", "value": "//input[@value=\"Submit\"]"}
+04/Aug/2018 07:16:21 DEBUG
+	Finished Request
+04/Aug/2018 07:16:21 DEBUG
+	POST http://127.0.0.1:54121/hub/session/b3c596cd-e2e4-5f49-a6a7-0965308c1bf9/element/{5d343ab6-86a2-ba43-b4c4-d4e98ddb6c08}/click {"sessionId": "b3c596cd-e2e4-5f49-a6a7-0965308c1bf9", "id": "{5d343ab6-86a2-ba43-b4c4-d4e98ddb6c08}"}
+04/Aug/2018 07:16:27 WARNING
+	Not Found: /static/sequencelistings/output/resources/style_colour.css
+04/Aug/2018 07:16:27 WARNING
+	Not Found: /static/sequencelistings/output/resources/splitLines.js
+04/Aug/2018 07:16:27 DEBUG
+	Finished Request
+04/Aug/2018 07:16:27 DEBUG
+	POST http://127.0.0.1:54121/hub/session/b3c596cd-e2e4-5f49-a6a7-0965308c1bf9/element {"using": "class name", "sessionId": "b3c596cd-e2e4-5f49-a6a7-0965308c1bf9", "value": "sequenceName"}
+04/Aug/2018 07:16:27 DEBUG
+	Finished Request
+04/Aug/2018 07:16:27 DEBUG
+	GET http://127.0.0.1:54121/hub/session/b3c596cd-e2e4-5f49-a6a7-0965308c1bf9/element/{2b062eca-2af6-7c4b-8ba6-835a51bbcd10}/text {"sessionId": "b3c596cd-e2e4-5f49-a6a7-0965308c1bf9", "id": "{2b062eca-2af6-7c4b-8ba6-835a51bbcd10}"}
+04/Aug/2018 07:16:27 DEBUG
+	Finished Request
+04/Aug/2018 07:16:27 DEBUG
+	POST http://127.0.0.1:54121/hub/session/b3c596cd-e2e4-5f49-a6a7-0965308c1bf9/element {"using": "link text", "sessionId": "b3c596cd-e2e4-5f49-a6a7-0965308c1bf9", "value": "Add new sequence"}
+04/Aug/2018 07:16:27 DEBUG
+	Finished Request
+04/Aug/2018 07:16:27 DEBUG
+	POST http://127.0.0.1:54121/hub/session/b3c596cd-e2e4-5f49-a6a7-0965308c1bf9/element/{e921f41c-fb76-194a-b6d6-9fe0653cc1d6}/click {"sessionId": "b3c596cd-e2e4-5f49-a6a7-0965308c1bf9", "id": "{e921f41c-fb76-194a-b6d6-9fe0653cc1d6}"}
+04/Aug/2018 07:16:27 WARNING
+	Not Found: /static/sequencelistings/output/resources/style_colour.css
+04/Aug/2018 07:16:27 WARNING
+	Not Found: /static/sequencelistings/output/resources/splitLines.js
+04/Aug/2018 07:16:27 DEBUG
+	Finished Request
+04/Aug/2018 07:16:27 DEBUG
+	POST http://127.0.0.1:54121/hub/session/b3c596cd-e2e4-5f49-a6a7-0965308c1bf9/element {"using": "id", "sessionId": "b3c596cd-e2e4-5f49-a6a7-0965308c1bf9", "value": "id_sequenceName"}
+04/Aug/2018 07:16:27 DEBUG
+	Finished Request
+04/Aug/2018 07:16:27 DEBUG
+	POST http://127.0.0.1:54121/hub/session/b3c596cd-e2e4-5f49-a6a7-0965308c1bf9/element {"using": "id", "sessionId": "b3c596cd-e2e4-5f49-a6a7-0965308c1bf9", "value": "id_moltype"}
+04/Aug/2018 07:16:27 DEBUG
+	Finished Request
+04/Aug/2018 07:16:27 DEBUG
+	POST http://127.0.0.1:54121/hub/session/b3c596cd-e2e4-5f49-a6a7-0965308c1bf9/element {"using": "id", "sessionId": "b3c596cd-e2e4-5f49-a6a7-0965308c1bf9", "value": "id_residues"}
+04/Aug/2018 07:16:27 DEBUG
+	Finished Request
+04/Aug/2018 07:16:27 DEBUG
+	POST http://127.0.0.1:54121/hub/session/b3c596cd-e2e4-5f49-a6a7-0965308c1bf9/element {"using": "id", "sessionId": "b3c596cd-e2e4-5f49-a6a7-0965308c1bf9", "value": "id_organism"}
+04/Aug/2018 07:16:27 DEBUG
+	Finished Request
+04/Aug/2018 07:16:27 DEBUG
+	GET http://127.0.0.1:54121/hub/session/b3c596cd-e2e4-5f49-a6a7-0965308c1bf9/element/{7133ff98-b71b-394e-8608-25ebaeeb216d}/text {"sessionId": "b3c596cd-e2e4-5f49-a6a7-0965308c1bf9", "id": "{7133ff98-b71b-394e-8608-25ebaeeb216d}"}
+04/Aug/2018 07:16:27 DEBUG
+	Finished Request
+04/Aug/2018 07:16:27 DEBUG
+	POST http://127.0.0.1:54121/hub/session/b3c596cd-e2e4-5f49-a6a7-0965308c1bf9/element/{db8c264e-1638-cb48-b009-06c90990ba27}/value {"sessionId": "b3c596cd-e2e4-5f49-a6a7-0965308c1bf9", "id": "{db8c264e-1638-cb48-b009-06c90990ba27}", "value": ["D", "N", "A"]}
+04/Aug/2018 07:16:27 DEBUG
+	Finished Request
+04/Aug/2018 07:16:27 DEBUG
+	POST http://127.0.0.1:54121/hub/session/b3c596cd-e2e4-5f49-a6a7-0965308c1bf9/element/{7133ff98-b71b-394e-8608-25ebaeeb216d}/value {"sessionId": "b3c596cd-e2e4-5f49-a6a7-0965308c1bf9", "id": "{7133ff98-b71b-394e-8608-25ebaeeb216d}", "value": ["x", "x", "y", "y", "z", "z"]}
+04/Aug/2018 07:16:27 DEBUG
+	Finished Request
+04/Aug/2018 07:16:27 DEBUG
+	POST http://127.0.0.1:54121/hub/session/b3c596cd-e2e4-5f49-a6a7-0965308c1bf9/element/{c609ad03-6c35-2646-9b07-ef8efec2965d}/value {"sessionId": "b3c596cd-e2e4-5f49-a6a7-0965308c1bf9", "id": "{c609ad03-6c35-2646-9b07-ef8efec2965d}", "value": ["a", "c", "g", "t", "a", "c", "g", "t", "a", "c", "g", "t"]}
+04/Aug/2018 07:16:27 DEBUG
+	Finished Request
+04/Aug/2018 07:16:27 DEBUG
+	POST http://127.0.0.1:54121/hub/session/b3c596cd-e2e4-5f49-a6a7-0965308c1bf9/element/{94e6edfa-4808-6b4b-8a5c-e31670d74c1c}/value {"sessionId": "b3c596cd-e2e4-5f49-a6a7-0965308c1bf9", "id": "{94e6edfa-4808-6b4b-8a5c-e31670d74c1c}", "value": ["H", "o", "m", "o", " ", "s", "a", "p", "i", "e", "n", "s", " ", "s", "e", "l", "e", "n", "i", "u", "m", "2"]}
+04/Aug/2018 07:16:27 DEBUG
+	Finished Request
+04/Aug/2018 07:16:27 DEBUG
+	POST http://127.0.0.1:54121/hub/session/b3c596cd-e2e4-5f49-a6a7-0965308c1bf9/element {"using": "xpath", "sessionId": "b3c596cd-e2e4-5f49-a6a7-0965308c1bf9", "value": "//input[@value=\"Submit\"]"}
+04/Aug/2018 07:16:27 DEBUG
+	Finished Request
+04/Aug/2018 07:16:27 DEBUG
+	POST http://127.0.0.1:54121/hub/session/b3c596cd-e2e4-5f49-a6a7-0965308c1bf9/element/{16b279ce-511c-3748-a0ed-c013ff50fc38}/click {"sessionId": "b3c596cd-e2e4-5f49-a6a7-0965308c1bf9", "id": "{16b279ce-511c-3748-a0ed-c013ff50fc38}"}
+04/Aug/2018 07:16:33 WARNING
+	Not Found: /static/sequencelistings/output/resources/style_colour.css
+04/Aug/2018 07:16:33 WARNING
+	Not Found: /static/sequencelistings/output/resources/splitLines.js
+04/Aug/2018 07:16:33 DEBUG
+	Finished Request
+04/Aug/2018 07:16:33 DEBUG
+	POST http://127.0.0.1:54121/hub/session/b3c596cd-e2e4-5f49-a6a7-0965308c1bf9/element {"using": "class name", "sessionId": "b3c596cd-e2e4-5f49-a6a7-0965308c1bf9", "value": "residues"}
+04/Aug/2018 07:16:33 DEBUG
+	Finished Request
+04/Aug/2018 07:16:33 DEBUG
+	GET http://127.0.0.1:54121/hub/session/b3c596cd-e2e4-5f49-a6a7-0965308c1bf9/element/{3080bb6a-3ced-eb4d-8cfe-cab0c22ede6a}/text {"sessionId": "b3c596cd-e2e4-5f49-a6a7-0965308c1bf9", "id": "{3080bb6a-3ced-eb4d-8cfe-cab0c22ede6a}"}
+04/Aug/2018 07:16:33 DEBUG
+	Finished Request
+04/Aug/2018 07:16:33 DEBUG
+	POST http://127.0.0.1:54121/hub/session/b3c596cd-e2e4-5f49-a6a7-0965308c1bf9/element {"using": "class name", "sessionId": "b3c596cd-e2e4-5f49-a6a7-0965308c1bf9", "value": "sequenceName"}
+04/Aug/2018 07:16:33 DEBUG
+	Finished Request
+04/Aug/2018 07:16:33 DEBUG
+	GET http://127.0.0.1:54121/hub/session/b3c596cd-e2e4-5f49-a6a7-0965308c1bf9/element/{2ca46b49-5445-3d44-8a44-46805e3c7928}/text {"sessionId": "b3c596cd-e2e4-5f49-a6a7-0965308c1bf9", "id": "{2ca46b49-5445-3d44-8a44-46805e3c7928}"}
+04/Aug/2018 07:16:33 DEBUG
+	Finished Request
+04/Aug/2018 07:16:33 DEBUG
+	DELETE http://127.0.0.1:54121/hub/session/b3c596cd-e2e4-5f49-a6a7-0965308c1bf9 {"sessionId": "b3c596cd-e2e4-5f49-a6a7-0965308c1bf9"}
+04/Aug/2018 07:16:33 DEBUG
+	Finished Request
+04/Aug/2018 07:16:35 DEBUG
+	POST http://127.0.0.1:54250/hub/session {"desiredCapabilities": {"platform": "ANY", "browserName": "firefox", "version": "", "marionette": false, "javascriptEnabled": true}}
+04/Aug/2018 07:16:35 DEBUG
+	Finished Request
+04/Aug/2018 07:16:35 DEBUG
+	POST http://127.0.0.1:54250/hub/session/96804b07-8f0e-064a-92e5-fafb34516ae3/timeouts/implicit_wait {"sessionId": "96804b07-8f0e-064a-92e5-fafb34516ae3", "ms": 3000.0}
+04/Aug/2018 07:16:35 DEBUG
+	Finished Request
+04/Aug/2018 07:16:35 DEBUG
+	POST http://127.0.0.1:54250/hub/session/96804b07-8f0e-064a-92e5-fafb34516ae3/url {"url": "http://localhost:8081/sequencelistings/add_sequencelisting", "sessionId": "96804b07-8f0e-064a-92e5-fafb34516ae3"}
+04/Aug/2018 07:16:35 WARNING
+	Not Found: /static/sequencelistings/output/resources/style_colour.css
+04/Aug/2018 07:16:35 WARNING
+	Not Found: /static/sequencelistings/output/resources/splitLines.js
+04/Aug/2018 07:16:35 WARNING
+	Not Found: /favicon.ico
+04/Aug/2018 07:16:35 WARNING
+	Not Found: /favicon.ico
+04/Aug/2018 07:16:35 DEBUG
+	Finished Request
+04/Aug/2018 07:16:35 DEBUG
+	POST http://127.0.0.1:54250/hub/session/96804b07-8f0e-064a-92e5-fafb34516ae3/element {"using": "id", "sessionId": "96804b07-8f0e-064a-92e5-fafb34516ae3", "value": "id_inventionTitle"}
+04/Aug/2018 07:16:35 DEBUG
+	Finished Request
+04/Aug/2018 07:16:35 DEBUG
+	POST http://127.0.0.1:54250/hub/session/96804b07-8f0e-064a-92e5-fafb34516ae3/element {"using": "id", "sessionId": "96804b07-8f0e-064a-92e5-fafb34516ae3", "value": "id_inventionTitleLanguageCode"}
+04/Aug/2018 07:16:35 DEBUG
+	Finished Request
+04/Aug/2018 07:16:35 DEBUG
+	POST http://127.0.0.1:54250/hub/session/96804b07-8f0e-064a-92e5-fafb34516ae3/element {"using": "id", "sessionId": "96804b07-8f0e-064a-92e5-fafb34516ae3", "value": "id_fileName"}
+04/Aug/2018 07:16:35 DEBUG
+	Finished Request
+04/Aug/2018 07:16:35 DEBUG
+	POST http://127.0.0.1:54250/hub/session/96804b07-8f0e-064a-92e5-fafb34516ae3/element {"using": "id", "sessionId": "96804b07-8f0e-064a-92e5-fafb34516ae3", "value": "id_applicantFileReference"}
+04/Aug/2018 07:16:35 DEBUG
+	Finished Request
+04/Aug/2018 07:16:35 DEBUG
+	POST http://127.0.0.1:54250/hub/session/96804b07-8f0e-064a-92e5-fafb34516ae3/element {"using": "id", "sessionId": "96804b07-8f0e-064a-92e5-fafb34516ae3", "value": "id_IPOfficeCode"}
+04/Aug/2018 07:16:35 DEBUG
+	Finished Request
+04/Aug/2018 07:16:35 DEBUG
+	POST http://127.0.0.1:54250/hub/session/96804b07-8f0e-064a-92e5-fafb34516ae3/element {"using": "id", "sessionId": "96804b07-8f0e-064a-92e5-fafb34516ae3", "value": "id_applicationNumberText"}
+04/Aug/2018 07:16:35 DEBUG
+	Finished Request
+04/Aug/2018 07:16:35 DEBUG
+	POST http://127.0.0.1:54250/hub/session/96804b07-8f0e-064a-92e5-fafb34516ae3/element {"using": "id", "sessionId": "96804b07-8f0e-064a-92e5-fafb34516ae3", "value": "id_filingDate"}
+04/Aug/2018 07:16:35 DEBUG
+	Finished Request
+04/Aug/2018 07:16:35 DEBUG
+	POST http://127.0.0.1:54250/hub/session/96804b07-8f0e-064a-92e5-fafb34516ae3/element {"using": "id", "sessionId": "96804b07-8f0e-064a-92e5-fafb34516ae3", "value": "id_earliestPriorityIPOfficeCode"}
+04/Aug/2018 07:16:35 DEBUG
+	Finished Request
+04/Aug/2018 07:16:35 DEBUG
+	POST http://127.0.0.1:54250/hub/session/96804b07-8f0e-064a-92e5-fafb34516ae3/element {"using": "id", "sessionId": "96804b07-8f0e-064a-92e5-fafb34516ae3", "value": "id_earliestPriorityApplicationNumberText"}
+04/Aug/2018 07:16:35 DEBUG
+	Finished Request
+04/Aug/2018 07:16:35 DEBUG
+	POST http://127.0.0.1:54250/hub/session/96804b07-8f0e-064a-92e5-fafb34516ae3/element {"using": "id", "sessionId": "96804b07-8f0e-064a-92e5-fafb34516ae3", "value": "id_earliestPriorityFilingDate"}
+04/Aug/2018 07:16:35 DEBUG
+	Finished Request
+04/Aug/2018 07:16:35 DEBUG
+	POST http://127.0.0.1:54250/hub/session/96804b07-8f0e-064a-92e5-fafb34516ae3/element {"using": "id", "sessionId": "96804b07-8f0e-064a-92e5-fafb34516ae3", "value": "id_applicantName"}
+04/Aug/2018 07:16:35 DEBUG
+	Finished Request
+04/Aug/2018 07:16:35 DEBUG
+	POST http://127.0.0.1:54250/hub/session/96804b07-8f0e-064a-92e5-fafb34516ae3/element {"using": "id", "sessionId": "96804b07-8f0e-064a-92e5-fafb34516ae3", "value": "id_applicantNameLanguageCode"}
+04/Aug/2018 07:16:35 DEBUG
+	Finished Request
+04/Aug/2018 07:16:35 DEBUG
+	POST http://127.0.0.1:54250/hub/session/96804b07-8f0e-064a-92e5-fafb34516ae3/element {"using": "id", "sessionId": "96804b07-8f0e-064a-92e5-fafb34516ae3", "value": "id_applicantNameLatin"}
+04/Aug/2018 07:16:35 DEBUG
+	Finished Request
+04/Aug/2018 07:16:35 DEBUG
+	POST http://127.0.0.1:54250/hub/session/96804b07-8f0e-064a-92e5-fafb34516ae3/element {"using": "id", "sessionId": "96804b07-8f0e-064a-92e5-fafb34516ae3", "value": "id_inventorName"}
+04/Aug/2018 07:16:35 DEBUG
+	Finished Request
+04/Aug/2018 07:16:35 DEBUG
+	POST http://127.0.0.1:54250/hub/session/96804b07-8f0e-064a-92e5-fafb34516ae3/element {"using": "id", "sessionId": "96804b07-8f0e-064a-92e5-fafb34516ae3", "value": "id_inventorNameLanguageCode"}
+04/Aug/2018 07:16:35 DEBUG
+	Finished Request
+04/Aug/2018 07:16:35 DEBUG
+	POST http://127.0.0.1:54250/hub/session/96804b07-8f0e-064a-92e5-fafb34516ae3/element {"using": "id", "sessionId": "96804b07-8f0e-064a-92e5-fafb34516ae3", "value": "id_inventorNameLatin"}
+04/Aug/2018 07:16:35 DEBUG
+	Finished Request
+04/Aug/2018 07:16:35 DEBUG
+	POST http://127.0.0.1:54250/hub/session/96804b07-8f0e-064a-92e5-fafb34516ae3/element/{f01f82b2-2824-6b4e-9f68-d29e2b7a403c}/value {"sessionId": "96804b07-8f0e-064a-92e5-fafb34516ae3", "id": "{f01f82b2-2824-6b4e-9f68-d29e2b7a403c}", "value": ["a"]}
+04/Aug/2018 07:16:35 DEBUG
+	Finished Request
+04/Aug/2018 07:16:35 DEBUG
+	POST http://127.0.0.1:54250/hub/session/96804b07-8f0e-064a-92e5-fafb34516ae3/element/{226778b6-db29-eb47-87a6-eaad1eb0ccdd}/value {"sessionId": "96804b07-8f0e-064a-92e5-fafb34516ae3", "id": "{226778b6-db29-eb47-87a6-eaad1eb0ccdd}", "value": ["b"]}
+04/Aug/2018 07:16:35 DEBUG
+	Finished Request
+04/Aug/2018 07:16:35 DEBUG
+	POST http://127.0.0.1:54250/hub/session/96804b07-8f0e-064a-92e5-fafb34516ae3/element/{92b41908-1c16-554b-9a54-0638112e2229}/value {"sessionId": "96804b07-8f0e-064a-92e5-fafb34516ae3", "id": "{92b41908-1c16-554b-9a54-0638112e2229}", "value": ["s", "e", "l", "e", "n", "i", "u", "m", "_", "t", "e", "s", "t", "2"]}
+04/Aug/2018 07:16:35 DEBUG
+	Finished Request
+04/Aug/2018 07:16:35 DEBUG
+	POST http://127.0.0.1:54250/hub/session/96804b07-8f0e-064a-92e5-fafb34516ae3/element/{03d5d117-0d08-5445-88b0-65af88d25ec9}/value {"sessionId": "96804b07-8f0e-064a-92e5-fafb34516ae3", "id": "{03d5d117-0d08-5445-88b0-65af88d25ec9}", "value": ["d"]}
+04/Aug/2018 07:16:35 DEBUG
+	Finished Request
+04/Aug/2018 07:16:35 DEBUG
+	POST http://127.0.0.1:54250/hub/session/96804b07-8f0e-064a-92e5-fafb34516ae3/element/{ab33a0b6-50b8-fc46-be45-0a7df1cbf0e2}/value {"sessionId": "96804b07-8f0e-064a-92e5-fafb34516ae3", "id": "{ab33a0b6-50b8-fc46-be45-0a7df1cbf0e2}", "value": ["e"]}
+04/Aug/2018 07:16:35 DEBUG
+	Finished Request
+04/Aug/2018 07:16:35 DEBUG
+	POST http://127.0.0.1:54250/hub/session/96804b07-8f0e-064a-92e5-fafb34516ae3/element/{8d2796f4-e57e-fb49-8889-35620f4e742b}/value {"sessionId": "96804b07-8f0e-064a-92e5-fafb34516ae3", "id": "{8d2796f4-e57e-fb49-8889-35620f4e742b}", "value": ["f"]}
+04/Aug/2018 07:16:35 DEBUG
+	Finished Request
+04/Aug/2018 07:16:35 DEBUG
+	POST http://127.0.0.1:54250/hub/session/96804b07-8f0e-064a-92e5-fafb34516ae3/element/{74dcfaf4-cdfa-5e4a-a639-51c18a5f9ba4}/value {"sessionId": "96804b07-8f0e-064a-92e5-fafb34516ae3", "id": "{74dcfaf4-cdfa-5e4a-a639-51c18a5f9ba4}", "value": ["2", "0", "1", "0", "-", "1", "2", "-", "2", "0"]}
+04/Aug/2018 07:16:35 DEBUG
+	Finished Request
+04/Aug/2018 07:16:35 DEBUG
+	POST http://127.0.0.1:54250/hub/session/96804b07-8f0e-064a-92e5-fafb34516ae3/element/{0af35603-8d6b-e743-b0a1-4c7b34648015}/value {"sessionId": "96804b07-8f0e-064a-92e5-fafb34516ae3", "id": "{0af35603-8d6b-e743-b0a1-4c7b34648015}", "value": ["g"]}
+04/Aug/2018 07:16:36 DEBUG
+	Finished Request
+04/Aug/2018 07:16:36 DEBUG
+	POST http://127.0.0.1:54250/hub/session/96804b07-8f0e-064a-92e5-fafb34516ae3/element/{35ea86b4-1510-3a4d-8e26-527289cf6c46}/value {"sessionId": "96804b07-8f0e-064a-92e5-fafb34516ae3", "id": "{35ea86b4-1510-3a4d-8e26-527289cf6c46}", "value": ["h"]}
+04/Aug/2018 07:16:36 DEBUG
+	Finished Request
+04/Aug/2018 07:16:36 DEBUG
+	POST http://127.0.0.1:54250/hub/session/96804b07-8f0e-064a-92e5-fafb34516ae3/element/{cb0be16e-b2ed-264a-9783-4f3bcf0e4f3e}/value {"sessionId": "96804b07-8f0e-064a-92e5-fafb34516ae3", "id": "{cb0be16e-b2ed-264a-9783-4f3bcf0e4f3e}", "value": ["2", "0", "0", "9", "-", "1", "2", "-", "2", "0"]}
+04/Aug/2018 07:16:36 DEBUG
+	Finished Request
+04/Aug/2018 07:16:36 DEBUG
+	POST http://127.0.0.1:54250/hub/session/96804b07-8f0e-064a-92e5-fafb34516ae3/element/{c83fa3cd-6147-804d-bf5e-90fb2b4239f6}/value {"sessionId": "96804b07-8f0e-064a-92e5-fafb34516ae3", "id": "{c83fa3cd-6147-804d-bf5e-90fb2b4239f6}", "value": ["i"]}
+04/Aug/2018 07:16:36 DEBUG
+	Finished Request
+04/Aug/2018 07:16:36 DEBUG
+	POST http://127.0.0.1:54250/hub/session/96804b07-8f0e-064a-92e5-fafb34516ae3/element/{66053b01-00f6-d04a-b663-5df9ba5615be}/value {"sessionId": "96804b07-8f0e-064a-92e5-fafb34516ae3", "id": "{66053b01-00f6-d04a-b663-5df9ba5615be}", "value": ["j"]}
+04/Aug/2018 07:16:36 DEBUG
+	Finished Request
+04/Aug/2018 07:16:36 DEBUG
+	POST http://127.0.0.1:54250/hub/session/96804b07-8f0e-064a-92e5-fafb34516ae3/element/{6c037b2c-6d3d-e240-a862-bf74b05cdceb}/value {"sessionId": "96804b07-8f0e-064a-92e5-fafb34516ae3", "id": "{6c037b2c-6d3d-e240-a862-bf74b05cdceb}", "value": ["k"]}
+04/Aug/2018 07:16:36 DEBUG
+	Finished Request
+04/Aug/2018 07:16:36 DEBUG
+	POST http://127.0.0.1:54250/hub/session/96804b07-8f0e-064a-92e5-fafb34516ae3/element/{0a9b79b1-1dd4-2f46-97b0-5d4002be8652}/value {"sessionId": "96804b07-8f0e-064a-92e5-fafb34516ae3", "id": "{0a9b79b1-1dd4-2f46-97b0-5d4002be8652}", "value": ["l"]}
+04/Aug/2018 07:16:36 DEBUG
+	Finished Request
+04/Aug/2018 07:16:36 DEBUG
+	POST http://127.0.0.1:54250/hub/session/96804b07-8f0e-064a-92e5-fafb34516ae3/element/{f094afb7-0584-a440-a405-6e78e94ca9a8}/value {"sessionId": "96804b07-8f0e-064a-92e5-fafb34516ae3", "id": "{f094afb7-0584-a440-a405-6e78e94ca9a8}", "value": ["m"]}
+04/Aug/2018 07:16:36 DEBUG
+	Finished Request
+04/Aug/2018 07:16:36 DEBUG
+	POST http://127.0.0.1:54250/hub/session/96804b07-8f0e-064a-92e5-fafb34516ae3/element/{283d5e67-06cf-1240-9715-f79cd1149986}/value {"sessionId": "96804b07-8f0e-064a-92e5-fafb34516ae3", "id": "{283d5e67-06cf-1240-9715-f79cd1149986}", "value": ["n"]}
+04/Aug/2018 07:16:36 DEBUG
+	Finished Request
+04/Aug/2018 07:16:36 DEBUG
+	POST http://127.0.0.1:54250/hub/session/96804b07-8f0e-064a-92e5-fafb34516ae3/element {"using": "xpath", "sessionId": "96804b07-8f0e-064a-92e5-fafb34516ae3", "value": "//input[@value=\"Submit\"]"}
+04/Aug/2018 07:16:36 DEBUG
+	Finished Request
+04/Aug/2018 07:16:36 DEBUG
+	POST http://127.0.0.1:54250/hub/session/96804b07-8f0e-064a-92e5-fafb34516ae3/element/{6f18334b-0af8-0f4e-99de-541c9de2a95c}/click {"sessionId": "96804b07-8f0e-064a-92e5-fafb34516ae3", "id": "{6f18334b-0af8-0f4e-99de-541c9de2a95c}"}
+04/Aug/2018 07:16:41 WARNING
+	Not Found: /static/sequencelistings/output/resources/style_colour.css
+04/Aug/2018 07:16:41 WARNING
+	Not Found: /static/sequencelistings/output/resources/splitLines.js
+04/Aug/2018 07:16:41 DEBUG
+	Finished Request
+04/Aug/2018 07:16:41 DEBUG
+	POST http://127.0.0.1:54250/hub/session/96804b07-8f0e-064a-92e5-fafb34516ae3/url {"url": "http://localhost:8081/sequencelistings/overview", "sessionId": "96804b07-8f0e-064a-92e5-fafb34516ae3"}
+04/Aug/2018 07:16:41 WARNING
+	Not Found: /static/sequencelistings/output/resources/style_colour.css
+04/Aug/2018 07:16:41 WARNING
+	Not Found: /static/sequencelistings/output/resources/splitLines.js
+04/Aug/2018 07:16:41 DEBUG
+	Finished Request
+04/Aug/2018 07:16:41 DEBUG
+	POST http://127.0.0.1:54250/hub/session/96804b07-8f0e-064a-92e5-fafb34516ae3/element {"using": "link text", "sessionId": "96804b07-8f0e-064a-92e5-fafb34516ae3", "value": "selenium_test2"}
+04/Aug/2018 07:16:41 DEBUG
+	Finished Request
+04/Aug/2018 07:16:41 DEBUG
+	POST http://127.0.0.1:54250/hub/session/96804b07-8f0e-064a-92e5-fafb34516ae3/element/{bd8560f3-59fa-3e45-93dc-44ca0a710a03}/click {"sessionId": "96804b07-8f0e-064a-92e5-fafb34516ae3", "id": "{bd8560f3-59fa-3e45-93dc-44ca0a710a03}"}
+04/Aug/2018 07:16:41 WARNING
+	Not Found: /static/sequencelistings/output/resources/style_colour.css
+04/Aug/2018 07:16:41 WARNING
+	Not Found: /static/sequencelistings/output/resources/splitLines.js
+04/Aug/2018 07:16:41 DEBUG
+	Finished Request
+04/Aug/2018 07:16:41 DEBUG
+	POST http://127.0.0.1:54250/hub/session/96804b07-8f0e-064a-92e5-fafb34516ae3/element {"using": "link text", "sessionId": "96804b07-8f0e-064a-92e5-fafb34516ae3", "value": "Edit"}
+04/Aug/2018 07:16:41 DEBUG
+	Finished Request
+04/Aug/2018 07:16:41 DEBUG
+	GET http://127.0.0.1:54250/hub/session/96804b07-8f0e-064a-92e5-fafb34516ae3/element/{6a9dd93e-ad8b-fb4d-b550-e21cd126de62}/displayed {"sessionId": "96804b07-8f0e-064a-92e5-fafb34516ae3", "id": "{6a9dd93e-ad8b-fb4d-b550-e21cd126de62}"}
+04/Aug/2018 07:16:41 DEBUG
+	Finished Request
+04/Aug/2018 07:16:41 DEBUG
+	POST http://127.0.0.1:54250/hub/session/96804b07-8f0e-064a-92e5-fafb34516ae3/element/{6a9dd93e-ad8b-fb4d-b550-e21cd126de62}/click {"sessionId": "96804b07-8f0e-064a-92e5-fafb34516ae3", "id": "{6a9dd93e-ad8b-fb4d-b550-e21cd126de62}"}
+04/Aug/2018 07:16:41 WARNING
+	Not Found: /static/sequencelistings/output/resources/style_colour.css
+04/Aug/2018 07:16:41 WARNING
+	Not Found: /static/sequencelistings/output/resources/splitLines.js
+04/Aug/2018 07:16:41 DEBUG
+	Finished Request
+04/Aug/2018 07:16:41 DEBUG
+	POST http://127.0.0.1:54250/hub/session/96804b07-8f0e-064a-92e5-fafb34516ae3/element {"using": "link text", "sessionId": "96804b07-8f0e-064a-92e5-fafb34516ae3", "value": "Import sequence"}
+04/Aug/2018 07:16:41 DEBUG
+	Finished Request
+04/Aug/2018 07:16:41 DEBUG
+	GET http://127.0.0.1:54250/hub/session/96804b07-8f0e-064a-92e5-fafb34516ae3/element/{4bc9f2cb-78af-5f48-b12b-87d03c0f31f4}/displayed {"sessionId": "96804b07-8f0e-064a-92e5-fafb34516ae3", "id": "{4bc9f2cb-78af-5f48-b12b-87d03c0f31f4}"}
+04/Aug/2018 07:16:41 DEBUG
+	Finished Request
+04/Aug/2018 07:16:41 DEBUG
+	POST http://127.0.0.1:54250/hub/session/96804b07-8f0e-064a-92e5-fafb34516ae3/element/{4bc9f2cb-78af-5f48-b12b-87d03c0f31f4}/click {"sessionId": "96804b07-8f0e-064a-92e5-fafb34516ae3", "id": "{4bc9f2cb-78af-5f48-b12b-87d03c0f31f4}"}
+04/Aug/2018 07:16:41 WARNING
+	Not Found: /static/sequencelistings/output/resources/style_colour.css
+04/Aug/2018 07:16:41 WARNING
+	Not Found: /static/sequencelistings/output/resources/splitLines.js
+04/Aug/2018 07:16:41 DEBUG
+	Finished Request
+04/Aug/2018 07:16:41 DEBUG
+	POST http://127.0.0.1:54250/hub/session/96804b07-8f0e-064a-92e5-fafb34516ae3/elements {"using": "tag name", "sessionId": "96804b07-8f0e-064a-92e5-fafb34516ae3", "value": "h2"}
+04/Aug/2018 07:16:41 DEBUG
+	Finished Request
+04/Aug/2018 07:16:41 DEBUG
+	GET http://127.0.0.1:54250/hub/session/96804b07-8f0e-064a-92e5-fafb34516ae3/element/{435a3035-df96-e149-8b6d-508192ec6f46}/text {"sessionId": "96804b07-8f0e-064a-92e5-fafb34516ae3", "id": "{435a3035-df96-e149-8b6d-508192ec6f46}"}
+04/Aug/2018 07:16:41 DEBUG
+	Finished Request
+04/Aug/2018 07:16:41 DEBUG
+	POST http://127.0.0.1:54250/hub/session/96804b07-8f0e-064a-92e5-fafb34516ae3/element {"using": "id", "sessionId": "96804b07-8f0e-064a-92e5-fafb34516ae3", "value": "id_organism"}
+04/Aug/2018 07:16:41 DEBUG
+	Finished Request
+04/Aug/2018 07:16:41 DEBUG
+	POST http://127.0.0.1:54250/hub/session/96804b07-8f0e-064a-92e5-fafb34516ae3/element {"using": "id", "sessionId": "96804b07-8f0e-064a-92e5-fafb34516ae3", "value": "id_moltype"}
+04/Aug/2018 07:16:41 DEBUG
+	Finished Request
+04/Aug/2018 07:16:41 DEBUG
+	POST http://127.0.0.1:54250/hub/session/96804b07-8f0e-064a-92e5-fafb34516ae3/element {"using": "id", "sessionId": "96804b07-8f0e-064a-92e5-fafb34516ae3", "value": "id_file"}
+04/Aug/2018 07:16:41 DEBUG
+	Finished Request
+04/Aug/2018 07:16:41 DEBUG
+	POST http://127.0.0.1:54250/hub/session/96804b07-8f0e-064a-92e5-fafb34516ae3/element/{6d880166-f163-e443-b5dc-dbe15b29790f}/value {"sessionId": "96804b07-8f0e-064a-92e5-fafb34516ae3", "id": "{6d880166-f163-e443-b5dc-dbe15b29790f}", "value": ["F", "e", "l", "i", "x", " ", "c", "a", "t", "u", "s", " ", "s", "e", "l", "e", "n", "i", "u", "m"]}
+04/Aug/2018 07:16:41 DEBUG
+	Finished Request
+04/Aug/2018 07:16:41 DEBUG
+	POST http://127.0.0.1:54250/hub/session/96804b07-8f0e-064a-92e5-fafb34516ae3/element/{f9370f94-5243-a046-b01d-e0d378398a5a}/value {"sessionId": "96804b07-8f0e-064a-92e5-fafb34516ae3", "id": "{f9370f94-5243-a046-b01d-e0d378398a5a}", "value": ["A", "A"]}
+04/Aug/2018 07:16:41 DEBUG
+	Finished Request
+04/Aug/2018 07:16:41 DEBUG
+	POST http://127.0.0.1:54250/hub/session/96804b07-8f0e-064a-92e5-fafb34516ae3/element/{57497d35-9d29-304f-bcf8-78c379b1e0af}/value {"sessionId": "96804b07-8f0e-064a-92e5-fafb34516ae3", "id": "{57497d35-9d29-304f-bcf8-78c379b1e0af}", "value": ["/", "U", "s", "e", "r", "s", "/", "a", "d", "/", "p", "y", "t", "o", "n", "/", "p", "r", "o", "j", "e", "c", "t", "s", "/", "s", "t", "2", "6", "p", "r", "o", "t", "o", "/", "a", "u", "t", "h", "o", "r", "i", "n", "g", "t", "o", "o", "l", "/", "f", "u", "n", "c", "t", "i", "o", "n", "a", "l", "_", "t", "e", "s", "t", "s", "/", "i", "m", "p", "1", ".", "f", "a", "s", "t", "a"]}
+04/Aug/2018 07:16:41 DEBUG
+	Finished Request
+04/Aug/2018 07:16:41 DEBUG
+	POST http://127.0.0.1:54250/hub/session/96804b07-8f0e-064a-92e5-fafb34516ae3/element {"using": "xpath", "sessionId": "96804b07-8f0e-064a-92e5-fafb34516ae3", "value": "//input[@value=\"Upload file\"]"}
+04/Aug/2018 07:16:41 DEBUG
+	Finished Request
+04/Aug/2018 07:16:41 DEBUG
+	POST http://127.0.0.1:54250/hub/session/96804b07-8f0e-064a-92e5-fafb34516ae3/element/{bf70fcdc-81f1-3a43-9125-6857fa889381}/click {"sessionId": "96804b07-8f0e-064a-92e5-fafb34516ae3", "id": "{bf70fcdc-81f1-3a43-9125-6857fa889381}"}
+04/Aug/2018 07:16:42 WARNING
+	Not Found: /static/sequencelistings/output/resources/style_colour.css
+04/Aug/2018 07:16:42 WARNING
+	Not Found: /static/sequencelistings/output/resources/splitLines.js
+04/Aug/2018 07:16:42 DEBUG
+	Finished Request
+04/Aug/2018 07:16:42 DEBUG
+	POST http://127.0.0.1:54250/hub/session/96804b07-8f0e-064a-92e5-fafb34516ae3/element {"using": "class name", "sessionId": "96804b07-8f0e-064a-92e5-fafb34516ae3", "value": "residues"}
+04/Aug/2018 07:16:42 DEBUG
+	Finished Request
+04/Aug/2018 07:16:42 DEBUG
+	GET http://127.0.0.1:54250/hub/session/96804b07-8f0e-064a-92e5-fafb34516ae3/element/{ae94c43f-437b-0f4f-abf1-d862e7f23882}/text {"sessionId": "96804b07-8f0e-064a-92e5-fafb34516ae3", "id": "{ae94c43f-437b-0f4f-abf1-d862e7f23882}"}
+04/Aug/2018 07:16:42 DEBUG
+	Finished Request
+04/Aug/2018 07:16:42 DEBUG
+	DELETE http://127.0.0.1:54250/hub/session/96804b07-8f0e-064a-92e5-fafb34516ae3 {"sessionId": "96804b07-8f0e-064a-92e5-fafb34516ae3"}
+04/Aug/2018 07:16:42 DEBUG
+	Finished Request
+04/Aug/2018 07:16:44 DEBUG
+	POST http://127.0.0.1:54355/hub/session {"desiredCapabilities": {"platform": "ANY", "browserName": "firefox", "version": "", "marionette": false, "javascriptEnabled": true}}
+04/Aug/2018 07:16:44 DEBUG
+	Finished Request
+04/Aug/2018 07:16:44 DEBUG
+	POST http://127.0.0.1:54355/hub/session/4b47de63-5cb5-fe4d-9193-b20d5499e6ab/timeouts/implicit_wait {"sessionId": "4b47de63-5cb5-fe4d-9193-b20d5499e6ab", "ms": 3000.0}
+04/Aug/2018 07:16:44 DEBUG
+	Finished Request
+04/Aug/2018 07:16:44 DEBUG
+	POST http://127.0.0.1:54355/hub/session/4b47de63-5cb5-fe4d-9193-b20d5499e6ab/url {"url": "http://localhost:8081/sequencelistings/about", "sessionId": "4b47de63-5cb5-fe4d-9193-b20d5499e6ab"}
+04/Aug/2018 07:16:44 WARNING
+	Not Found: /static/sequencelistings/output/resources/style_colour.css
+04/Aug/2018 07:16:44 WARNING
+	Not Found: /static/sequencelistings/output/resources/splitLines.js
+04/Aug/2018 07:16:44 WARNING
+	Not Found: /static/images/rango.jpg
+04/Aug/2018 07:16:44 WARNING
+	Not Found: /favicon.ico
+04/Aug/2018 07:16:44 DEBUG
+	Finished Request
+04/Aug/2018 07:16:44 DEBUG
+	GET http://127.0.0.1:54355/hub/session/4b47de63-5cb5-fe4d-9193-b20d5499e6ab/title {"sessionId": "4b47de63-5cb5-fe4d-9193-b20d5499e6ab"}
+04/Aug/2018 07:16:44 WARNING
+	Not Found: /favicon.ico
+04/Aug/2018 07:16:44 DEBUG
+	Finished Request
+04/Aug/2018 07:16:44 DEBUG
+	DELETE http://127.0.0.1:54355/hub/session/4b47de63-5cb5-fe4d-9193-b20d5499e6ab {"sessionId": "4b47de63-5cb5-fe4d-9193-b20d5499e6ab"}
+04/Aug/2018 07:16:44 DEBUG
+	Finished Request
+04/Aug/2018 07:16:47 DEBUG
+	POST http://127.0.0.1:54379/hub/session {"desiredCapabilities": {"platform": "ANY", "browserName": "firefox", "version": "", "marionette": false, "javascriptEnabled": true}}
+04/Aug/2018 07:16:47 DEBUG
+	Finished Request
+04/Aug/2018 07:16:47 DEBUG
+	POST http://127.0.0.1:54379/hub/session/1e946508-7463-354f-aef6-19e23debf4cf/timeouts/implicit_wait {"sessionId": "1e946508-7463-354f-aef6-19e23debf4cf", "ms": 3000.0}
+04/Aug/2018 07:16:47 DEBUG
+	Finished Request
+04/Aug/2018 07:16:47 DEBUG
+	POST http://127.0.0.1:54379/hub/session/1e946508-7463-354f-aef6-19e23debf4cf/url {"url": "http://localhost:8081/sequencelistings/overview", "sessionId": "1e946508-7463-354f-aef6-19e23debf4cf"}
+04/Aug/2018 07:16:47 WARNING
+	Not Found: /static/sequencelistings/output/resources/style_colour.css
+04/Aug/2018 07:16:47 WARNING
+	Not Found: /static/sequencelistings/output/resources/splitLines.js
+04/Aug/2018 07:16:47 WARNING
+	Not Found: /favicon.ico
+04/Aug/2018 07:16:47 DEBUG
+	Finished Request
+04/Aug/2018 07:16:47 DEBUG
+	GET http://127.0.0.1:54379/hub/session/1e946508-7463-354f-aef6-19e23debf4cf/title {"sessionId": "1e946508-7463-354f-aef6-19e23debf4cf"}
+04/Aug/2018 07:16:47 WARNING
+	Not Found: /favicon.ico
+04/Aug/2018 07:16:47 DEBUG
+	Finished Request
+04/Aug/2018 07:16:47 DEBUG
+	POST http://127.0.0.1:54379/hub/session/1e946508-7463-354f-aef6-19e23debf4cf/element {"using": "id", "sessionId": "1e946508-7463-354f-aef6-19e23debf4cf", "value": "no_seqls_par"}
+04/Aug/2018 07:16:47 DEBUG
+	Finished Request
+04/Aug/2018 07:16:47 DEBUG
+	GET http://127.0.0.1:54379/hub/session/1e946508-7463-354f-aef6-19e23debf4cf/element/{3c6d1a65-ee66-d042-b74c-2b6bc53d0d40}/text {"sessionId": "1e946508-7463-354f-aef6-19e23debf4cf", "id": "{3c6d1a65-ee66-d042-b74c-2b6bc53d0d40}"}
+04/Aug/2018 07:16:47 DEBUG
+	Finished Request
+04/Aug/2018 07:16:47 DEBUG
+	POST http://127.0.0.1:54379/hub/session/1e946508-7463-354f-aef6-19e23debf4cf/elements {"using": "tag name", "sessionId": "1e946508-7463-354f-aef6-19e23debf4cf", "value": "table"}
+04/Aug/2018 07:16:50 DEBUG
+	Finished Request
+04/Aug/2018 07:16:50 DEBUG
+	POST http://127.0.0.1:54379/hub/session/1e946508-7463-354f-aef6-19e23debf4cf/elements {"using": "id", "sessionId": "1e946508-7463-354f-aef6-19e23debf4cf", "value": "add_seql_link"}
+04/Aug/2018 07:16:53 DEBUG
+	Finished Request
+04/Aug/2018 07:16:53 DEBUG
+	DELETE http://127.0.0.1:54379/hub/session/1e946508-7463-354f-aef6-19e23debf4cf {"sessionId": "1e946508-7463-354f-aef6-19e23debf4cf"}
+04/Aug/2018 07:16:53 DEBUG
+	Finished Request
+04/Aug/2018 07:16:55 ERROR
+	The residues string contains "(" but does not match formula pattern. Residues: ab(c.
+04/Aug/2018 07:16:55 ERROR
+	The residues string contains "(" but does not match formula pattern. Residues: a(b9c.
+04/Aug/2018 07:16:55 ERROR
+	
+/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/testData/test6.xml
+Opening and ending tag mismatch: ApplicantNamey line 21 and ApplicantName, line 23, column 34 (line 23)
+04/Aug/2018 07:16:55 ERROR
+	
+/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/testData/test7.xml
+<string>:8:0:ERROR:VALID:DTD_CONTENT_MODEL: Element ST26SequenceListing content does not follow the DTD, expecting ((ApplicantFileReference | (ApplicationIdentification , ApplicantFileReference?)) , EarliestPriorityApplicationIdentification? , (ApplicantName , ApplicantNameLatin?)? , (InventorName , InventorNameLatin?)? , InventionTitle+ , SequenceTotalQuantity , SequenceData+), got (ApplicationIdentification ApplicantFileReference EarliestPriorityApplicationIdentification ApplicantsName ApplicantNameLatin InventorName InventorNameLatin InventionTitle InventionTitle SequenceTotalQuantity SequenceData SequenceData )
+04/Aug/2018 07:16:55 ERROR
+	
+/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/testData/test8.xml
+<string>:8:0:ERROR:VALID:DTD_CONTENT_MODEL: Element ST26SequenceListing content does not follow the DTD, expecting ((ApplicantFileReference | (ApplicationIdentification , ApplicantFileReference?)) , EarliestPriorityApplicationIdentification? , (ApplicantName , ApplicantNameLatin?)? , (InventorName , InventorNameLatin?)? , InventionTitle+ , SequenceTotalQuantity , SequenceData+), got (ApplicationIdentification ApplicantFileReference EarliestPriorityApplicationIdentification ApplicantName ApplicantNameLatin InventorName InventorNameLatin InventionTitle InventionTitle SequenceData SequenceData )
+04/Aug/2018 07:16:55 ERROR
+	/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/schema/xtestData/t11.xml:9:0:ERROR:SCHEMASV:SCHEMAV_ELEMENT_CONTENT: Element 'ApplicationNumberText': This element is not expected. Expected is ( IPOfficeCode ).
+04/Aug/2018 07:16:55 ERROR
+	/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/schema/xtestData/t12.xml:10:0:ERROR:SCHEMASV:SCHEMAV_ELEMENT_CONTENT: Element 'FilingDate': This element is not expected. Expected is ( ApplicationNumberText ).
+04/Aug/2018 07:16:55 ERROR
+	/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/schema/xtestData/t13.xml:18:0:ERROR:SCHEMASV:SCHEMAV_CVC_COMPLEX_TYPE_4: Element 'ApplicantName': The attribute 'languageCode' is required but missing.
+04/Aug/2018 07:16:55 ERROR
+	/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/schema/xtestData/t14.xml:24:0:ERROR:SCHEMASV:SCHEMAV_ELEMENT_CONTENT: Element 'SequenceTotalQuantity': This element is not expected. Expected is ( InventionTitle ).
+04/Aug/2018 07:16:55 ERROR
+	/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/schema/xtestData/t16.xml:26:0:ERROR:SCHEMASV:SCHEMAV_ELEMENT_CONTENT: Element 'SequenceData': This element is not expected. Expected is one of ( InventionTitle, SequenceTotalQuantity ).
+04/Aug/2018 07:16:55 ERROR
+	/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/schema/xtestData/t17.xml:6:0:ERROR:SCHEMASV:SCHEMAV_ELEMENT_CONTENT: Element 'ST26SequenceListing': Missing child element(s). Expected is ( SequenceData ).
+04/Aug/2018 07:16:55 ERROR
+	/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/schema/xtestData/t18.xml:51:0:ERROR:SCHEMASV:SCHEMAV_ELEMENT_CONTENT: Element 'SequenceData': Missing child element(s). Expected is ( INSDSeq ).
+04/Aug/2018 07:16:55 ERROR
+	/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/schema/xtestData/t19.xml:54:0:ERROR:SCHEMASV:SCHEMAV_ELEMENT_CONTENT: Element 'INSDSeq_moltype': This element is not expected. Expected is ( INSDSeq_length ).
+04/Aug/2018 07:16:55 ERROR
+	/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/schema/xtestData/t20.xml:55:0:ERROR:SCHEMASV:SCHEMAV_ELEMENT_CONTENT: Element 'INSDSeq_division': This element is not expected. Expected is ( INSDSeq_moltype ).
+04/Aug/2018 07:16:55 ERROR
+	/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/schema/xtestData/t21.xml:31:0:ERROR:SCHEMASV:SCHEMAV_ELEMENT_CONTENT: Element 'INSDSeq_feature-table': This element is not expected. Expected is ( INSDSeq_division ).
+04/Aug/2018 07:16:55 ERROR
+	/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/schema/xtestData/t23.xml:51:0:ERROR:SCHEMASV:SCHEMAV_CVC_COMPLEX_TYPE_4: Element 'SequenceData': The attribute 'sequenceIDNumber' is required but missing.
+04/Aug/2018 07:16:55 ERROR
+	/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/schema/xtestData/t25.xml:57:0:ERROR:SCHEMASV:SCHEMAV_CVC_PATTERN_VALID: Element 'INSDSeqid': [facet 'pattern'] The value 'abc' is not accepted by the pattern 'pat\|[A-Z]{2}\|[A-Z0-9]+\|[A-Z][0-9]\|[1-9][0-9]*'.
+/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/schema/xtestData/t25.xml:57:0:ERROR:SCHEMASV:SCHEMAV_CVC_DATATYPE_VALID_1_2_1: Element 'INSDSeqid': 'abc' is not a valid value of the local atomic type.
+/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/schema/xtestData/t25.xml:59:0:ERROR:SCHEMASV:SCHEMAV_ELEMENT_CONTENT: Element 'INSDSeq_other-seqids': This element is not expected. Expected is one of ( INSDSeq_feature-table, INSDSeq_sequence ).
+04/Aug/2018 07:16:55 ERROR
+	/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/schema/xtestData/t26.xml:56:0:ERROR:SCHEMASV:SCHEMAV_ELEMENT_CONTENT: Element 'INSDSeq_other-seqids': Missing child element(s). Expected is ( INSDSeqid ).
+04/Aug/2018 07:16:55 ERROR
+	/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/schema/xtestData/t27.xml:56:0:ERROR:SCHEMASV:SCHEMAV_ELEMENT_CONTENT: Element 'INSDSeq_feature-table': Missing child element(s). Expected is ( INSDFeature ).
+04/Aug/2018 07:16:55 ERROR
+	/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/schema/xtestData/t28.xml:73:0:ERROR:SCHEMASV:SCHEMAV_ELEMENT_CONTENT: Element 'INSDFeature_location': This element is not expected. Expected is ( INSDFeature_key ).
+04/Aug/2018 07:16:55 ERROR
+	/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/schema/xtestData/t29.xml:74:0:ERROR:SCHEMASV:SCHEMAV_ELEMENT_CONTENT: Element 'INSDFeature_quals': This element is not expected. Expected is ( INSDFeature_location ).
+04/Aug/2018 07:16:55 ERROR
+	/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/schema/xtestData/t31.xml:74:0:ERROR:SCHEMASV:SCHEMAV_ELEMENT_CONTENT: Element 'INSDFeature_quals': Missing child element(s). Expected is ( INSDQualifier ).
+04/Aug/2018 07:16:55 ERROR
+	/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/schema/xtestData/t32.xml:77:0:ERROR:SCHEMASV:SCHEMAV_ELEMENT_CONTENT: Element 'INSDQualifier_value': This element is not expected. Expected is ( INSDQualifier_name ).
+04/Aug/2018 07:16:55 ERROR
+	/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/schema/xtestData/t32a.xml:86:0:ERROR:SCHEMASV:SCHEMAV_CVC_ENUMERATION_VALID: Element 'INSDQualifier_name': [facet 'enumeration'] The value 'abc' is not an element of the set {'allele', 'anticodon', 'bound_moiety', 'cell_line', 'cell_type', 'chromosome', 'clone', 'clone_lib', 'codon_start', 'collected_by', 'collection_date', 'compare', 'cultivar', 'dev_stage', 'direction', 'EC_number', 'ecotype', 'environmental_sample', 'exception', 'frequency', 'function', 'gene', 'gene_synonym', 'germline', 'haplogroup', 'haplotype', 'host', 'identified_by', 'isolate', 'isolation_source', 'lab_host', 'lat_lon', 'macronuclear', 'map', 'mating_type', 'mobile_element_type', 'mod_base', 'mol_type', 'ncRNA_class', 'note', 'number', 'operon', 'organelle', 'organism', 'PCR_primers', 'phenotype', 'plasmid', 'pop_variant', 'product', 'protein_id', 'proviral', 'pseudo', 'pseudogene', 'rearranged', 'recombination_class', 'regulatory_class', 'replace', 'ribosomal_slippage', 'rpt_family', 'rpt_type', 'rpt_unit_range', 'rpt_unit_seq', 'satellite', 'segment', 'serotype', 'serovar', 'sex', 'standard_name', 'strain', 'sub_clone', 'sub_species', 'sub_strain', 'tag_peptide', 'tissue_lib', 'tissue_type', 'transl_except', 'transl_table', 'translation', 'trans_splicing', 'variety', 'MOL_TYPE', 'NOTE', 'ORGANISM'}.
+/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/schema/xtestData/t32a.xml:86:0:ERROR:SCHEMASV:SCHEMAV_CVC_DATATYPE_VALID_1_2_1: Element 'INSDQualifier_name': 'abc' is not a valid value of the atomic type 'qualifierNameValues'.
+04/Aug/2018 07:16:55 ERROR
+	/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/schema/xtestData/t34.xml:52:0:ERROR:SCHEMASV:SCHEMAV_ELEMENT_CONTENT: Element 'INSDSeq': Missing child element(s). Expected is ( INSDSeq_sequence ).
+04/Aug/2018 07:16:55 ERROR
+	/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/schema/xtestData/t35.xml:8:0:ERROR:SCHEMASV:SCHEMAV_CVC_ENUMERATION_VALID: Element 'IPOfficeCode': [facet 'enumeration'] The value '' is not an element of the set {'AF', 'OA', 'AP', 'AL', 'DZ', 'AD', 'AO', 'AI', 'AG', 'AR', 'AM', 'AW', 'AU', 'AT', 'AZ', 'BS', 'BH', 'BD', 'BB', 'BY', 'BE', 'BZ', 'BX', 'BJ', 'BM', 'BT', 'BO', 'BA', 'BW', 'BV', 'BR', 'BN', 'BG', 'BF', 'BI', 'KH', 'CM', 'CA', 'CV', 'KY', 'CF', 'TD', 'CL', 'CN', 'QZ', 'CO', 'KM', 'CG', 'CK', 'CR', 'CI', 'HR', 'CU', 'CY', 'CZ', 'KP', 'CD', 'DK', 'DJ', 'DM', 'DO', 'EC', 'EG', 'SV', 'GQ', 'ER', 'EE', 'ET', 'EA', 'EP', 'FK', 'FO', 'FJ', 'FI', 'FR', 'GA', 'GM', 'GE', 'DE', 'GH', 'GI', 'GR', 'GL', 'GD', 'GT', 'GG', 'GN', 'GW', 'GY', 'HT', 'VA', 'HN', 'HU', 'IS', 'IN', 'ID', 'IB, WO', 'IR', 'IQ', 'IE', 'IM', 'IL', 'IT', 'JM', 'JP', 'JE', 'JO', 'KZ', 'KE', 'KI', 'KW', 'KG', 'LA', 'LV', 'LB', 'LS', 'LR', 'LY', 'LI', 'LT', 'LU', 'MO', 'MG', 'MW', 'MY', 'MV', 'ML', 'MT', 'MR', 'MU', 'MX', 'MC', 'MN', 'ME', 'MS', 'MA', 'MZ', 'MM', 'NA', 'NR', 'NP', 'NL', 'AN', 'NZ', 'NI', 'NE', 'NG', 'XN', 'MP', 'NO', 'EM', 'OM', 'PK', 'PW', 'PA', 'PG', 'PY', 'GC', 'PE', 'PH', 'PL', 'PT', 'QA', 'KR', 'MD', 'RO', 'RU', 'RW', 'SH', 'KN', 'LC', 'VC', 'WS', 'SM', 'ST', 'SA', 'SN', 'RS', 'SC', 'SL', 'SG', 'SK', 'SI', 'SB', 'SO', 'ZA', 'GS', 'ES', 'LK', 'SD', 'SR', 'SZ', 'SE', 'CH', 'SY', 'TW', 'TJ', 'TH', 'MK', 'HK', 'TL', 'TG', 'TO', 'TT', 'TN', 'TR', 'TM', 'TC', 'TV', 'UG', 'UA', 'AE', 'GB', 'TZ', 'US', 'UY', 'UZ', 'VU', 'VE', 'VN', 'VG', 'EH', 'WO, IB', 'YE', 'ZM', 'ZW'}.
+/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/schema/xtestData/t35.xml:8:0:ERROR:SCHEMASV:SCHEMAV_CVC_DATATYPE_VALID_1_2_1: Element 'IPOfficeCode': '' is not a valid value of the atomic type 'IPOfficeCodeValues'.
+04/Aug/2018 07:16:55 ERROR
+	/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/schema/xtestData/t36.xml:8:0:ERROR:SCHEMASV:SCHEMAV_CVC_ENUMERATION_VALID: Element 'IPOfficeCode': [facet 'enumeration'] The value 'sx' is not an element of the set {'AF', 'OA', 'AP', 'AL', 'DZ', 'AD', 'AO', 'AI', 'AG', 'AR', 'AM', 'AW', 'AU', 'AT', 'AZ', 'BS', 'BH', 'BD', 'BB', 'BY', 'BE', 'BZ', 'BX', 'BJ', 'BM', 'BT', 'BO', 'BA', 'BW', 'BV', 'BR', 'BN', 'BG', 'BF', 'BI', 'KH', 'CM', 'CA', 'CV', 'KY', 'CF', 'TD', 'CL', 'CN', 'QZ', 'CO', 'KM', 'CG', 'CK', 'CR', 'CI', 'HR', 'CU', 'CY', 'CZ', 'KP', 'CD', 'DK', 'DJ', 'DM', 'DO', 'EC', 'EG', 'SV', 'GQ', 'ER', 'EE', 'ET', 'EA', 'EP', 'FK', 'FO', 'FJ', 'FI', 'FR', 'GA', 'GM', 'GE', 'DE', 'GH', 'GI', 'GR', 'GL', 'GD', 'GT', 'GG', 'GN', 'GW', 'GY', 'HT', 'VA', 'HN', 'HU', 'IS', 'IN', 'ID', 'IB, WO', 'IR', 'IQ', 'IE', 'IM', 'IL', 'IT', 'JM', 'JP', 'JE', 'JO', 'KZ', 'KE', 'KI', 'KW', 'KG', 'LA', 'LV', 'LB', 'LS', 'LR', 'LY', 'LI', 'LT', 'LU', 'MO', 'MG', 'MW', 'MY', 'MV', 'ML', 'MT', 'MR', 'MU', 'MX', 'MC', 'MN', 'ME', 'MS', 'MA', 'MZ', 'MM', 'NA', 'NR', 'NP', 'NL', 'AN', 'NZ', 'NI', 'NE', 'NG', 'XN', 'MP', 'NO', 'EM', 'OM', 'PK', 'PW', 'PA', 'PG', 'PY', 'GC', 'PE', 'PH', 'PL', 'PT', 'QA', 'KR', 'MD', 'RO', 'RU', 'RW', 'SH', 'KN', 'LC', 'VC', 'WS', 'SM', 'ST', 'SA', 'SN', 'RS', 'SC', 'SL', 'SG', 'SK', 'SI', 'SB', 'SO', 'ZA', 'GS', 'ES', 'LK', 'SD', 'SR', 'SZ', 'SE', 'CH', 'SY', 'TW', 'TJ', 'TH', 'MK', 'HK', 'TL', 'TG', 'TO', 'TT', 'TN', 'TR', 'TM', 'TC', 'TV', 'UG', 'UA', 'AE', 'GB', 'TZ', 'US', 'UY', 'UZ', 'VU', 'VE', 'VN', 'VG', 'EH', 'WO, IB', 'YE', 'ZM', 'ZW'}.
+/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/schema/xtestData/t36.xml:8:0:ERROR:SCHEMASV:SCHEMAV_CVC_DATATYPE_VALID_1_2_1: Element 'IPOfficeCode': 'sx' is not a valid value of the atomic type 'IPOfficeCodeValues'.
+04/Aug/2018 07:16:55 ERROR
+	/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/schema/xtestData/t37.xml:18:0:ERROR:SCHEMASV:SCHEMAV_CVC_ENUMERATION_VALID: Element 'ApplicantName', attribute 'languageCode': [facet 'enumeration'] The value '' is not an element of the set {'aa', 'ab', 'af', 'ak', 'sq', 'am', 'ar', 'an', 'hy', 'as', 'av', 'ae', 'ay', 'az', 'ba', 'bm', 'eu', 'be', 'bn', 'bh', 'bi', 'bo', 'bs', 'br', 'bg', 'my', 'ca', 'cs', 'ch', 'ce', 'zh', 'cu', 'cv', 'kw', 'co', 'cr', 'cy', 'da', 'de', 'dv', 'nl', 'dz', 'el', 'en', 'eo', 'et', 'ee', 'fo', 'fa', 'fj', 'fi', 'fr', 'fy', 'ff', 'ka', 'gd', 'ga', 'gl', 'gv', 'gn', 'gu', 'ht', 'ha', 'he', 'hz', 'hi', 'ho', 'hr', 'hu', 'ig', 'is', 'io', 'ii', 'iu', 'ie', 'ia', 'id', 'ik', 'it', 'jv', 'ja', 'kl', 'kn', 'ks', 'kr', 'kk', 'km', 'ki', 'rw', 'ky', 'kv', 'kg', 'ko', 'kj', 'ku', 'lo', 'la', 'lv', 'li', 'ln', 'lt', 'lb', 'lu', 'lg', 'mk', 'mh', 'ml', 'mi', 'mr', 'ms', 'mg', 'mt', 'mn', 'na', 'nv', 'nr', 'nd', 'ng', 'ne', 'nn', 'nb', 'no', 'ny', 'oc', 'oj', 'or', 'om', 'os', 'pa', 'pi', 'pl', 'pt', 'ps', 'qu', 'rm', 'ro', 'rn', 'ru', 'sg', 'sa', 'si', 'sk', 'sl', 'se', 'sm', 'sn', 'sd', 'so', 'st', 'es', 'sc', 'sr', 'ss', 'su', 'sw', 'sv', 'ty', 'ta', 'tt', 'te', 'tg', 'tl', 'th', 'ti', 'to', 'tn', 'ts', 'tk', 'tr', 'tw', 'ug', 'uk', 'ur', 'uz', 've', 'vi', 'vo', 'wa', 'wo', 'xh', 'yi', 'yo', 'za', 'zu'}.
+/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/schema/xtestData/t37.xml:18:0:ERROR:SCHEMASV:SCHEMAV_CVC_DATATYPE_VALID_1_2_1: Element 'ApplicantName', attribute 'languageCode': '' is not a valid value of the atomic type 'languageCodeValues'.
+04/Aug/2018 07:16:55 ERROR
+	/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/schema/xtestData/t38.xml:18:0:ERROR:SCHEMASV:SCHEMAV_CVC_ENUMERATION_VALID: Element 'ApplicantName', attribute 'languageCode': [facet 'enumeration'] The value 'xx' is not an element of the set {'aa', 'ab', 'af', 'ak', 'sq', 'am', 'ar', 'an', 'hy', 'as', 'av', 'ae', 'ay', 'az', 'ba', 'bm', 'eu', 'be', 'bn', 'bh', 'bi', 'bo', 'bs', 'br', 'bg', 'my', 'ca', 'cs', 'ch', 'ce', 'zh', 'cu', 'cv', 'kw', 'co', 'cr', 'cy', 'da', 'de', 'dv', 'nl', 'dz', 'el', 'en', 'eo', 'et', 'ee', 'fo', 'fa', 'fj', 'fi', 'fr', 'fy', 'ff', 'ka', 'gd', 'ga', 'gl', 'gv', 'gn', 'gu', 'ht', 'ha', 'he', 'hz', 'hi', 'ho', 'hr', 'hu', 'ig', 'is', 'io', 'ii', 'iu', 'ie', 'ia', 'id', 'ik', 'it', 'jv', 'ja', 'kl', 'kn', 'ks', 'kr', 'kk', 'km', 'ki', 'rw', 'ky', 'kv', 'kg', 'ko', 'kj', 'ku', 'lo', 'la', 'lv', 'li', 'ln', 'lt', 'lb', 'lu', 'lg', 'mk', 'mh', 'ml', 'mi', 'mr', 'ms', 'mg', 'mt', 'mn', 'na', 'nv', 'nr', 'nd', 'ng', 'ne', 'nn', 'nb', 'no', 'ny', 'oc', 'oj', 'or', 'om', 'os', 'pa', 'pi', 'pl', 'pt', 'ps', 'qu', 'rm', 'ro', 'rn', 'ru', 'sg', 'sa', 'si', 'sk', 'sl', 'se', 'sm', 'sn', 'sd', 'so', 'st', 'es', 'sc', 'sr', 'ss', 'su', 'sw', 'sv', 'ty', 'ta', 'tt', 'te', 'tg', 'tl', 'th', 'ti', 'to', 'tn', 'ts', 'tk', 'tr', 'tw', 'ug', 'uk', 'ur', 'uz', 've', 'vi', 'vo', 'wa', 'wo', 'xh', 'yi', 'yo', 'za', 'zu'}.
+/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/schema/xtestData/t38.xml:18:0:ERROR:SCHEMASV:SCHEMAV_CVC_DATATYPE_VALID_1_2_1: Element 'ApplicantName', attribute 'languageCode': 'xx' is not a valid value of the atomic type 'languageCodeValues'.
+04/Aug/2018 07:16:55 ERROR
+	/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/schema/xtestData/t39.xml:24:0:ERROR:SCHEMASV:SCHEMAV_CVC_DATATYPE_VALID_1_2_1: Element 'SequenceTotalQuantity': '' is not a valid value of the atomic type 'xs:positiveInteger'.
+04/Aug/2018 07:16:55 ERROR
+	/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/schema/xtestData/t40.xml:24:0:ERROR:SCHEMASV:SCHEMAV_CVC_DATATYPE_VALID_1_2_1: Element 'SequenceTotalQuantity': '0' is not a valid value of the atomic type 'xs:positiveInteger'.
+04/Aug/2018 07:16:55 ERROR
+	/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/schema/xtestData/t41.xml:24:0:ERROR:SCHEMASV:SCHEMAV_CVC_DATATYPE_VALID_1_2_1: Element 'SequenceTotalQuantity': 'abc' is not a valid value of the atomic type 'xs:positiveInteger'.
+04/Aug/2018 07:16:55 ERROR
+	/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/schema/xtestData/t42.xml:26:0:ERROR:SCHEMASV:SCHEMAV_CVC_DATATYPE_VALID_1_2_1: Element 'SequenceData', attribute 'sequenceIDNumber': '' is not a valid value of the atomic type 'xs:positiveInteger'.
+/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/schema/xtestData/t42.xml:26:0:ERROR:SCHEMASV:SCHEMAV_CVC_IDC: Element 'SequenceData', attribute 'sequenceIDNumber': Warning: No precomputed value available, the value was either invalid or something strange happend.
+04/Aug/2018 07:16:55 ERROR
+	/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/schema/xtestData/t43.xml:51:0:ERROR:SCHEMASV:SCHEMAV_CVC_DATATYPE_VALID_1_2_1: Element 'SequenceData', attribute 'sequenceIDNumber': '0' is not a valid value of the atomic type 'xs:positiveInteger'.
+/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/schema/xtestData/t43.xml:51:0:ERROR:SCHEMASV:SCHEMAV_CVC_IDC: Element 'SequenceData', attribute 'sequenceIDNumber': Warning: No precomputed value available, the value was either invalid or something strange happend.
+04/Aug/2018 07:16:55 ERROR
+	/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/schema/xtestData/t44.xml:51:0:ERROR:SCHEMASV:SCHEMAV_CVC_DATATYPE_VALID_1_2_1: Element 'SequenceData', attribute 'sequenceIDNumber': 'abc' is not a valid value of the atomic type 'xs:positiveInteger'.
+/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/schema/xtestData/t44.xml:51:0:ERROR:SCHEMASV:SCHEMAV_CVC_IDC: Element 'SequenceData', attribute 'sequenceIDNumber': Warning: No precomputed value available, the value was either invalid or something strange happend.
+04/Aug/2018 07:16:55 ERROR
+	/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/schema/xtestData/t46.xml:53:0:ERROR:SCHEMASV:SCHEMAV_CVC_DATATYPE_VALID_1_2_3: Element 'INSDSeq_length': '0' is not a valid value of the local union type.
+04/Aug/2018 07:16:55 ERROR
+	/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/schema/xtestData/t47.xml:53:0:ERROR:SCHEMASV:SCHEMAV_CVC_DATATYPE_VALID_1_2_3: Element 'INSDSeq_length': 'abc' is not a valid value of the local union type.
+04/Aug/2018 07:16:55 ERROR
+	/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/schema/xtestData/t49.xml:54:0:ERROR:SCHEMASV:SCHEMAV_CVC_PATTERN_VALID: Element 'INSDSeq_moltype': [facet 'pattern'] The value 'PRT' is not accepted by the pattern 'DNA|RNA|AA|.{0}'.
+/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/schema/xtestData/t49.xml:54:0:ERROR:SCHEMASV:SCHEMAV_CVC_DATATYPE_VALID_1_2_1: Element 'INSDSeq_moltype': 'PRT' is not a valid value of the local atomic type.
+04/Aug/2018 07:16:55 ERROR
+	/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/schema/xtestData/t51.xml:55:0:ERROR:SCHEMASV:SCHEMAV_CVC_PATTERN_VALID: Element 'INSDSeq_division': [facet 'pattern'] The value 'xx' is not accepted by the pattern 'PAT|.{0}'.
+/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/schema/xtestData/t51.xml:55:0:ERROR:SCHEMASV:SCHEMAV_CVC_DATATYPE_VALID_1_2_1: Element 'INSDSeq_division': 'xx' is not a valid value of the local atomic type.
+04/Aug/2018 07:16:55 ERROR
+	/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/schema/xtestData/t51b.xml:32:0:ERROR:SCHEMASV:SCHEMAV_CVC_PATTERN_VALID: Element 'INSDSeqid': [facet 'pattern'] The value 'abc' is not accepted by the pattern 'pat\|[A-Z]{2}\|[A-Z0-9]+\|[A-Z][0-9]\|[1-9][0-9]*'.
+/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/schema/xtestData/t51b.xml:32:0:ERROR:SCHEMASV:SCHEMAV_CVC_DATATYPE_VALID_1_2_1: Element 'INSDSeqid': 'abc' is not a valid value of the local atomic type.
+04/Aug/2018 07:16:55 ERROR
+	/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/schema/xtestData/t52.xml:72:0:ERROR:SCHEMASV:SCHEMAV_CVC_ENUMERATION_VALID: Element 'INSDFeature_key': [facet 'enumeration'] The value '' is not an element of the set {'allele', 'attenuator', 'C_region', 'CAAT_signal', 'CDS', 'conflict', 'D-loop', 'D_segment', 'enhancer', 'exon', 'GC_signal', 'gene', 'iDNA', 'intron', 'J_segment', 'LTR', 'mat_peptide', 'misc_binding', 'misc_difference', 'misc_feature', 'misc_recomb', 'misc_RNA', 'misc_signal', 'misc_structure', 'modified_base', 'mRNA', 'mutation', 'N_region', 'old_sequence', 'polyA_signal', 'polyA_site', 'precursor_RNA', 'prim_transcript', 'primer_bind', 'promoter', 'protein_bind', 'RBS', 'repeat_region', 'repeat_unit', 'rep_origin', 'rRNA', 'S_region', 'satellite', 'scRNA', 'sig_peptide', 'snRNA', 'source', 'stem_loop', 'STS', 'TATA_signal', 'terminator', 'transit_peptide', 'tRNA', 'unsure', 'V_region', 'V_segment', 'variation', '3'clip', '3'UTR', '5'clip', '5'UTR', '-10_signal', '-35_signal', 'ACT_SITE', 'BINDING', 'CA_BIND', 'CARBOHYD', 'CHAIN', 'COILED', 'COMPBIAS', 'CONFLICT', 'CROSSLNK', 'DISULFID', 'DNA_BIND', 'DOMAIN', 'HELIX', 'INIT_MET', 'INTRAMEM', 'LIPID', 'METAL', 'MOD_RES', 'MOTIF', 'MUTAGEN', 'NON_STD', 'NON_TER', 'NP_BIND', 'PEPTIDE', 'PROPEP', 'REGION', 'REPEAT', 'SIGNAL', 'SITE', 'SOURCE', 'STRAND', 'TOPO_DOM', 'TRANSMEM', 'TRANSIT', 'TURN', 'UNSURE', 'VARIANT', 'VAR_SEQ', 'ZN_FING'}.
+/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/schema/xtestData/t52.xml:72:0:ERROR:SCHEMASV:SCHEMAV_CVC_DATATYPE_VALID_1_2_1: Element 'INSDFeature_key': '' is not a valid value of the atomic type 'featureKeyValues'.
+04/Aug/2018 07:16:55 ERROR
+	/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/schema/xtestData/t53.xml:72:0:ERROR:SCHEMASV:SCHEMAV_CVC_ENUMERATION_VALID: Element 'INSDFeature_key': [facet 'enumeration'] The value 'xx' is not an element of the set {'allele', 'attenuator', 'C_region', 'CAAT_signal', 'CDS', 'conflict', 'D-loop', 'D_segment', 'enhancer', 'exon', 'GC_signal', 'gene', 'iDNA', 'intron', 'J_segment', 'LTR', 'mat_peptide', 'misc_binding', 'misc_difference', 'misc_feature', 'misc_recomb', 'misc_RNA', 'misc_signal', 'misc_structure', 'modified_base', 'mRNA', 'mutation', 'N_region', 'old_sequence', 'polyA_signal', 'polyA_site', 'precursor_RNA', 'prim_transcript', 'primer_bind', 'promoter', 'protein_bind', 'RBS', 'repeat_region', 'repeat_unit', 'rep_origin', 'rRNA', 'S_region', 'satellite', 'scRNA', 'sig_peptide', 'snRNA', 'source', 'stem_loop', 'STS', 'TATA_signal', 'terminator', 'transit_peptide', 'tRNA', 'unsure', 'V_region', 'V_segment', 'variation', '3'clip', '3'UTR', '5'clip', '5'UTR', '-10_signal', '-35_signal', 'ACT_SITE', 'BINDING', 'CA_BIND', 'CARBOHYD', 'CHAIN', 'COILED', 'COMPBIAS', 'CONFLICT', 'CROSSLNK', 'DISULFID', 'DNA_BIND', 'DOMAIN', 'HELIX', 'INIT_MET', 'INTRAMEM', 'LIPID', 'METAL', 'MOD_RES', 'MOTIF', 'MUTAGEN', 'NON_STD', 'NON_TER', 'NP_BIND', 'PEPTIDE', 'PROPEP', 'REGION', 'REPEAT', 'SIGNAL', 'SITE', 'SOURCE', 'STRAND', 'TOPO_DOM', 'TRANSMEM', 'TRANSIT', 'TURN', 'UNSURE', 'VARIANT', 'VAR_SEQ', 'ZN_FING'}.
+/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/schema/xtestData/t53.xml:72:0:ERROR:SCHEMASV:SCHEMAV_CVC_DATATYPE_VALID_1_2_1: Element 'INSDFeature_key': 'xx' is not a valid value of the atomic type 'featureKeyValues'.
+04/Aug/2018 07:16:55 ERROR
+	/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/schema/xtestData/t55.xml:48:0:ERROR:SCHEMASV:SCHEMAV_CVC_PATTERN_VALID: Element 'INSDSeq_sequence': [facet 'pattern'] The value '' is not accepted by the pattern '[a,c,g,t,m,r,w,s,y,k,v,h,d,b,n]{10,}|[A,C,D,E,F,G,H,I,K,L,M,N,O,P,Q,R,S,T,U,V,W,Y,X,J,B,Z]{4,}|000'.
+/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/schema/xtestData/t55.xml:48:0:ERROR:SCHEMASV:SCHEMAV_CVC_DATATYPE_VALID_1_2_1: Element 'INSDSeq_sequence': '' is not a valid value of the local atomic type.
+04/Aug/2018 07:16:55 ERROR
+	/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/schema/xtestData/t56.xml:48:0:ERROR:SCHEMASV:SCHEMAV_CVC_PATTERN_VALID: Element 'INSDSeq_sequence': [facet 'pattern'] The value 'atgact' is not accepted by the pattern '[a,c,g,t,m,r,w,s,y,k,v,h,d,b,n]{10,}|[A,C,D,E,F,G,H,I,K,L,M,N,O,P,Q,R,S,T,U,V,W,Y,X,J,B,Z]{4,}|000'.
+/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/schema/xtestData/t56.xml:48:0:ERROR:SCHEMASV:SCHEMAV_CVC_DATATYPE_VALID_1_2_1: Element 'INSDSeq_sequence': 'atgact' is not a valid value of the local atomic type.
+04/Aug/2018 07:16:55 ERROR
+	/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/schema/xtestData/t57.xml:48:0:ERROR:SCHEMASV:SCHEMAV_CVC_PATTERN_VALID: Element 'INSDSeq_sequence': [facet 'pattern'] The value 'atuacttgca' is not accepted by the pattern '[a,c,g,t,m,r,w,s,y,k,v,h,d,b,n]{10,}|[A,C,D,E,F,G,H,I,K,L,M,N,O,P,Q,R,S,T,U,V,W,Y,X,J,B,Z]{4,}|000'.
+/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/schema/xtestData/t57.xml:48:0:ERROR:SCHEMASV:SCHEMAV_CVC_DATATYPE_VALID_1_2_1: Element 'INSDSeq_sequence': 'atuacttgca' is not a valid value of the local atomic type.
+04/Aug/2018 07:16:55 ERROR
+	/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/schema/xtestData/t58.xml:48:0:ERROR:SCHEMASV:SCHEMAV_CVC_PATTERN_VALID: Element 'INSDSeq_sequence': [facet 'pattern'] The value 'atGacttgca' is not accepted by the pattern '[a,c,g,t,m,r,w,s,y,k,v,h,d,b,n]{10,}|[A,C,D,E,F,G,H,I,K,L,M,N,O,P,Q,R,S,T,U,V,W,Y,X,J,B,Z]{4,}|000'.
+/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/schema/xtestData/t58.xml:48:0:ERROR:SCHEMASV:SCHEMAV_CVC_DATATYPE_VALID_1_2_1: Element 'INSDSeq_sequence': 'atGacttgca' is not a valid value of the local atomic type.
+04/Aug/2018 07:16:55 ERROR
+	/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/schema/xtestData/t59.xml:82:0:ERROR:SCHEMASV:SCHEMAV_CVC_PATTERN_VALID: Element 'INSDSeq_sequence': [facet 'pattern'] The value 'MSR' is not accepted by the pattern '[a,c,g,t,m,r,w,s,y,k,v,h,d,b,n]{10,}|[A,C,D,E,F,G,H,I,K,L,M,N,O,P,Q,R,S,T,U,V,W,Y,X,J,B,Z]{4,}|000'.
+/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/schema/xtestData/t59.xml:82:0:ERROR:SCHEMASV:SCHEMAV_CVC_DATATYPE_VALID_1_2_1: Element 'INSDSeq_sequence': 'MSR' is not a valid value of the local atomic type.
+04/Aug/2018 07:16:55 ERROR
+	/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/schema/xtestData/t60.xml:51:0:ERROR:SCHEMASV:SCHEMAV_CVC_IDC: Element 'SequenceData': Duplicate key-sequence ['2'] in unique identity-constraint 'uniqueSequenceIDNumber'.
+04/Aug/2018 07:16:55 ERROR
+	/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/schema/xtestData/t61.xml:10:0:ERROR:SCHEMASV:SCHEMAV_CVC_DATATYPE_VALID_1_2_1: Element 'FilingDate': '' is not a valid value of the atomic type 'xs:date'.
+04/Aug/2018 07:16:55 ERROR
+	/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/schema/xtestData/t62.xml:10:0:ERROR:SCHEMASV:SCHEMAV_CVC_DATATYPE_VALID_1_2_1: Element 'FilingDate': '2015-04-32' is not a valid value of the atomic type 'xs:date'.
+04/Aug/2018 07:16:55 ERROR
+	/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/schema/xtestData/t63.xml:10:0:ERROR:SCHEMASV:SCHEMAV_CVC_DATATYPE_VALID_1_2_1: Element 'FilingDate': 'Not assigned yet' is not a valid value of the atomic type 'xs:date'.
+04/Aug/2018 07:16:55 ERROR
+	/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/schema/xtestData/t64.xml:6:0:ERROR:SCHEMASV:SCHEMAV_CVC_PATTERN_VALID: Element 'ST26SequenceListing', attribute 'dtdVersion': [facet 'pattern'] The value '1.2' is not accepted by the pattern 'V[0-9]+_[0-9]+'.
+/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/schema/xtestData/t64.xml:6:0:ERROR:SCHEMASV:SCHEMAV_CVC_DATATYPE_VALID_1_2_1: Element 'ST26SequenceListing', attribute 'dtdVersion': '1.2' is not a valid value of the local atomic type.
+04/Aug/2018 07:16:55 ERROR
+	/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/schema/xtestData/t66.xml:77:0:ERROR:SCHEMASV:SCHEMAV_CVC_MAXLENGTH_VALID: Element 'INSDQualifier_value': [facet 'maxLength'] The value has a length of '1011'; this exceeds the allowed maximum length of '1000'.
+/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/schema/xtestData/t66.xml:77:0:ERROR:SCHEMASV:SCHEMAV_CVC_DATATYPE_VALID_1_2_1: Element 'INSDQualifier_value': 'insert MTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRSMTRS' is not a valid value of the local atomic type.
+04/Aug/2018 07:16:55 ERROR
+	/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/schema/xtestData/t67.xml:48:0:ERROR:SCHEMASV:SCHEMAV_CVC_PATTERN_VALID: Element 'INSDSeq_sequence': [facet 'pattern'] The value '' is not accepted by the pattern '[a,c,g,t,m,r,w,s,y,k,v,h,d,b,n]{10,}|[A,C,D,E,F,G,H,I,K,L,M,N,O,P,Q,R,S,T,U,V,W,Y,X,J,B,Z]{4,}|000'.
+/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/schema/xtestData/t67.xml:48:0:ERROR:SCHEMASV:SCHEMAV_CVC_DATATYPE_VALID_1_2_1: Element 'INSDSeq_sequence': '' is not a valid value of the local atomic type.
+04/Aug/2018 07:16:55 ERROR
+	/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/schema/xtestData/t68.xml:48:0:ERROR:SCHEMASV:SCHEMAV_CVC_PATTERN_VALID: Element 'INSDSeq_sequence': [facet 'pattern'] The value 'atgac' is not accepted by the pattern '[a,c,g,t,m,r,w,s,y,k,v,h,d,b,n]{10,}|[A,C,D,E,F,G,H,I,K,L,M,N,O,P,Q,R,S,T,U,V,W,Y,X,J,B,Z]{4,}|000'.
+/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/schema/xtestData/t68.xml:48:0:ERROR:SCHEMASV:SCHEMAV_CVC_DATATYPE_VALID_1_2_1: Element 'INSDSeq_sequence': 'atgac' is not a valid value of the local atomic type.
+04/Aug/2018 07:16:55 ERROR
+	/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/schema/xtestData/t69.xml:48:0:ERROR:SCHEMASV:SCHEMAV_CVC_PATTERN_VALID: Element 'INSDSeq_sequence': [facet 'pattern'] The value 'aigacttgca' is not accepted by the pattern '[a,c,g,t,m,r,w,s,y,k,v,h,d,b,n]{10,}|[A,C,D,E,F,G,H,I,K,L,M,N,O,P,Q,R,S,T,U,V,W,Y,X,J,B,Z]{4,}|000'.
+/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/schema/xtestData/t69.xml:48:0:ERROR:SCHEMASV:SCHEMAV_CVC_DATATYPE_VALID_1_2_1: Element 'INSDSeq_sequence': 'aigacttgca' is not a valid value of the local atomic type.
+04/Aug/2018 07:16:55 ERROR
+	/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/schema/xtestData/t7.xml:13:0:ERROR:SCHEMASV:SCHEMAV_ELEMENT_CONTENT: Element 'EarliestPriorityApplicationIdentification': This element is not expected. Expected is one of ( ApplicationIdentification, ApplicantFileReference ).
+04/Aug/2018 07:16:55 ERROR
+	/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/schema/xtestData/t70.xml:82:0:ERROR:SCHEMASV:SCHEMAV_CVC_PATTERN_VALID: Element 'INSDSeq_sequence': [facet 'pattern'] The value '' is not accepted by the pattern '[a,c,g,t,m,r,w,s,y,k,v,h,d,b,n]{10,}|[A,C,D,E,F,G,H,I,K,L,M,N,O,P,Q,R,S,T,U,V,W,Y,X,J,B,Z]{4,}|000'.
+/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/schema/xtestData/t70.xml:82:0:ERROR:SCHEMASV:SCHEMAV_CVC_DATATYPE_VALID_1_2_1: Element 'INSDSeq_sequence': '' is not a valid value of the local atomic type.
+04/Aug/2018 07:16:55 ERROR
+	/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/schema/xtestData/t71.xml:82:0:ERROR:SCHEMASV:SCHEMAV_CVC_PATTERN_VALID: Element 'INSDSeq_sequence': [facet 'pattern'] The value 'MSR' is not accepted by the pattern '[a,c,g,t,m,r,w,s,y,k,v,h,d,b,n]{10,}|[A,C,D,E,F,G,H,I,K,L,M,N,O,P,Q,R,S,T,U,V,W,Y,X,J,B,Z]{4,}|000'.
+/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/schema/xtestData/t71.xml:82:0:ERROR:SCHEMASV:SCHEMAV_CVC_DATATYPE_VALID_1_2_1: Element 'INSDSeq_sequence': 'MSR' is not a valid value of the local atomic type.
+04/Aug/2018 07:16:55 ERROR
+	/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/schema/xtestData/t72.xml:82:0:ERROR:SCHEMASV:SCHEMAV_CVC_PATTERN_VALID: Element 'INSDSeq_sequence': [facet 'pattern'] The value 'MSRK*' is not accepted by the pattern '[a,c,g,t,m,r,w,s,y,k,v,h,d,b,n]{10,}|[A,C,D,E,F,G,H,I,K,L,M,N,O,P,Q,R,S,T,U,V,W,Y,X,J,B,Z]{4,}|000'.
+/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/schema/xtestData/t72.xml:82:0:ERROR:SCHEMASV:SCHEMAV_CVC_DATATYPE_VALID_1_2_1: Element 'INSDSeq_sequence': 'MSRK*' is not a valid value of the local atomic type.
+04/Aug/2018 07:16:55 ERROR
+	/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/schema/xtestData/t74.xml:56:0:ERROR:SCHEMASV:SCHEMAV_CVC_PATTERN_VALID: Element 'INSDSeq_sequence': [facet 'pattern'] The value '' is not accepted by the pattern '[a,c,g,t,m,r,w,s,y,k,v,h,d,b,n]{10,}|[A,C,D,E,F,G,H,I,K,L,M,N,O,P,Q,R,S,T,U,V,W,Y,X,J,B,Z]{4,}|000'.
+/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/schema/xtestData/t74.xml:56:0:ERROR:SCHEMASV:SCHEMAV_CVC_DATATYPE_VALID_1_2_1: Element 'INSDSeq_sequence': '' is not a valid value of the local atomic type.
+04/Aug/2018 07:16:55 ERROR
+	/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/schema/xtestData/t75.xml:25:0:ERROR:SCHEMASV:SCHEMAV_ELEMENT_CONTENT: Element 'ExtraneousElementTest': This element is not expected. Expected is ( SequenceData ).
+04/Aug/2018 07:16:55 ERROR
+	/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/schema/xtestData/t76.xml
 Opening and ending tag mismatch: ApplicantFileReference line 12 and ST26SequenceListing, line 85, column 23 (line 85)
+04/Aug/2018 07:16:55 ERROR
+	/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/schema/xtestData/t77.xml
+Opening and ending tag mismatch: ApplicantNamex line 20 and ApplicantName, line 22, column 34 (line 22)
+04/Aug/2018 07:16:55 ERROR
+	/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/schema/xtestData/t78.xml
+Extra content at the end of the document, line 10, column 5 (line 10)
+04/Aug/2018 07:16:55 ERROR
+	/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/schema/xtestData/t79.xml
+AttValue: " or ' expected, line 5, column 35 (line 5)
+04/Aug/2018 07:16:55 ERROR
+	/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/schema/xtestData/t8.xml:7:0:ERROR:SCHEMASV:SCHEMAV_CVC_COMPLEX_TYPE_4: Element 'ST26SequenceListing': The attribute 'dtdVersion' is required but missing.
