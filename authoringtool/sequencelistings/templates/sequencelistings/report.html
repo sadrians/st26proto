@@ -11,7 +11,7 @@
         <p>{{parserError}}</p>
     {% endif %}
     {% if schemaError %}
-        <h2>Schema error</h2>
+        <h2 id="schemaErrorHeader">Schema error</h2>
         <ul>
         {% for er in schemaError %}
             <li>{{er}}</li>

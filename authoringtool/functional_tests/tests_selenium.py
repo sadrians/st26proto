@@ -88,8 +88,22 @@ class VisitorTest(LiveServerTestCase):
                          'There should be no table if no seqls created.')
             
 #         unregistered visitors are not allowed to add seqls i.e. there is no link to add seql
-        self.assertEqual(0, len(self.browser.find_elements_by_id('add_seql_link'))) 
-                              
+        self.assertEqual(0, len(self.browser.find_elements_by_id('add_seql_link')))
+
+    def test_validation_page(self):
+        print 'Selenium: Running %s ...' % self._testMethodName
+
+        self.browser.get(
+            '%s%s' % (self.live_server_url, '/sequencelistings/validation'))
+        self.assertIn('st26proto - Validation', self.browser.title)
+        fileChooserInput = self.browser.find_element_by_name('myfile')
+        fileChooserInput.send_keys('/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/schema/xtestdata/t25.xml')
+        validateButton = self.browser.find_element_by_id('validateButton')
+        validateButton.click()
+        schemaErrorHeader = self.browser.find_element_by_id('schemaErrorHeader')
+
+        self.assertIn('Schema error', schemaErrorHeader.text)
+
     def test_about_page(self):
         print 'Selenium: Running %s ...' % self._testMethodName
                 
