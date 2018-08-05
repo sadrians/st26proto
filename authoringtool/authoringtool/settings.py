@@ -39,8 +39,8 @@ INSTALLED_APPS = (
 #     'django_extensions',
     'sequencelistings',
     'registration',
-    'schema', #for testing, to be disabled later 20180527
-    
+    # 'schema', #for testing, to be disabled later 20180527
+
     
 )
 

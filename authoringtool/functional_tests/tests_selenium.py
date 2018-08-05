@@ -8,6 +8,7 @@ from selenium.webdriver.common.keys import Keys
 
 import time
 from unittest import skip
+# from sequencelistings import util
 
 class SeqlSeleniumTestFixture():    
 #     @classmethod
@@ -102,13 +103,6 @@ class VisitorTest(LiveServerTestCase):
         self.browser.get(
             '%s%s' % (self.live_server_url, '/sequencelistings/validation'))
         self.assertIn('st26proto - Validation', self.browser.title)
-        fileChooserInput = self.browser.find_element_by_name('myfile')
-        fileChooserInput.send_keys('/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/schema/xtestdata/t25.xml')
-        validateButton = self.browser.find_element_by_id('validateButton')
-        validateButton.click()
-        schemaErrorHeader = self.browser.find_element_by_id('schemaErrorHeader')
-
-        self.assertIn('Schema error', schemaErrorHeader.text)
 
     def test_about_page(self):
         print 'Selenium: Running %s ...' % self._testMethodName
@@ -446,6 +440,31 @@ class EditSequenceListingTest(LiveServerTestCase):
 #         now we are on edit_seql view
         residues_element = self.browser.find_element_by_class_name('residues')
         self.assert_('QIKDLLVSSS', residues_element.text)
+
+# @skip('temporarily skipped')
+class ValidationTest(LiveServerTestCase):
+    def setUp(self):
+        self.browser = webdriver.Firefox()
+        self.browser.implicitly_wait(3)
+
+    def tearDown(self):
+        self.browser.quit()
+
+    def test_validation_page(self):
+        print 'Selenium: Running %s ...' % self._testMethodName
+        # f25_filePath = util.
+        self.browser.get(
+            '%s%s' % (self.live_server_url, '/sequencelistings/validation'))
+
+        fileChooserInput = self.browser.find_element_by_name('myfile')
+        fileChooserInput.send_keys(
+            '/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/schema/xtestdata/t25.xml')
+        validateButton = self.browser.find_element_by_id('validateButton')
+        validateButton.click()
+        schemaErrorHeader = self.browser.find_element_by_id('schemaErrorHeader')
+
+        self.assertIn('Schema error', schemaErrorHeader.text)
+
 #         self.assert_('QIKDLLVSSS TDLDTTLVLV NAIYFKGMWK ', residues_element.text)
 #            TODO: continue uncommenting to test import!!!!!!!!!!!
 # #         check that the seql page contains now the new sequence
