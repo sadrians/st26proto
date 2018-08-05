@@ -351,7 +351,7 @@ def edit_feature(request, pk, spk, fpk):
             f.save()
             return HttpResponseRedirect(reverse('sequencelistings:edit_seql', args=(pk,)))
     else:
-        form = FeatureForm(mt=seq.moltype)
+        form = FeatureForm(mt=seq.moltype) #not used?...
     return render(request, 'sequencelistings/edit_feature.html', {'form': featureForm, 'seq': seq})
 
 def add_qualifier(request, pk, spk, fpk):
@@ -393,14 +393,6 @@ def generateXml(request, pk):
                         'fileName': sl.fileName, # can be obtained in the template from sequencelisting!!!!
                         'sequencelisting': sl,
                         }) 
-#         this version of xml root uses xsd schema file
-#         <!-- <ST26SequenceListing dtdVersion="{{sequenceListing.dtdVersion}}" 
-#                     fileName="{{sequenceListing.fileName}}"
-#                     softwareName="{{sequenceListing.softwareName}}" 
-#                     softwareVersion="{{sequenceListing.softwareVersion}}"
-#                     productionDate="{{sequenceListing.productionDate}}"
-#                     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-#                     xsi:noNamespaceSchemaLocation="st26.xsd"> -->
 
 # probably not used any longer        
 @login_required
@@ -437,27 +429,7 @@ def validation(request):
         res = util.validateDocumentWithSchemaStr(tx, util.XML_SCHEMA_PATH)
 
         return render(request, 'sequencelistings/report.html',
-                      {'fileName': f,
-                          'parserError': res['parserError'],
-                       'schemaError': res['schemaError']})
-        # return HttpResponseRedirect(
-        #     reverse('sequencelistings:report', args=({'fileName': f,
-        #                   'parserError': res['parserError'],
-        #                'schemaError': res['schemaError']},)))
-        # return HttpResponseRedirect(
-        #     reverse('sequencelistings:report'))
+                      {'fileName': f, 'parserError': res['parserError'],
+                       'schemaError': res['schemaError'], })
     else:
         return render(request, 'sequencelistings/validation.html')
-
-# not used, not needed
-# def report(request):
-#     return render(request, 'sequencelistings/report.html')
-#     # print 'abc'
-#     # vr = get_object_or_404(VerificationReport,
-#     #                        pk=verificationReport_id)
-#     # # response = r'You\'re looking at the verification report for %s.'
-#     # # return HttpResponse(response % verificationReport_id)
-#     # return render(request, 'validator/report.html', {'vr': vr})
-#     #
-#     # # return render(request, 'validator/report.html', RequestContext(request,
-#     # #             {'vr': } ))
