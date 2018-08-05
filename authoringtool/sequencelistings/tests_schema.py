@@ -470,6 +470,7 @@ class SchemaTests(unittest.TestCase):
         self.assertIsNone(res['parserError'])
         msg = r"Element 'INSDSeq_other-seqids': This element is not expected. Expected is one of ( INSDSeq_feature-table, INSDSeq_sequence )."
         self.assertIn(msg, str(res['schemaError']))
+        # TODO: there are actually 2 more messages!!!
 
     def test_validateDocumentWithSchema26(self):
         """Validation fails when INSDSeqid missing.

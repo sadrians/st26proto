@@ -1,24 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Report</title>
-</head>
-<body>
-<h1>Verification report for file: {{fileName}}</h1>
+{% extends 'sequencelistings/base.html' %}
+
+{% block title%}Report{% endblock %}
+
+{%block header_block %}
+    <h2 id='reportHeader'>REPORT</h2>
+{% endblock %}
+
+{% block body_block %}
+
+    <h1>Verification report for file: {{fileName}}</h1>
     {% if parserError %}
         <h2>Parser error</h2>
         <p>{{parserError}}</p>
-    {% endif %}
-    {% if schemaError %}
+    {% elif schemaError %}
         <h2 id="schemaErrorHeader">Schema error</h2>
         <ul>
         {% for er in schemaError %}
             <li>{{er}}</li>
         {% endfor %}
         </ul>
+    {% else %}
+        <p>No errors found.</p>
     {% endif %}
 
-{{resp}}
-</body>
-</html>
+    <hr />
+    <h4 id="disclaimerHeader">Disclaimer</h4>
+    <p>This website has been built <strong>only for information purposes</strong>.</p>
+    <p>No rights can be derived from visiting, registering and/or exploring the functionality of this website.</p>
+    <p>More on <a href="{% url 'sequencelistings:about' %}">About</a> page</p>
+{% endblock %}

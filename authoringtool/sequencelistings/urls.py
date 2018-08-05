@@ -4,7 +4,8 @@ Created on Apr 12, 2015
 @author: ad
 '''
 from django.conf.urls import patterns, url
-from sequencelistings import views
+# from sequencelistings \
+import views
 
 urlpatterns = patterns('',
     url(r'^$', views.IndexView.as_view(), name='index'),

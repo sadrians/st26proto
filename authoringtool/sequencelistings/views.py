@@ -435,23 +435,29 @@ def validation(request):
         # print 'File size:', f.size
         tx = f.read()
         res = util.validateDocumentWithSchemaStr(tx, util.XML_SCHEMA_PATH)
-        # schemaErrorClean = [str(er).split('Element')[1] for er in res['schemaError']]
+
         return render(request, 'sequencelistings/report.html',
                       {'fileName': f,
                           'parserError': res['parserError'],
                        'schemaError': res['schemaError']})
-                    # 'schemaError': schemaErrorClean})
+        # return HttpResponseRedirect(
+        #     reverse('sequencelistings:report', args=({'fileName': f,
+        #                   'parserError': res['parserError'],
+        #                'schemaError': res['schemaError']},)))
+        # return HttpResponseRedirect(
+        #     reverse('sequencelistings:report'))
     else:
         return render(request, 'sequencelistings/validation.html')
 
-
-# def report(request, verificationReport_id):
-#     print 'abc'
-#     vr = get_object_or_404(VerificationReport,
-#                            pk=verificationReport_id)
-#     # response = r'You\'re looking at the verification report for %s.'
-#     # return HttpResponse(response % verificationReport_id)
-#     return render(request, 'validator/report.html', {'vr': vr})
-#
-#     # return render(request, 'validator/report.html', RequestContext(request,
-#     #             {'vr': } ))
+# not used, not needed
+# def report(request):
+#     return render(request, 'sequencelistings/report.html')
+#     # print 'abc'
+#     # vr = get_object_or_404(VerificationReport,
+#     #                        pk=verificationReport_id)
+#     # # response = r'You\'re looking at the verification report for %s.'
+#     # # return HttpResponse(response % verificationReport_id)
+#     # return render(request, 'validator/report.html', {'vr': vr})
+#     #
+#     # # return render(request, 'validator/report.html', RequestContext(request,
+#     # #             {'vr': } ))
