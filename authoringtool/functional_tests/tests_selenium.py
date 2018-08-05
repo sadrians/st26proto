@@ -452,18 +452,46 @@ class ValidationTest(LiveServerTestCase):
 
     def test_validation_page(self):
         print 'Selenium: Running %s ...' % self._testMethodName
-        # f25_filePath = util.
+        # file gives schema errors
+        f25_filePath = '/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/schema/xtestdata/t25.xml'
+
+        # file gives parser errors
+        f77_filePath = '/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/schema/xtestdata/t77.xml'
+
+        # file gives no errors
+        f9_filePath = '/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/schema/xtestdata/t9.xml'
+
         self.browser.get(
             '%s%s' % (self.live_server_url, '/sequencelistings/validation'))
 
+        # ============== schema error
         fileChooserInput = self.browser.find_element_by_name('myfile')
-        fileChooserInput.send_keys(
-            '/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/schema/xtestdata/t25.xml')
+        fileChooserInput.send_keys(f25_filePath)
         validateButton = self.browser.find_element_by_id('validateButton')
         validateButton.click()
         schemaErrorHeader = self.browser.find_element_by_id('schemaErrorHeader')
-
         self.assertIn('Schema error', schemaErrorHeader.text)
+
+        # ============== parser error
+        validationLink = self.browser.find_element_by_link_text('Validation')
+        validationLink.click()
+        fileChooserInput = self.browser.find_element_by_name('myfile')
+        fileChooserInput.send_keys(f77_filePath)
+        validateButton = self.browser.find_element_by_id('validateButton')
+        validateButton.click()
+        parserErrorHeader = self.browser.find_element_by_id('parserErrorHeader')
+        self.assertIn('Parser error', parserErrorHeader.text)
+
+        # ============== no error
+        validationLink = self.browser.find_element_by_link_text('Validation')
+        validationLink.click()
+        fileChooserInput = self.browser.find_element_by_name('myfile')
+        fileChooserInput.send_keys(f9_filePath)
+        validateButton = self.browser.find_element_by_id('validateButton')
+        validateButton.click()
+        noErrorPar = self.browser.find_element_by_id('noErrorPar')
+        self.assertIn('No errors found', noErrorPar.text)
+
 
 #         self.assert_('QIKDLLVSSS TDLDTTLVLV NAIYFKGMWK ', residues_element.text)
 #            TODO: continue uncommenting to test import!!!!!!!!!!!

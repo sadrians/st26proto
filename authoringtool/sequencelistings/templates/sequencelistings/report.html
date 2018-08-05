@@ -11,7 +11,7 @@
 
     <h1>Verification report for file: {{fileName}}</h1>
     {% if parserError %}
-        <h2>Parser error</h2>
+        <h2 id="parserErrorHeader">Parser error</h2>
         <p>{{parserError}}</p>
     {% elif schemaError %}
         <h2 id="schemaErrorHeader">Schema error</h2>
@@ -21,7 +21,7 @@
         {% endfor %}
         </ul>
     {% else %}
-        <p>No errors found.</p>
+        <p id="noErrorPar">No errors found.</p>
     {% endif %}
 
     <hr />
