@@ -3,6 +3,9 @@
 	<xs:annotation>
 		<xs:documentation xml:lang="en">
             XML schema proposal for ST.26 authoring and validation tool.
+			20180805 The ST.26 char subset from Basic Latin has been now clarified;
+            reflected in the schema the fact that U+003B, U+003D, U+003F, U+007E
+            are allowed.
         </xs:documentation>
 	</xs:annotation>
     <!--
@@ -27,10 +30,12 @@
 		<xs:restriction base="xs:string">
 			<!--NOTE: This is the current Basic Latin subset defined in ST.26.
 			Currently sequence listings containing any of &#x003B;&#x003D;&#x003F;-&#x007E; will fail the schema validation-->
-			<xs:pattern value="[&#x0020;&#x0021;&#x0023;-&#x0026;&#x0028;-&#x003B;&#x003D;&#x003F;-&#x007E;]+"/>
+			<!--<xs:pattern value="[&#x0020;&#x0021;&#x0023;-&#x0026;&#x0028;-&#x003B;&#x003D;&#x003F;-&#x007E;]+"/>-->
 			<!--alternative regex with same effect-->
 			<!--<xs:pattern value="[&#x0020;-&#x007E;-[&#x0022;&#x0027;&#x003C;&#x003E;]]+"/>-->
 			<!--<xs:pattern value="[&#x0020;-&#x007E;-[&lt;&gt;&apos;&quot;]]+"/>-->
+            <!--20180805revised char set-->
+            <xs:pattern value="[&#x0020;-&#x007E;]+"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<!--
@@ -195,9 +200,9 @@
 																<xs:element name="INSDFeature_key" type="featureKeyValues"/>
 																<!--probably the validation of feature location via xsd is too cumbersome-->
 																<!--TODO: come up with some pattern perhaps??? ST.26 par. 64 rule XFL_1, ST.26 par. 65, 66 rule XFL_2, ST.26 par. 67, 68 rule XFL_4. TODO: restriction on charset ST.26 par. 71 rule XFL_6.-->
-																<!--TODO: change type to ST26basicLatinChars when ST.26 par.40(b), Annex IV clarified -->
-																<!--<xs:element name="INSDFeature_location" type="ST26basicLatinChars"/>-->
-																<xs:element name="INSDFeature_location" type="xs:string"/>
+																<!--TODO: change type to ST26basicLatinChars when ST.26 par.40(b), Annex IV clarified. 20180805 Done. -->
+																<xs:element name="INSDFeature_location" type="ST26basicLatinChars"/>
+																<!--<xs:element name="INSDFeature_location" type="xs:string"/>-->
 																<!--
                                                                 =======================================================
                                                                 qualifiers
@@ -215,14 +220,12 @@
 																						<xs:element name="INSDQualifier_name" type="qualifierNameValues"/>
 																						<!--ST.26 par. 73, Annex I, 6.12, 6.18, 6.30, 6.36 rule XQN_1, ST.26 par. 73 rule XQN_2-->
 																						<xs:element name="INSDQualifier_value" minOccurs="0" maxOccurs="1">
-																							<xs:simpleType>
-																								<xs:restriction base="xs:string">
-																									<!--ST.26 par. 86 rule XQV_8-->
-                                                                                                    <xs:maxLength value="1000"/>
-																								</xs:restriction>
-																								<!--TODO: change type to ST26basicLatinChars when ST.26 par.40(b), Annex IV clarified -->
-																								<!--<xs:restriction base="ST26basicLatinChars">-->
-																							</xs:simpleType>
+                                                                                            <xs:simpleType>
+                                                                                                <xs:restriction base="xs:string">
+                                                                                                    <xs:pattern
+                                                                                                            value="[&#x0020;-&#x007E;]{0,1000}"/>
+                                                                                                </xs:restriction>
+                                                                                            </xs:simpleType>
 																						</xs:element>
 																					</xs:sequence>
 																				</xs:complexType>
