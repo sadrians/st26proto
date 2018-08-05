@@ -8,12 +8,6 @@ from collections import namedtuple
 from django.template.loader import render_to_string
 from lxml import etree 
 
-# logger = logging.getLogger(__name__)
-# logger.setLevel(logging.WARNING)
-
-
-# handler = logging.handlers.RotatingFileHandler(maxBytes=1000000)
-# logger.addHandler(handler)
 currentDirectory = os.path.abspath(os.path.dirname(__file__))
 PROJECT_DIRECTORY = os.path.abspath(os.path.join(currentDirectory, os.pardir))
 
@@ -30,17 +24,14 @@ TEST_DATA_DIR_PATH = os.path.join(PROJECT_DIRECTORY,
                                        'sequencelistings', 'testData')
 
 XTEST_DATA_DIR_PATH = os.path.join(PROJECT_DIRECTORY,
-                                    'sequencelistings', 'schema',
-                                   'xtestData')
+    'sequencelistings', 'schema', 'xtestData')
 
 SCREENSHOT_DIR = os.path.join(TEST_DATA_DIR_PATH, 'screenshots')
 OUTPUT_DIR = os.path.join(PROJECT_DIRECTORY, 'sequencelistings',
-                               'static', 'sequencelistings', 'output')
+    'static', 'sequencelistings', 'output')
 
 XML_SCHEMA_PATH = os.path.join(PROJECT_DIRECTORY,
-                                        'sequencelistings',
-                                        'schema', 'xsd',
-                                        'st26.xsd')
+    'sequencelistings', 'schema', 'xsd', 'st26.xsd')
 
 XML_DTD_PATH = os.path.join(OUTPUT_DIR, 'resources', 'ST26SequenceListing_V1_0.dtd')
 
@@ -81,7 +72,8 @@ FORMULA_REGEX = r'(?P<head>%s)\((?P<region>%s)\)(?P<startOccurrence>\d+)(\.\.(?P
 FORMULA_PATTERN = re.compile(FORMULA_REGEX)
 
 # regex for residues
-REGEX_NUC = '^[a,c,g,t,u,n,v,k,r,s,b,h,d]{10,}$' #TODO: add the full set of valid chars
+#TODO: add the full set of valid chars
+REGEX_NUC = '^[a,c,g,t,u,n,v,k,r,s,b,h,d]{10,}$'
 REGEX_PRT = '^[A,C,D,E,F,G,H,I,K,L,M,N,O,P,Q,R,S,T,U,V,W,Y,X,J,B,Z]{4,}$'
 PATTERN_NUC = re.compile(REGEX_NUC, re.IGNORECASE)
 PATTERN_PRT = re.compile(REGEX_PRT, re.IGNORECASE)
@@ -90,28 +82,28 @@ PATTERN_PRT = re.compile(REGEX_PRT, re.IGNORECASE)
 FASTA_REGEX = r'>(?P<descLine>.*?\n)(?P<seq>.*)'
 FASTA_PATTERN = re.compile(FASTA_REGEX, re.DOTALL)
 
+
 def generate_list(inputFilePath):
     lis = []
     with open(inputFilePath, 'r') as f:
         for line in f:
             lis.append(line.strip())
-    
     return lis 
 
 fkdna = list(generate_list(os.path.join(PROJECT_DIRECTORY, 'sequencelistings', 'static', 'res', 'featureKey_dna.txt')))
 fkprt = list(generate_list(os.path.join(PROJECT_DIRECTORY, 'sequencelistings', 'static', 'res', 'featureKey_prt.txt')))
 
 FEATURE_KEYS_DNA = [(a, a) for a in fkdna] 
-FEATURE_KEYS_PRT  = [(a, a) for a in fkprt] 
+FEATURE_KEYS_PRT = [(a, a) for a in fkprt]
+
 
 def rangeFromString(s):
-    result = None # so no match
+    result = None # ie, no match
     rex = r'ra\((?P<startVal>\d+),(?P<stopVal>\d+),(?P<stepVal>\d+)\)'
     p = re.compile(rex)
     
     m = p.match(s)
     if m:
-#         print 'match'
         try:
             startVal = int(m.group('startVal'))
             stopVal = int(m.group('stopVal'))
@@ -127,6 +119,7 @@ def rangeFromString(s):
             print ve
             
     return result
+
 
 # TODO: cgt(ta)4.cg should not be accepted!
 def expandFormula(aFormula):
@@ -152,43 +145,24 @@ def expandFormula(aFormula):
             logger.error(msg)
     return result 
 
+
 def helper_generateXml(sl):
-#     TODO: can eliminate sequences param as it can be obtained by the client from sl
+    #     TODO: can eliminate sequences param as it can be obtained by the client from sl
     xml = render_to_string('xml_template.xml', {'sequenceListing': sl,
                             'sequences': sl.sequence_set.all(),
                             }).encode('utf-8', 'strict')
     
     clean_xml = os.linesep.join(line for line in xml.splitlines() if not line.isspace())
-    
     outf = os.path.join(OUTPUT_DIR, '%s.xml' % sl.fileName)
     
     with open(outf, 'w') as gf:
         gf.write(clean_xml) 
 
+
 def getStartLocation(aLoc):
     numbers = re.findall(r'\d+', aLoc)
     return int(numbers[0]) if numbers else 0
-    
-# def validateDocumentWithSchema(aFilePath, aSchemaPath):
-#     result = False
-#     xmlschema_doc = etree.parse(aSchemaPath)
-#     xmlschema = etree.XMLSchema(xmlschema_doc)
-#
-#     try:
-#         doc = etree.parse(aFilePath)
-# #         at this point the input file was successfully parsed
-#
-#         if xmlschema.validate(doc):
-#             result = True
-#         else:
-#             logger.error('\nfile: %s' % aFilePath)
-#             logger.error('\n%s' % xmlschema.error_log)
-# #             print os.path.basename(aFilePath)
-#             print xmlschema.error_log
-#     except etree.XMLSyntaxError as syntErr:
-#         logger.error('\n%s\n%s' % (aFilePath, syntErr))
-#
-#     return result
+
 
 def validateDocumentWithSchema(aFilePath, aSchemaPath):
     result = {'parserError': None, 'schemaError': None}
@@ -209,6 +183,7 @@ def validateDocumentWithSchema(aFilePath, aSchemaPath):
 
     return result
 
+
 def validateDocumentWithDtd(afile, adtd):
     result = False
     with open(adtd, 'r') as d:
@@ -225,12 +200,14 @@ def validateDocumentWithDtd(afile, adtd):
                 logger.error('\n%s\n%s' % (afile, e)) 
     return result
 
+
 # helper used to generate XML code for the schema 
 def generateXmlSchemaFeatureKeyValuesEnumeration():
     for fk in fkdna + fkprt:
         print '<xs:enumeration value="%s"/>' % fk 
 
 # generateXmlSchemaFeatureKeyValuesEnumeration()
+
 
 def parseSequenceStringFromFile(aString):
     ParsedFileContents = namedtuple('ParsedFileContents', 'descriptionLine sequenceLine')
@@ -251,6 +228,7 @@ def parseSequenceStringFromFile(aString):
 
     return res
 
+
 def determineFormat(aString):
     """Determine the format of the input string.
     """
@@ -259,8 +237,6 @@ def determineFormat(aString):
     lines = aString.splitlines()
     line0 = lines[0].strip()
         
-#     print 'x%sx' % line0
-     
     if isResiduesLine(line0):
         res = 'raw'
     elif len(lines) > 1:
@@ -269,7 +245,8 @@ def determineFormat(aString):
             res = 'fasta'
               
     return res  
- 
+
+
 def isResiduesLine(aLine):
     return PATTERN_NUC.match(aLine) or PATTERN_PRT.match(aLine)
 
@@ -291,11 +268,3 @@ def validateDocumentWithSchemaStr(aString, aSchemaPath):
         logger.error('%s\n%s' % ('aFilePath', syntErr))
 
     return result
-
-
-
-
-
-    # <INSDSeq_other-seqids>
-#                     <INSDSeqid>{{seq.otherSeqId}}</INSDSeqid>
-#                 </INSDSeq_other-seqids>
