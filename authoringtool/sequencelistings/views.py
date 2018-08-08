@@ -32,6 +32,7 @@ class IndexView(generic.ListView):
 # def index(request):
 #     return render_to_response('sequencelistings/index.html', {}, {})
 
+
 def overview(request): #test
     sls = SequenceListing.objects.all()
 
@@ -41,13 +42,16 @@ def overview(request): #test
     return render(request, 'sequencelistings/overview.html', {'sequencelistings': slgen, 
                                                               'sequencelistings_specimens': slspec})
 
-def login1(request): #test
-    return render(request, 'sequencelistings/login1.html')
+
+# def login1(request): #test
+#     return render(request, 'sequencelistings/login1.html')
+
 
 def detail(request, pk): #good
     sl = get_object_or_404(SequenceListing, pk=pk)
         
     return render(request, 'sequencelistings/detail.html', {'sequencelisting': sl})
+
 
 # @login_required 
 def add_sequencelisting(request):
@@ -106,13 +110,14 @@ def add_sequencelisting(request):
     return render(request, 'sequencelistings/add_sequencelisting.html', 
                   {'form': form, 'title_form': title_form})
 
+
 def edit_seql(request, pk):
     sl = get_object_or_404(SequenceListing, pk=pk)
         
     return render(request, 'sequencelistings/edit_seql.html', {'sequencelisting': sl})
 
-# TODO: is this needed?
 
+# TODO: is this needed?
 def add_title(request, pk):
     if request.method == 'POST':
         form = TitleForm(request.POST)
@@ -131,6 +136,7 @@ def add_title(request, pk):
     else:
         form = TitleForm()
     return render(request, 'sequencelistings/add_title.html', {'form': form, 'pk': pk})
+
 
 # TODO: is this view used actually?
 # needed????
@@ -159,6 +165,7 @@ def sequence(request, pk, spk):
     return render(request, 'sequencelistings/sequence.html', {'form': form, 'seq': seq, 
                                                               'featureFormDic': featureFormDic, 
                                                               'qualifierFormDic': qualifierFormDic,})
+
 
 def add_multiple_feature(request, pk, spk):
     seq = Sequence.objects.get(pk=spk)
@@ -234,6 +241,7 @@ def add_sequence(request, pk):
     else:
         form = SequenceForm(initial={'sequenceName': currentSequenceName})
     return render(request, 'sequencelistings/add_seq.html', {'form': form, 'pk': pk, 'seql': sl})
+
 
 def import_sequence(request, pk):
     sl = SequenceListing.objects.get(pk=pk)
@@ -334,6 +342,7 @@ def add_feature(request, pk, spk):
         form = FeatureForm(mt=seq.moltype)
     return render(request, 'sequencelistings/add_feature.html', {'form': form, 'seq': seq})
 
+
 def edit_feature(request, pk, spk, fpk):
     seq = Sequence.objects.get(pk=spk)
     f = Feature.objects.all().get(pk=fpk)
@@ -353,6 +362,7 @@ def edit_feature(request, pk, spk, fpk):
     else:
         form = FeatureForm(mt=seq.moltype) #not used?...
     return render(request, 'sequencelistings/edit_feature.html', {'form': featureForm, 'seq': seq})
+
 
 def add_qualifier(request, pk, spk, fpk):
     f = Feature.objects.get(pk=fpk)
@@ -374,6 +384,7 @@ def add_qualifier(request, pk, spk, fpk):
                    'spk': spk, 
                    'fpk': fpk, 
                    'feature': f})
+
 
 def generateXml(request, pk):
         sl = SequenceListing.objects.all().get(pk=pk)
@@ -400,6 +411,7 @@ def render_xmlFile(request):
 #     Take the user to the xml file.
     return HttpResponseRedirect('/sequencelistings/output_xml/')
 
+
 # TODO: refactor first line of this function ...
 # TODO: TEST IT!!!
 def download(request, fileName):
@@ -413,13 +425,16 @@ def download(request, fileName):
     
     return response 
 
+
 def display(request, fileName):    
     """Display the generated XML sequence listing file using XSLT stylesheet.""" 
     return render(request, 'sequencelistings/generated.html', 
                   {'fileName': fileName, }) 
 
+
 def about(request):
     return render_to_response('sequencelistings/about.html', {}, {})
+
 
 def validation(request):
     if request.method == 'POST':

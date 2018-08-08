@@ -10,7 +10,7 @@ import views
 urlpatterns = patterns('',
     url(r'^$', views.IndexView.as_view(), name='index'),
 #     url(r'^$', views.index, name='index'),
-    url(r'^login1/$', views.login1, name='login1'),
+#     url(r'^login1/$', views.login1, name='login1'),
     url(r'^overview/$', views.overview, name='overview'),
     url(r'^add_sequencelisting/$', views.add_sequencelisting, 
         name='add_sequencelisting'),
