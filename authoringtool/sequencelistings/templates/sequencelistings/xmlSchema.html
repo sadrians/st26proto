@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 {% extends 'sequencelistings/base.html' %}
 
-{% block title%}Validation{% endblock %}
+{% block title%}XML schema{% endblock %}
 
 {%block header_block %}
-<h2>VALIDATION</h2>
+<h2>XML schema</h2>
 {% endblock %}
 
 {% block body_block %}
@@ -14,7 +14,7 @@
 <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     <input type="file" name="myfile">
-    <input type="submit" value="Validate" id="validateButton"/>
+    <input type="submit" value="Validate with schema" id="validateButton_xsd"/>
 </form>
 
 <hr/>

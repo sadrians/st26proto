@@ -97,12 +97,12 @@ class VisitorTest(LiveServerTestCase):
 #         unregistered visitors are not allowed to add seqls i.e. there is no link to add seql
         self.assertEqual(0, len(self.browser.find_elements_by_id('add_seql_link')))
 
-    def test_validation_page(self):
+    def test_xmlSchema_page(self):
         print 'Selenium: Running %s ...' % self._testMethodName
 
         self.browser.get(
-            '%s%s' % (self.live_server_url, '/sequencelistings/validation'))
-        self.assertIn('st26proto - Validation', self.browser.title)
+            '%s%s' % (self.live_server_url, '/sequencelistings/xmlSchema'))
+        self.assertIn('st26proto - XML schema', self.browser.title)
 
     def test_about_page(self):
         print 'Selenium: Running %s ...' % self._testMethodName
@@ -462,32 +462,32 @@ class ValidationTest(LiveServerTestCase):
         f9_filePath = '/Users/ad/pyton/work/st26proto/authoringtool/sequencelistings/schema/xtestdata/t9.xml'
 
         self.browser.get(
-            '%s%s' % (self.live_server_url, '/sequencelistings/validation'))
+            '%s%s' % (self.live_server_url, '/sequencelistings/xmlSchema'))
 
         # ============== schema error
         fileChooserInput = self.browser.find_element_by_name('myfile')
         fileChooserInput.send_keys(f25_filePath)
-        validateButton = self.browser.find_element_by_id('validateButton')
+        validateButton = self.browser.find_element_by_id('validateButton_xsd')
         validateButton.click()
         schemaErrorHeader = self.browser.find_element_by_id('schemaErrorHeader')
         self.assertIn('Schema error', schemaErrorHeader.text)
 
         # ============== parser error
-        validationLink = self.browser.find_element_by_link_text('Validation')
+        validationLink = self.browser.find_element_by_link_text('XML schema')
         validationLink.click()
         fileChooserInput = self.browser.find_element_by_name('myfile')
         fileChooserInput.send_keys(f77_filePath)
-        validateButton = self.browser.find_element_by_id('validateButton')
+        validateButton = self.browser.find_element_by_id('validateButton_xsd')
         validateButton.click()
         parserErrorHeader = self.browser.find_element_by_id('parserErrorHeader')
         self.assertIn('Parser error', parserErrorHeader.text)
 
         # ============== no error
-        validationLink = self.browser.find_element_by_link_text('Validation')
+        validationLink = self.browser.find_element_by_link_text('XML schema')
         validationLink.click()
         fileChooserInput = self.browser.find_element_by_name('myfile')
         fileChooserInput.send_keys(f9_filePath)
-        validateButton = self.browser.find_element_by_id('validateButton')
+        validateButton = self.browser.find_element_by_id('validateButton_xsd')
         validateButton.click()
         noErrorPar = self.browser.find_element_by_id('noErrorPar')
         self.assertIn('No errors found', noErrorPar.text)

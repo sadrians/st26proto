@@ -43,10 +43,6 @@ def overview(request): #test
                                                               'sequencelistings_specimens': slspec})
 
 
-# def login1(request): #test
-#     return render(request, 'sequencelistings/login1.html')
-
-
 def detail(request, pk): #good
     sl = get_object_or_404(SequenceListing, pk=pk)
         
@@ -436,7 +432,7 @@ def about(request):
     return render_to_response('sequencelistings/about.html', {}, {})
 
 
-def validation(request):
+def xmlSchema(request):
     if request.method == 'POST':
         f = request.FILES['myfile']
         # print 'File size:', f.size
@@ -447,4 +443,4 @@ def validation(request):
                       {'fileName': f, 'parserError': res['parserError'],
                        'schemaError': res['schemaError'], })
     else:
-        return render(request, 'sequencelistings/validation.html')
+        return render(request, 'sequencelistings/xmlSchema.html')
